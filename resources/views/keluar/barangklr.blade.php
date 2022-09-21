@@ -92,8 +92,4 @@
 
         {{-- @include('sweetalert::alert') --}}
 </body>
-<<<<<<< HEAD
-</html>     
-=======
 </html>
->>>>>>> 344018e3e54b2cb841e059b00fe9535af39158f7
