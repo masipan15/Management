@@ -20,7 +20,10 @@ Route::get('/', function () {
 });
 
 //barang masuk
-Route::get('barangmasuk',[BarangmasukController::class,'barangmasuk']);
+Route::get('barangmasuk',[BarangmasukController::class,'barangmasuk'])->name('barangmasuk');
+Route::get('tambahbarangmasuk',[BarangmasukController::class,'tambahbarangmasuk']);
+Route::post('prosestambah',[BarangmasukController::class,'prosestambah']);
+
 
 
 
