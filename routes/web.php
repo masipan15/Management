@@ -26,3 +26,5 @@ Route::get('barangmasuk',[BarangmasukController::class,'barangmasuk']);
 
 //barang keluar
 Route::get('/barangkeluar',[BarangkeluarController::class,'index'])->name('barangkeluar');
+Route::get('/tambahbarangkeluar',[BarangkeluarController::class,'tambahbrgklr'])->name('tambahbarangkeluar');
+Route::post('/insertbarangkeluar',[BarangkeluarController::class,'insertbrgklr'])->name('insertbarangkeluar');

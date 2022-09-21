@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama_barang');
             $table->string('harga_jual');
-            $table->string('tanggal');
+            $table->bigInteger('jumlah');
+            $table->bigInteger('total');
             $table->timestamps();
         });
     }
