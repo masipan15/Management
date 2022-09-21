@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
             <link rel="stylesheet" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.css"/>
- 
+
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
@@ -49,7 +49,7 @@
                                                         <td>Rp.{{ $row->harga_jual }}</td>
                                                         <td>{{ $row->jumlah }}</td>
                                                         <td>Rp.{{ $row->total }}</td>
-                                                        
+
                                                         <td>
                                                             <a href="//{{ $row->id }}"
                                                                 class="btn btn-success mb-1"><i class="fas fa-pencil-alt"></i>edit</a><br>
@@ -92,4 +92,8 @@
 
         {{-- @include('sweetalert::alert') --}}
 </body>
+<<<<<<< HEAD
 </html>     
+=======
+</html>
+>>>>>>> 344018e3e54b2cb841e059b00fe9535af39158f7
