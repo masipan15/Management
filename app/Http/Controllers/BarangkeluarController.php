@@ -39,4 +39,12 @@ class BarangkeluarController extends Controller
         return redirect()->route('barangkeluar')->with('success', 'Data Berhasil Di Tambahkan');
     }
 
+
+    public function delete($id)
+    {
+        $data = barangkeluar::find($id);
+        $data->delete();
+        return redirect()->route('barangkeluar')->with('success', 'Data Berhasil Di Hapus');
+    }
+
 }

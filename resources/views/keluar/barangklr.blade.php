@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +53,7 @@
                                                         <td>
                                                             <a href="//{{ $row->id }}"
                                                                 class="btn btn-success mb-1"><i class="fas fa-pencil-alt"></i>edit</a><br>
-                                                            <a href="//{{ $row->id }}" class="btn btn-danger"
+                                                            <a href="/delete/{{ $row->id }}" class="btn btn-danger"
                                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                                     class="fas fa-trash-alt"></i>hapus</button></a>
                                                         </td>
@@ -94,6 +93,3 @@
         {{-- @include('sweetalert::alert') --}}
 </body>
 </html>     
-=======
-abbbbb
->>>>>>> 9d31ebcdbbf200a563b9286e8b7baa4690e2d163

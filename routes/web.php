@@ -29,8 +29,6 @@ Route::post('prosestambah',[BarangmasukController::class,'prosestambah']);
 
 //barang keluar
 Route::get('/barangkeluar',[BarangkeluarController::class,'index'])->name('barangkeluar');
-<<<<<<< HEAD
 Route::get('/tambahbarangkeluar',[BarangkeluarController::class,'tambahbrgklr'])->name('tambahbarangkeluar');
 Route::post('/insertbarangkeluar',[BarangkeluarController::class,'insertbrgklr'])->name('insertbarangkeluar');
-=======
->>>>>>> 9d31ebcdbbf200a563b9286e8b7baa4690e2d163
+Route::get('/delete/{id}',[BarangkeluarController::class, 'delete'])->name('delete');
