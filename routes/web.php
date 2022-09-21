@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BarangmasukController;
+use App\Http\Controllers\BarangkeluarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+//barang masuk
 Route::get('barangmasuk',[BarangmasukController::class,'barangmasuk']);
+
+
+
+//barang keluar
+Route::get('/barangkeluar',[BarangkeluarController::class,'index'])->name('barangkeluar');
