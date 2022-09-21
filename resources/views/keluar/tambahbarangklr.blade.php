@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ACS Management</title>
 </head>
+
 <body>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -26,13 +28,14 @@
 
                                     <div class="row">
                                         <div class="col mt-2">
-                                            <form action="/insertbarangkeluar" method="post" enctype="multipart/form-data">
+                                            <form action="/insertbarangkeluar" method="post"
+                                                enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Nama
                                                         Barang</label>
                                                     <input type="text" name="nama_barang" class="form-control"
-                                                         aria-describedby="emailHelp">
+                                                        aria-describedby="emailHelp">
                                                     @error('nama_barang')
                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror
@@ -42,34 +45,35 @@
                                                     <label for="" class="form-label">Harga Jual</label>
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                                    <input type="text" name="harga_jual" id="harga_jual" class="form-control"
-                                                         aria-describedby="emailHelp">
-                                                </div>
-                                                @error('harga_jual')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                @enderror
-                                                <div class="mb-3">
-                                                    <label for="" class="form-label">Jumlah</label>
-                                                    <input type="text" name="jumlah" id="jumlah" class="form-control"
-                                                         aria-describedby="emailHelp">
-                                                </div>
-                                                @error('jumlah')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                @enderror
-                                                <div class="mb-3">
-                                                    <label for="" class="form-label">Total</label>
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                                    <input type="text" name="total" readonly id="total" class="form-control"
-                                                         aria-describedby="emailHelp">
-                                                </div>
-                                                @error('total')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                @enderror
-                                                <button type="submit" class="btn btn-success">Tambahkan</button>
-                                                <a href="/barangklr" type="button" class="btn btn-danger">
-                                                    Batal
-                                                </a>
+                                                        <input type="text" name="harga_jual" id="harga_jual"
+                                                            class="form-control" aria-describedby="emailHelp">
+                                                    </div>
+                                                    @error('harga_jual')
+                                                        <div class="alert alert-danger">{{ $message }}</div>
+                                                    @enderror
+                                                    <div class="mb-3">
+                                                        <label for="" class="form-label">Jumlah</label>
+                                                        <input type="text" name="jumlah" id="jumlah"
+                                                            class="form-control" aria-describedby="emailHelp">
+                                                    </div>
+                                                    @error('jumlah')
+                                                        <div class="alert alert-danger">{{ $message }}</div>
+                                                    @enderror
+                                                    <div class="mb-3">
+                                                        <label for="" class="form-label">Total</label>
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                                            <input type="text" name="total" readonly id="total"
+                                                                class="form-control" aria-describedby="emailHelp">
+                                                        </div>
+                                                        @error('total')
+                                                            <div class="alert alert-danger">{{ $message }}</div>
+                                                        @enderror
+                                                        <button type="submit"
+                                                            class="btn btn-success">Tambahkan</button>
+                                                        <a href="/barangkeluar" type="button" class="btn btn-danger">
+                                                            Batal
+                                                        </a>
                                             </form>
                                         </div>
                                     </div>
@@ -104,23 +108,25 @@
         </script>
         -->
 
-        <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 
-        <script>
-            $(document).ready(function() {
-                $("#jumlah").change(function() {
-                    var jumlah = $("#jumlah").val();
-                    var harga_jual = $("#harga_jual").val();
-                    var total = jumlah * harga_jual
-                    $("#total").val(total);
-                });
-            });
-            $("#jumlah").keyup(function() {
+    <script>
+        $(document).ready(function() {
+            $("#jumlah").change(function() {
                 var jumlah = $("#jumlah").val();
                 var harga_jual = $("#harga_jual").val();
                 var total = jumlah * harga_jual
                 $("#total").val(total);
             });
-        </script>
+        });
+        $("#jumlah").keyup(function() {
+            var jumlah = $("#jumlah").val();
+            var harga_jual = $("#harga_jual").val();
+            var total = jumlah * harga_jual
+            $("#total").val(total);
+        });
+    </script>
 </body>
+
 </html>

@@ -1,91 +1,129 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>Tambah Data</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ACS Management</title>
 </head>
 
 <body>
-    <h1 class="text-center mb-4">Tambah Data Barang</h1>
-    <div class="row justify-content-center ">
-        <div class="col-sm-10 ">
-            <div class="card container p-4">
-                <div class="cardbody">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-                    <form action="prosestambah" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="namabarang" class="form-label">Nama Barang</label>
-                            <input type="text" class="form-control" name="namabarang" id="namabarang"
-                                aria-describedby="emailHelp">
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-sm-10">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1 class="text-center">Tambah Barang Masuk</h1>
 
 
-                            <label for="jumlah" class="form-label">Jumlah</label>
-                            <input type="number" min="1" class="form-control" name="jumlah" id="jumlah"
-                                aria-describedby="emailHelp">
 
-                            <label for="harga" class="form-label">Harga</label>
-                            <input type="text" class="form-control" name="harga" id="harga"
-                                aria-describedby="emailHelp">
+                                <div class="container-fluid">
 
-                            <label for="total" class="form-label">Total</label>
-                            <input type="text" class="form-control" name="total" id="total"
-                                aria-describedby="emailHelp">
+                                    <div class="row">
+                                        <div class="col mt-2">
+                                            <form action="/insertbarangkeluar" method="post"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">Nama
+                                                        Barang</label>
+                                                    <input type="text" name="namabarang" class="form-control"
+                                                        aria-describedby="emailHelp">
+                                                    @error('namabarang')
+                                                        <div class="alert alert-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
 
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">Harga</label>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                                        <input type="text" name="harga" id="harga"
+                                                            class="form-control" aria-describedby="emailHelp">
+                                                    </div>
+                                                    @error('harga')
+                                                        <div class="alert alert-danger">{{ $message }}</div>
+                                                    @enderror
+                                                    <div class="mb-3">
+                                                        <label for="" class="form-label">Jumlah</label>
+                                                        <input type="text" name="jumlah" id="jumlah"
+                                                            class="form-control" aria-describedby="emailHelp">
+                                                    </div>
+                                                    @error('jumlah')
+                                                        <div class="alert alert-danger">{{ $message }}</div>
+                                                    @enderror
+                                                    <div class="mb-3">
+                                                        <label for="" class="form-label">Total</label>
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                                            <input type="text" name="total" readonly id="total"
+                                                                class="form-control" aria-describedby="emailHelp">
+                                                        </div>
+                                                        @error('total')
+                                                            <div class="alert alert-danger">{{ $message }}</div>
+                                                        @enderror
+                                                        <button type="submit"
+                                                            class="btn btn-success">Tambahkan</button>
+                                                        <a href="/barangkeluar" type="button" class="btn btn-danger">
+                                                            Batal
+                                                        </a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div><!-- /.col -->
+
+                                {{-- <ol class="breadcrumb float-sm-right">
+<li class="breadcrumb-item"><a href="#">Home</a></li>
+</ol> --}}
+                                <!-- /.col -->
+                            </div><!-- /.row -->
+                        </div><!-- /.container-fluid -->
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
-    </div>
-    </div>
-    </div>
 
+    <!-- Optional JavaScript; choose one of the two! -->
 
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-    </script>
-    -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+        </script>
+        -->
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+
     <script>
         $(document).ready(function() {
             $("#jumlah").change(function() {
                 var jumlah = $("#jumlah").val();
-                var harga = $("#harga").val();
-                var total = jumlah * harga
+                var harga_jual = $("#harga_jual").val();
+                var total = jumlah * harga_jual
                 $("#total").val(total);
             });
         });
         $("#jumlah").keyup(function() {
             var jumlah = $("#jumlah").val();
-            var harga = $("#harga").val();
-            var total = jumlah * harga
+            var harga_jual = $("#harga_jual").val();
+            var total = jumlah * harga_jual
             $("#total").val(total);
         });
     </script>
