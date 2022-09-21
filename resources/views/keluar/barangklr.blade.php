@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,3 +94,6 @@
         {{-- @include('sweetalert::alert') --}}
 </body>
 </html>     
+=======
+abbbbb
+>>>>>>> 9d31ebcdbbf200a563b9286e8b7baa4690e2d163
