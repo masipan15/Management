@@ -209,154 +209,10 @@
                                 class="shape2"></span><i class="ti-home sidemenu-icon"></i><span
                                 class="sidemenu-label">Dashboard</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                                class="shape2"></span><i class="ti-wallet sidemenu-icon"></i><span
-                                class="sidemenu-label">Crypto Currencies</span><i
-                                class="angle fe fe-chevron-right"></i></a>
-                        <ul class="nav-sub">
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="kontol">TES</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="cryptomarket.html">Marketcap</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="cryptocurrencyexchange.html">Currency exchange</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="cryptobuysell.html">Buy & Sell</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="cryptowallet.html">Wallet</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="cryptotranscations.html">Transcations</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                                class="shape2"></span><i class="ti-shopping-cart-full sidemenu-icon"></i><span
-                                class="sidemenu-label">E-Commerce</span><i class="angle fe fe-chevron-right"></i></a>
-                        <ul class="nav-sub">
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="ecommercedashboard.html">Dashboard</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="ecommerceproducts.html">Products</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="ecommerceproductdetails.html">Product Details</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="ecommercecart.html">Cart</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="ecommercecheckout.html">Checkout</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="ecommerceorders.html">Orders</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="ecommerceaccount.html">Account</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-header"><span class="nav-label">Applications</span></li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="widgets.html"><span class="shape1"></span><span
-                                class="shape2"></span><i class="ti-server sidemenu-icon"></i><span
-                                class="sidemenu-label">Widgets</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                                class="shape2"></span><i class="ti-email sidemenu-icon"></i><span
-                                class="sidemenu-label">Mail</span><span
-                                class="badge badge-warning side-badge">2</span></a>
-                        <ul class="nav-sub">
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="mailinbox.html">Mail-Inbox</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="viewmail.html">View-Mail</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                                class="shape2"></span><i class="ti-write sidemenu-icon"></i><span
-                                class="sidemenu-label">Apps</span><i class="angle fe fe-chevron-right"></i></a>
-                        <ul class="nav-sub">
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="chat.html">Chat</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="cards.html">Cards</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="calendar.html">Calendar</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="contacts.html">Contacts</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                                class="shape2"></span><i class="ti-face-smile sidemenu-icon"></i><span
-                                class="sidemenu-label">Icons</span><i class="angle fe fe-chevron-right"></i></a>
-                        <ul class="nav-sub">
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="icons01.html">Font Awesome</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="icons02.html">Material Design Icons</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="icons03.html">Simple Line Icons</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="icons04.html">Feather Icons</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="icons05.html">Ionic Icons</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="icons06.html">Flag Icons</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="icons07.html">Pe7 Icons</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="icons08.html">Themify Icons</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="icons09.html">Typicons Icons</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="icons10.html">Weather Icons</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="icons11.html">Material Icons</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                                class="shape2"></span><i class="ti-map-alt sidemenu-icon"></i><span
-                                class="sidemenu-label">Maps</span><span
-                                class="badge badge-secondary side-badge">2</span></a>
-                        <ul class="nav-sub">
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="mapmapel.html">Mapel Maps</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="mapvector.html">Vector Maps</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
+                </ul>
+                </li>
+
+                  <li class="nav-item">
                         <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
                                 class="shape2"></span><i class="ti-agenda sidemenu-icon"></i><span
                                 class="sidemenu-label">Tables</span><i class="angle fe fe-chevron-right"></i></a>
@@ -369,265 +225,9 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-header"><span class="nav-label">Components</span></li>
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                                class="shape2"></span><i class="ti-package sidemenu-icon"></i><span
-                                class="sidemenu-label">Elements</span><i class="angle fe fe-chevron-right"></i></a>
-                        <ul class="nav-sub">
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="alerts.html">Alerts</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="avatar.html">Avatar</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="breadcrumbs.html">Breadcrumbs</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="buttons.html">Buttons</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="badge.html">Badge</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="dropdown.html">Dropdown</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="thumbnails.html">Thumbnails</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="listgroup.html">List Group</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="navigation.html">Navigation</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="pagination.html">Pagination</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="popover.html">Popover</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="progress.html">Progress</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="spinners.html">Spinners</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="mediaobject.html">Media Object</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="typography.html">Typography</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="tooltip.html">Tooltip</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="toast.html">Toast</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="tags.html">Tags</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                                class="shape2"></span><i class="ti-briefcase sidemenu-icon"></i><span
-                                class="sidemenu-label">Advanced UI</span><i class="angle fe fe-chevron-right"></i></a>
-                        <ul class="nav-sub">
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="accordion.html">Accordion</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="carousel.html">Carousel</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="collapse.html">Collapse</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="counters.html">Counters</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="modals.html">Modals</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="timeline.html">Timeline</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="darggablecard.html">Darggable-Cards</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="sweetalert.html">Sweet Alert</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="rating.html">Ratings</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="search.html">Search</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="userlist.html">Userlist</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="blog.html">Blog</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-header"><span class="nav-label">Forms &amp; Charts</span></li>
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                                class="shape2"></span><i class="ti-receipt sidemenu-icon"></i><span
-                                class="sidemenu-label">Forms</span><span
-                                class="badge badge-info side-badge">6</span></a>
-                        <ul class="nav-sub">
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="formelements.html">Form Elements</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="formadvanced.html">Advanced Forms</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="formlayouts.html">Form Layouts</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="formvalidation.html">Form Validation</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="formwizards.html">Form Wizards</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="formeditor.html">WYSIWYG Editor</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                                class="shape2"></span><i class="ti-bar-chart-alt sidemenu-icon"></i><span
-                                class="sidemenu-label">Charts</span><span
-                                class="badge badge-danger side-badge">5</span></a>
-                        <ul class="nav-sub">
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="chartmorris.html">Morris Charts</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="chartflot.html">Flot Charts</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="chartchartjs.html">ChartJS</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="chartsparkpeity.html">Sparkline &amp; Peity</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="chartechart.html">Echart</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-header"><span class="nav-label">Other Pages</span></li>
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                                class="shape2"></span><i class="ti-palette sidemenu-icon"></i><span
-                                class="sidemenu-label ">Pages</span><i class="angle fe fe-chevron-right"></i></a>
-                        <ul class="nav-sub">
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="profile.html">Profile</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="invoice.html">Invoice</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="pricing.html">Pricing</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="gallery.html">Gallery</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="faq.html">Faqs</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="successmessage.html">Success Message</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="dangermessage.html">Danger Message</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="warningmessage.html">Warning Message</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="empty.html">Empty Page</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                                class="shape2"></span><i class="ti-shield sidemenu-icon"></i><span
-                                class="sidemenu-label">Utilities</span><i class="angle fe fe-chevron-right"></i></a>
-                        <ul class="nav-sub">
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="background.html">Background</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="border.html">Border</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="display.html">Display</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="flex.html">Flex</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="height.html">Height</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="margin.html">Margin</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="padding.html">Padding</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="position.html">Position</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="width.html">Width</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="extras.html">Extras</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                                class="shape2"></span><i class="ti-lock sidemenu-icon"></i><span
-                                class="sidemenu-label">Custom Pages</span><i
-                                class="angle fe fe-chevron-right"></i></a>
-                        <ul class="nav-sub">
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="signin.html">Sign In</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="signup.html">Sign Up</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="forgot.html">Forgot Password</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="reset.html">Reset Password</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="lockscreen.html">Lockscreen</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="underconstruction.html">UnderConstruction</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="error404.html">404 Error</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="error500.html">500 Error</a>
-                            </li>
-                        </ul>
-                    </li>
+
+                </ul>
+                </li>
                 </ul>
             </div>
         </div>
@@ -1144,8 +744,7 @@
                                                             <rect height="14" opacity=".3" width="14"
                                                                 x="5" y="5" />
                                                             <g>
-                                                                <rect fill="none" height="24"
-                                                                    width="24" />
+                                                                <rect fill="none" height="24" width="24" />
                                                                 <g>
                                                                     <path
                                                                         d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V5h14V19z" />
@@ -1163,8 +762,7 @@
                                                     </svg>
                                                 </div>
                                                 <div class="card-item-title mb-2">
-                                                    <label
-                                                        class="main-content-label tx-13 font-weight-bold mb-1">Total
+                                                    <label class="main-content-label tx-13 font-weight-bold mb-1">Total
                                                         Revenue</label>
                                                     <span class="d-block tx-12 mb-0 text-muted">Previous month vs this
                                                         months</span>
@@ -1226,8 +824,7 @@
                                                     </svg>
                                                 </div>
                                                 <div class="card-item-title  mb-2">
-                                                    <label
-                                                        class="main-content-label tx-13 font-weight-bold mb-1">Total
+                                                    <label class="main-content-label tx-13 font-weight-bold mb-1">Total
                                                         Expenses</label>
                                                     <span class="d-block tx-12 mb-0 text-muted">Previous month vs this
                                                         months</span>
@@ -1260,8 +857,7 @@
                                         <div class="card-body pl-0">
                                             <div class>
                                                 <div class="container">
-                                                    <canvas id="chartLine"
-                                                        class="chart-dropshadow2 ht-250"></canvas>
+                                                    <canvas id="chartLine" class="chart-dropshadow2 ht-250"></canvas>
                                                 </div>
                                             </div>
                                         </div>
@@ -1328,8 +924,8 @@
                                                 <div class="col-4 my-auto">
                                                     <div class="progress ht-6 my-auto">
                                                         <div class="progress-bar ht-6 wd-80p" role="progressbar"
-                                                            aria-valuenow="15" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
+                                                            aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-3">
@@ -1346,8 +942,8 @@
                                                 <div class="col-4 my-auto">
                                                     <div class="progress ht-6 my-auto">
                                                         <div class="progress-bar ht-6 wd-70p" role="progressbar"
-                                                            aria-valuenow="15" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
+                                                            aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-3">
@@ -1364,8 +960,8 @@
                                                 <div class="col-4 my-auto">
                                                     <div class="progress ht-6 my-auto">
                                                         <div class="progress-bar ht-6 wd-40p" role="progressbar"
-                                                            aria-valuenow="15" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
+                                                            aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-3">
@@ -1403,8 +999,7 @@
                                                 </div>
                                             </div>
                                             <div class="table-responsive tasks">
-                                                <table
-                                                    class="table card-table table-vcenter text-nowrap mb-0  border">
+                                                <table class="table card-table table-vcenter text-nowrap mb-0  border">
                                                     <thead>
                                                         <tr>
                                                             <th class="wd-lg-10p">Task</th>
