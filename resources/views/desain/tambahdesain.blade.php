@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+@extends('layout.admin')
+
+@section('content')
+    @push('css')
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    @endpush
+    
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,13 +20,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <div class="content-wrapper">
+    {{-- <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-sm-10">
-                        <div class="card">
-                            <div class="card-body">
+                    <div class="col-sm-10"> --}}
+                        {{-- <div class="card">
+                            <div class="card-body"> --}}
+                                <div class="row row-sm">
+                                    <div class="col-sm-12 col-lg-12 col-xl-8">
+                            
+                                        <!--Row-->
+                                        <div class="row row-sm  mt-lg-4">
+                                            <div class="col-sm-12 col-lg-12 col-xl-12">
+                                                <div class="card bg-primary custom-card card-box">
+                                                    <div class="card-body p-4">
+                                                        <div class="row align-items-center">
+                                                            <div class="offset-xl-3 offset-sm-6 col-xl-8 col-sm-6 col-12 img-bg ">
+                                                                <h4 class="d-flex  mb-3">
                                 <h1 class="text-center"></h1>
 
 
@@ -82,7 +101,7 @@
             </div>
         </div>
     </div>
-
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
@@ -95,3 +114,4 @@
 </body>
 
 </html>
+@endsection
