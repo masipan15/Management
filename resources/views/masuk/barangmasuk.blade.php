@@ -37,6 +37,7 @@
                                                 <th scope="col">Harga</th>
                                                 <th scope="col">Jumlah</th>
                                                 <th scope="col">Total</th>
+                                                <th scope="col">Foto</th>
                                                 <th scope="col">Aksi</th>
                                             </tr>
                                         </thead>
@@ -51,11 +52,14 @@
                                                     <td>Rp.{{ $row->harga }}</td>
                                                     <td>{{ $row->jumlah }}</td>
                                                     <td>Rp.{{ $row->total }}</td>
-
                                                     <td>
-                                                        <a href="//{{ $row->id }}" class="btn btn-success mb-1"><i
+                                                        <img src="{{ asset('fotobrgmsk/' . $row->foto) }}" alt=""
+                                                            style="width: 75px; height: 80px;">
+                                                    </td>
+                                                    <td>
+                                                        <a href="/editbrgmsk/{{ $row->id }}" class="btn btn-success mb-1"><i
                                                                 class="fas fa-pencil-alt"></i>Edit</a><br>
-                                                        <a href="//{{ $row->id }}" class="btn btn-danger"
+                                                        <a href="/delete/{{ $row->id }}" class="btn btn-danger"
                                                             onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                                 class="fas fa-trash-alt"></i>Hapus</button></a>
                                                     </td>

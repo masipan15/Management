@@ -1,4 +1,4 @@
- <!doctype html>
+    <!doctype html>
     <html lang="en">
 
     <head>
@@ -6,11 +6,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-
-        <title>Edit</title>
+        <title>Edit Data Kategori</title>
     </head>
 
     <body>
@@ -28,40 +27,42 @@
 
                                         <div class="row">
                                             <div class="col mt-2">
-                                                <form action="/updatedesain/{{ $data->id }}" method="post"
+                                                <form action="/updatebrgklr/{{ $data->id }}" method="post"
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     
                                                     <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Permintaan
-                                                            Desain</label>
-                                                        <input type="text" name="permintaan_desain" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->permintaan_desain }}"
+                                                        <label for="exampleInputEmail1" class="form-label">Nama
+                                                            Barang</label>
+                                                        <input type="text" name="nama_barang" class="form-control"
+                                                             value="{{ $data->nama_barang }}"
                                                             aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">Harga</label>
                                                         <div class="input-group mb-3">
                                                             <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                                        <input type="text" name="harga_desain" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->harga_desain }}"
+                                                        <input type="text" name="harga_jual" class="form-control"
+                                                            id="harga" value="{{ $data->harga_jual }}"
                                                             aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Status Pengerjaan</label>
-                                                        <input type="text" name="status_pengerjaan" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->status_pengerjaan }}"
+                                                        <label for="exampleInputEmail1" class="form-label">Jumlah</label>
+                                                        <input type="text" name="jumlah" class="form-control"
+                                                            id="jumlah" value="{{ $data->jumlah }}"
                                                             aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Tanggal Pemesan</label>
-                                                        <input type="text" name="tgl_pemesan_desain" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->tgl_pemesan_desain }}"
+                                                        <label for="exampleInputEmail1" class="form-label">Total</label>
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                                        <input type="text" name="total" class="form-control"
+                                                            id="total" value="{{ $data->total }}"
                                                             aria-describedby="emailHelp">
                                                     </div>
                                                     
                                                     <button type="submit" class="btn btn-success">Simpan</button>
-                                                    <a href="/datakategori" type="button" class="btn btn-danger">
+                                                    <a href="/barangklr" type="button" class="btn btn-danger">
                                                         Batal
                                                     </a>
                                                 </form>
@@ -84,15 +85,31 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
         </script>
 
-        <!-- Option 2: Separate Popper and Bootstrap JS -->
-        <!--
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-                integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
-            </script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-                integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
-            </script>
-            -->
+
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"
+integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+
+
+
+<script>
+    $(document).ready(function() {
+        $("#jumlah").change(function() {
+            var jumlah = $("#jumlah").val();
+            var harga_jual = $("#harga_jual").val();
+            var total = jumlah * harga_jual
+            $("#total").val(total);
+        });
+    });
+    $("#jumlah").keyup(function() {
+        var jumlah = $("#jumlah").val();
+        var harga_jual = $("#harga_jual").val();
+        var total = jumlah * harga_jual
+        $("#total").val(total);
+    });
+</script>
+
+
+
     </body>
 
     </html>

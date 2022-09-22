@@ -40,6 +40,30 @@ class BarangkeluarController extends Controller
     }
 
 
+
+    public function editbrgklr($id)
+    {
+        $data = barangkeluar::findOrFail($id);
+
+        return view('keluar.editbarangklr', compact('data'));
+    }
+
+
+
+
+    public function updatebrgklr(request $request, $id)
+    {
+        $data = barangkeluar::find($id);
+        $data->update([
+            'nama_barang' => $request->nama_barang,
+            'harga_jual' => $request->harga_jual,
+            'jumlah' => $request->jumlah,
+            'total' => $request->total,
+        ]);
+        return redirect()->route('barangkeluar')->with('success', 'Data berhasil di Update!');
+        
+    }
+
     public function delete($id)
     {
         $data = barangkeluar::find($id);

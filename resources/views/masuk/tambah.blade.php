@@ -28,7 +28,7 @@
 
                                     <div class="row">
                                         <div class="col mt-2">
-                                            <form action="/insertbarangkeluar" method="post"
+                                            <form action="/prosestambah" method="post"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="mb-3">
@@ -67,6 +67,14 @@
                                                                 class="form-control" aria-describedby="emailHelp">
                                                         </div>
                                                         @error('total')
+                                                            <div class="alert alert-danger">{{ $message }}</div>
+                                                        @enderror
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputEmail1" class="form-label">Foto</label>
+                                                            <input type="file" name="foto" class="form-control"
+                                                             aria-describedby="emailHelp">
+                                                        </div>
+                                                        @error('foto')
                                                             <div class="alert alert-danger">{{ $message }}</div>
                                                         @enderror
                                                         <button type="submit"
@@ -115,15 +123,15 @@
         $(document).ready(function() {
             $("#jumlah").change(function() {
                 var jumlah = $("#jumlah").val();
-                var harga_jual = $("#harga_jual").val();
-                var total = jumlah * harga_jual
+                var harga = $("#harga").val();
+                var total = jumlah * harga
                 $("#total").val(total);
             });
         });
         $("#jumlah").keyup(function() {
             var jumlah = $("#jumlah").val();
-            var harga_jual = $("#harga_jual").val();
-            var total = jumlah * harga_jual
+            var harga = $("#harga").val();
+            var total = jumlah * harga
             $("#total").val(total);
         });
     </script>

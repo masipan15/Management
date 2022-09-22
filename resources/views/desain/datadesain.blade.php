@@ -22,7 +22,7 @@
 
 
                             <div class="container">
-                                <a href="/tambahbarangkeluar" class="btn btn-primary">Tambah Barang</a>
+                                <a href="/tambahdesain" class="btn btn-primary">Tambah</a>
 
 
                                 <div class="row">
@@ -48,12 +48,12 @@
                                                         <td>{{ $row->permintaan_desain }}</td>
                                                         <td>Rp.{{ $row->harga_desain }}</td>
                                                         <td>{{ $row->status_pengerjaan }}</td>
-                                                        <td>Rp.{{ $row->tgl_pemesan_desain }}</td>
+                                                        <td>{{ $row->tgl_pemesan_desain }}</td>
 
                                                         <td>
-                                                            <a href="//{{ $row->id }}"
+                                                            <a href="/editdesain/{{ $row->id }}"
                                                                 class="btn btn-success mb-1"><i class="fas fa-pencil-alt"></i>edit</a><br>
-                                                            <a href="/delete/{{ $row->id }}" class="btn btn-danger"
+                                                            <a href="/deletes/{{ $row->id }}" class="btn btn-danger"
                                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                                     class="fas fa-trash-alt"></i>hapus</button></a>
                                                         </td>

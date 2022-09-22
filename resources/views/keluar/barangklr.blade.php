@@ -51,7 +51,7 @@
                                                         <td>Rp.{{ $row->total }}</td>
 
                                                         <td>
-                                                            <a href="//{{ $row->id }}"
+                                                            <a href="/editbrgklr/{{ $row->id }}"
                                                                 class="btn btn-success mb-1"><i class="fas fa-pencil-alt"></i>edit</a><br>
                                                             <a href="/delete/{{ $row->id }}" class="btn btn-danger"
                                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
