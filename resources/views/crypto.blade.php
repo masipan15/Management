@@ -219,7 +219,7 @@
                                 class="angle fe fe-chevron-right"></i></a>
                         <ul class="nav-sub">
                             <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="cryptodashbaord.html">TES</a>
+                                <a class="nav-sub-link" href="cryptodashbaord.html">peler</a>
                             </li>
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="cryptomarket.html">Marketcap</a>
