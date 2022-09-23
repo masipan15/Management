@@ -3,6 +3,7 @@
 use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\BarangkeluarController;
 use App\Http\Controllers\DesainController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\servisController;
 use Illuminate\Support\Facades\Route;
 
@@ -63,3 +64,13 @@ Route::post('/insertservis', [servisController::class, 'insertservis'])->name('i
 Route::get('/editservis/{id}', [servisController::class, 'editservis'])->name('editservis');
 Route::post('/updateservis/{id}', [servisController::class, 'updateservis'])->name('updateservis');
 Route::get('/deletet/{id}', [servisController::class, 'deletet'])->name('deletet');
+
+
+
+
+ //login
+ Route::get('/login',[LoginController::class, 'login'])->name('login')  ;
+ Route::post('/loginproses',[LoginController::class, 'loginproses'])->name('loginproses');
+ Route::get('/register',[LoginController::class, 'register'])->name('register');
+ Route::post('/registeruser',[LoginController::class, 'registeruser'])->name('registeruser');
+ Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
