@@ -723,13 +723,37 @@
                                         <table class="table" id="example1">
                                             <thead>
                                                 <tr>
-                                                    <th class="wd-20p">Name</th>
-                                                    <th class="wd-25p">Position</th>
-                                                    <th class="wd-20p">Office</th>
-                                                    <th class="wd-15p">Age</th>
-                                                    <th class="wd-20p">Salary</th>
+                                                    <th class="wd-20p">No</th>
+                                                    <th class="wd-20p">Nama Barang</th>
+                                                    <th class="wd-25p">Harga</th>
+                                                    <th class="wd-20p">Tanggal</th>
+                                                    <th class="wd-15p">Aksi</th>
+                                                    
                                                 </tr>
                                             </thead>
+                                            <tbody>
+                                                @php
+                                                    $no = 1;
+                                                @endphp
+                                                @foreach ($data as $row)
+                                                    <tr>
+                                                        <th scope="row">{{ $no++ }}</th>
+                                                        <td>{{ $row->nama_barang }}</td>
+                                                        <td>Rp.{{ $row->harga_jual }}</td>
+                                                        <td>{{ $row->tanggal }}</td>
+                                                        
+
+                                                        <td>
+                                                            <a href="/editbrgklr/{{ $row->id }}"
+                                                                class="btn btn-success mb-1"><i class="fas fa-pencil-alt"></i>edit</a><br>
+                                                            <a href="/delete/{{ $row->id }}" class="btn btn-danger"
+                                                                onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
+                                                                    class="fas fa-trash-alt"></i>hapus</button></a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
