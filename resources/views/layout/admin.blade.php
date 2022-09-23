@@ -285,7 +285,7 @@
                             <a class="dropdown-item" href="profile.html">
                                 <i class="fe fe-compass"></i> Activity
                             </a>
-                            <a class="dropdown-item" href="signin.html">
+                            <a class="dropdown-item" href="/logout">
                                 <i class="fe fe-power"></i> Sign Out
                             </a>
                         </div>

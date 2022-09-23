@@ -14,7 +14,7 @@
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-sm-15">
-                            <h1 class="text-center">Barang Keluar</h1>
+                            <h1 class="text-center">Data Desain</h1>
 
 
 
