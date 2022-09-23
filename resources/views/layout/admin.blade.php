@@ -218,16 +218,16 @@
                             class="sidemenu-label">Tables</span><i class="angle fe fe-chevron-right"></i></a>
                     <ul class="nav-sub">
                         <li class="nav-sub-item">
-                            <a class="nav-sub-link" href="/datadesain">Basic Tables</a>
+                            <a class="nav-sub-link" href="/datadesain">Data Desain</a>
                         </li>
                         <li class="nav-sub-item">
-                            <a class="nav-sub-link" href="/dataservis">Data Tables</a>
+                            <a class="nav-sub-link" href="/dataservis">Data Servis</a>
                         </li>
                         <li class="nav-sub-item">
-                            <a class="nav-sub-link" href="/barangmasuk">Data Tables</a>
+                            <a class="nav-sub-link" href="/barangmasuk">Barang Masuk</a>
                         </li>
                         <li class="nav-sub-item">
-                            <a class="nav-sub-link" href="/barangkeluar">Data Tables</a>
+                            <a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
                         </li>
                     </ul>
                 </li>
@@ -571,7 +571,7 @@
 
     <!-- Back-to-top -->
     <a href="#top" id="back-to-top"><i class="fe fe-arrow-up"></i></a>
-    
+
     <!-- Jquery js-->
     <script src="{{ asset('acstemplate/assets/plugins/jquery/jquery.min.js') }}"></script>
 
