@@ -4,7 +4,6 @@ use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\BarangkeluarController;
 use App\Http\Controllers\DesainController;
 use App\Http\Controllers\servisController;
-use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*

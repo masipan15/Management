@@ -418,7 +418,7 @@
         <!-- Main Content-->
         <div class="main-content side-content pt-0">
             <div class="container-fluid">
-               @yield('content')
+                @yield('content')
             </div>
         </div>
         <!-- End Main Content-->
@@ -571,7 +571,7 @@
 
     <!-- Back-to-top -->
     <a href="#top" id="back-to-top"><i class="fe fe-arrow-up"></i></a>
-
+    
     <!-- Jquery js-->
     <script src="{{ asset('acstemplate/assets/plugins/jquery/jquery.min.js') }}"></script>
 
