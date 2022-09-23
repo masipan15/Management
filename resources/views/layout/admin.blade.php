@@ -205,7 +205,7 @@
                 <ul class="nav">
                     <li class="nav-header"><span class="nav-label">Dashboard</span></li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/"><span class="shape1"></span><span
+                        <a class="nav-link" href="/welcome"><span class="shape1"></span><span
                                 class="shape2"></span><i class="ti-home sidemenu-icon"></i><span
                                 class="sidemenu-label">Dashboard</span></a>
                     </li>
@@ -217,19 +217,33 @@
                             class="shape2"></span><i class="ti-agenda sidemenu-icon"></i><span
                             class="sidemenu-label">Tables</span><i class="angle fe fe-chevron-right"></i></a>
                     <ul class="nav-sub">
+                        @if (auth()->user()->role == 'desain')   
                         <li class="nav-sub-item">
                             <a class="nav-sub-link" href="/datadesain">Data Desain</a>
                         </li>
+                        @endif
+                        @if (auth()->user()->role == 'admin')   
                         <li class="nav-sub-item">
                             <a class="nav-sub-link" href="/dataservis">Data Servis</a>
                         </li>
+                        @endif
+                        @if (auth()->user()->role == 'servis')   
                         <li class="nav-sub-item">
                             <a class="nav-sub-link" href="/barangmasuk">Barang Masuk</a>
                         </li>
+                        @endif
+                        @if (auth()->user()->role == 'servis')   
                         <li class="nav-sub-item">
                             <a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
                         </li>
+                        @endif
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout"><span class="shape1"></span><span
+                            class="shape2"></span><i class="ti-agenda sidemenu-icon"></i><span
+                            class="sidemenu-label">Logout</span></a>
+                    
                 </li>
 
                 </ul>

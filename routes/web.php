@@ -19,12 +19,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
+
+Route::get('/welcome', function () {
+    return view('welcome');
+})->middleware('auth');
 
 Route::get('tes', function () {
     return view('crypto');
 });
+
+
+Route::group(['middleware' => ['auth','hakakses:admin,servis,desain']], function(){
 
 //barang masuk
 Route::get('barangmasuk', [BarangmasukController::class, 'barangmasuk'])->name('barangmasuk');
@@ -34,9 +41,6 @@ Route::get('/editbrgmsk/{id}', [BarangmasukController::class, 'editbrgmsk'])->na
 Route::post('/updatebrgmsk/{id}', [BarangmasukController::class, 'updatebrgmsk'])->name('updatebrgmsk');
 Route::get('/deletee/{id}', [BarangmasukController::class, 'deletee'])->name('deletee');
 
-
-
-
 //barang keluar
 Route::get('/barangkeluar', [BarangkeluarController::class, 'index'])->name('barangkeluar');
 Route::get('/tambahbarangkeluar', [BarangkeluarController::class, 'tambahbrgklr'])->name('tambahbarangkeluar');
@@ -44,18 +48,14 @@ Route::post('/insertbarangkeluar', [BarangkeluarController::class, 'insertbrgklr
 Route::get('/editbrgklr/{id}', [BarangkeluarController::class, 'editbrgklr'])->name('editbrgklr');
 Route::post('/updatebrgklr/{id}', [BarangkeluarController::class, 'updatebrgklr'])->name('updatebrgklr');
 Route::get('/delete/{id}', [BarangkeluarController::class, 'delete'])->name('delete');
+    
+});
 
 
 
-//desain
-Route::get('/datadesain', [DesainController::class, 'index'])->name('datadesain');
-Route::get('/tambahdesain', [DesainController::class, 'tambahdesain'])->name('tambahdesain');
-Route::post('/insertdesain', [DesainController::class, 'insertdesain'])->name('insertdesain');
-Route::get('/editdesain/{id}', [DesainController::class, 'editdesain'])->name('editdesain');
-Route::post('/updatedesain/{id}', [DesainController::class, 'updatedesain'])->name('updatedesain');
-Route::get('/deletes/{id}', [DesainController::class, 'deletes'])->name('deletes');
 
 
+Route::group(['middleware' => ['auth','hakakses:servis,admin']], function(){
 
 //servis
 Route::get('/dataservis', [servisController::class, 'dataservis'])->name('dataservis');
@@ -65,12 +65,32 @@ Route::get('/editservis/{id}', [servisController::class, 'editservis'])->name('e
 Route::post('/updateservis/{id}', [servisController::class, 'updateservis'])->name('updateservis');
 Route::get('/deletet/{id}', [servisController::class, 'deletet'])->name('deletet');
 
+});
+
+
+
+
+
+Route::group(['middleware' => ['auth','hakakses:desain,admin']], function(){
+
+//desain
+Route::get('/datadesain', [DesainController::class, 'index'])->name('datadesain');
+Route::get('/tambahdesain', [DesainController::class, 'tambahdesain'])->name('tambahdesain');
+Route::post('/insertdesain', [DesainController::class, 'insertdesain'])->name('insertdesain');
+Route::get('/editdesain/{id}', [DesainController::class, 'editdesain'])->name('editdesain');
+Route::post('/updatedesain/{id}', [DesainController::class, 'updatedesain'])->name('updatedesain');
+Route::get('/deletes/{id}', [DesainController::class, 'deletes'])->name('deletes');
+
+});
+
+
+
 
 
 
  //login
- Route::get('/login',[LoginController::class, 'login'])->name('login')  ;
+ Route::get('/login',[LoginController::class, 'login'])->name('login')->middleware('guest');
  Route::post('/loginproses',[LoginController::class, 'loginproses'])->name('loginproses');
- Route::get('/register',[LoginController::class, 'register'])->name('register');
+ Route::get('/register',[LoginController::class, 'register'])->name('register')->middleware('guest');
  Route::post('/registeruser',[LoginController::class, 'registeruser'])->name('registeruser');
  Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
