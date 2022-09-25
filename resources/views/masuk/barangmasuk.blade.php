@@ -233,7 +233,10 @@
                     </li>
                 </ul>
                 </li>
-                
+                <li class="nav-item">
+                    <a class="nav-link" href="logout"><span class="shape1"></span><span class="shape2"></span><i
+                            class="ti-agenda sidemenu-icon"></i><span class="sidemenu-label">Logout</span></a>
+
                     </ul>
                 </li>
                 </ul>
@@ -745,8 +748,10 @@
 
                                                         <td>
                                                             <a href="/editbrgklr/{{ $row->id }}"
-                                                                class="btn btn-success mb-1"><i class="fas fa-pencil-alt"></i>edit</a><br>
-                                                            <a href="/delete/{{ $row->id }}" class="btn btn-danger"
+                                                                class="btn btn-success mb-1"><i
+                                                                    class="fas fa-pencil-alt"></i>edit</a><br>
+                                                            <a href="/delete/{{ $row->id }}"
+                                                                class="btn btn-danger"
                                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                                     class="fas fa-trash-alt"></i>hapus</button></a>
                                                         </td>

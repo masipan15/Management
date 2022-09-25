@@ -219,6 +219,8 @@
                                 class="sidemenu-label">Tables</span><i class="angle fe fe-chevron-right"></i></a>
                         <ul class="nav-sub">
                             <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="/datadesain">Data Desain</a>
+                            <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/dataservis">Data Servis</a>
                             <li class="nav-sub-item"> </li>
                             <li class="nav-sub-item">
@@ -229,6 +231,9 @@
                             </li>
                     </li>
                 </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout"><span class="shape1"></span><span class="shape2"></span><i
+                            class="ti-agenda sidemenu-icon"></i><span class="sidemenu-label">Logout</span></a>
                 </li>
 
                 </ul>
@@ -741,7 +746,7 @@
                                                         <td>{{ $row->merk_barang }}</td>
                                                         <td>{{ $row->kerusakan_barang }}</td>
                                                         <td>{{ $row->status_pengerjaan }}</td>
-                                                        <td>{{ $row->biaya_servis}}</td>
+                                                        <td>{{ $row->biaya_servis }}</td>
 
                                                         <td>
                                                             <a href="/editbrgklr/{{ $row->id }}"
