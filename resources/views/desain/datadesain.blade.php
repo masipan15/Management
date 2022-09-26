@@ -149,7 +149,10 @@
                                 <p class="main-notification-text">{{ Auth::user()->role }}</p>
                             </div>
                             <a class="dropdown-item border-top" href="/profil">
-                                <i class="fe fe-user"></i> Profil & Edit Profil
+                                <i class="fe fe-user"></i> Profil
+                            </a>
+                            <a class="dropdown-item" href="/editprofil">
+                                <i class="fe fe-edit"></i> Edit Profil
                             </a>
                             <a class="dropdown-item" href="/logout">
                                 <i class="fe fe-power"></i> Keluar
@@ -335,7 +338,10 @@
 									<p class="main-notification-text">{{ Auth::user()->role }}</p>
 								</div>
 								<a class="dropdown-item border-top" href="/profil">
-									<i class="fe fe-user"></i> Profil & Edit Profil
+									<i class="fe fe-user"></i> Profil
+								</a>
+								<a class="dropdown-item" href="/editprofil">
+									<i class="fe fe-edit"></i> Edit Profil
 								</a>
 								<a class="dropdown-item" href="/logout">
 									<i class="fe fe-power"></i> Keluar
@@ -386,7 +392,10 @@
                                             <thead>
                                                 <tr>
                                                     <th class="wd-20p">No</th>
+                                                    <th class="wd-25p">Nama Pemesan</th>
+                                                    <th class="wd-25p">Ukuran Desain</th>
                                                     <th class="wd-25p">Permintaan Desain</th>
+                                                    <th class="wd-20p">Keterangan</th>
                                                     <th class="wd-20p">Harga Desain</th>
                                                     <th class="wd-15p">Status Pengerjaan</th>
                                                     <th class="wd-20p">Tanggal</th>
@@ -400,7 +409,10 @@
                                                 @foreach ($data as $row)
                                                     <tr>
                                                         <th scope="row">{{ $no++ }}</th>
+                                                        <td>{{ $row->nama_pemesan }}</td>
+                                                        <td>{{ $row->ukuran_desain }}</td>
                                                         <td>{{ $row->permintaan_desain }}</td>
+                                                        <td>{{ $row->keterangan }}</td>
                                                         <td>Rp.{{ number_format($row['harga_desain'],2,'.','.') }}</td>
                                                         <td>{{ $row->status_pengerjaan }}</td>
                                                         <td>{{ $row->tgl_pemesan_desain }}</td>

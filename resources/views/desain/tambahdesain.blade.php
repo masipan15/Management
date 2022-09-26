@@ -31,13 +31,37 @@
                         <form action="/insertdesain" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
+                                <label for="" class="">Nama Pemesan</label>
+                                <input type="text" required name="nama_pemesan" class="form-control"
+                                    aria-describedby="emailHelp">
+                                </div>
+                                @error('nama_pemesan')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            <div class="mb-3">
+                                <label for="" class="">Ukuran Desain</label>
+                                <input type="text" required name="ukuran_desain" class="form-control"
+                                    aria-describedby="emailHelp">
+                                </div>
+                                @error('ukuran_desain')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            <div class="mb-3">
                                 <label for="" class="">Permintaan Desain</label>
                                 <input type="text" required name="permintaan_desain" class="form-control"
                                     aria-describedby="emailHelp">
+                                </div>
                                 @error('permintaan_desain')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                            </div>
+                            <div class="mb-3">
+                                <label for="" class="">Keterangan</label>
+                                <input type="text" required name="keterangan" class="form-control"
+                                    aria-describedby="emailHelp">
+                                </div>
+                                @error('keterangan')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
 
                             <div class="mb-3">
                                 <label for="" class="">Harga</label>

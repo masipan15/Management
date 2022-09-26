@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('desains', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_pemesan');
             $table->string('permintaan_desain');
             $table->integer('harga_desain');
+            $table->string('keterangan');
+            $table->string('ukuran_desain');
             $table->string('status_pengerjaan');
             $table->string('tgl_pemesan_desain');
             $table->timestamps();

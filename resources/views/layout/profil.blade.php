@@ -310,7 +310,10 @@
 									<p class="main-notification-text">{{ Auth::user()->role }}</p>
 								</div>
 								<a class="dropdown-item border-top" href="/profil">
-									<i class="fe fe-user"></i> Profil & Edit Profil
+									<i class="fe fe-user"></i> Profil
+								</a>
+								<a class="dropdown-item" href="/editprofil">
+									<i class="fe fe-edit"></i> Edit Profil
 								</a>
 								<a class="dropdown-item" href="/logout">
 									<i class="fe fe-power"></i> Keluar
@@ -459,7 +462,10 @@
 									<p class="main-notification-text">{{ Auth::user()->role }}</p>
 								</div>
 								<a class="dropdown-item border-top" href="/profil">
-									<i class="fe fe-user"></i> Profil & Edit Profil
+									<i class="fe fe-user"></i> Profil
+								</a>
+								<a class="dropdown-item" href="/editprofil">
+									<i class="fe fe-edit"></i> Edit Profil
 								</a>
 								<a class="dropdown-item" href="/logout">
 									<i class="fe fe-power"></i> Keluar
@@ -512,13 +518,13 @@
 							<div class="col-xl-3 col-lg-12 col-md-12">
 								<div class="card custom-card">
 									<div class="card-header">
-										<h3 class="main-content-label">My Account</h3>
+										<h3 class="main-content-label">Akun</h3>
 									</div>
 									<div class="card-body text-center item-user">
 										<div class="profile-pic">
 											<div class="profile-pic-img">
 												<span class="bg-success dots" data-toggle="tooltip" data-placement="top" title="online"></span>
-												<img class="rounded-circle" src="{{ Auth::user()->foto }}" alt="user">
+												<img class="rounded-circle" src="{{ asset('acstemplate/assets/img/wa.png') }}" alt="user">
 											</div>
 											<a href="#" class="text-dark"><h5 class="mt-3 mb-0 font-weight-semibold">{{ Auth::user()->name }}</h5></a>
 										</div>
@@ -527,9 +533,6 @@
 										
 										<li class="nav-item">
 											<a data-target="/profil"  class="nav-link" data-toggle="tab" role="tablist"><i class="ti-credit-card icon1"></i>Profil</a>
-										</li>
-										<li class="nav-item">
-											<a data-target="/editprofil"  class="nav-link" data-toggle="tab" role="tablist"><i class="ti-credit-card icon1"></i>Edit Profil</a>
 										</li>
 										<li class="nav-item">
 											<a href="/welcome" class="nav-link"><i class="ti-power-off icon1"></i>Kembali</a>
@@ -542,7 +545,7 @@
 									<div class="card-body">
 										<div class="tab-content" id="myTabContent">
 											<div class="tab-pane fade show active" id="profile" role="tabpanel">
-												<div class="d-flex align-items-start pb-3 border-bottom"> <img src="{{ Auth::user()->foto }}" class="img rounded-circle avatar-xl" alt="">
+												<div class="d-flex align-items-start pb-3 border-bottom"> <img src="{{ asset('acstemplate/assets/img/wa.png') }}" class="img rounded-circle avatar-xl" alt="">
 													<div class="pl-sm-4 pl-2" id="img-section"> <b>Foto Profil</b>
 														<p class="mb-1"></p> <button class="btn button border btn-sm"><b>Upload</b></button>
 													</div>

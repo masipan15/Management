@@ -21,19 +21,28 @@ class DesainController extends Controller
     public function insertdesain(Request $request)
     {
         $validated = $request->validate([
+            'nama_pemesan' => 'required',
+            'ukuran_desain' => 'required',
             'permintaan_desain' => 'required',
+            'keterangan' => 'required',
             'harga_desain' => 'required',
             'status_pengerjaan' => 'required',
             'tgl_pemesan_desain' => 'required',
         ], [
+            'nama_pemesan.required' => ' Harus Diisi!',
+            'ukuran_desain.required' => ' Harus Diisi!',
             'permintaan_desain.required' => ' Harus Diisi!',
+            'keterangan.required' => ' Harus Diisi!',
             'harga_desain.required' => 'harga Harus Diisi!',
-            'status_pengerjaan.required' => 'status_pengerjaan Harus Diisi!',
-            'tgl_pemesan_desain.required' => 'status_pengerjaan Harus Diisi!',
+            'status_pengerjaan.required' => ' Harus Diisi!',
+            'tgl_pemesan_desain.required' => ' Harus Diisi!',
         ]);
 
         $data = desain::create([
+            'nama_pemesan' => $request->nama_pemesan,
+            'ukuran_desain' => $request->ukuran_desain,
             'permintaan_desain' => $request->permintaan_desain,
+            'keterangan' => $request->keterangan,
             'harga_desain' => $request->harga_desain,
             'status_pengerjaan' => $request->status_pengerjaan,
             'tgl_pemesan_desain' => $request->tgl_pemesan_desain,
@@ -57,7 +66,10 @@ class DesainController extends Controller
     {
         $data = desain::find($id);
         $data->update([
+            'nama_pemesan' => $request->nama_pemesan,
+            'ukuran_desain' => $request->ukuran_desain,
             'permintaan_desain' => $request->permintaan_desain,
+            'keterangan' => $request->keterangan,
             'harga_desain' => $request->harga_desain,
             'status_pengerjaan' => $request->status_pengerjaan,
             'tgl_pemesan_desain' => $request->tgl_pemesan_desain,
