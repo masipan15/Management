@@ -393,7 +393,7 @@
                             <div class="card custom-card overflow-hidden">
                                 <div class="card-body">
                                     <div>
-                                        <a href="/tambahdesain" class="btn btn-primary">Tambah</a>
+                                        <a href="/tambahdatabarang" class="btn btn-primary">Tambah</a>
                                         <p class="text-muted card-sub-title"></p>
                                     </div>
                                     <div class="table-responsive">
@@ -401,10 +401,12 @@
                                             <thead>
                                                 <tr>
                                                     <th class="wd-20p">No</th>
-                                                    <th class="wd-25p">Permintaan Desain</th>
-                                                    <th class="wd-20p">Harga Desain</th>
-                                                    <th class="wd-15p">Status Pengerjaan</th>
-                                                    <th class="wd-20p">Tanggal</th>
+                                                    <th class="wd-25p">Kode Barang</th>
+                                                    <th class="wd-20p">Nama Barang</th>
+                                                    <th class="wd-15p">Stok</th>
+                                                    <th class="wd-20p">Harga</th>
+                                                    <th class="wd-20p">Harga Jual</th>
+                                                    <th class="wd-20p">Foto</th>
                                                     <th class="wd-20p">Aksi</th>
                                                 </tr>
                                             </thead>
@@ -415,10 +417,16 @@
                                                 @foreach ($data as $row)
                                                     <tr>
                                                         <th scope="row">{{ $no++ }}</th>
-                                                        <td>{{ $row->permintaan_desain }}</td>
-                                                        <td>Rp.{{ number_format($row['harga_desain'], 2, '.', '.') }}</td>
-                                                        <td>{{ $row->status_pengerjaan }}</td>
-                                                        <td>{{ $row->tgl_pemesan_desain }}</td>
+                                                        <td>{{ $row->kodebarang }}</td>
+                                                        <td>{{ $row->namabarang }}</td>
+                                                        <td>{{ $row->stok }}</td>
+                                                        <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
+                                                        <td>Rp.{{ number_format($row['hargajual'], 2, '.', '.') }}</td>
+                                                        <td>
+                                                            <img src="{{ asset('fotobrgmsk/' . $row->foto) }}"
+                                                                alt="" style="width: 50px";>
+                                                        </td>
+                                                        
 
                                                         <td>
                                                             <a href="/editdesain/{{ $row->id }}"
