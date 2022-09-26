@@ -56,6 +56,8 @@
 </head>
 
 <body class="main-body leftmenu">
+
+
     <!-- Loader -->
     <div id="global-loader">
         <img src="{{ asset('acstemplate/assets/img/loader.svg') }}" class="loader-img" alt="Loader">
@@ -104,9 +106,11 @@
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
                             </li>
-
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/pengeluaran">Pengeluaran</a>
+                            </li>
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="/pemasukan">Pemasukan</a>
                             </li>
                     </li>
 
@@ -335,20 +339,20 @@
                                         src="{{ asset('acstemplate/assets/img/users/1.jpg') }}"></span>
                             </a>
                             <div class="dropdown-menu">
-								<div class="header-navheading">
-									<h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
-									<p class="main-notification-text">{{ Auth::user()->role }}</p>
-								</div>
-								<a class="dropdown-item border-top" href="/profil">
-									<i class="fe fe-user"></i> Profil
-								</a>
-								<a class="dropdown-item" href="/editprofil">
-									<i class="fe fe-edit"></i> Edit Profil
-								</a>
-								<a class="dropdown-item" href="/logout">
-									<i class="fe fe-power"></i> Keluar
-								</a>
-							</div>
+                                <div class="header-navheading">
+                                    <h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
+                                    <p class="main-notification-text">{{ Auth::user()->role }}</p>
+                                </div>
+                                <a class="dropdown-item border-top" href="/profil">
+                                    <i class="fe fe-user"></i> Profil
+                                </a>
+                                <a class="dropdown-item" href="/editprofil">
+                                    <i class="fe fe-edit"></i> Edit Profil
+                                </a>
+                                <a class="dropdown-item" href="/logout">
+                                    <i class="fe fe-power"></i> Keluar
+                                </a>
+                            </div>
                         </div>
                         <div class="dropdown  header-settings">
                             <a href="#" class="nav-link icon" data-toggle="sidebar-right"
@@ -385,47 +389,35 @@
                         <div class="col-lg-12">
                             <div class="card custom-card overflow-hidden">
                                 <div class="card-body">
-                                    <div>
-                                        <a href="/tambahbarangmasuk" class="btn btn-primary">Tambah</a>
-                                        <p class="text-muted card-sub-title"></p>
-                                    </div>
+                                   
                                     <div class="table-responsive">
                                         <table class="table" id="example1">
                                             <thead>
                                                 <tr>
                                                     <th class="wd-20p">No</th>
-                                                    <th class="wd-20p">Nama Barang</th>
-                                                    <th class="wd-25p">Jumlah</th>
-                                                    <th class="wd-20p">Harga</th>
+                                                    <th class="wd-20p">Tanggal</th>
+                                                    <th class="wd-25p">Bulan</th>
+                                                    <th class="wd-20p">Tahun</th>
                                                     <th class="wd-15p">Total</th>
-                                                    <th class="wd-20p">Foto</th>
-                                                    <th class="wd-20p">Aksi</th>
+
+
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @php
                                                     $no = 1;
                                                 @endphp
-                                                @foreach ($data as $row)
+                                                @foreach ($pemasukan as $row)
                                                     <tr>
                                                         <th scope="row">{{ $no++ }}</th>
-                                                        <td>{{ $row->namabarang }}</td>
-                                                        <td>{{ $row->jumlah }}</td>
-                                                        <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
-                                                        <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
-                                                        <td>
-                                                            <img src="{{ asset('fotobrgmsk/'.$row->foto) }}" alt="" style="width: 50px;">
-                                                        </td>
+                                                        <td>{{ $row->day }}</td>
+                                                        <td>{{ $row->month }}</td>
+                                                        <td>{{ $row->year }}</td>
 
-                                                        <td>
-                                                            {{-- <a href="/editdesain/{{ $row->id }}"
-                                                                class="btn btn-success mb-1"><i
-                                                                    class="fas fa-pencil-alt"></i>edit</a><br> --}}
-                                                            <a href="/deletee/{{ $row->id }}"
-                                                                class="btn btn-danger"
-                                                                onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
-                                                                    class="fas fa-trash-alt"></i>hapus</button></a>
-                                                        </td>
+
+                                                        <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
+
+
                                                     </tr>
                                                 @endforeach
 

@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\BarangmasukController;
-use App\Http\Controllers\BarangkeluarController;
-use App\Http\Controllers\DesainController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\DesainController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\servisController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BarangmasukController;
+use App\Http\Controllers\BarangkeluarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,8 @@ Route::group(['middleware' => ['auth', 'hakakses:admin,servis,desain']], functio
 
 
 
+
+
 Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
 
     //servis
@@ -86,15 +89,31 @@ Route::group(['middleware' => ['auth', 'hakakses:desain,admin']], function () {
 
 
 
- //login
- Route::get('/login',[LoginController::class, 'login'])->name('login')->middleware('guest');
- Route::post('/loginproses',[LoginController::class, 'loginproses'])->name('loginproses');
- Route::get('/register',[LoginController::class, 'register'])->name('register');
- Route::post('/registeruser',[LoginController::class, 'registeruser'])->name('registeruser');
- Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
+//login
+Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/loginproses', [LoginController::class, 'loginproses'])->name('loginproses');
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('registeruser');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 
- //profil
- Route::get('/profil',[ProfilController::class, 'profil'])->name('profil');
+//profil
+Route::get('/profil', [ProfilController::class, 'profil'])->name('profil');
+
+//pengeluaran
+Route::get('/pengeluaran', [BarangmasukController::class, 'pengeluaran'])->name('pengeluaran')->middleware('auth');
+
+//pemasukan
+Route::get('/pemasukan', [BarangkeluarController::class, 'pemasukan'])->name('pemasukan')->middleware('auth');
+
+//databarang
+
+Route::get('/databarang', [BarangController::class, 'databarang'])->name('databarang')->middleware('auth');
+Route::get('/tambahdatabarang', [BarangController::class, 'tambahdatabarang'])->name('tambahdatabarang')->middleware('auth');
+Route::post('/insertdata', [BarangController::class, 'insertdata'])->name('insertdata');
+Route::get('/editdatabarang/{id}', [BarangController::class, 'editdatabarang'])->name('editdatabarang')->middleware('auth');
+Route::post('/updatedata/{id}', [BarangController::class, 'updatedata'])->name('updatedata');
+Route::get('/delete/{id}', [BarangController::class, 'delete'])->name('delete');
+
 

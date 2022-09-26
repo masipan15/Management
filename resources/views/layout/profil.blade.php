@@ -231,6 +231,12 @@
                                 <li class="nav-sub-item">
                                     <a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
                                 </li>
+                                <li class="nav-sub-item">
+                                    <a class="nav-sub-link" href="/pengeluaran">Pengeluaran</a>
+                                </li>
+                                <li class="nav-sub-item">
+                                    <a class="nav-sub-link" href="/pemasukan">Pemasukan</a>
+                                </li>
                             @endif
                         </ul>
                     </li>
@@ -694,12 +700,6 @@
                                                     <div class="col-md-6 pt-md-0 pt-3"> <label id="notelpon">No
                                                             Telpon</label> <input type="number" name="notelpon"
                                                             readonly class="form-control"> </div>
-                                                </div>
-                                                <div class="row py-2">
-                                                    <div class="col-md-6">
-                                                        <label id="negara">Negara</label> <input type="text"
-                                                            name="negara" readonly class="form-control">
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

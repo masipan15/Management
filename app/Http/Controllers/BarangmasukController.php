@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\barangmasuk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BarangmasukController extends Controller
 {
@@ -71,5 +72,22 @@ class BarangmasukController extends Controller
         $data = barangmasuk::find($id);
         $data->delete();
         return redirect()->route('barangmasuk')->with('success', 'Data Berhasil Di Hapus');
+    }
+    public function pengeluaran()
+    {
+        $pengeluaran = Barangmasuk::select(
+
+            DB::raw("(sum(total)) as total"),
+            DB::raw("(DATE_FORMAT(created_at, '%d')) as day"),
+            DB::raw("(DATE_FORMAT(created_at, '%M')) as month"),
+            DB::raw("(DATE_FORMAT(created_at, '%Y')) as year")
+        )
+            ->orderBy('created_at')
+            ->groupBy(DB::raw("DATE_FORMAT(created_at, '%d')"))
+            ->groupBy(DB::raw("DATE_FORMAT(created_at, '%M')"))
+            ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y')"))
+            ->get();
+
+        return view('masuk.pengeluaran', compact('pengeluaran'));
     }
 }

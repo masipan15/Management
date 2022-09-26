@@ -106,6 +106,12 @@
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
                             </li>
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="/pengeluaran">Pengeluaran</a>
+                            </li>
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="/pemasukan">Pemasukan</a>
+                            </li>
                     </li>
 
                 </ul>
@@ -333,20 +339,20 @@
                                         src="{{ asset('acstemplate/assets/img/users/1.jpg') }}"></span>
                             </a>
                             <div class="dropdown-menu">
-								<div class="header-navheading">
-									<h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
-									<p class="main-notification-text">{{ Auth::user()->role }}</p>
-								</div>
-								<a class="dropdown-item border-top" href="/profil">
-									<i class="fe fe-user"></i> Profil
-								</a>
-								<a class="dropdown-item" href="/editprofil">
-									<i class="fe fe-edit"></i> Edit Profil
-								</a>
-								<a class="dropdown-item" href="/logout">
-									<i class="fe fe-power"></i> Keluar
-								</a>
-							</div>
+                                <div class="header-navheading">
+                                    <h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
+                                    <p class="main-notification-text">{{ Auth::user()->role }}</p>
+                                </div>
+                                <a class="dropdown-item border-top" href="/profil">
+                                    <i class="fe fe-user"></i> Profil
+                                </a>
+                                <a class="dropdown-item" href="/editprofil">
+                                    <i class="fe fe-edit"></i> Edit Profil
+                                </a>
+                                <a class="dropdown-item" href="/logout">
+                                    <i class="fe fe-power"></i> Keluar
+                                </a>
+                            </div>
                         </div>
                         <div class="dropdown  header-settings">
                             <a href="#" class="nav-link icon" data-toggle="sidebar-right"
@@ -407,7 +413,7 @@
                                                     <tr>
                                                         <th scope="row">{{ $no++ }}</th>
                                                         <td>{{ $row->permintaan_desain }}</td>
-                                                        <td>Rp.{{ number_format($row['harga_desain'],2,'.','.') }}</td>
+                                                        <td>Rp.{{ number_format($row['harga_desain'], 2, '.', '.') }}</td>
                                                         <td>{{ $row->status_pengerjaan }}</td>
                                                         <td>{{ $row->tgl_pemesan_desain }}</td>
 
