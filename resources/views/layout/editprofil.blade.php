@@ -529,6 +529,9 @@
 											<a data-target="/profil"  class="nav-link" data-toggle="tab" role="tablist"><i class="ti-credit-card icon1"></i>Profil</a>
 										</li>
 										<li class="nav-item">
+											<a data-target="/editprofil"  class="nav-link" data-toggle="tab" role="tablist"><i class="ti-credit-card icon1"></i>Edit Profil</a>
+										</li>
+										<li class="nav-item">
 											<a href="/welcome" class="nav-link"><i class="ti-power-off icon1"></i>Kembali</a>
 										</li>
 									</ul>
@@ -539,22 +542,69 @@
 									<div class="card-body">
 										<div class="tab-content" id="myTabContent">
 											<div class="tab-pane fade show active" id="profile" role="tabpanel">
-												<div class="d-flex align-items-start pb-3 border-bottom"> <img src="{{ Auth::user()->foto }}" class="img rounded-circle avatar-xl" alt="">
-													<div class="pl-sm-4 pl-2" id="img-section"> <b>Foto Profil</b>
-														<p class="mb-1"></p> <button class="btn button border btn-sm"><b>Upload</b></button>
-													</div>
-												</div>
-												<div class="py-2">
-													<div class="row py-2">
-														<div class="col-md-6"> <label id="name">Nama</label> <input type="text" class="form-control" name="name" readonly value="{{ Auth::user()->name }}"> </div>
-														<div class="col-md-6 pt-md-0 pt-3"> <label id="email">Email</label> <input type="email" name="email" readonly value="{{ Auth::user()->email }}" class="form-control"> </div>
-													</div>
-													<div class="row py-2">
-														<div class="col-md-6"> <label id="alamat">Alamat</label> <input type="text" name="alamat" readonly class="form-control"> </div>
-														<div class="col-md-6 pt-md-0 pt-3"> <label id="notelpon">No Telpon</label> <input type="number" name="notelpon" readonly class="form-control"> </div>
-													</div>
-													</div>
-												</div>
+												<div class="main-content-body tab-pane p-4 border-top-0" id="edit">
+                                                    <div class="card-body border">
+                                                        <div class="mb-4 main-content-label">Informasi Pribadi</div>
+                                                        <form class="form-horizontal">
+                                                            <div class="mb-4 main-content-label"></div>
+                                                            <div class="form-group ">
+                                                                <div class="row row-sm">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Nama</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" class="form-control" name="name">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <div class="row row-sm">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Email</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" class="form-control" name="email">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <div class="row row-sm">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Alamat</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" class="form-control" name="alamat">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <div class="row row-sm">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">No Telpon</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" class="form-control" name="notelpon">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-4 main-content-label"></div>
+                                                            <div class="form-group mb-0">
+                                                                <div class="row row-sm">
+                                                                    <div class="col-md-3">
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <div class="custom-controls-stacked">
+                                                                            </div>
+                                                                        <div class="mt-3">
+                                                                            <button type="button" class="btn btn-primary mr-1">Save</button>
+                                                                            <button type="button" class="btn btn-danger">Reset</button>
+                                                                        </div>
+                                                                    </div>										
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
 											</div>
 										</div>
 									</div>

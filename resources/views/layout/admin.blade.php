@@ -155,10 +155,7 @@
                                 <p class="main-notification-text">{{ Auth::user()->role }}</p>
                             </div>
                             <a class="dropdown-item border-top" href="/profil">
-                                <i class="fe fe-user"></i> Profil
-                            </a>
-                            <a class="dropdown-item" href="/editprofil">
-                                <i class="fe fe-edit"></i> Edit Profil
+                                <i class="fe fe-user"></i> Profil & Edit Profil
                             </a>
                             <a class="dropdown-item" href="/logout">
                                 <i class="fe fe-power"></i> Keluar
@@ -260,10 +257,7 @@
 									<p class="main-notification-text">{{ Auth::user()->role }}</p>
 								</div>
 								<a class="dropdown-item border-top" href="/profil">
-									<i class="fe fe-user"></i> Profil
-								</a>
-								<a class="dropdown-item" href="/editprofil">
-									<i class="fe fe-edit"></i> Edit Profil
+									<i class="fe fe-user"></i> Profil & Edit Profil
 								</a>
 								<a class="dropdown-item" href="/logout">
 									<i class="fe fe-power"></i> Keluar

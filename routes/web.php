@@ -97,4 +97,6 @@ Route::group(['middleware' => ['auth', 'hakakses:desain,admin']], function () {
 
  //profil
  Route::get('/profil',[ProfilController::class, 'profil'])->name('profil');
+ Route::get('/editprofil',[ProfilController::class, 'editprofil'])->name('editprofil');
+ Route::post('/updateprofil',[ProfilController::class, 'updateprofil'])->name('updateprofil');
 
