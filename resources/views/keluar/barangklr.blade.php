@@ -430,9 +430,9 @@
                                                     <tr>
                                                         <th scope="row">{{ $no++ }}</th>
                                                         <td>{{ $row->nama_barang }}</td>
-                                                        <td>Rp.{{ $row->harga_jual }}</td>
+                                                        <td>Rp.{{ number_format($row['harga_jual'],2,'.','.') }}</td>
                                                         <td>{{ $row->jumlah }}</td>
-                                                        <td>Rp.{{ $row->total }}</td>
+                                                        <td>Rp.{{ number_format($row['total'],2,'.','.') }}</td>
 
                                                         <td>
                                                             {{-- <a href="/editbrgklr/{{ $row->id }}"
