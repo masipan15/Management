@@ -51,9 +51,12 @@
                                 @enderror
                                 <div class="mb-3">
                                     <label for="" class="">Harga</label>
-                                    <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                    <input type="number" name="harga" id="harga" class="form-control"
-                                        aria-describedby="emailHelp">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
+
+                                        <input type="number" name="harga" id="harga" class="form-control"
+                                            aria-describedby="emailHelp">
+                                    </div>
                                 </div>
                                 @error('harga')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -61,30 +64,31 @@
                                 <div class="mb-3">
                                     <label for="" class="">Total</label>
                                     <div class="input-group mb-3">
-
+                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
                                         <input type="text" name="total" id="total" class="form-control"
                                             aria-describedby="emailHelp">
                                     </div>
-                                    @error('total')
+                                </div>
+                                @error('total')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <div class="mb-3">
+                                    <label for="" class="">Masukkan Gambar</label>
+                                    <div class="input-group mb-3">
+
+                                        <input type="file" name="foto" id="foto" class="form-control"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                    @error('foto')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
-                                    <div class="mb-3">
-                                        <label for="" class="">Masukkan Gambar</label>
-                                        <div class="input-group mb-3">
-
-                                            <input type="file" name="foto" id="foto" class="form-control"
-                                                aria-describedby="emailHelp">
-                                        </div>
-                                        @error('foto')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                        <div class="form-group mg-b-20">
-                                            <label class="ckbox">
-                                            </label>
-                                        </div>
-                                        <button class="btn ripple btn-main-primary btn-block">Submit</button>
-                                        <a href="barangmasuk" class="btn ripple btn-main-primary btn-block">Kembali</a>
+                                    <div class="form-group mg-b-20">
+                                        <label class="ckbox">
+                                        </label>
                                     </div>
+                                    <button class="btn ripple btn-main-primary btn-block">Submit</button>
+                                    <a href="barangmasuk" class="btn ripple btn-main-primary btn-block">Kembali</a>
+                                </div>
                         </form>
                     </div>
                 </div>

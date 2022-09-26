@@ -432,7 +432,7 @@
                                                         <td>{{ $row->merk_barang }}</td>
                                                         <td>{{ $row->kerusakan_barang }}</td>
                                                         <td>{{ $row->status_pengerjaan }}</td>
-                                                        <td>{{ $row->biaya_servis }}</td>
+                                                     <td>Rp.{{ number_format($row['biaya_servis'],2,'.','.') }}</td>
 
                                                         <td>
                                                             <a href="/editdesain/{{ $row->id }}"

@@ -429,7 +429,7 @@
                                                     <tr>
                                                         <th scope="row">{{ $no++ }}</th>
                                                         <td>{{ $row->permintaan_desain }}</td>
-                                                        <td>Rp.{{ $row->harga_desain }}</td>
+                                                        <td>Rp.{{ number_format($row['harga_desain'],2,'.','.') }}</td>
                                                         <td>{{ $row->status_pengerjaan }}</td>
                                                         <td>{{ $row->tgl_pemesan_desain }}</td>
 

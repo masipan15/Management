@@ -427,10 +427,10 @@
                                                 @foreach ($data as $row)
                                                     <tr>
                                                         <th scope="row">{{ $no++ }}</th>
-                                                        <td>{{ $row->permintaan_desain }}</td>
-                                                        <td>Rp.{{ $row->harga_desain }}</td>
-                                                        <td>{{ $row->status_pengerjaan }}</td>
-                                                        <td>{{ $row->tgl_pemesan_desain }}</td>
+                                                        <td>{{ $row->namabarang }}</td>
+                                                        <td>{{ $row->jumlah }}</td>
+                                                        <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
+                                                        <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
 
                                                         <td>
                                                             {{-- <a href="/editdesain/{{ $row->id }}"
