@@ -98,8 +98,6 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 
-//profil
-Route::get('/profil', [ProfilController::class, 'profil'])->name('profil');
 
 //pengeluaran
 Route::get('/pengeluaran', [BarangmasukController::class, 'pengeluaran'])->name('pengeluaran')->middleware('auth');
@@ -115,5 +113,11 @@ Route::post('/insertdata', [BarangController::class, 'insertdata'])->name('inser
 Route::get('/editdatabarang/{id}', [BarangController::class, 'editdatabarang'])->name('editdatabarang')->middleware('auth');
 Route::post('/updatedata/{id}', [BarangController::class, 'updatedata'])->name('updatedata');
 Route::get('/delete/{id}', [BarangController::class, 'delete'])->name('delete');
+
+
+ //profil
+ Route::get('/profil',[ProfilController::class, 'profil'])->name('profil');
+ Route::get('/editprofil',[ProfilController::class, 'editprofil'])->name('editprofil');
+ Route::post('/updateprofil',[ProfilController::class, 'updateprofil'])->name('updateprofil');
 
 

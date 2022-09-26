@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+	
 <!-- Mirrored from laravel.spruko.com/spruha/ltr/ecommerceaccount by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 Sep 2022 01:09:22 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
@@ -36,8 +36,8 @@
 
 		<!-- Select2 css-->
         <link href="{{ asset ('acstemplate/assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
-
-
+		
+				
 		<!-- Sidemenu css-->
 		<link href="{{ asset ('acstemplate/assets/css/sidemenu/sidemenu.css')}}" rel="stylesheet">
 
@@ -175,46 +175,7 @@
 					</a>
 				</div>
 				<div class="main-sidebar-body">
-					<ul class="nav">
-						<li class="nav-header"><span class="nav-label">Beranda</span></li>
-						<li class="nav-item">
-							<a class="nav-link" href="index.html"><span class="shape1"></span><span class="shape2"></span><i class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Dashboard</span></a>
-						</li>
-                        <li class="nav-item">
-                            <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                                    class="shape2"></span><i class="ti-agenda sidemenu-icon"></i><span
-                                    class="sidemenu-label">Tables</span><i class="angle fe fe-chevron-right"></i></a>
-                            <ul class="nav-sub">
-                                @if (auth()->user()->role == 'admin')
-                                <li class="nav-sub-item">
-                                    <a class="nav-sub-link" href="/datadesain">Data Desain</a>
-                                </li>
-                                @endif
-                                @if (auth()->user()->role == 'admin')
-                                <li class="nav-sub-item">
-                                    <a class="nav-sub-link" href="/dataservis">Data Servis</a>
-                                </li>
-                                @endif
-                                @if (auth()->user()->role == 'admin')
-                                <li class="nav-sub-item">
-                                    <a class="nav-sub-link" href="/barangmasuk">Barang Masuk</a>
-                                </li>
-                                @endif
-                                @if (auth()->user()->role == 'admin')
-                                <li class="nav-sub-item">
-                                    <a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
-                                </li>
-                                <li class="nav-sub-item">
-                                    <a class="nav-sub-link" href="/pengeluaran">Pengeluaran</a>
-                                </li>
-                                <li class="nav-sub-item">
-                                    <a class="nav-sub-link" href="/pemasukan">Pemasukan</a>
-                                </li>
-                                @endif
-                            </ul>
-                        </li>
-
-					</ul>
+					
 				</div>
 			</div>
 			<!-- End Sidemenu -->        <!-- Main Header-->
@@ -230,13 +191,13 @@
 						</div>
 						<div class="input-group">
 							<div class="input-group-btn search-panel">
-
+								
 							</div>
 						</div>
 					</div>
 					<div class="main-header-right">
 						<div class="dropdown header-search">
-
+							
 							<div class="dropdown-menu">
 								<div class="main-form-search p-2">
 									<div class="input-group">
@@ -268,7 +229,7 @@
 							</div>
 						</div>
 						<div class="dropdown main-header-notification flag-dropdown">
-
+							
 							<div class="dropdown-menu">
 								<a href="#" class="dropdown-item d-flex ">
 									<span class="avatar  mr-3 align-self-center bg-transparent"><img src="{{ asset ('acstemplate/assets/img/flags/french_flag.jpg')}}" alt="img"></span>
@@ -303,10 +264,10 @@
 							</div>
 						</div>
 						<div class="dropdown d-md-flex">
-
+							
 						</div>
 						<div class="dropdown main-header-notification">
-
+							
 							<div class="dropdown-menu">
 								<div class="header-navheading">
 									<p class="main-notification-text">You have 1 unread notification<span class="badge badge-pill badge-primary ml-3">View all</span></p>
@@ -337,7 +298,7 @@
 							</div>
 						</div>
 						<div class="main-header-notification">
-
+							
 						</div>
 						<div class="dropdown main-profile-menu">
 							<a class="d-flex" href="#">
@@ -349,10 +310,7 @@
 									<p class="main-notification-text">{{ Auth::user()->role }}</p>
 								</div>
 								<a class="dropdown-item border-top" href="/profil">
-									<i class="fe fe-user"></i> Profil
-								</a>
-								<a class="dropdown-item" href="/editprofil">
-									<i class="fe fe-edit"></i> Edit Profil
+									<i class="fe fe-user"></i> Profil & Edit Profil
 								</a>
 								<a class="dropdown-item" href="/logout">
 									<i class="fe fe-power"></i> Keluar
@@ -411,7 +369,7 @@
 								</div>
 							</div>
 							<div class="dropdown main-header-notification flag-dropdown">
-
+							
 							<div class="dropdown-menu">
 								<a href="#" class="dropdown-item d-flex ">
 									<span class="avatar  mr-3 align-self-center bg-transparent"><img src="{{ asset ('acstemplate/assets/img/flags/french_flag.jpg')}}" alt="img"></span>
@@ -501,10 +459,7 @@
 									<p class="main-notification-text">{{ Auth::user()->role }}</p>
 								</div>
 								<a class="dropdown-item border-top" href="/profil">
-									<i class="fe fe-user"></i> Profil
-								</a>
-								<a class="dropdown-item" href="/editprofil">
-									<i class="fe fe-edit"></i> Edit Profil
+									<i class="fe fe-user"></i> Profil & Edit Profil
 								</a>
 								<a class="dropdown-item" href="/logout">
 									<i class="fe fe-power"></i> Keluar
@@ -526,7 +481,7 @@
 				<div class="container-fluid">
 					<div class="inner-body">
 
-
+		
 						<!-- Page Header -->
 						<div class="page-header">
 							<div>
@@ -569,12 +524,15 @@
 										</div>
 									</div>
 									<ul class="item1-links nav nav-tabs  mb-0">
-
+										
 										<li class="nav-item">
-											<a data-target="/profil"  class="nav-link active" data-toggle="tab" role="tablist"><i class="ti-credit-card icon1"></i>Profil</a>
+											<a data-target="/profil"  class="nav-link" data-toggle="tab" role="tablist"><i class="ti-credit-card icon1"></i>Profil</a>
 										</li>
 										<li class="nav-item">
-											<a href="/logout" class="nav-link"><i class="ti-power-off icon1"></i>Keluar</a>
+											<a data-target="/editprofil"  class="nav-link" data-toggle="tab" role="tablist"><i class="ti-credit-card icon1"></i>Edit Profil</a>
+										</li>
+										<li class="nav-item">
+											<a href="/welcome" class="nav-link"><i class="ti-power-off icon1"></i>Kembali</a>
 										</li>
 									</ul>
 								</div>
@@ -584,35 +542,80 @@
 									<div class="card-body">
 										<div class="tab-content" id="myTabContent">
 											<div class="tab-pane fade show active" id="profile" role="tabpanel">
-												<div class="d-flex align-items-start pb-3 border-bottom"> <img src="{{ Auth::user()->foto }}" class="img rounded-circle avatar-xl" alt="">
-													<div class="pl-sm-4 pl-2" id="img-section"> <b>Foto Profil</b>
-														<p class="mb-1"></p> <button class="btn button border btn-sm"><b>Upload</b></button>
-													</div>
-												</div>
-												<div class="py-2">
-													<div class="row py-2">
-														<div class="col-md-6"> <label id="name">Nama</label> <input type="text" class="form-control" name="name" readonly value="{{ Auth::user()->name }}"> </div>
-														<div class="col-md-6 pt-md-0 pt-3"> <label id="email">Email</label> <input type="email" name="email" readonly value="{{ Auth::user()->email }}" class="form-control"> </div>
-													</div>
-													<div class="row py-2">
-														<div class="col-md-6"> <label id="alamat">Alamat</label> <input type="text" name="alamat" readonly class="form-control"> </div>
-														<div class="col-md-6 pt-md-0 pt-3"> <label id="notelpon">No Telpon</label> <input type="number" name="notelpon" readonly class="form-control"> </div>
-													</div>
-													<div class="row py-2">
-														<div class="col-md-6">
-															<label id="negara">Negara</label> <input type="text" name="negara" readonly class="form-control"> </div>
-														</div>
-                                                        </div>
-													</div>
-												</div>
+												<div class="main-content-body tab-pane p-4 border-top-0" id="edit">
+                                                    <div class="card-body border">
+                                                        <div class="mb-4 main-content-label">Informasi Pribadi</div>
+                                                        <form class="form-horizontal">
+                                                            <div class="mb-4 main-content-label"></div>
+                                                            <div class="form-group ">
+                                                                <div class="row row-sm">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Nama</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" class="form-control" name="name">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <div class="row row-sm">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Email</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" class="form-control" name="email">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <div class="row row-sm">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Alamat</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" class="form-control" name="alamat">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <div class="row row-sm">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">No Telpon</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" class="form-control" name="notelpon">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-4 main-content-label"></div>
+                                                            <div class="form-group mb-0">
+                                                                <div class="row row-sm">
+                                                                    <div class="col-md-3">
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <div class="custom-controls-stacked">
+                                                                            </div>
+                                                                        <div class="mt-3">
+                                                                            <button type="button" class="btn btn-primary mr-1">Save</button>
+                                                                            <button type="button" class="btn btn-danger">Reset</button>
+                                                                        </div>
+                                                                    </div>										
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 					</div>
-
+				</div>
+			</div>
+		</div>
+		
+				
 
 		<!-- Main Footer-->
 			<div class="main-footer text-center">
@@ -745,7 +748,7 @@
 		<!-- Bootstrap js-->
 		<script src="{{ asset ('acstemplate/assets/plugins/bootstrap/js/popper.min.js')}}"></script>
         <script src="{{ asset ('acstemplate/assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
-
+        
 		<!-- Select2 js-->
 		<script src="{{ asset ('acstemplate/assets/plugins/select2/js/select2.min.js')}}"></script>
 
@@ -757,10 +760,10 @@
 
 		<!-- Sidebar js -->
 		<script src="{{ asset ('acstemplate/assets/plugins/sidebar/sidebar.js')}}"></script>
-
+		
 				<!-- Internal Check-all-mail js-->
 		<script src="{{ asset ('acstemplate/assets/js/check-all-mail.js')}}"></script>
-
+		
 		<!-- Sticky js -->
 		<script src="{{ asset ('acstemplate/assets/js/sticky.js')}}"></script>
 
