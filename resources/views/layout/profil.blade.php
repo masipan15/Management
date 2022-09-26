@@ -607,22 +607,23 @@
 													</div>
 													<div class="row py-2">
 														<div class="col-md-6"> <label id="emailid">Email</label> <input type="text" class="form-control" readonly value="{{ Auth::user()->email }}"> </div>
-														<div class="col-md-6 pt-md-0 pt-3"> <label id="notelpon">No Telpon</label> <input type="tel" class="form-control"> </div>
+														<div class="col-md-6 pt-md-0 pt-3"> <label readonly id="notelpon">No Telpon</label> <input type="tel" class="form-control"> </div>
 													</div>
 													<div class="row py-2">
 														<div class="col-md-6">
 															<label for="negara">Negara</label>
-															<select name="negara" id="negara" class="select2-no-search">
-																<option value="Indonesia" selected>Indonesia</option>
+															<select name="negara" readonly id="negara" class="select2-no-search">
+																<option value="Indonesia">Indonesia</option>
 																<option value="Inggris">Inggris</option>
 																<option value="China">China</option>
 															</select>
 														</div>
-                                                        <div class="col-md-6 pt-md-0 pt-3" id="lang"> <label for="Alamat">Alamat</label>
+                                                        <div class="col-md-6 pt-md-0 pt-3" id="lang">
 															<div class="arrow">
-                                                                <div class="col-md-6 pt-md-0 pt-3"> <label id="alamat">No Telpon</label> <input type="tel" class="form-control"> </div>
+                                                                <label id="alamat">Alamat</label> <input type="tel" class="form-control"> </div>
 													
-														
+                                                            </div>
+                                                        </div>
 													</div>
 												</div>
 											</div>
