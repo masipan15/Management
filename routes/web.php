@@ -4,6 +4,7 @@ use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\BarangkeluarController;
 use App\Http\Controllers\DesainController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\servisController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('/welcome', function () {
     return view('welcome');
-})->middleware('auth');
+});
 
 Route::get('tes', function () {
     return view('crypto');
@@ -94,3 +95,9 @@ Route::get('/deletes/{id}', [DesainController::class, 'deletes'])->name('deletes
  Route::get('/register',[LoginController::class, 'register'])->name('register')->middleware('guest');
  Route::post('/registeruser',[LoginController::class, 'registeruser'])->name('registeruser');
  Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
+
+
+
+ //profil
+ Route::get('/profil',[ProfilController::class, 'profil'])->name('profil');
+

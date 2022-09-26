@@ -239,6 +239,13 @@
                         @endif
                     </ul>
                 </li>
+                @if (auth()->user()->role == 'admin')   
+                <li class="nav-item">
+                    <a class="nav-link" href="profil"><span class="shape1"></span><span
+                            class="shape2"></span><i class="ti-agenda sidemenu-icon"></i><span
+                            class="sidemenu-label">profil</span></a>
+                </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="logout"><span class="shape1"></span><span
                             class="shape2"></span><i class="ti-agenda sidemenu-icon"></i><span
@@ -284,7 +291,7 @@
                                 <h6 class="main-notification-title">Sonia Taylor</h6>
                                 <p class="main-notification-text">Web Designer</p>
                             </div>
-                            <a class="dropdown-item border-top" href="profile.html">
+                            <a class="dropdown-item border-top" href="/profil">
                                 <i class="fe fe-user"></i> My Profile
                             </a>
                             <a class="dropdown-item" href="profile.html">
