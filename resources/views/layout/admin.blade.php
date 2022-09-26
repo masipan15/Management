@@ -115,13 +115,13 @@
                         @endif
                     </ul>
                 </li>
-                {{-- @if (auth()->user()->role == 'admin')   
+                @if (auth()->user()->role == 'admin')   
                 <li class="nav-item">
                     <a class="nav-link" href="profil"><span class="shape1"></span><span
                             class="shape2"></span><i class="ti-agenda sidemenu-icon"></i><span
                             class="sidemenu-label">profil</span></a>
                 </li>
-                @endif --}}
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="logout"><span class="shape1"></span><span class="shape2"></span><i
                             class="ti-agenda sidemenu-icon"></i><span class="sidemenu-label">Logout</span></a>

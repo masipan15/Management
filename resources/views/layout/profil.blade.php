@@ -603,26 +603,17 @@
 												</div>
 												<div class="py-2">
 													<div class="row py-2">
-														<div class="col-md-6"> <label id="name">Nama</label> <input type="text" class="form-control" readonly value="{{ Auth::user()->name }}"> </div>
+														<div class="col-md-6"> <label id="name">Nama</label> <input type="text" class="form-control" name="name" readonly value="{{ Auth::user()->name }}"> </div>
+														<div class="col-md-6 pt-md-0 pt-3"> <label id="email">Email</label> <input type="email" name="email" readonly value="{{ Auth::user()->email }}" class="form-control"> </div>
 													</div>
 													<div class="row py-2">
-														<div class="col-md-6"> <label id="emailid">Email</label> <input type="text" class="form-control" readonly value="{{ Auth::user()->email }}"> </div>
-														<div class="col-md-6 pt-md-0 pt-3"> <label readonly id="notelpon">No Telpon</label> <input type="tel" class="form-control"> </div>
+														<div class="col-md-6"> <label id="alamat">Alamat</label> <input type="text" name="alamat" readonly class="form-control"> </div>
+														<div class="col-md-6 pt-md-0 pt-3"> <label id="notelpon">No Telpon</label> <input type="number" name="notelpon" readonly class="form-control"> </div>
 													</div>
 													<div class="row py-2">
 														<div class="col-md-6">
-															<label for="negara">Negara</label>
-															<select name="negara" readonly id="negara" class="select2-no-search">
-																<option value="Indonesia">Indonesia</option>
-																<option value="Inggris">Inggris</option>
-																<option value="China">China</option>
-															</select>
+															<label id="negara">Negara</label> <input type="text" name="negara" readonly class="form-control"> </div>
 														</div>
-                                                        <div class="col-md-6 pt-md-0 pt-3" id="lang">
-															<div class="arrow">
-                                                                <label id="alamat">Alamat</label> <input type="tel" class="form-control"> </div>
-													
-                                                            </div>
                                                         </div>
 													</div>
 												</div>
@@ -632,13 +623,8 @@
 								</div>
 							</div>
 						</div>
-						<!--End Row -->
-
-
 					</div>
-				</div>
-			</div>
-			<!-- End Main Content-->
+				
 
 		<!-- Main Footer-->
 			<div class="main-footer text-center">

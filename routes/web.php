@@ -21,11 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('login');
-});
+})->middleware('auth');
 
 Route::get('/welcome', function () {
     return view('welcome');
-});
+})->middleware('auth');
 
 Route::get('tes', function () {
     return view('crypto');
@@ -35,7 +35,7 @@ Route::get('tes', function () {
 Route::group(['middleware' => ['auth', 'hakakses:admin,servis,desain']], function () {
 
     //barang masuk
-    Route::get('barangmasuk', [BarangmasukController::class, 'barangmasuk'])->name('barangmasuk');
+    Route::get('barangmasuk', [BarangmasukController::class, 'barangmasuk'])->name('barangmasuk')->middleware('auth');
     Route::get('tambahbarangmasuk', [BarangmasukController::class, 'tambahbarangmasuk'])->name('tambahbarangmasuk');
     Route::post('prosestambah', [BarangmasukController::class, 'prosestambah'])->name('prosestambah');
     Route::get('/editbrgmsk/{id}', [BarangmasukController::class, 'editbrgmsk'])->name('editbrgmsk');
@@ -58,7 +58,7 @@ Route::group(['middleware' => ['auth', 'hakakses:admin,servis,desain']], functio
 Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
 
     //servis
-    Route::get('/dataservis', [servisController::class, 'dataservis'])->name('dataservis');
+    Route::get('/dataservis', [servisController::class, 'dataservis'])->name('dataservis')->middleware('auth');
     Route::get('/tambahservis', [servisController::class, 'tambahservis'])->name('tambahservis');
     Route::post('/insertservis', [servisController::class, 'insertservis'])->name('insertservis');
     Route::get('/editservis/{id}', [servisController::class, 'editservis'])->name('editservis');
@@ -73,7 +73,7 @@ Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
 Route::group(['middleware' => ['auth', 'hakakses:desain,admin']], function () {
 
     //desain
-    Route::get('/datadesain', [DesainController::class, 'index'])->name('datadesain');
+    Route::get('/datadesain', [DesainController::class, 'index'])->name('datadesain')->middleware('auth');
     Route::get('/tambahdesain', [DesainController::class, 'tambahdesain'])->name('tambahdesain');
     Route::post('/insertdesain', [DesainController::class, 'insertdesain'])->name('insertdesain');
     Route::get('/editdesain/{id}', [DesainController::class, 'editdesain'])->name('editdesain');

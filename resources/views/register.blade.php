@@ -59,8 +59,7 @@
             <div class="form_holder sidebar-right1">
                 <div class="row">
                     <div class="predefined_styles">
-                        <div class="swichermainleft text-center">
-                            <div class="p-3">
+                        <div class="swichermainleft text-cMasukkan Sandi Anda class="p-3">
                                 <a href="http://laravel.spruko.com/spruha/index.html"
                                     class="btn btn-primary btn-block mt-0">View Demo</a>
                                 <a href="https://themeforest.net/user/spruko/portfolio"
@@ -185,35 +184,34 @@
                     <div class="row row-sm">
                         <div class="col-lg-6 col-xl-5 d-none d-lg-block text-center bg-primary details">
                             <div class="mt-5 pt-5 p-2 pos-absolute">
-                                <img src="{{ asset('acstemplate/assets/img/brand/logo-light.png') }}"
-                                    class="header-brand-img mb-4" alt="logo">
+                                {{-- <img src="{{ asset('acstemplate/assets/img/brand/logo-light.png') }}"
+                                    class="header-brand-img mb-4" alt="logo"> --}}
                                 <div class="clearfix"></div>
                                 <img src="{{ asset('acstemplate/assets/img/svgs/user.svg') }}" class="ht-100 mb-0"
                                     alt="user">
-                                <h5 class="mt-4 text-white">Create Your Account</h5>
-                                <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Signup to create, discover and connect with
-                                    the global community</span>
+                                <h5 class="mt-4 text-white">Buat akunmu</h5>
+                                <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Daftar untuk membuat, menemukan, dan terhubung dengan komunitas global</span>
                             </div>
                         </div>
                         <div class="col-lg-6 col-xl-7 col-xs-12 col-sm-12 login_form ">
                             <div class="container-fluid">
                                 <div class="row row-sm">
                                     <div class="card-body mt-2 mb-2">
-                                        <img src="{{ asset('acstemplate/assets/img/brand/logo.png') }}"
+                                        {{-- <img src="{{ asset('acstemplate/assets/img/brand/logo.png') }}"
                                             class=" d-lg-none header-brand-img text-left float-left mb-4"
-                                            alt="logo">
+                                            alt="logo"> --}}
                                         <div class="clearfix"></div>
-                                        <h5 class="text-left mb-2">Signup for Free</h5>
-                                        <p class="mb-4 text-muted tx-13 ml-0 text-left">It's free to signup and only
-                                            takes a minute.</p>
+                                        <h5 class="text-left mb-2">Mendaftar gratis</h5>
+                                        <p class="mb-4 text-muted tx-13 ml-0 text-left">Gratis untuk mendaftar dan hanya
+                                            membutuhkan waktu satu menit.</p>
 
 
                                         <form action="/registeruser" method="post">
                                             @csrf
                                             <div class="form-group text-left">
-                                                <label>Name</label>
+                                                <label>Nama</label>
                                                 <input class="form-control" name="name"
-                                                    placeholder="Enter your Name" type="text">
+                                                    placeholder="Masukkan Nama Anda" type="text">
                                             </div>
                                             @error('name')
                                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -221,15 +219,15 @@
                                             <div class="form-group text-left">
                                                 <label>Email</label>
                                                 <input class="form-control" name="email"
-                                                    placeholder="Enter your email" type="text">
+                                                    placeholder="Masukkan Email Anda" type="text">
                                             </div>
                                             @error('email')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                             <div class="form-group text-left">
-                                                <label>Password</label>
+                                                <label>Sandi</label>
                                                 <input class="form-control" name="password"
-                                                    placeholder="Enter your password" type="password">
+                                                    placeholder="Masukkan Sandi Anda" type="password">
                                             </div>
                                             @error('password')
                                                 <div class="alert alert-danger">{{ $message }}</div>
