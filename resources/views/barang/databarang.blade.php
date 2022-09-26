@@ -95,6 +95,9 @@
                                 class="sidemenu-label">Tables</span><i class="angle fe fe-chevron-right"></i></a>
                         <ul class="nav-sub">
                             <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="/databarang">Data Barang</a>
+                            </li>
+                            <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/datadesain">Data Desain</a>
                             </li>
                             <li class="nav-sub-item">
@@ -339,20 +342,20 @@
                                         src="{{ asset('acstemplate/assets/img/users/1.jpg') }}"></span>
                             </a>
                             <div class="dropdown-menu">
-								<div class="header-navheading">
-									<h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
-									<p class="main-notification-text">{{ Auth::user()->role }}</p>
-								</div>
-								<a class="dropdown-item border-top" href="/profil">
-									<i class="fe fe-user"></i> Profil
-								</a>
-								<a class="dropdown-item" href="/editprofil">
-									<i class="fe fe-edit"></i> Edit Profil
-								</a>
-								<a class="dropdown-item" href="/logout">
-									<i class="fe fe-power"></i> Keluar
-								</a>
-							</div>
+                                <div class="header-navheading">
+                                    <h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
+                                    <p class="main-notification-text">{{ Auth::user()->role }}</p>
+                                </div>
+                                <a class="dropdown-item border-top" href="/profil">
+                                    <i class="fe fe-user"></i> Profil
+                                </a>
+                                <a class="dropdown-item" href="/editprofil">
+                                    <i class="fe fe-edit"></i> Edit Profil
+                                </a>
+                                <a class="dropdown-item" href="/logout">
+                                    <i class="fe fe-power"></i> Keluar
+                                </a>
+                            </div>
                         </div>
                         <div class="dropdown  header-settings">
                             <a href="#" class="nav-link icon" data-toggle="sidebar-right"
@@ -390,7 +393,7 @@
                             <div class="card custom-card overflow-hidden">
                                 <div class="card-body">
                                     <div>
-                                        <a href="/tambahbarangkeluar" class="btn btn-primary">Tambah</a>
+                                        <a href="/tambahdatabarang" class="btn btn-primary">Tambah</a>
                                         <p class="text-muted card-sub-title"></p>
                                     </div>
                                     <div class="table-responsive">
@@ -398,12 +401,13 @@
                                             <thead>
                                                 <tr>
                                                     <th class="wd-20p">No</th>
+                                                    <th class="wd-25p">Kode Barang</th>
                                                     <th class="wd-20p">Nama Barang</th>
-                                                    <th class="wd-25p">Harga Jual</th>
-                                                    <th class="wd-20p">Jumlah</th>
-                                                    <th class="wd-15p">Total</th>
-                                                    <th class="wd-15p">Aksi</th>
-
+                                                    <th class="wd-15p">Stok</th>
+                                                    <th class="wd-20p">Harga</th>
+                                                    <th class="wd-20p">Harga Jual</th>
+                                                    <th class="wd-20p">Foto</th>
+                                                    <th class="wd-20p">Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -413,19 +417,25 @@
                                                 @foreach ($data as $row)
                                                     <tr>
                                                         <th scope="row">{{ $no++ }}</th>
-                                                        <td>{{ $row->nama_barang }}</td>
-                                                        <td>Rp.{{ number_format($row['harga_jual'],2,'.','.') }}</td>
-                                                        <td>{{ $row->jumlah }}</td>
-                                                        <td>Rp.{{ number_format($row['total'],2,'.','.') }}</td>
+                                                        <td>{{ $row->kodebarang }}</td>
+                                                        <td>{{ $row->namabarang }}</td>
+                                                        <td>{{ $row->stok }}</td>
+                                                        <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
+                                                        <td>Rp.{{ number_format($row['hargajual'], 2, '.', '.') }}</td>
+                                                        <td>
+                                                            <img src="{{ asset('fotobrgmsk/' . $row->foto) }}"
+                                                                alt="" style="width: 50px";>
+                                                        </td>
+                                                        
 
                                                         <td>
-                                                            {{-- <a href="/editbrgklr/{{ $row->id }}"
+                                                            <a href="/editdesain/{{ $row->id }}"
                                                                 class="btn btn-success mb-1"><i
-                                                                    class="fas fa-pencil-alt"></i>Edit</a><br> --}}
-                                                            <a href="/delete/{{ $row->id }}"
+                                                                    class="fas fa-pencil-alt"></i>edit</a><br>
+                                                            <a href="/deletes/{{ $row->id }}"
                                                                 class="btn btn-danger"
                                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
-                                                                    class="fas fa-trash-alt"></i>Hapus</button></a>
+                                                                    class="fas fa-trash-alt"></i>hapus</button></a>
                                                         </td>
                                                     </tr>
                                                 @endforeach

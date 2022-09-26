@@ -93,26 +93,33 @@
                             class="shape2"></span><i class="ti-agenda sidemenu-icon"></i><span
                             class="sidemenu-label">Tables</span><i class="angle fe fe-chevron-right"></i></a>
                     <ul class="nav-sub">
-                       
+
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/datadesain">Data Desain</a>
                             </li>
-                        
-                       
+
+
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/dataservis">Data Servis</a>
                             </li>
-                        
-                       
+
+
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/barangmasuk">Barang Masuk</a>
                             </li>
-                        
-                       
+
+
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
                             </li>
-                        
+
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="/pengeluaran">Pengeluaran</a>
+                            </li>
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="/pemasukan">Pemasukan</a>
+                            </li>
+
                     </ul>
                 </li>
 

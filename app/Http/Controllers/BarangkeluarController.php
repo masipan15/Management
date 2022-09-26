@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\barangkeluar;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BarangkeluarController extends Controller
 {
@@ -12,8 +13,8 @@ class BarangkeluarController extends Controller
         $data = barangkeluar::all();
         return view('keluar.barangklr',compact('data'));
     }
-    
-    
+
+
     public function tambahbrgklr()
     {
         return view('keluar.tambahbarangklr');
@@ -61,7 +62,7 @@ class BarangkeluarController extends Controller
             'total' => $request->total,
         ]);
         return redirect()->route('barangkeluar')->with('success', 'Data berhasil di Update!');
-        
+
     }
 
     public function delete($id)
@@ -69,6 +70,24 @@ class BarangkeluarController extends Controller
         $data = barangkeluar::find($id);
         $data->delete();
         return redirect()->route('barangkeluar')->with('success', 'Data Berhasil Di Hapus');
+    }
+
+    public function pemasukan()
+    {
+        $pemasukan = barangkeluar::select(
+
+            DB::raw("(sum(total)) as total"),
+            DB::raw("(DATE_FORMAT(created_at, '%d')) as day"),
+            DB::raw("(DATE_FORMAT(created_at, '%M')) as month"),
+            DB::raw("(DATE_FORMAT(created_at, '%Y')) as year")
+        )
+            ->orderBy('created_at')
+            ->groupBy(DB::raw("DATE_FORMAT(created_at, '%d')"))
+            ->groupBy(DB::raw("DATE_FORMAT(created_at, '%M')"))
+            ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y')"))
+            ->get();
+
+        return view('keluar.pemasukan', compact('pemasukan'));
     }
 
 }

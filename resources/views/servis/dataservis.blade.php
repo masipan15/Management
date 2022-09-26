@@ -105,6 +105,12 @@
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
                             </li>
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="/pengeluaran">Pengeluaran</a>
+                            </li>
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="/pemasukan">Pemasukan</a>
+                            </li>
                     </li>
 
                 </ul>
@@ -491,3 +497,5 @@
 <!-- Mirrored from laravel.spruko.com/spruha/ltr/tabledata by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 Sep 2022 01:09:56 GMT -->
 
 </html>
+
+
