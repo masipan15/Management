@@ -108,10 +108,6 @@
                     </li>
 
                 </ul>
-                <li class="nav-item">
-                    <a class="nav-link" href="logout"><span class="shape1"></span><span class="shape2"></span><i
-                            class="ti-agenda sidemenu-icon"></i><span class="sidemenu-label">Logout</span></a>
-                </li>
 
                 </ul>
                 </li>
