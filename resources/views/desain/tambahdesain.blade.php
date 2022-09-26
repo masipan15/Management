@@ -25,10 +25,10 @@
                 <div class="card custom-card">
                     <div class="card-body">
                         <div>
-                            <h3 class="main-content-label mb-1">Tambah Barang Keluar</h3>
+                            <h3 class="main-content-label mb-1">Tambah Desain</h3>
                             <p class="text-muted card-sub-title"></p>
                         </div>
-                        <form action="/insertbarangkeluar" method="post" enctype="multipart/form-data">
+                        <form action="/insertdesain" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="" class="">Permintaan Desain</label>
@@ -51,7 +51,7 @@
                                 @enderror
                                 <div class="mb-3">
                                     <label for="" class="">Status</label>
-                                    <input type="number" name="status_pengerjaan" id="status_pengerjaan"
+                                    <input type="text" name="status_pengerjaan" id="status_pengerjaan"
                                         class="form-control" aria-describedby="emailHelp">
                                 </div>
                                 @error('status_pengerjaan')

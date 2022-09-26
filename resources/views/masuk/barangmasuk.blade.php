@@ -431,12 +431,15 @@
                                                         <td>{{ $row->jumlah }}</td>
                                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
                                                         <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
+                                                        <td>
+                                                            <img src="{{ asset('fotobrgmsk/'.$row->foto) }}" alt="" style="width: 50px;">
+                                                        </td>
 
                                                         <td>
                                                             {{-- <a href="/editdesain/{{ $row->id }}"
                                                                 class="btn btn-success mb-1"><i
                                                                     class="fas fa-pencil-alt"></i>edit</a><br> --}}
-                                                            <a href="/deletes/{{ $row->id }}"
+                                                            <a href="/deletee/{{ $row->id }}"
                                                                 class="btn btn-danger"
                                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                                     class="fas fa-trash-alt"></i>hapus</button></a>

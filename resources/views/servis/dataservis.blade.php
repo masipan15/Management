@@ -100,9 +100,6 @@
                                 <a class="nav-sub-link" href="/dataservis">Data Servis</a>
                             </li>
                             <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="/datadesain">Data Desain</a>
-                            </li>
-                            <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/barangmasuk">Barang Masuk</a>
                             </li>
                             <li class="nav-sub-item">
@@ -438,10 +435,10 @@
                                                      <td>Rp.{{ number_format($row['biaya_servis'],2,'.','.') }}</td>
 
                                                         <td>
-                                                            <a href="/editdesain/{{ $row->id }}"
+                                                            <a href="/editservis/{{ $row->id }}"
                                                                 class="btn btn-success mb-1"><i
                                                                     class="fas fa-pencil-alt"></i>edit</a><br>
-                                                            <a href="/deletes/{{ $row->id }}"
+                                                            <a href="/deletet/{{ $row->id }}"
                                                                 class="btn btn-danger"
                                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                                     class="fas fa-trash-alt"></i>hapus</button></a>

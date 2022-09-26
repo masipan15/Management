@@ -28,7 +28,7 @@
                             <h3 class="main-content-label mb-1">Tambah Barang Keluar</h3>
                             <p class="text-muted card-sub-title"></p>
                         </div>
-                        <form action="/insertbarangkeluar" method="post" enctype="multipart/form-data">
+                        <form action="/prosestambah" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="" class="">Nama Barang</label>
@@ -40,6 +40,17 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="" class="">Harga</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                    <input type="text" name="harga" id="harga" class="form-control"
+                                    aria-describedby="emailHelp">
+                                </div>
+                            </div>
+                            @error('harga')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="mb-3">
                                 <label for="" class="">Jumlah</label>
                                 <div class="input-group mb-3">
 
@@ -50,18 +61,6 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                                 <div class="mb-3">
-                                    <label for="" class="">Harga</label>
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
-
-                                        <input type="number" name="harga" id="harga" class="form-control"
-                                            aria-describedby="emailHelp">
-                                    </div>
-                                </div>
-                                @error('harga')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                                <div class="mb-3">
                                     <label for="" class="">Total</label>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Rp.</span>
@@ -69,9 +68,6 @@
                                             aria-describedby="emailHelp">
                                     </div>
                                 </div>
-                                @error('total')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
                                 <div class="mb-3">
                                     <label for="" class="">Masukkan Gambar</label>
                                     <div class="input-group mb-3">
@@ -113,15 +109,15 @@
             $(document).ready(function() {
                 $("#jumlah").change(function() {
                     var jumlah = $("#jumlah").val();
-                    var harga_jual = $("#harga_jual").val();
-                    var total = jumlah * harga_jual
+                    var harga = $("#harga").val();
+                    var total = jumlah * harga
                     $("#total").val(total);
                 });
             });
             $("#jumlah").keyup(function() {
                 var jumlah = $("#jumlah").val();
-                var harga_jual = $("#harga_jual").val();
-                var total = jumlah * harga_jual
+                var harga = $("#harga").val();
+                var total = jumlah * harga
                 $("#total").val(total);
             });
         </script>

@@ -42,7 +42,7 @@
                             <div class="mb-3">
                                 <label for="" class="">Merk</label>
                                 <div class="input-group mb-3">
-                                    <input type="number" name="merk_barang" id="merk_barang" class="form-control"
+                                    <input type="text" name="merk_barang" id="merk_barang" class="form-control"
                                         aria-describedby="emailHelp">
                                 </div>
                                 @error('harga_jual')
@@ -53,15 +53,26 @@
                                     <input type="text" name="kerusakan_barang" id="kerusakan_barang" class="form-control"
                                         aria-describedby="emailHelp">
                                 </div>
+                                @error('kerusakan_barang')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <div class="mb-3">
+                                    <label for="" class="">Status</label>
+                                    <input type="text" name="status_pengerjaan" id="status_pengerjaan" class="form-control"
+                                        aria-describedby="emailHelp">
+                                </div>
+                                @error('status_pengerjaan')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
 
                                 <div class="mb-3">
-                                    <label for="" class=""></label>
+                                    <label for="" class="">Biaya</label>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                        <input type="text" name="total" readonly id="total" class="form-control"
+                                        <input type="text" name="biaya_servis"  id="biaya_servis" class="form-control"
                                             aria-describedby="emailHelp">
                                     </div>
-                                    @error('total')
+                                    @error('biaya_servis')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                     <div class="form-group mg-b-20">
