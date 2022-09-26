@@ -529,6 +529,9 @@
 											<a data-target="/profil"  class="nav-link" data-toggle="tab" role="tablist"><i class="ti-credit-card icon1"></i>Profil</a>
 										</li>
 										<li class="nav-item">
+											<a data-target="/editprofil"  class="nav-link" data-toggle="tab" role="tablist"><i class="ti-credit-card icon1"></i>Edit Profil</a>
+										</li>
+										<li class="nav-item">
 											<a href="/welcome" class="nav-link"><i class="ti-power-off icon1"></i>Kembali</a>
 										</li>
 									</ul>
