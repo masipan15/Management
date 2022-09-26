@@ -5,7 +5,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     @endpush
-    
+
     <!doctype html>
     <html lang="en">
 
@@ -40,7 +40,7 @@
                                                 <form action="/updateservis/{{ $data->id }}" method="post"
                                                     enctype="multipart/form-data">
                                                     @csrf
-                                                    
+
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">Nama
                                                             Barang</label>
@@ -74,7 +74,7 @@
                                                             id="exampleInputEmail1" value="{{ $data->biaya_servis }}"
                                                             aria-describedby="emailHelp">
                                                     </div>
-                                                    
+
                                                     <button type="submit" class="btn btn-success">Simpan</button>
                                                     <a href="/dataservis" type="button" class="btn btn-danger">
                                                         Batal
