@@ -220,7 +220,10 @@
                         <ul class="nav-sub">
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/dataservis">Data Servis</a>
-                            <li class="nav-sub-item"> </li>
+                            </li>
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="/datadesain">Data Desain</a>
+                            </li>
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/barangmasuk">Barang Masuk</a>
                             </li>
