@@ -107,7 +107,7 @@
                                 <a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
                             </li>
                             <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="/pengeluaran">Pengluaran</a>
+                                <a class="nav-sub-link" href="/pengeluaran">Pengeluaran</a>
                             </li>
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/pemasukan">Pemasukan</a>

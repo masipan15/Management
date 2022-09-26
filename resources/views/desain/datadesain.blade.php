@@ -336,22 +336,6 @@
                                         src="{{ asset('acstemplate/assets/img/users/1.jpg') }}"></span>
                             </a>
                             <div class="dropdown-menu">
-<<<<<<< HEAD
-                                <div class="header-navheading">
-                                    <h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
-                                    <p class="main-notification-text">{{ Auth::user()->role }}</p>
-                                </div>
-                                <a class="dropdown-item border-top" href="/profil">
-                                    <i class="fe fe-user"></i> Profil
-                                </a>
-                                <a class="dropdown-item" href="/editprofil">
-                                    <i class="fe fe-edit"></i> Edit Profil
-                                </a>
-                                <a class="dropdown-item" href="/logout">
-                                    <i class="fe fe-power"></i> Keluar
-                                </a>
-                            </div>
-=======
 								<div class="header-navheading">
 									<h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
 									<p class="main-notification-text">{{ Auth::user()->role }}</p>
@@ -363,7 +347,6 @@
 									<i class="fe fe-power"></i> Keluar
 								</a>
 							</div>
->>>>>>> 33037c8890f601425757b26f344b36475579b9a6
                         </div>
                         <div class="dropdown  header-settings">
                             <a href="#" class="nav-link icon" data-toggle="sidebar-right"
