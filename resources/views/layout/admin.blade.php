@@ -93,39 +93,27 @@
                             class="shape2"></span><i class="ti-agenda sidemenu-icon"></i><span
                             class="sidemenu-label">Tables</span><i class="angle fe fe-chevron-right"></i></a>
                     <ul class="nav-sub">
-                        @if (auth()->user()->role == 'admin')
+                       
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/datadesain">Data Desain</a>
                             </li>
-                        @endif
-                        @if (auth()->user()->role == 'admin')
+                        
+                       
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/dataservis">Data Servis</a>
                             </li>
-                        @endif
-                        @if (auth()->user()->role == 'admin')
+                        
+                       
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/barangmasuk">Barang Masuk</a>
                             </li>
-                        @endif
-                        @if (auth()->user()->role == 'admin')
+                        
+                       
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
                             </li>
-                        @endif
+                        
                     </ul>
-                </li>
-                @if (auth()->user()->role == 'admin')   
-                <li class="nav-item">
-                    <a class="nav-link" href="profil"><span class="shape1"></span><span
-                            class="shape2"></span><i class="ti-agenda sidemenu-icon"></i><span
-                            class="sidemenu-label">profil</span></a>
-                </li>
-                @endif
-                <li class="nav-item">
-                    <a class="nav-link" href="logout"><span class="shape1"></span><span class="shape2"></span><i
-                            class="ti-agenda sidemenu-icon"></i><span class="sidemenu-label">Logout</span></a>
-
                 </li>
 
                 </ul>
@@ -163,26 +151,17 @@
                         </a>
                         <div class="dropdown-menu">
                             <div class="header-navheading">
-                                <h6 class="main-notification-title">Sonia Taylor</h6>
-                                <p class="main-notification-text">Web Designer</p>
+                                <h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
+                                <p class="main-notification-text">{{ Auth::user()->role }}</p>
                             </div>
                             <a class="dropdown-item border-top" href="/profil">
-                                <i class="fe fe-user"></i> My Profile
+                                <i class="fe fe-user"></i> Profil
                             </a>
-                            <a class="dropdown-item" href="profile.html">
-                                <i class="fe fe-edit"></i> Edit Profile
-                            </a>
-                            <a class="dropdown-item" href="profile.html">
-                                <i class="fe fe-settings"></i> Account Settings
-                            </a>
-                            <a class="dropdown-item" href="profile.html">
-                                <i class="fe fe-settings"></i> Support
-                            </a>
-                            <a class="dropdown-item" href="profile.html">
-                                <i class="fe fe-compass"></i> Activity
+                            <a class="dropdown-item" href="/editprofil">
+                                <i class="fe fe-edit"></i> Edit Profil
                             </a>
                             <a class="dropdown-item" href="/logout">
-                                <i class="fe fe-power"></i> Sign Out
+                                <i class="fe fe-power"></i> Keluar
                             </a>
                         </div>
                     </div>
@@ -276,29 +255,20 @@
                                         src="{{ asset('acstemplate/assets/img/users/1.jpg') }}"></span>
                             </a>
                             <div class="dropdown-menu">
-                                <div class="header-navheading">
-                                    <h6 class="main-notification-title">Sonia Taylor</h6>
-                                    <p class="main-notification-text">Web Designer</p>
-                                </div>
-                                <a class="dropdown-item border-top" href="profile.html">
-                                    <i class="fe fe-user"></i> My Profile
-                                </a>
-                                <a class="dropdown-item" href="profile.html">
-                                    <i class="fe fe-edit"></i> Edit Profile
-                                </a>
-                                <a class="dropdown-item" href="profile.html">
-                                    <i class="fe fe-settings"></i> Account Settings
-                                </a>
-                                <a class="dropdown-item" href="profile.html">
-                                    <i class="fe fe-settings"></i> Support
-                                </a>
-                                <a class="dropdown-item" href="profile.html">
-                                    <i class="fe fe-compass"></i> Activity
-                                </a>
-                                <a class="dropdown-item" href="signin.html">
-                                    <i class="fe fe-power"></i> Sign Out
-                                </a>
-                            </div>
+								<div class="header-navheading">
+									<h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
+									<p class="main-notification-text">{{ Auth::user()->role }}</p>
+								</div>
+								<a class="dropdown-item border-top" href="/profil">
+									<i class="fe fe-user"></i> Profil
+								</a>
+								<a class="dropdown-item" href="/editprofil">
+									<i class="fe fe-edit"></i> Edit Profil
+								</a>
+								<a class="dropdown-item" href="/logout">
+									<i class="fe fe-power"></i> Keluar
+								</a>
+							</div>
                         </div>
                         <div class="dropdown  header-settings">
                             <a href="#" class="nav-link icon" data-toggle="sidebar-right"

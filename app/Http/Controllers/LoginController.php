@@ -51,6 +51,9 @@ class LoginController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'alamat' =>'-' ,
+            'notelpon' => '-',
+            'foto' => '-',
             'remember_token' => Str::random(60),
         ]);
         return redirect('/login');
