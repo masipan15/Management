@@ -339,26 +339,17 @@
 							</a>
 							<div class="dropdown-menu">
 								<div class="header-navheading">
-									<h6 class="main-notification-title">Sonia Taylor</h6>
-									<p class="main-notification-text">Web Designer</p>
+									<h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
+									<p class="main-notification-text">{{ Auth::user()->role }}</p>
 								</div>
-								<a class="dropdown-item border-top" href="profile.html">
-									<i class="fe fe-user"></i> My Profile
+								<a class="dropdown-item border-top" href="/profil">
+									<i class="fe fe-user"></i> Profil
 								</a>
-								<a class="dropdown-item" href="profile.html">
-									<i class="fe fe-edit"></i> Edit Profile
+								<a class="dropdown-item" href="/editprofil">
+									<i class="fe fe-edit"></i> Edit Profil
 								</a>
-								<a class="dropdown-item" href="profile.html">
-									<i class="fe fe-settings"></i> Account Settings
-								</a>
-								<a class="dropdown-item" href="profile.html">
-									<i class="fe fe-settings"></i> Support
-								</a>
-								<a class="dropdown-item" href="profile.html">
-									<i class="fe fe-compass"></i> Activity
-								</a>
-								<a class="dropdown-item" href="signin.html">
-									<i class="fe fe-power"></i> Sign Out
+								<a class="dropdown-item" href="/logout">
+									<i class="fe fe-power"></i> Keluar
 								</a>
 							</div>
 						</div>
@@ -500,26 +491,17 @@
 							</a>
 							<div class="dropdown-menu">
 								<div class="header-navheading">
-									<h6 class="main-notification-title">Sonia Taylor</h6>
-									<p class="main-notification-text">Web Designer</p>
+									<h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
+									<p class="main-notification-text">{{ Auth::user()->role }}</p>
 								</div>
-								<a class="dropdown-item border-top" href="profile.html">
-									<i class="fe fe-user"></i> My Profile
+								<a class="dropdown-item border-top" href="/profil">
+									<i class="fe fe-user"></i> Profil
 								</a>
-								<a class="dropdown-item" href="profile.html">
-									<i class="fe fe-edit"></i> Edit Profile
+								<a class="dropdown-item" href="/editprofil">
+									<i class="fe fe-edit"></i> Edit Profil
 								</a>
-								<a class="dropdown-item" href="profile.html">
-									<i class="fe fe-settings"></i> Account Settings
-								</a>
-								<a class="dropdown-item" href="profile.html">
-									<i class="fe fe-settings"></i> Support
-								</a>
-								<a class="dropdown-item" href="profile.html">
-									<i class="fe fe-compass"></i> Activity
-								</a>
-								<a class="dropdown-item" href="signin.html">
-									<i class="fe fe-power"></i> Sign Out
+								<a class="dropdown-item" href="/logout">
+									<i class="fe fe-power"></i> Keluar
 								</a>
 							</div>
 						</div>
