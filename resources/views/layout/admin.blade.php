@@ -154,7 +154,7 @@
                     <div class="dropdown main-profile-menu">
                         <a class="d-flex" href="#">
                             <span class="main-img-user"><img alt="avatar"
-                                    src="{{ asset('acstemplate/assets/img/users/1.jpg') }}"></span>
+                                    src="{{ asset('acstemplate/assets/img/wa.png') }}"></span>
                         </a>
                         <div class="dropdown-menu">
                             <div class="header-navheading">
@@ -259,7 +259,7 @@
                         <div class="dropdown main-profile-menu">
                             <a class="d-flex" href="#">
                                 <span class="main-img-user"><img alt="avatar"
-                                        src="{{ asset('acstemplate/assets/img/users/1.jpg') }}"></span>
+                                        src="{{ asset('acstemplate/assets/img/wa.png') }}"></span>
                             </a>
                             <div class="dropdown-menu">
 								<div class="header-navheading">

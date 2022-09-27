@@ -302,7 +302,7 @@
 						</div>
 						<div class="dropdown main-profile-menu">
 							<a class="d-flex" href="#">
-								<span class="main-img-user" ><img alt="avatar" src="{{ asset ('acstemplate/assets/img/users/1.jpg')}}"></span>
+								<span class="main-img-user" ><img alt="avatar" src="{{ asset('acstemplate/assets/img/wa.png') }}"></span>
 							</a>
 							<div class="dropdown-menu">
 								<div class="header-navheading">
@@ -454,7 +454,7 @@
 						</div>
 						<div class="dropdown main-profile-menu">
 							<a class="d-flex" href="#">
-								<span class="main-img-user" ><img alt="avatar" src="{{ asset ('acstemplate/assets/img/users/1.jpg')}}"></span>
+								<span class="main-img-user" ><img alt="avatar" src="{{ asset('acstemplate/assets/img/wa.png') }}"></span>
 							</a>
 							<div class="dropdown-menu">
 								<div class="header-navheading">
@@ -491,10 +491,9 @@
 						<!-- Page Header -->
 						<div class="page-header">
 							<div>
-								<h2 class="main-content-title tx-24 mg-b-5">Account</h2>
+								<h2 class="main-content-title tx-24 mg-b-5">Akun</h2>
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="#">Ecommerce</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Account</li>
+									<li class="breadcrumb-item"><a href="#"></a></li>
 								</ol>
 							</div>
 							<div class="d-flex">

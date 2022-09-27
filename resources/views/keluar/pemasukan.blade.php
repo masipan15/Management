@@ -147,7 +147,7 @@
                     <div class="dropdown main-profile-menu">
                         <a class="d-flex" href="#">
                             <span class="main-img-user"><img alt="avatar"
-                                    src="{{ asset('acstemplate/assets/img/users/1.jpg') }}"></span>
+                                    src="{{ asset('acstemplate/assets/img/wa.png') }}"></span>
                         </a>
                         <div class="dropdown-menu">
                             <div class="header-navheading">
@@ -336,7 +336,7 @@
                         <div class="dropdown main-profile-menu">
                             <a class="d-flex" href="#">
                                 <span class="main-img-user"><img alt="avatar"
-                                        src="{{ asset('acstemplate/assets/img/users/1.jpg') }}"></span>
+                                        src="{{ asset('acstemplate/assets/img/wa.png') }}"></span>
                             </a>
                             <div class="dropdown-menu">
                                 <div class="header-navheading">
@@ -374,10 +374,9 @@
                     <!-- Page Header -->
                     <div class="page-header">
                         <div>
-                            <h2 class="main-content-title tx-24 mg-b-5">DataTable</h2>
+                            <h2 class="main-content-title tx-24 mg-b-5">Pemasukan Barang</h2>
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Maps & Tables</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+                                <li class="breadcrumb-item"><a href="#"></a></li>
                             </ol>
                         </div>
 
