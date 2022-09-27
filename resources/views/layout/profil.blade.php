@@ -48,6 +48,8 @@
 
 	<body class="main-body leftmenu">
 
+		
+
 		<!-- Switcher -->
 		<div class="switcher-wrapper">
 			<div class="demo_changer">
@@ -175,7 +177,59 @@
 					</a>
 				</div>
 				<div class="main-sidebar-body">
-					
+					<div class="main-sidebar main-sidebar-sticky side-menu">
+						<div class="sidemenu-logo">
+							<a class="main-logo" href="index.html">
+								<img src="{{ asset('acstemplate/assets/img/brand/logo-light.png') }}"
+									class="header-brand-img desktop-logo" alt="logo">
+								<img src="{{ asset('acstemplate/assets/img/brand/icon-light.png') }}"
+									class="header-brand-img icon-logo" alt="logo">
+								<img src="{{ asset('acstemplate/assets/img/brand/logo.png') }}"
+									class="header-brand-img desktop-logo theme-logo" alt="logo">
+								<img src="{{ asset('acstemplate/assets/img/brand/icon.png') }}"
+									class="header-brand-img icon-logo theme-logo" alt="logo">
+							</a>
+						</div>
+						<div class="main-sidebar-body">
+							<ul class="nav">
+								<li class="nav-header"><span class="nav-label">Beranda</span></li>
+								<li class="nav-item">
+									<a class="nav-link" href="/welcome"><span class="shape1"></span><span class="shape2"></span><i
+											class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
+								</li>
+			
+								<li class="nav-item show">
+									<a class="nav-link with-sub" href="#"><span class="shape1"></span><span
+											class="shape2"></span><i class="ti-agenda sidemenu-icon"></i><span
+											class="sidemenu-label">Tables</span><i class="angle fe fe-chevron-right"></i></a>
+									<ul class="nav-sub">
+										<li class="nav-sub-item">
+											<a class="nav-sub-link" href="/datadesain">Data Desain</a>
+										</li>
+										<li class="nav-sub-item">
+											<a class="nav-sub-link" href="/dataservis">Data Servis</a>
+										<li class="nav-sub-item"> </li>
+										<li class="nav-sub-item">
+											<a class="nav-sub-link" href="/barangmasuk">Barang Masuk</a>
+										</li>
+										<li class="nav-sub-item">
+											<a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
+										</li>
+										<li class="nav-sub-item">
+											<a class="nav-sub-link" href="/pengeluaran">Pengeluaran</a>
+										</li>
+										<li class="nav-sub-item">
+											<a class="nav-sub-link" href="/pemasukan">Pemasukan</a>
+										</li>
+								</li>
+			
+							</ul>
+			
+							</ul>
+							</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 			<!-- End Sidemenu -->        <!-- Main Header-->
@@ -531,7 +585,7 @@
 									<ul class="item1-links nav nav-tabs  mb-0">
 										
 										<li class="nav-item">
-											<a data-target="/profil"  class="nav-link" data-toggle="tab" role="tablist"><i class="ti-credit-card icon1"></i>Profil</a>
+											<a data-target="/profil" class="nav-link active" data-toggle="tab" role="tablist"><i class="ti-credit-card icon1"></i>Profil</a>
 										</li>
 										<li class="nav-item">
 											<a href="/welcome" class="nav-link"><i class="ti-power-off icon1"></i>Kembali</a>
