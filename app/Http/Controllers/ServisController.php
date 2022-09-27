@@ -21,12 +21,14 @@ class ServisController extends Controller
     public function insertservis(Request $request)
     {
         $validated = $request->validate([
+            'nama_pelanggan' => 'required',
             'nama_barang' => 'required',
             'merk_barang' => 'required',
             'kerusakan_barang' => 'required',
             'status_pengerjaan' => 'required',
             'biaya_servis' => 'required',
         ], [
+            'nama_pelanggan.required' => ' Harus Diisi!',
             'nama_barang.required' => ' Harus Diisi!',
             'merk_barang.required' => ' Harus Diisi!',
             'status_pengerjaan.required' => ' Harus Diisi!',
@@ -35,6 +37,7 @@ class ServisController extends Controller
         ]);
 
         $data = servis::create([
+            'nama_pelanggan' => $request->nama_pelanggan,
             'nama_barang' => $request->nama_barang,
             'merk_barang' => $request->merk_barang,
             'kerusakan_barang' => $request->kerusakan_barang,
@@ -60,6 +63,7 @@ class ServisController extends Controller
     {
         $data = servis::find($id);
         $data->update([
+            'nama_pelanggan' => $request->nama_pelanggan,
             'nama_barang' => $request->nama_barang,
             'merk_barang' => $request->merk_barang,
             'kerusakan_barang' => $request->kerusakan_barang,

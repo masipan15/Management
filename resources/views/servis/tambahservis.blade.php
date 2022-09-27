@@ -32,6 +32,14 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="" class="">Nama
+                                    Pelanggan</label>
+                                <input type="text" name="nama_pelanggan" class="form-control" aria-describedby="emailHelp">
+                                @error('nama_pelanggan')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="">Nama
                                     Barang</label>
                                 <input type="text" name="nama_barang" class="form-control" aria-describedby="emailHelp">
                                 @error('nama_barang')
