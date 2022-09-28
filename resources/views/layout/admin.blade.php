@@ -86,47 +86,51 @@
             </div>
             <div class="main-sidebar-body">
                 <ul class="nav">
-                    <li class="nav-header"><span class="nav-label">Beranda</span></li>
-                    <li class="nav-item active">
+
+                    <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
                         <a class="nav-link" href="/welcome"><span class="shape1"></span><span class="shape2"></span><i
                                 class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
                     </li>
                 </ul>
                 </li>
 
-                <li class="nav-item show">
-                    <a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-                            class="shape2"></span><i class="ti-agenda sidemenu-icon"></i><span
-                            class="sidemenu-label">Tables</span><i class="angle fe fe-chevron-right"></i></a>
-                    <ul class="nav-sub">
 
-                        <li class="nav-sub-item">
-                            <a class="nav-sub-link" href="/datadesain">Data Desain</a>
-                        </li>
+                <li class="nav-header"><span class="nav-label">Barang</span></li>
+                <li class="nav-item {{ Route::is('databarang') ? 'active' : '' }}">
+                    <a class="nav-link" href="databarang"><span class="shape1"></span><span class="shape2"></span><i
+                            class="ti-package sidemenu-icon"></i><span class="sidemenu-label">Data Barang</span></a>
+                </li>
+                <li class="nav-item {{ Route::is('barangmasuk') ? 'active' : '' }}">
+                    <a class="nav-link" href="barangmasuk"><span class="shape1"></span><span class="shape2"></span><i
+                            class="mdi mdi-truck sidemenu-icon"></i><span class="sidemenu-label">Barang Masuk</span></a>
+                </li>
+                <li class="nav-item {{ Route::is('barangkeluar') ? 'active' : '' }}">
+                    <a class="nav-link" href="barangkeluar"><span class="shape1"></span><span
+                            class="shape2"></span><i class="mdi mdi-truck-trailer sidemenu-icon"></i><span
+                            class="sidemenu-label">Barang Keluar</span></a>
+                </li>
 
+                <li class="nav-header"><span class="nav-label">Permintaan</span></li>
+                <li class="nav-item {{ Route::is('datafdesain') ? 'active' : '' }}">
+                    <a class="nav-link" href="datadesain"><span class="shape1"></span><span class="shape2"></span><i
+                            class="ti-server sidemenu-icon"></i><span class="sidemenu-label">Data Desain</span></a>
+                </li>
+                <li class="nav-item {{ Route::is('dataservis') ? 'active' : '' }}">
+                    <a class="nav-link" href="dataservis"><span class="shape1"></span><span class="shape2"></span><i
+                            class="ti-server sidemenu-icon"></i><span class="sidemenu-label">Data Servis</span></a>
+                </li>
 
-                        <li class="nav-sub-item">
-                            <a class="nav-sub-link" href="/dataservis">Data Servis</a>
-                        </li>
+                </ul>
 
-
-                        <li class="nav-sub-item">
-                            <a class="nav-sub-link" href="/barangmasuk">Barang Masuk</a>
-                        </li>
-
-
-                        <li class="nav-sub-item">
-                            <a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
-                        </li>
-
-                        <li class="nav-sub-item">
-                            <a class="nav-sub-link" href="/pengeluaran">Pengeluaran</a>
-                        </li>
-                        <li class="nav-sub-item">
-                            <a class="nav-sub-link" href="/pemasukan">Pemasukan</a>
-                        </li>
-
-                    </ul>
+                <li class="nav-header"><span class="nav-label">Keuangan</span></li>
+                <li class="nav-item {{ Route::is('pemasukan') ? 'active' : '' }}">
+                    <a class="nav-link" href="pemasukan"><span class="shape1"></span><span class="shape2"></span><i
+                            class="ti-server sidemenu-icon"></i><span class="sidemenu-label">Pemasukan</span></a>
+                </li>
+                <li class="nav-item {{ Route::is('pengeluaran') ? 'active' : '' }}">
+                    <a class="nav-link" href="pengeluaran"><span class="shape1"></span><span
+                            class="shape2"></span><i class="ti-server sidemenu-icon"></i><span
+                            class="sidemenu-label">Pengeluaran</span></a>
                 </li>
 
                 </ul>

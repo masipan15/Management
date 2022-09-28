@@ -6,7 +6,10 @@
     <div class="col-lg-12">
         <div class="card custom-card overflow-hidden">
             <div class="card-body">
-
+                <div>
+                    <h4>Pengeluaran</h4>
+                    <p class="text-muted card-sub-title"></p>
+                </div>
                 <div class="table-responsive">
                     <table class="table" id="example1">
                         <thead>
