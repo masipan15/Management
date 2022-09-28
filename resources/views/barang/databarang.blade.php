@@ -16,9 +16,12 @@
                                     <th class="wd-20p">No</th>
                                     <th class="wd-25p">Kode Barang</th>
                                     <th class="wd-20p">Nama Barang</th>
-                                    <th class="wd-15p">Stok</th>
+                                    <th class="wd-15p">Merk</th>
+                                    <th class="wd-25p">Kategori Barang</th>
+                                    <th class="wd-15p">stok</th>
                                     <th class="wd-20p">Harga</th>
                                     <th class="wd-20p">Harga Jual</th>
+                                    <th class="wd-15p">Deskripsi</th>
                                     <th class="wd-20p">Foto</th>
                                     <th class="wd-20p">Aksi</th>
                                 </tr>
@@ -32,9 +35,12 @@
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->kodebarang }}</td>
                                         <td>{{ $row->namabarang }}</td>
+                                        <td>{{ $row->merk }}</td>
+                                        <td>{{ $row->kategori }}</td>
                                         <td>{{ $row->stok }}</td>
                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
                                         <td>Rp.{{ number_format($row['hargajual'], 2, '.', '.') }}</td>
+                                        <td>{{ $row->deskripsi }}</td>
                                         <td>
                                             <img src="{{ asset('fotobarang/' . $row->foto) }}" alt=""
                                                 style="width: 50px";>

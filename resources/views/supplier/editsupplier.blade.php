@@ -61,12 +61,6 @@
                                                             id="exampleInputEmail1" value="{{ $data->notelpon }}"
                                                             aria-describedby="emailHelp">
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
-                                                        <input type="text" name="jenis_kelamin" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->jenis_kelamin }}"
-                                                            aria-describedby="emailHelp">
-                                                    </div>
 
                                                     <button type="submit" class="btn btn-success">Simpan</button>
                                                     <a href="/dataservis" type="button" class="btn btn-danger">

@@ -33,25 +33,41 @@
                             <div class="mb-3">
                                 <label for="" class="">Nama Barang</label>
                                 <input type="text" required name="namabarang" class="form-control"
-                                    aria-describedby="emailHelp">
+                                aria-describedby="emailHelp">
                                 @error('namabarang')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="">Merk</label>
+                                <input type="text" required name="merk" class="form-control"
+                                aria-describedby="emailHelp">
+                                @error('merk')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="">Kategori Barang</label>
+                                <input type="text" required name="kategori" class="form-control"
+                                aria-describedby="emailHelp">
+                                @error('kategori')
+                                <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="" class="">Stok</label>
                                 <input type="text" required name="stok" class="form-control"
-                                    aria-describedby="emailHelp">
+                                aria-describedby="emailHelp">
                                 @error('stok')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-
+                            
                             <div class="mb-3">
                                 <label for="" class="">Harga</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                    <input type="text" name="harga" id="harga" class="form-control"
+                                    <input type="number" name="harga" id="harga" class="form-control"
                                     aria-describedby="emailHelp">
                                 </div>
                             </div>
@@ -62,11 +78,20 @@
                                 <label for="" class="">Harga Jual</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                    <input type="text" name="hargajual" id="hargajual" class="form-control"
+                                    <input type="number" name="hargajual" id="hargajual" class="form-control"
                                     aria-describedby="emailHelp">
                                 </div>
                             </div>
                             @error('hargajual')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="mb-3">
+                                <label for="" class="">Deskripsi</label>
+                                    <input type="text" name="deskripsi" id="deskripsi" class="form-control"
+                                    aria-describedby="emailHelp">
+                                </div>
+                            </div>
+                            @error('deskripsi')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                                 <div class="mb-3">
@@ -75,7 +100,7 @@
 
                                         <input type="file" name="foto" id="foto" class="form-control"
                                             aria-describedby="emailHelp">
-                                    </div>
+                                    </div> </div>
                                     @error('foto')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -106,7 +131,7 @@
         <script src="https://code.jquery.com/jquery-3.5.0.min.js"
             integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 
-        <script>
+        {{-- <script>
             $(document).ready(function() {
                 $("#jumlah").change(function() {
                     var jumlah = $("#jumlah").val();
@@ -121,7 +146,7 @@
                 var total = jumlah * harga
                 $("#total").val(total);
             });
-        </script>
+        </script> --}}
     </body>
 
     </html>

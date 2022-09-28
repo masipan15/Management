@@ -24,19 +24,16 @@ class SupplierController extends Controller
             'nama_supplier' => 'required',
             'alamat_supplier' => 'required',
             'notelpon' => 'required',
-            'jenis_kelamin' => 'required',
         ], [
             'nama_supplier.required' => 'nama_supplier Harus Diisi!',
             'alamat_supplier.required' => 'harga Harus Diisi!',
             'notelpon.required' => 'notelpon Harus Diisi!',
-            'jenis_kelamin.required' => 'jenis_kelamin Harus Diisi!',
         ]);
 
         $data = supplier::create([
             'nama_supplier' => $request->nama_supplier,
             'alamat_supplier' => $request->alamat_supplier,
             'notelpon' => $request->notelpon,
-            'jenis_kelamin' => $request->jenis_kelamin,
         ]);
         return redirect()->route('datasupplier')->with('success', 'Data Berhasil Di Tambahkan');
     }
@@ -60,7 +57,6 @@ class SupplierController extends Controller
             'nama_supplier' => $request->nama_supplier,
             'alamat_supplier' => $request->alamat_supplier,
             'notelpon' => $request->notelpon,
-            'jenis_kelamin' => $request->jenis_kelamin,
         ]);
         return redirect()->route('datasupplier')->with('success', 'Data berhasil di Update!');
 

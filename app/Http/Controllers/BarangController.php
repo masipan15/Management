@@ -118,13 +118,19 @@ class BarangController extends Controller
     {
 
         $validated = $request->validate([
+            'kategori' => 'required',
             'namabarang' => 'required',
+            'merk' => 'required',
+            'deskripsi' => 'required',
             'harga' => 'required',
             'hargajual' => 'required',
             'stok' => 'required',
             'foto' => 'required|mimes:jpg,png,jpeg,jfif,webp',
         ], [
+            'kategori.required' => 'kategori Harus Diisi!',
             'namabarang.required' => 'namabarang Harus Diisi!',
+            'merk.required' => 'merk Harus Diisi!',
+            'deskripsi.required' => 'deskripsi Harus Diisi!',
             'harga.required' => 'harga Harus Diisi!',
             'hargajual.required' => 'harga Harus Diisi!',
             'stok.required' => 'stok Harus Diisi!',
@@ -133,7 +139,10 @@ class BarangController extends Controller
         ]);
         $data = Barang::create([
             'kodebarang' => random_int(1000, 999999),
+            'kategori' => $request->kategori,
             'namabarang' => $request->namabarang,
+            'merk' => $request->merk,
+            'deskripsi' => $request->deskripsi,
             'harga' => $request->harga,
             'hargajual' => $request->hargajual,
             'stok' => $request->stok,
@@ -158,7 +167,10 @@ class BarangController extends Controller
     {
         $data = Barang::find($id);
         $data->update([
+            'kategori' => $request->kategori,
             'namabarang' => $request->namabarang,
+            'merk' => $request->merk,
+            'deskripsi' => $request->deskripsi,
             'harga' => $request->harga,
             'hargajual' => $request->hargajual,
             'stok' => $request->stok,

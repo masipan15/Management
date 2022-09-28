@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('nama_supplier');
             $table->string('alamat_supplier');
             $table->string('notelpon');
-            $table->string('jenis_kelamin');
             $table->timestamps();
         });
     }

@@ -17,7 +17,6 @@
                                     <th class="wd-20p">Nama Supplier</th>
                                     <th class="wd-20p">Alamat Supplier</th>
                                     <th class="wd-25p">No Telpon</th>
-                                    <th class="wd-20p">Jenis Kelamin</th>
                                     <th class="wd-20p">Aksi</th>
                                 </tr>
                             </thead>
@@ -31,7 +30,6 @@
                                         <td>{{ $row->nama_supplier }}</td>
                                         <td>{{ $row->alamat_supplier }}</td>
                                         <td>{{ $row->notelpon }}</td>
-                                        <td>{{ $row->jenis_kelamin }}</td>
                                         
                                         <td>
                                             <a href="/editsupplier/{{ $row->id }}" class="btn btn-success mb-1"><i

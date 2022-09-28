@@ -56,14 +56,6 @@
                                 @error('notelpon')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <div class="mb-3">
-                                    <label for="" class="">Jenis Kelamin</label>
-                                    <input type="text" name="jenis_kelamin" id="jenis_kelamin" class="form-control"
-                                        aria-describedby="emailHelp">
-                                </div>
-                                @error('jenis_kelamin')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
                                     <div class="form-group mg-b-20">
                                         <label class="ckbox">
                                         </label>
