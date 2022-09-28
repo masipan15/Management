@@ -44,6 +44,12 @@
     <!-- Mutipleselect css-->
     <link rel="stylesheet" href="{{ asset('acstemplate/assets/plugins/multipleselect/multiple-select.css') }}">
 
+    <!-- Internal DataTables css-->
+    <link href="{{ asset('acstemplate/assets/plugins/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('acstemplate/assets/plugins/datatable/responsivebootstrap4.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('acstemplate/assets/plugins/datatable/fileexport/buttons.bootstrap4.min.css') }}"
+        rel="stylesheet" />
+
     <!-- Sidemenu css-->
     <link href="{{ asset('acstemplate/assets/css/sidemenu/sidemenu.css') }}" rel="stylesheet">
 
@@ -94,31 +100,31 @@
                             class="sidemenu-label">Tables</span><i class="angle fe fe-chevron-right"></i></a>
                     <ul class="nav-sub">
 
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="/datadesain">Data Desain</a>
-                            </li>
+                        <li class="nav-sub-item">
+                            <a class="nav-sub-link" href="/datadesain">Data Desain</a>
+                        </li>
 
 
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="/dataservis">Data Servis</a>
-                            </li>
+                        <li class="nav-sub-item">
+                            <a class="nav-sub-link" href="/dataservis">Data Servis</a>
+                        </li>
 
 
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="/barangmasuk">Barang Masuk</a>
-                            </li>
+                        <li class="nav-sub-item">
+                            <a class="nav-sub-link" href="/barangmasuk">Barang Masuk</a>
+                        </li>
 
 
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
-                            </li>
+                        <li class="nav-sub-item">
+                            <a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
+                        </li>
 
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="/pengeluaran">Pengeluaran</a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="/pemasukan">Pemasukan</a>
-                            </li>
+                        <li class="nav-sub-item">
+                            <a class="nav-sub-link" href="/pengeluaran">Pengeluaran</a>
+                        </li>
+                        <li class="nav-sub-item">
+                            <a class="nav-sub-link" href="/pemasukan">Pemasukan</a>
+                        </li>
 
                     </ul>
                 </li>
@@ -262,20 +268,20 @@
                                         src="{{ asset('acstemplate/assets/img/wa.png') }}"></span>
                             </a>
                             <div class="dropdown-menu">
-								<div class="header-navheading">
-									<h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
-									<p class="main-notification-text">{{ Auth::user()->role }}</p>
-								</div>
-								<a class="dropdown-item border-top" href="/profil">
-									<i class="fe fe-user"></i> Profil
-								</a>
-								<a class="dropdown-item" href="/editprofil">
-									<i class="fe fe-edit"></i> Edit Profil
-								</a>
-								<a class="dropdown-item" href="/logout">
-									<i class="fe fe-power"></i> Keluar
-								</a>
-							</div>
+                                <div class="header-navheading">
+                                    <h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
+                                    <p class="main-notification-text">{{ Auth::user()->role }}</p>
+                                </div>
+                                <a class="dropdown-item border-top" href="/profil">
+                                    <i class="fe fe-user"></i> Profil
+                                </a>
+                                <a class="dropdown-item" href="/editprofil">
+                                    <i class="fe fe-edit"></i> Edit Profil
+                                </a>
+                                <a class="dropdown-item" href="/logout">
+                                    <i class="fe fe-power"></i> Keluar
+                                </a>
+                            </div>
                         </div>
                         <div class="dropdown  header-settings">
                             <a href="#" class="nav-link icon" data-toggle="sidebar-right"
@@ -469,6 +475,20 @@
 
     <!-- Peity js-->
     <script src="{{ asset('acstemplate/assets/plugins/peity/jquery.peity.min.js') }}"></script>
+
+    <!-- Internal Data Table js -->
+    <script src="{{ asset('acstemplate/assets/plugins/datatable/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/plugins/datatable/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/plugins/datatable/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/plugins/datatable/fileexport/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/plugins/datatable/fileexport/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/plugins/datatable/fileexport/jszip.min.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/plugins/datatable/fileexport/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/plugins/datatable/fileexport/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/plugins/datatable/fileexport/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/plugins/datatable/fileexport/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/plugins/datatable/fileexport/buttons.colVis.min.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/js/table-data.js') }}"></script>
 
     <!-- Internal Morris js -->
     <script src="{{ asset('acstemplate/assets/plugins/raphael/raphael.min.js') }}"></script>
