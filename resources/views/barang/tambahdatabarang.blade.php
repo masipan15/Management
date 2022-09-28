@@ -28,21 +28,21 @@
                             <h3 class="main-content-label mb-1">Tambah Data Barang</h3>
                             <p class="text-muted card-sub-title"></p>
                         </div>
-                        <form action="/prosestambah" method="post" enctype="multipart/form-data">
+                        <form action="/insertbarang" method="post" enctype="multipart/form-data">
                             @csrf
-                            <div class="mb-3">
-                                <label for="" class="">Kode Barang</label>
-                                <input type="text" required name="kodebarang" class="form-control"
-                                    aria-describedby="emailHelp">
-                                @error('kodebarang')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
                             <div class="mb-3">
                                 <label for="" class="">Nama Barang</label>
                                 <input type="text" required name="namabarang" class="form-control"
                                     aria-describedby="emailHelp">
                                 @error('namabarang')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="">Stok</label>
+                                <input type="text" required name="stok" class="form-control"
+                                    aria-describedby="emailHelp">
+                                @error('stok')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -59,23 +59,16 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="mb-3">
-                                <label for="" class="">Jumlah</label>
+                                <label for="" class="">Harga Jual</label>
                                 <div class="input-group mb-3">
-
-                                    <input type="number" name="jumlah" id="jumlah" class="form-control"
-                                        aria-describedby="emailHelp">
+                                    <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                    <input type="text" name="hargajual" id="hargajual" class="form-control"
+                                    aria-describedby="emailHelp">
                                 </div>
-                                @error('jumlah')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                                <div class="mb-3">
-                                    <label for="" class="">Total</label>
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                        <input type="text" name="total" id="total" class="form-control"
-                                            aria-describedby="emailHelp">
-                                    </div>
-                                </div>
+                            </div>
+                            @error('hargajual')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                                 <div class="mb-3">
                                     <label for="" class="">Masukkan Gambar</label>
                                     <div class="input-group mb-3">

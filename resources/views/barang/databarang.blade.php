@@ -6,7 +6,7 @@
             <div class="card custom-card overflow-hidden">
                 <div class="card-body">
                     <div>
-                        <a href="/tambahdatabarang" class="btn btn-primary">Tambah</a>
+                        <a href="/tambahbarang" class="btn btn-primary">Tambah</a>
                         <p class="text-muted card-sub-title"></p>
                     </div>
                     <div class="table-responsive">
@@ -36,15 +36,15 @@
                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
                                         <td>Rp.{{ number_format($row['hargajual'], 2, '.', '.') }}</td>
                                         <td>
-                                            <img src="{{ asset('fotobrgmsk/' . $row->foto) }}" alt=""
+                                            <img src="{{ asset('fotobarang/' . $row->foto) }}" alt=""
                                                 style="width: 50px";>
                                         </td>
 
 
                                         <td>
-                                            <a href="/editdesain/{{ $row->id }}" class="btn btn-success mb-1"><i
+                                            <a href="/editbarang/{{ $row->id }}" class="btn btn-success mb-1"><i
                                                     class="fas fa-pencil-alt"></i>edit</a><br>
-                                            <a href="/deletes/{{ $row->id }}" class="btn btn-danger"
+                                            <a href="/deletese/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                     class="fas fa-trash-alt"></i>hapus</button></a>
                                         </td>

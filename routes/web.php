@@ -108,11 +108,11 @@ Route::get('/pemasukan', [BarangkeluarController::class, 'pemasukan'])->name('pe
 //databarang
 
 Route::get('/databarang', [BarangController::class, 'databarang'])->name('databarang')->middleware('auth');
-Route::get('/tambahdatabarang', [BarangController::class, 'tambahdatabarang'])->name('tambahdatabarang')->middleware('auth');
-Route::post('/insertdata', [BarangController::class, 'insertdata'])->name('insertdata');
-Route::get('/editdatabarang/{id}', [BarangController::class, 'editdatabarang'])->name('editdatabarang')->middleware('auth');
-Route::post('/updatedata/{id}', [BarangController::class, 'updatedata'])->name('updatedata');
-Route::get('/delete/{id}', [BarangController::class, 'delete'])->name('delete');
+Route::get('/tambahbarang', [BarangController::class, 'tambahbarang'])->name('tambahbarang')->middleware('auth');
+Route::post('/insertbarang', [BarangController::class, 'insertbarang'])->name('insertbarang');
+Route::get('/editbarang/{id}', [BarangController::class, 'editbarang'])->name('editbarang')->middleware('auth');
+Route::post('/updatebarang/{id}', [BarangController::class, 'updatebarang'])->name('updatebarang');
+Route::get('/deletese/{id}', [BarangController::class, 'deletese'])->name('deletese');
 
 
  //profil

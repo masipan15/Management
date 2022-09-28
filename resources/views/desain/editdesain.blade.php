@@ -30,7 +30,7 @@
                         <div class="col-sm-10">
                             <div class="card">
                                 <div class="card-body">
-                                    <h1 class="text-center">Edit Kategori</h1>
+                                    <h1 class="text-center">Edit Desain</h1>
 
                                     <div class="container">
 
