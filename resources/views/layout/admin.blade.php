@@ -100,6 +100,10 @@
                     <a class="nav-link" href="databarang"><span class="shape1"></span><span class="shape2"></span><i
                             class="ti-package sidemenu-icon"></i><span class="sidemenu-label">Data Barang</span></a>
                 </li>
+                <li class="nav-item {{ Route::is('/datasupplier') ? 'active' : '' }}">
+                    <a class="nav-link" href="/datasupplier"><span class="shape1"></span><span class="shape2"></span><i
+                            class="mdi mdi-truck sidemenu-icon"></i><span class="sidemenu-label">Data Supplier</span></a>
+                </li>
                 <li class="nav-item {{ Route::is('barangmasuk') ? 'active' : '' }}">
                     <a class="nav-link" href="barangmasuk"><span class="shape1"></span><span class="shape2"></span><i
                             class="mdi mdi-truck sidemenu-icon"></i><span class="sidemenu-label">Barang Masuk</span></a>

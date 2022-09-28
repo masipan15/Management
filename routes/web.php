@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DesainController;
 use App\Http\Controllers\ProfilController;
@@ -121,3 +122,10 @@ Route::get('/deletese/{id}', [BarangController::class, 'deletese'])->name('delet
  Route::post('/updateprofil',[LoginController::class, 'updateprofil'])->name('updateprofil');
 
 
+ //supplier
+Route::get('/datasupplier', [SupplierController::class, 'datasupplier'])->name('datasupplier')->middleware('auth');
+Route::get('/tambahsupplier', [SupplierController::class, 'tambahsupplier'])->name('tambahsupplier')->middleware('auth');
+Route::post('/insertsupplier', [SupplierController::class, 'insertsupplier'])->name('insertsupplier');
+Route::get('/editsupplier/{id}', [SupplierController::class, 'editsupplier'])->name('editsupplier')->middleware('auth');
+Route::post('/updatesupplier/{id}', [SupplierController::class, 'updatesupplier'])->name('updatesupplier');
+Route::get('/deletetet/{id}', [SupplierController::class, 'deletetet'])->name('deletetet');
