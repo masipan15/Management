@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Supplier;
 use App\Models\barangmasuk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,19 +12,21 @@ class BarangmasukController extends Controller
 
     public function barangmasuk()
     {
-        $data = barangmasuk::all();
+        $data = barangmasuk::with('supplier')->get();
         return view('masuk.barangmasuk', compact('data'));
     }
 
     public function tambahbarangmasuk()
     {
         $data = barangmasuk::all();
-        return view('masuk.tambah', compact('data'));
+        $supplier = Supplier::all();
+        return view('masuk.tambah', compact('data','supplier'));
     }
 
     public function prosestambah(Request $request)
     {
         $data = barangmasuk::create([
+            'suppliers_id' => $request->suppliers_id,
             'namabarang' => $request->namabarang,
             'jumlah' => $request->jumlah,
             'harga' => $request->harga,
@@ -42,8 +45,9 @@ class BarangmasukController extends Controller
     public function editbrgmsk($id)
     {
         $data = barangmasuk::findOrFail($id);
+        $supplier = Supplier::all();
 
-        return view('masuk.editbrgmsk', compact('data'));
+        return view('masuk.editbrgmsk', compact('data','supplier'));
     }
 
 
@@ -53,6 +57,7 @@ class BarangmasukController extends Controller
     {
         $data = barangmasuk::find($id);
         $data->update([
+            'suppliers_id' => $request->suppliers_id,
             'namabarang' => $request->namabarang,
             'harga' => $request->harga,
             'jumlah' => $request->jumlah,

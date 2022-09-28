@@ -41,6 +41,23 @@
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 
+                                                
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">Nama
+                                                        Supplier</label>
+                                                    <select class="form-select" @error('suppliers_id')  @enderror
+                                                        name="suppliers_id"  aria-label="Default select example"
+                                                        id="suppliers_id">
+                                                        <option value disabled selected="">Pilih Supplier</option>
+                                                        @foreach ($supplier as $p)
+                                                            <option
+                                                                value="{{ $p->id }}"<?php if ($data->suppliers_id == $p->id) {
+                                                                    echo 'selected';
+                                                                } ?>>{{ $p->nama_supplier }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                                 <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Nama
                                                         Barang</label>

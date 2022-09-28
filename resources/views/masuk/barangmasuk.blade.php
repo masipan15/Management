@@ -14,6 +14,7 @@
                             <thead>
                                 <tr>
                                     <th class="wd-20p">No</th>
+                                    <th class="wd-25p">Nama Supplier</th>
                                     <th class="wd-20p">Nama Barang</th>
                                     <th class="wd-25p">Jumlah</th>
                                     <th class="wd-20p">Harga</th>
@@ -29,6 +30,7 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
+                                        <td>{{ $row->supplier ? $row->supplier->nama_supplier : 'Data Tidak Ada' }}</td>
                                         <td>{{ $row->namabarang }}</td>
                                         <td>{{ $row->jumlah }}</td>
                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>

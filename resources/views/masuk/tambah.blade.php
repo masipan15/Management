@@ -30,6 +30,24 @@
                         </div>
                         <form action="/prosestambah" method="post" enctype="multipart/form-data">
                             @csrf
+                            
+                            <div class="mb-3">
+                                <label for="" class="form-label">Nama
+                                    Supplier</label>
+                                <select class="form-select" @error('suppliers_id')  @enderror
+                                    name="suppliers_id"  aria-label="Default select example"
+                                    id="suppliers_id">
+                                    <option value disabled selected="">Pilih Supplier</option>
+                                    @foreach ($supplier as $p)
+                                        <option
+                                            value="{{ $p->id }}">{{ $p->nama_supplier }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('suppliers_id')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="mb-3">
                                 <label for="" class="">Nama Barang</label>
                                 <input type="text" required name="namabarang" class="form-control"
