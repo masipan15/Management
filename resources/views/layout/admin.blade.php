@@ -113,11 +113,13 @@
                 <li class="nav-header"><span class="nav-label">Permintaan</span></li>
                 <li class="nav-item {{ Route::is('datafdesain') ? 'active' : '' }}">
                     <a class="nav-link" href="datadesain"><span class="shape1"></span><span class="shape2"></span><i
-                            class="ti-server sidemenu-icon"></i><span class="sidemenu-label">Data Desain</span></a>
+                            class="mdi mdi-pen sidemenu-icon"></i><span class="sidemenu-label">Data
+                            Desain</span></a>
                 </li>
                 <li class="nav-item {{ Route::is('dataservis') ? 'active' : '' }}">
                     <a class="nav-link" href="dataservis"><span class="shape1"></span><span class="shape2"></span><i
-                            class="ti-server sidemenu-icon"></i><span class="sidemenu-label">Data Servis</span></a>
+                            class="mdi mdi-wrench sidemenu-icon"></i><span class="sidemenu-label">Data
+                            Servis</span></a>
                 </li>
 
                 </ul>
