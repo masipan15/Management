@@ -601,7 +601,8 @@
 												<div class="main-content-body tab-pane p-4 border-top-0" id="edit">
                                                     <div class="card-body border">
                                                         <div class="mb-4 main-content-label">Informasi Pribadi</div>
-                                                        <form action="/updatedata" class="form-horizontal">
+                                                        <form action="/updateprofil" method="POST" class="form-horizontal">
+															@csrf
                                                             <div class="mb-4 main-content-label"></div>
                                                             <div class="form-group ">
                                                                 <div class="row row-sm">
@@ -609,7 +610,7 @@
                                                                         <label class="form-label">Nama</label>
                                                                     </div>
                                                                     <div class="col-md-9">
-                                                                        <input type="text" class="form-control" name="name">
+                                                                        <input type="text" class="form-control" value="{{ Auth::user()->name }}" name="name">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -619,7 +620,7 @@
                                                                         <label class="form-label">Alamat</label>
                                                                     </div>
                                                                     <div class="col-md-9">
-                                                                        <input type="text" class="form-control" name="alamat">
+                                                                        <input type="text" class="form-control" value="{{ Auth::user()->alamat }}" name="alamat">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -629,7 +630,7 @@
                                                                         <label class="form-label">No Telpon</label>
                                                                     </div>
                                                                     <div class="col-md-9">
-                                                                        <input type="text" class="form-control" name="notelpon">
+                                                                        <input type="text" class="form-control" value="{{ Auth::user()->notelpon }}" name="notelpon">
                                                                     </div>
                                                                 </div>
                                                             </div>

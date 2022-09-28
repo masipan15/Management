@@ -600,8 +600,11 @@
 											<div class="tab-pane fade show active" id="profile" role="tabpanel">
 												<div class="d-flex align-items-start pb-3 border-bottom"> <img src="{{ asset('acstemplate/assets/img/wa.png') }}" class="img rounded-circle avatar-xl" alt="">
 													<div class="pl-sm-4 pl-2" id="img-section"> <b>Foto Profil</b>
-														<p class="mb-1"></p> <button class="btn button border btn-sm"><b>Upload</b></button>
-													</div>
+														<p class="mb-1">
+														</p> <button class="btn button border btn-sm mr-5"><b>Edit Foto</b></button></div>
+													</p> <a href="/editprofil" type="button" class="btn btn-success button border btn-sm mr-1"><b>Edit Profil</b></a>
+													{{-- </p> <a href="/editprofil" type="button" class="btn btn-success button border btn-sm mr-1"><b>Edit Email & Sandi</b></a> --}}
+													
 												</div>
 												<div class="py-2">
 													<div class="row py-2">
@@ -609,8 +612,8 @@
 														<div class="col-md-6 pt-md-0 pt-3"> <label id="email">Email</label> <input type="email" name="email" readonly value="{{ Auth::user()->email }}" class="form-control"> </div>
 													</div>
 													<div class="row py-2">
-														<div class="col-md-6"> <label id="alamat">Alamat</label> <input type="text" name="alamat" readonly class="form-control"> </div>
-														<div class="col-md-6 pt-md-0 pt-3"> <label id="notelpon">No Telpon</label> <input type="number" name="notelpon" readonly class="form-control"> </div>
+														<div class="col-md-6"> <label id="alamat">Alamat</label> <input type="text" name="alamat" readonly value="{{ Auth::user()->alamat }}" class="form-control"> </div>
+														<div class="col-md-6 pt-md-0 pt-3"> <label id="notelpon">No Telpon</label> <input type="number" name="notelpon" readonly value="{{ Auth::user()->notelpon }}" class="form-control"> </div>
 													</div>
 													</div>
 												</div>

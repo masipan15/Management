@@ -116,8 +116,8 @@ Route::get('/delete/{id}', [BarangController::class, 'delete'])->name('delete');
 
 
  //profil
- Route::get('/profil',[ProfilController::class, 'profil'])->name('profil');
- Route::get('/editprofil',[ProfilController::class, 'editprofil'])->name('editprofil');
- Route::post('/updateprofil',[ProfilController::class, 'updateprofil'])->name('updateprofil');
+ Route::get('/profil',[LoginController::class, 'profil'])->name('profil');
+ Route::get('/editprofil',[LoginController::class, 'editprofil'])->name('editprofil');
+ Route::post('/updateprofil',[LoginController::class, 'updateprofil'])->name('updateprofil');
 
 

@@ -19,15 +19,17 @@ class LoginController extends Controller
         // dd($request);
         $this->validate($request, [
             'email' => 'required|exists:users,email',
-            'password' => 'required',
+            'password' => 'required|min:6',
         ], [
             'email.required' => 'Harus Diisi!',
             'email.exists' => 'Email Salah!',
             'password.required' => 'Harus Diisi!',
+            'password.min' => 'Minimal 6 huruf!',
         ]);
         if (Auth::attempt($request->only('email', 'password'))) {
             return redirect('/welcome');
         }
+        return \redirect('login')->with('success', 'Email atau Kata Sandi yang anda masukkan salah');
     }
 
 
@@ -40,18 +42,19 @@ class LoginController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|unique:users,email',
-            'password' => 'required',
+            'password' => 'required|min:6',
         ], [
             'name.required' => 'Harus Diisi!',
             'email.required' => 'Harus Diisi!',
             'email.unique' => 'Email Sudah Dipakai!',
             'password.required' => 'Harus Diisi!',
+            'password.min' => 'Minimal 6 huruf!',
         ]);
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'alamat' =>'-' ,
+            'alamat' => '-',
             'notelpon' => '-',
             'foto' => '-',
             'remember_token' => Str::random(60),
@@ -63,5 +66,39 @@ class LoginController extends Controller
     {
         auth::logout();
         return redirect('/login');
+    }
+
+
+
+
+
+    public function profil()
+    {
+        $data = User::all();
+        return view('layout.profil', compact('data'));
+    }
+    // public function editprofil()
+    // {
+    //     $data = User::all();
+    //     return view('layout.editprofil', compact('data'));
+    // }
+
+
+    public function editprofil(request $request)
+    {
+        $data = User::findOrFail(Auth::user()->id);
+
+        return view('layout.editprofil', compact('data'));
+    }
+
+    public function updateprofil(request $request)
+    {
+        $data = User::find(Auth::user()->id);
+        $data->update([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'notelon' => $request->notelon,
+        ]);
+        return redirect()->route('profil')->with('success', 'Data berhasil di Update!');
     }
 }
