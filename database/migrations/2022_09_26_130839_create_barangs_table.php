@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('kategori');
             $table->string('namabarang');
             $table->string('merk');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->string('stok');
             $table->string('harga');
             $table->string('hargajual');
