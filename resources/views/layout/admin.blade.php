@@ -50,6 +50,10 @@
     <link href="{{ asset('acstemplate/assets/plugins/datatable/fileexport/buttons.bootstrap4.min.css') }}"
         rel="stylesheet" />
 
+    {{-- Sweet Alert --}}
+    <link href="{{ asset('acstemplate/assets/plugins/sweet-alert/sweetalert.css') }}" rel="stylesheet">
+
+
     <!-- Sidemenu css-->
     <link href="{{ asset('acstemplate/assets/css/sidemenu/sidemenu.css') }}" rel="stylesheet">
 
@@ -124,8 +128,8 @@
                     </li>
                     @endif
                     @if (auth()->user()->role == "admin") 
-                    <li class="nav-item {{ Route::is('/datasupplier') ? 'active' : '' }}">
-                        <a class="nav-link" href="/datasupplier"><span class="shape1"></span><span
+                    <li class="nav-item {{ Route::is('datasupplier') ? 'active' : '' }}">
+                        <a class="nav-link" href="datasupplier"><span class="shape1"></span><span
                                 class="shape2"></span><i class="mdi mdi-truck sidemenu-icon"></i><span
                                 class="sidemenu-label">Data Supplier</span></a>
                     </li>
@@ -146,7 +150,7 @@
                     @endif
                     @if (auth()->user()->role == "admin") 
                     <li class="nav-header"><span class="nav-label">Permintaan</span></li>
-                    <li class="nav-item {{ Route::is('datafdesain') ? 'active' : '' }}">
+                    <li class="nav-item {{ Route::is('datadesain') ? 'active' : '' }}">
                         <a class="nav-link" href="datadesain"><span class="shape1"></span><span
                                 class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
                                 class="sidemenu-label">Data
@@ -568,6 +572,10 @@
 
         <!-- Internal Dashboard js-->
         <script src="{{ asset('acstemplate/assets/js/index.js') }}"></script>
+
+        <!-- Internal Sweet-Alert js-->
+		<script src="{{ asset('acstemplate/assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
+		<script src="{{ asset('acstemplate/assets/plugins/sweet-alert/jquery.sweet-alert.js') }}"></script>
 
         <!-- Sticky js -->
         <script src="{{ asset('acstemplate/assets/js/sticky.js') }}"></script>
