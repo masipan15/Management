@@ -33,12 +33,12 @@ class BarangController extends Controller
     //         'harga' => 'required',
     //         'hargajual' => 'required',
     //         'stok' => 'required',
-    //         'foto' => 'required|mimes:jpg,png,webp,jpeg',
+    //         'foto1' => 'required|mimes:jpg,png,webp,jpeg',
     //     ], [
 
     //         'kodebarang.unique' => 'Kode Barang Sudah digunakan.',
 
-    //         'foto.mimes' => 'wajib jpg,png,webp,jpeg',
+    //         'foto1.mimes' => 'wajib jpg,png,webp,jpeg',
     //     ]);
     //     $data = Barang::create([
     //         'kodebarang' => random_int(1000, 999999),
@@ -46,11 +46,11 @@ class BarangController extends Controller
     //         'harga' => $request->harga,
     //         'hargajual' => $request->hargajual,
     //         'stok' =>  $request->hargajual,
-    //         'foto' => $request->foto
+    //         'foto1' => $request->foto1
     //     ]);
-    //     if ($request->hasfile('foto')) {
-    //         $request->file('foto')->move('fotobarang/', $request->file('foto')->getClientOriginalName());
-    //         $data->foto = $request->file('foto')->getClientOriginalName();
+    //     if ($request->hasfile('foto1')) {
+    //         $request->file('foto1')->move('fotobarang/', $request->file('foto1')->getClientOriginalName());
+    //         $data->foto1 = $request->file('foto1')->getClientOriginalName();
     //         $data->save();
     //     }
     //     dd($data);
@@ -66,11 +66,11 @@ class BarangController extends Controller
     // {
     //     $request->validate([
     //         'kodebarang' => ['required', Rule::unique('barangs')->ignore($id)],
-    //         'foto' => 'image'
+    //         'foto1' => 'image'
     //     ], [
     //         'kodebarang.required' => 'Kode Barang Harus diisi!',
     //         'kodebarang.unique' => 'Kode Barang Sudah Dipakai!',
-    //         'foto.image' => 'Harus bertipe Gambar!'
+    //         'foto1.image' => 'Harus bertipe Gambar!'
     //     ]);
     //     $data = Barang::find($id);
     //     $data->update([
@@ -81,9 +81,9 @@ class BarangController extends Controller
     //         'stok' => $request->stok
 
     //     ]);
-    //     if ($request->hasfile('foto')) {
-    //         $request->file('foto')->move('fotobarang/', $request->file('foto')->getClientOriginalName());
-    //         $data->foto = $request->file('foto')->getClientOriginalName();
+    //     if ($request->hasfile('foto1')) {
+    //         $request->file('foto1')->move('fotobarang/', $request->file('foto1')->getClientOriginalName());
+    //         $data->foto1 = $request->file('foto1')->getClientOriginalName();
     //         $data->save();
     //     }
     //     return redirect()->route('index')->with('success', 'Data Berhasil Di Ubah');
@@ -125,7 +125,7 @@ class BarangController extends Controller
             'harga' => 'required',
             'hargajual' => 'required',
             'stok' => 'required',
-            'foto' => 'required|mimes:jpg,png,jpeg,jfif,webp',
+            'foto1' => 'required|mimes:jpg,png,jpeg,jfif,webp',
         ], [
             'kategori.required' => 'kategori Harus Diisi!',
             'namabarang.required' => 'namabarang Harus Diisi!',
@@ -134,8 +134,8 @@ class BarangController extends Controller
             'harga.required' => 'harga Harus Diisi!',
             'hargajual.required' => 'harga Harus Diisi!',
             'stok.required' => 'stok Harus Diisi!',
-            'foto.required' => 'foto Harus Diisi!',
-            'foto.mimes' => 'Harus Image',
+            'foto1.required' => 'foto1 Harus Diisi!',
+            'foto1.mimes' => 'Harus Image',
         ]);
         $data = Barang::create([
             'kodebarang' => random_int(1000, 999999),
@@ -146,11 +146,11 @@ class BarangController extends Controller
             'harga' => $request->harga,
             'hargajual' => $request->hargajual,
             'stok' => $request->stok,
-            'foto' => $request->foto,
+            'foto1' => $request->foto1,
         ]);
-        if ($request->hasFile('foto')) {
-            $request->file('foto')->move('fotobarang/', $request->file('foto')->getClientOriginalName());
-            $data->foto = $request->file('foto')->getClientOriginalName();
+        if ($request->hasFile('foto1')) {
+            $request->file('foto1')->move('fotobarang/', $request->file('foto1')->getClientOriginalName());
+            $data->foto1 = $request->file('foto1')->getClientOriginalName();
             $data->save();
         }
         return redirect()->route('databarang');
@@ -167,6 +167,7 @@ class BarangController extends Controller
     {
         $data = Barang::find($id);
         $data->update([
+            'kodebarang' => random_int(1000, 99999),
             'kategori' => $request->kategori,
             'namabarang' => $request->namabarang,
             'merk' => $request->merk,
@@ -175,9 +176,10 @@ class BarangController extends Controller
             'hargajual' => $request->hargajual,
             'stok' => $request->stok,
         ]);
-        if ($request->hasfile('foto')) {
-            $request->file('foto')->move('fotobarang/', $request->file('foto')->getClientOriginalName());
-            $data->foto = $request->file('foto')->getClientOriginalName();
+
+        if ($request->hasfile('foto1')) {
+            $request->file('foto1')->move('fotobarang/', $request->file('foto1')->getClientOriginalName());
+            $data->foto1 = $request->file('foto1')->getClientOriginalName();
             $data->save();
         }
         return redirect()->route('databarang')->with('success', 'Data berhasil di Update!');

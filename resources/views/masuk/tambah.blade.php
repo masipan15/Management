@@ -54,53 +54,66 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-
-                            <div class="mb-3">
-                                <label for="" class="">Harga</label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                    <input type="text" name="harga" id="harga" class="form-control"
-                                        aria-describedby="emailHelp">
-                                </div>
-                            </div>
-                            @error('harga')
+                            <input type="number" hidden name="kodebarang_id" class="form-control"
+                                aria-describedby="emailHelp">
+                            @error('kodebarang_id')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            <div class="mb-3">
-                                <label for="" class="">Jumlah</label>
-                                <div class="input-group mb-3">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="">Merk</label>
+                        <input type="text" required name="merk_id" class="form-control" aria-describedby="emailHelp">
+                        @error('merk_id')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
 
-                                    <input type="number" name="jumlah" id="jumlah" class="form-control"
-                                        aria-describedby="emailHelp">
-                                </div>
-                                @error('jumlah')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                                <div class="mb-3">
-                                    <label for="" class="">Total</label>
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                        <input type="text" name="total" id="total" class="form-control"
-                                            aria-describedby="emailHelp">
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="" class="">Masukkan Gambar</label>
-                                    <div class="input-group mb-3">
+                    <div class="mb-3">
+                        <label for="" class="">Harga</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Rp.</span>
+                            <input type="text" name="harga" id="harga" class="form-control"
+                                aria-describedby="emailHelp">
+                        </div>
+                    </div>
+                    @error('harga')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <div class="mb-3">
+                        <label for="" class="">Jumlah</label>
+                        <div class="input-group mb-3">
 
-                                        <input type="file" name="foto" id="foto" class="form-control"
-                                            aria-describedby="emailHelp">
-                                    </div>
-                                    @error('foto')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                    <div class="form-group mg-b-20">
-                                        <label class="ckbox">
-                                        </label>
-                                    </div>
-                                    <button class=" ripple btn-main-primary ">Submit</button>
-                                    <a href="barangmasuk" class=" ripple btn-main-primary btn">Kembali</a>
-                                </div>
+                            <input type="number" name="jumlah" id="jumlah" class="form-control"
+                                aria-describedby="emailHelp">
+                        </div>
+                        @error('jumlah')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        <div class="mb-3">
+                            <label for="" class="">Total</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                <input type="text" name="total" id="total" class="form-control"
+                                    aria-describedby="emailHelp">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="">Masukkan Gambar</label>
+                            <div class="input-group mb-3">
+
+                                <input type="file" name="foto" id="foto" class="form-control"
+                                    aria-describedby="emailHelp">
+                            </div>
+                            @error('foto')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group mg-b-20">
+                                <label class="ckbox">
+                                </label>
+                            </div>
+                            <button class=" ripple btn-main-primary ">Submit</button>
+                            <a href="barangmasuk" class=" ripple btn-main-primary btn">Kembali</a>
+                        </div>
                         </form>
                     </div>
                 </div>

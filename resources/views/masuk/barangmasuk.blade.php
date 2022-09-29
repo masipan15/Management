@@ -16,9 +16,11 @@
                                     <th class="wd-20p">No</th>
                                     <th class="wd-25p">Nama Supplier</th>
                                     <th class="wd-20p">Nama Barang</th>
+                                    <th class="wd-20p">Merk</th>
                                     <th class="wd-25p">Jumlah</th>
                                     <th class="wd-20p">Harga</th>
                                     <th class="wd-15p">Total</th>
+                                    <th class="wd-20p">Tanggal</th>
                                     <th class="wd-20p">Foto</th>
                                     <th class="wd-20p">Aksi</th>
                                 </tr>
@@ -31,10 +33,14 @@
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->supplier ? $row->supplier->nama_supplier : 'Data Tidak Ada' }}</td>
+                                        
                                         <td>{{ $row->namabarang }}</td>
+                                        <td>{{ $row->merk_id }}</td>
                                         <td>{{ $row->jumlah }}</td>
                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
                                         <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
+                                        <td>{{ $row->created_at->format('d/m/y') }}</td>
+
                                         <td>
                                             <img src="{{ asset('fotobrgmsk/' . $row->foto) }}" alt=""
                                                 style="width: 50px;">
@@ -60,5 +66,4 @@
     </div>
 
     @include('sweetalert::alert')
-
 @endsection

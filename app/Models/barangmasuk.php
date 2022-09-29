@@ -16,4 +16,6 @@ class barangmasuk extends Model
     public function supplier() {
         return $this->belongsTo(Supplier::class,'suppliers_id','id');
     }
+
+    
 }
