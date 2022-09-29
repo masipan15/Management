@@ -50,6 +50,10 @@
     <link href="{{ asset('acstemplate/assets/plugins/datatable/fileexport/buttons.bootstrap4.min.css') }}"
         rel="stylesheet" />
 
+    {{-- Sweet Alert --}}
+    <link href="{{ asset('acstemplate/assets/plugins/sweet-alert/sweetalert.css') }}" rel="stylesheet">
+
+
     <!-- Sidemenu css-->
     <link href="{{ asset('acstemplate/assets/css/sidemenu/sidemenu.css') }}" rel="stylesheet">
 
@@ -84,120 +88,119 @@
                         class="header-brand-img icon-logo theme-logo" alt="logo">
                 </a>
             </div>
+
+
+            @if (auth()->user()->role == "admin")
             <div class="main-sidebar-body">
                 <ul class="nav">
-
                     <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
                         <a class="nav-link" href="/welcome"><span class="shape1"></span><span class="shape2"></span><i
                                 class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
                     </li>
                 </ul>
-
-
-
+                @endif
+            @if (auth()->user()->role == "servis")
+            <div class="main-sidebar-body">
+                <ul class="nav">
+                    <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
+                        <a class="nav-link" href="/welcome"><span class="shape1"></span><span class="shape2"></span><i
+                                class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
+                    </li>
+                </ul>
+                @endif
+            @if (auth()->user()->role == "desain")
+            <div class="main-sidebar-body">
+                <ul class="nav">
+                    <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
+                        <a class="nav-link" href="/welcome"><span class="shape1"></span><span class="shape2"></span><i
+                                class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
+                    </li>
+                </ul>
+                @endif
+                @if (auth()->user()->role == "admin")
                 <li class="nav-header"><span class="nav-label">Barang</span></li>
-                <li class="nav-item {{ Route::is('databarang') ? 'active' : '' }}">
-                    <a class="nav-link" href="databarang"><span class="shape1"></span><span class="shape2"></span><i
-                            class="ti-package sidemenu-icon"></i><span class="sidemenu-label">Data
-                            Barang</span></a>
-                </li>
-                <li class="nav-item {{ Route::is('/datasupplier') ? 'active' : '' }}">
-                    <a class="nav-link" href="/datasupplier"><span class="shape1"></span><span class="shape2"></span><i
-                            class="mdi mdi-truck sidemenu-icon"></i><span class="sidemenu-label">Data
-                            Supplier</span></a>
-                </li>
-                <li class="nav-item {{ Route::is('barangmasuk') ? 'active' : '' }}">
-                    <a class="nav-link" href="barangmasuk"><span class="shape1"></span><span
-                            class="shape2"></span><i class="mdi mdi-truck sidemenu-icon"></i><span
-                            class="sidemenu-label">Barang Masuk</span></a>
-                </li>
-                <li class="nav-item {{ Route::is('barangkeluar') ? 'active' : '' }}">
-                    <a class="nav-link" href="barangkeluar"><span class="shape1"></span><span
-                            class="shape2"></span><i class="mdi mdi-truck-trailer sidemenu-icon"></i><span
-                            class="sidemenu-label">Barang Keluar</span></a>
-                </li>
-
-                <li class="nav-header"><span class="nav-label">Permintaan</span></li>
-                <li class="nav-item {{ Route::is('datadesain') ? 'active' : '' }}">
-                    <a class="nav-link" href="datadesain"><span class="shape1"></span><span class="shape2"></span><i
-                            class="mdi mdi-pen sidemenu-icon"></i><span class="sidemenu-label">Data
-                            Desain</span></a>
-                </li>
-                <li class="nav-item {{ Route::is('dataservis') ? 'active' : '' }}">
-                    <a class="nav-link" href="dataservis"><span class="shape1"></span><span class="shape2"></span><i
-                            class="mdi mdi-wrench sidemenu-icon"></i><span class="sidemenu-label">Data
-                            Servis</span></a>
-                </li>
-
-                </ul>
-
-                <li class="nav-header"><span class="nav-label">Keuangan</span></li>
-                <li class="nav-item {{ Route::is('pemasukan') ? 'active' : '' }}">
-                    <a class="nav-link" href="pemasukan"><span class="shape1"></span><span class="shape2"></span><i
-                            class="ti-server sidemenu-icon"></i><span class="sidemenu-label">Pemasukan</span></a>
-                </li>
-                <li class="nav-item {{ Route::is('pengeluaran') ? 'active' : '' }}">
-                    <a class="nav-link" href="pengeluaran"><span class="shape1"></span><span
-                            class="shape2"></span><i class="ti-server sidemenu-icon"></i><span
-                            class="sidemenu-label">Pengeluaran</span></a>
-                </li>
-
-                </ul>
-                </li>
-                </ul>
-            </div>
-        </div>
-        <!-- End Sidemenu -->
-        <!-- Main Header-->
-        <div class="main-header side-header sticky">
-            <div class="container-fluid">
-                <div class="main-header-left">
-                    <a class="main-header-menu-icon" href="#" id="mainSidebarToggle"><span></span></a>
-                    <div class="dropdown d-md-flex">
-                        <a class="nav-link icon full-screen-link" href="#">
-                            <i class="fe fe-maximize fullscreen-button fullscreen header-icons"></i>
-                            <i class="fe fe-minimize fullscreen-button exit-fullscreen header-icons"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="main-header-center">
-                    <div class="responsive-logo">
-                        <a href="index.html"><img src="{{ asset('acstemplate/assets/img/brand/logo.png') }}"
-                                class="mobile-logo" alt="logo"></a>
-                        <a href="index.html"><img src="{{ asset('acstemplate/assets/img/brand/logo-light.png') }}"
-                                class="mobile-logo-dark" alt="logo"></a>
-                    </div>
-                </div>
-                <div class="main-header-right">
-
-                    <div class="dropdown main-profile-menu">
-                        <a class="d-flex" href="#">
-                            <img src="{{ asset('acstemplate/assets/img/wa.png') }}" class="main-img-user"
-                            alt="avatar">
-
-
-                        </a>
-                        <div class="dropdown-menu">
-                            <div class="header-navheading">
-                                <h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
-                                <p class="main-notification-text">{{ Auth::user()->role }}</p>
-                            </div>
-                            <a class="dropdown-item border-top" href="/profil">
-                                <i class="fe fe-user"></i> Profil
-                            </a>
-                            <a class="dropdown-item" href="/editprofil">
-                                <i class="fe fe-edit"></i> Edit Profil
-                            </a>
-                            <a class="dropdown-item" href="/logout">
-                                <i class="fe fe-power"></i> Keluar
-                            </a>
-                        </div>
-                    </div>
-                    <button class="navbar-toggler navresponsive-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fe fe-more-vertical header-icons navbar-toggler-icon"></i>
-                    </button><!-- Navresponsive closed -->
+                    <li class="nav-item {{ Route::is('databarang') ? 'active' : '' }}">
+                        <a class="nav-link" href="databarang"><span class="shape1"></span><span
+                             class="shape2"></span><i
+                                class="ti-package sidemenu-icon"></i><span
+                                class="sidemenu-label">Data
+                                Barang</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "admin")
+                    <li class="nav-item {{ Route::is('datasupplier') ? 'active' : '' }}">
+                        <a class="nav-link" href="datasupplier"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-truck sidemenu-icon"></i><span
+                                class="sidemenu-label">Data Supplier</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "admin")
+                    <li class="nav-item {{ Route::is('barangmasuk') ? 'active' : '' }}">
+                        <a class="nav-link" href="barangmasuk"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-truck sidemenu-icon"></i><span
+                                class="sidemenu-label">Barang Masuk</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "admin")
+                    <li class="nav-item {{ Route::is('barangkeluar') ? 'active' : '' }}">
+                        <a class="nav-link" href="barangkeluar"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-truck-trailer sidemenu-icon"></i><span
+                                class="sidemenu-label">Barang Keluar</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "admin")
+                    <li class="nav-header"><span class="nav-label">Permintaan</span></li>
+                    <li class="nav-item {{ Route::is('datadesain') ? 'active' : '' }}">
+                        <a class="nav-link" href="datadesain"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
+                                class="sidemenu-label">Data
+                                Desain</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "desain")
+                    <li class="nav-header"><span class="nav-label">Permintaan</span></li>
+                    <li class="nav-item {{ Route::is('datafdesain') ? 'active' : '' }}">
+                        <a class="nav-link" href="datadesain"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
+                                class="sidemenu-label">Data
+                                Desain</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "admin")
+                    <li class="nav-item {{ Route::is('dataservis') ? 'active' : '' }}">
+                        <a class="nav-link" href="dataservis"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
+                                class="sidemenu-label">Data
+                                Servis</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "servis")
+                    <li class="nav-header"><span class="nav-label">Permintaan</span></li>
+                    <li class="nav-item {{ Route::is('dataservis') ? 'active' : '' }}">
+                        <a class="nav-link" href="dataservis"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
+                                class="sidemenu-label">Data
+                                Servis</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "admin")
+                    <li class="nav-header"><span class="nav-label">Keuangan</span></li>
+                    <li class="nav-item {{ Route::is('pemasukan') ? 'active' : '' }}">
+                        <a class="nav-link" href="pemasukan"><span class="shape1"></span><span
+                                class="shape2"></span><i class="ti-server sidemenu-icon"></i><span
+                                class="sidemenu-label">Pemasukan</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "admin")
+                    <li class="nav-item {{ Route::is('pengeluaran') ? 'active' : '' }}">
+                        <a class="nav-link" href="pengeluaran"><span class="shape1"></span><span
+                                class="shape2"></span><i class="ti-server sidemenu-icon"></i><span
+                                class="sidemenu-label">Pengeluaran</span></a>
+                    </li>
+                    @endif
+                    </ul>
+                    </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -514,8 +517,12 @@
     <script src="{{ asset('acstemplate/assets/js/circle-progress.min.js') }}"></script>
     <script src="{{ asset('acstemplate/assets/js/chart-circle.js') }}"></script>
 
-    <!-- Internal Dashboard js-->
-    <script src="{{ asset('acstemplate/assets/js/index.js') }}"></script>
+        <!-- Internal Sweet-Alert js-->
+		<script src="{{ asset('acstemplate/assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
+		<script src="{{ asset('acstemplate/assets/plugins/sweet-alert/jquery.sweet-alert.js') }}"></script>
+
+        <!-- Sticky js -->
+        <script src="{{ asset('acstemplate/assets/js/sticky.js') }}"></script>
 
     <!-- Sticky js -->
     <script src="{{ asset('acstemplate/assets/js/sticky.js') }}"></script>
