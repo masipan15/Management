@@ -25,7 +25,7 @@
                 <div class="card custom-card">
                     <div class="card-body">
                         <div>
-                            <h3 class="main-content-label mb-1">Tambah Barang Keluar</h3>
+                            <h3 class="main-content-label mb-1">Tambah Barang Masuk</h3>
                             <p class="text-muted card-sub-title"></p>
                         </div>
                         <form action="/prosestambah" method="post" enctype="multipart/form-data">

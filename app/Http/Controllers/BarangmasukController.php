@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\Supplier;
 use App\Models\barangmasuk;
 use Illuminate\Http\Request;
@@ -55,6 +56,7 @@ class BarangmasukController extends Controller
 
     public function updatebrgmsk(request $request, $id)
     {
+        $barang= Barang::find($request->namabarang);
         $data = barangmasuk::find($id);
         $data->update([
             'suppliers_id' => $request->suppliers_id,
@@ -67,6 +69,9 @@ class BarangmasukController extends Controller
             $request->file('foto')->move('fotobrgmsk/', $request->file('foto')->getClientOriginalName());
             $data->foto = $request->file('foto')->getClientOriginalName();
             $data->save();
+
+            $barang->stok += $request->jumlah;
+            $barang->save();
         }
         return redirect()->route('barangmasuk')->with('success', 'Data berhasil di Update!');
     }
