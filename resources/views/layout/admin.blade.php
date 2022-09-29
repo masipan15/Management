@@ -86,13 +86,25 @@
             </div>
             <div class="main-sidebar-body">
                 <ul class="nav">
-
+                    @if (auth()->user()->role=="admin")
                     <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
                         <a class="nav-link" href="/welcome"><span class="shape1"></span><span class="shape2"></span><i
                                 class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
                     </li>
                 </ul>
-                </li>
+                @endif
+                @if (auth()->user()->role=="user")
+                <div class="main-sidebar-body">
+                    <ul class="nav">
+
+
+                        <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
+                            <a class="nav-link" href="/welcome"><span class="shape1"></span><span class="shape2"></span><i
+                                    class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
+                        </li>
+                    </ul>
+                    @endif
+
 
 
                 <li class="nav-header"><span class="nav-label">Barang</span></li>
