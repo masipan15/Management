@@ -115,16 +115,22 @@ Route::post('/updatebarang/{id}', [BarangController::class, 'updatebarang'])->na
 Route::get('/deletese/{id}', [BarangController::class, 'deletese'])->name('deletese');
 
 
- //profil
- Route::get('/profil',[LoginController::class, 'profil'])->name('profil');
- Route::get('/editprofil',[LoginController::class, 'editprofil'])->name('editprofil');
- Route::post('/updateprofil',[LoginController::class, 'updateprofil'])->name('updateprofil');
+//profil
+Route::get('/profil', [LoginController::class, 'profil'])->name('profil');
+Route::get('/editprofil', [LoginController::class, 'editprofil'])->name('editprofil');
+Route::post('/updateprofil', [LoginController::class, 'updateprofil'])->name('updateprofil');
 
 
- //supplier
+//supplier
 Route::get('/datasupplier', [SupplierController::class, 'datasupplier'])->name('datasupplier')->middleware('auth');
 Route::get('/tambahsupplier', [SupplierController::class, 'tambahsupplier'])->name('tambahsupplier')->middleware('auth');
 Route::post('/insertsupplier', [SupplierController::class, 'insertsupplier'])->name('insertsupplier');
 Route::get('/editsupplier/{id}', [SupplierController::class, 'editsupplier'])->name('editsupplier')->middleware('auth');
 Route::post('/updatesupplier/{id}', [SupplierController::class, 'updatesupplier'])->name('updatesupplier');
 Route::get('/deletetet/{id}', [SupplierController::class, 'deletetet'])->name('deletetet');
+
+
+
+//shift data
+
+Route::get('/shiftdata', [BarangmasukController::class, 'shiftdata'])->name('shiftdata');

@@ -6,7 +6,7 @@
             <div class="card custom-card overflow-hidden">
                 <div class="card-body">
                     <div>
-                        <a href="/tambahbarang" class="btn btn-primary">Tambah</a>
+
                         <p class="text-muted card-sub-title"></p>
                     </div>
                     <div class="table-responsive">
@@ -42,7 +42,7 @@
                                         <td>Rp.{{ number_format($row['hargajual'], 2, '.', '.') }}</td>
                                         <td>{{ $row->deskripsi }}</td>
                                         <td>
-                                            <img src="{{ asset('fotobarang/' . $row->foto) }}" alt=""
+                                            <img src="{{ asset('fotobarang/' . $row->foto1) }}" alt=""
                                                 style="width: 50px";>
                                         </td>
 
@@ -66,5 +66,4 @@
     </div>
 
     @include('sweetalert::alert')
-
 @endsection

@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('barangmasuks', function (Blueprint $table) {
             $table->id();
             $table->string('suppliers_id');
-            $table->string('namabarang');
+
+            $table->string('namabarang')->nullable();
+            $table->string('barang_lama')->nullable();
+            $table->string('merk_id');
             $table->integer('jumlah');
             $table->string('harga');
             $table->string('total');
