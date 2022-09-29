@@ -1,4 +1,3 @@
-{{-- 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,56 +95,92 @@
 
 
 
-                <li class="nav-header"><span class="nav-label">Barang</span></li>
-                <li class="nav-item {{ Route::is('databarang') ? 'active' : '' }}">
-                    <a class="nav-link" href="databarang"><span class="shape1"></span><span class="shape2"></span><i
-                            class="ti-package sidemenu-icon"></i><span class="sidemenu-label">Data
-                            Barang</span></a>
-                </li>
-                <li class="nav-item {{ Route::is('/datasupplier') ? 'active' : '' }}">
-                    <a class="nav-link" href="/datasupplier"><span class="shape1"></span><span class="shape2"></span><i
-                            class="mdi mdi-truck sidemenu-icon"></i><span class="sidemenu-label">Data
-                            Supplier</span></a>
-                </li>
-                <li class="nav-item {{ Route::is('barangmasuk') ? 'active' : '' }}">
-                    <a class="nav-link" href="barangmasuk"><span class="shape1"></span><span
-                            class="shape2"></span><i class="mdi mdi-truck sidemenu-icon"></i><span
-                            class="sidemenu-label">Barang Masuk</span></a>
-                </li>
-                <li class="nav-item {{ Route::is('barangkeluar') ? 'active' : '' }}">
-                    <a class="nav-link" href="barangkeluar"><span class="shape1"></span><span
-                            class="shape2"></span><i class="mdi mdi-truck-trailer sidemenu-icon"></i><span
-                            class="sidemenu-label">Barang Keluar</span></a>
-                </li>
+                @if (auth()->user()->role == 'admin')
+                    <div class="main-sidebar-body">
+                        <ul class="nav">
+                            <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
+                                <a class="nav-link" href="/welcome"><span class="shape1"></span><span
+                                        class="shape2"></span><i class="ti-home sidemenu-icon"></i><span
+                                        class="sidemenu-label">BERANDA</span></a>
+                            </li>
+                        </ul>
+                @endif
+                @if (auth()->user()->role == 'servis')
+                    <div class="main-sidebar-body">
+                        <ul class="nav">
+                            <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
+                                <a class="nav-link" href="/welcome"><span class="shape1"></span><span
+                                        class="shape2"></span><i class="ti-home sidemenu-icon"></i><span
+                                        class="sidemenu-label">Beranda</span></a>
+                            </li>
+                        </ul>
+                @endif
+                @if (auth()->user()->role == 'desain')
+                    <div class="main-sidebar-body">
+                        <ul class="nav">
+                            <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
+                                <a class="nav-link" href="/welcome"><span class="shape1"></span><span
+                                        class="shape2"></span><i class="ti-home sidemenu-icon"></i><span
+                                        class="sidemenu-label">Beranda</span></a>
+                            </li>
+                        </ul>
+                @endif
+                @if (auth()->user()->role == 'admin')
+                    <li class="nav-header"><span class="nav-label">Barang</span></li>
+                    <li class="nav-item {{ Route::is('databarang') ? 'active' : '' }}">
+                        <a class="nav-link" href="databarang"><span class="shape1"></span><span
+                                class="shape2"></span><i class="ti-package sidemenu-icon"></i><span
+                                class="sidemenu-label">Data
+                                Barang</span></a>
+                    </li>
+                    <li class="nav-item {{ Route::is('/datasupplier') ? 'active' : '' }}">
+                        <a class="nav-link" href="/datasupplier"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-truck sidemenu-icon"></i><span
+                                class="sidemenu-label">Data
+                                Supplier</span></a>
+                    </li>
+                    <li class="nav-item {{ Route::is('barangmasuk') ? 'active' : '' }}">
+                        <a class="nav-link" href="barangmasuk"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-truck sidemenu-icon"></i><span
+                                class="sidemenu-label">Barang Masuk</span></a>
+                    </li>
+                    <li class="nav-item {{ Route::is('barangkeluar') ? 'active' : '' }}">
+                        <a class="nav-link" href="barangkeluar"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-truck-trailer sidemenu-icon"></i><span
+                                class="sidemenu-label">Barang Keluar</span></a>
+                    </li>
 
-                <li class="nav-header"><span class="nav-label">Permintaan</span></li>
-                <li class="nav-item {{ Route::is('datadesain') ? 'active' : '' }}">
-                    <a class="nav-link" href="datadesain"><span class="shape1"></span><span class="shape2"></span><i
-                            class="mdi mdi-pen sidemenu-icon"></i><span class="sidemenu-label">Data
-                            Desain</span></a>
-                </li>
-                <li class="nav-item {{ Route::is('dataservis') ? 'active' : '' }}">
-                    <a class="nav-link" href="dataservis"><span class="shape1"></span><span class="shape2"></span><i
-                            class="mdi mdi-wrench sidemenu-icon"></i><span class="sidemenu-label">Data
-                            Servis</span></a>
-                </li>
+                    <li class="nav-header"><span class="nav-label">Permintaan</span></li>
+                    <li class="nav-item {{ Route::is('datadesain') ? 'active' : '' }}">
+                        <a class="nav-link" href="datadesain"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
+                                class="sidemenu-label">Data
+                                Desain</span></a>
+                    </li>
+                    <li class="nav-item {{ Route::is('dataservis') ? 'active' : '' }}">
+                        <a class="nav-link" href="dataservis"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
+                                class="sidemenu-label">Data
+                                Servis</span></a>
+                    </li>
 
-                </ul>
+                    </ul>
 
-                <li class="nav-header"><span class="nav-label">Keuangan</span></li>
-                <li class="nav-item {{ Route::is('pemasukan') ? 'active' : '' }}">
-                    <a class="nav-link" href="pemasukan"><span class="shape1"></span><span class="shape2"></span><i
-                            class="ti-server sidemenu-icon"></i><span class="sidemenu-label">Pemasukan</span></a>
-                </li>
-                <li class="nav-item {{ Route::is('pengeluaran') ? 'active' : '' }}">
-                    <a class="nav-link" href="pengeluaran"><span class="shape1"></span><span
-                            class="shape2"></span><i class="ti-server sidemenu-icon"></i><span
-                            class="sidemenu-label">Pengeluaran</span></a>
-                </li>
+                    <li class="nav-header"><span class="nav-label">Keuangan</span></li>
+                    <li class="nav-item {{ Route::is('pemasukan') ? 'active' : '' }}">
+                        <a class="nav-link" href="pemasukan"><span class="shape1"></span><span
+                                class="shape2"></span><i class="ti-server sidemenu-icon"></i><span
+                                class="sidemenu-label">Pemasukan</span></a>
+                    </li>
+                    <li class="nav-item {{ Route::is('pengeluaran') ? 'active' : '' }}">
+                        <a class="nav-link" href="pengeluaran"><span class="shape1"></span><span
+                                class="shape2"></span><i class="ti-server sidemenu-icon"></i><span
+                                class="sidemenu-label">Pengeluaran</span></a>
+                    </li>
 
-                </ul>
-                </li>
-                </ul>
+                    </ul>
+                    </li>
+                    </ul>
             </div>
         </div>
         <!-- End Sidemenu -->
@@ -174,25 +209,22 @@
                     <div class="dropdown main-profile-menu">
                         <a class="d-flex" href="#">
                             <img src="{{ asset('acstemplate/assets/img/wa.png') }}" class="main-img-user"
-                            alt="avatar"
-
-
-                        </a>
-                        <div class="dropdown-menu">
-                            <div class="header-navheading">
-                                <h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
-                                <p class="main-notification-text">{{ Auth::user()->role }}</p>
+                                alt="avatar" </a>
+                            <div class="dropdown-menu">
+                                <div class="header-navheading">
+                                    <h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
+                                    <p class="main-notification-text">{{ Auth::user()->role }}</p>
+                                </div>
+                                <a class="dropdown-item border-top" href="/profil">
+                                    <i class="fe fe-user"></i> Profil
+                                </a>
+                                <a class="dropdown-item" href="/editprofil">
+                                    <i class="fe fe-edit"></i> Edit Profil
+                                </a>
+                                <a class="dropdown-item" href="/logout">
+                                    <i class="fe fe-power"></i> Keluar
+                                </a>
                             </div>
-                            <a class="dropdown-item border-top" href="/profil">
-                                <i class="fe fe-user"></i> Profil
-                            </a>
-                            <a class="dropdown-item" href="/editprofil">
-                                <i class="fe fe-edit"></i> Edit Profil
-                            </a>
-                            <a class="dropdown-item" href="/logout">
-                                <i class="fe fe-power"></i> Keluar
-                            </a>
-                        </div>
                     </div>
                     <button class="navbar-toggler navresponsive-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
@@ -517,9 +549,3 @@
 
     <!-- Internal Dashboard js-->
     <script src="{{ asset('acstemplate/assets/js/index.js') }}"></script>
->
->>>>>>> a1204d5bf6de1ecd66d9d5a6dc98d087f267d568 --}}
-
-
-
-
