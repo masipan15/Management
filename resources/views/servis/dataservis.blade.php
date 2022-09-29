@@ -43,6 +43,9 @@
                                             <a href="/deletet/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                     class="fas fa-trash-alt"></i>hapus</button></a>
+
+                                                    <a href="#" class="btn btn-danger delete"
+                                            data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -56,5 +59,30 @@
     </div>
     
     @include('sweetalert::alert')
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+<script>
+        $('.delete').click(function() {
+            var id = $(this).attr('data-id');
+            var nama = $(this).attr('data-nama');
+            swal({
+                    title: "Yakin Mau Hapus?",
+                    text: "Kamu Akan Menghapus Data dengan nama " + nama + " ",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Data Berhasil Di hapus", {
+                            icon: "success",
+                        });
+                        window.location = "/deletet/" + id + ""
+                    } else {
+                        swal("Data Tidak Jadi Di hapus");
+                    }
+        });
+    </script>
 
 @endsection
