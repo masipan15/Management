@@ -30,17 +30,15 @@
                         </div>
                         <form action="/prosestambah" method="post" enctype="multipart/form-data">
                             @csrf
-                            
+
                             <div class="mb-3">
                                 <label for="" class="form-label">Nama
                                     Supplier</label>
-                                <select class="form-select" @error('suppliers_id')  @enderror
-                                    name="suppliers_id"  aria-label="Default select example"
-                                    id="suppliers_id">
+                                <select class="form-select" @error('suppliers_id')  @enderror name="suppliers_id"
+                                    aria-label="Default select example" id="suppliers_id">
                                     <option value disabled selected="">Pilih Supplier</option>
                                     @foreach ($supplier as $p)
-                                        <option
-                                            value="{{ $p->id }}">{{ $p->nama_supplier }}
+                                        <option value="{{ $p->id }}">{{ $p->nama_supplier }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -62,11 +60,11 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Rp.</span>
                                     <input type="text" name="harga" id="harga" class="form-control"
-                                    aria-describedby="emailHelp">
+                                        aria-describedby="emailHelp">
                                 </div>
                             </div>
                             @error('harga')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="mb-3">
                                 <label for="" class="">Jumlah</label>
@@ -100,8 +98,8 @@
                                         <label class="ckbox">
                                         </label>
                                     </div>
-                                    <button class="btn ripple btn-main-primary btn-block">Submit</button>
-                                    <a href="barangmasuk" class="btn ripple btn-main-primary btn-block">Kembali</a>
+                                    <button class=" ripple btn-main-primary ">Submit</button>
+                                    <a href="barangmasuk" class=" ripple btn-main-primary btn">Kembali</a>
                                 </div>
                         </form>
                     </div>
