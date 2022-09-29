@@ -207,14 +207,14 @@
                                             <div class="profile-tab tab-menu-heading">
                                                 <nav class="nav main-nav-line p-3 tabs-menu profile-nav-line bg-gray-100">
                                                     <a class="nav-link" data-toggle="tab" href="#"></a>
-                                                    <a class="nav-link active" data-toggle="tab" href="/register">User Desain</a>
+                                                    <a class="nav-link  active" data-toggle="tab" href="register">User Desain</a>
                                                     <a class="nav-link" data-toggle="tab" href="#"></a>
                                                     <a class="nav-link" data-toggle="tab" href="#"></a>
-                                                    <a class="nav-link" data-toggle="tab" href="/registerservis">User Servis</a>
+                                                    <a class="nav-link" data-toggle="tab" href="registerservis">User Servis</a>
                                                     <a class="nav-link" data-toggle="tab" href="#"></a>
                                                 </nav>
                                             </div>
-                                        <form class="mt-4" action="/registeruser" method="post">
+                                        <form class="mt-4" action="/registeruserservis" method="post">
                                             @csrf
                                             <div class="form-group text-left">
                                                 <label>Nama</label>

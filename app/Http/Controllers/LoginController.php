@@ -41,10 +41,12 @@ class LoginController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
+            'role' => 'required',
             'email' => 'required|unique:users,email',
             'password' => 'required|min:6',
         ], [
             'name.required' => 'Harus Diisi!',
+            'role.required' => 'Harus Diisi!',
             'email.required' => 'Harus Diisi!',
             'email.unique' => 'Email Sudah Dipakai!',
             'password.required' => 'Harus Diisi!',
@@ -53,6 +55,7 @@ class LoginController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'role' => $request->role,
             'password' => bcrypt($request->password),
             'alamat' => '-',
             'notelpon' => '-',

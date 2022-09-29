@@ -41,9 +41,10 @@
                                         <td>
                                             <a href="/editdesain/{{ $row->id }}" class="btn btn-success mb-1"><i
                                                     class="fas fa-pencil-alt"></i>edit</a><br>
-                                            <a href="/deletes/{{ $row->id }}" class="btn btn-danger"
+                                            {{-- <a href="/deletes/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
-                                                    class="fas fa-trash-alt"></i>hapus</button></a>
+                                                    class="fas fa-trash-alt"></i>hapus</button></a> --}}
+                                                    <a href="#" class="btn btn-danger delete" data-nama="{{ $row->nama_pemesan }}"></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -55,6 +56,34 @@
             </div>
         </div>
     </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    
+    <script>
+
+            $('.delete').click(function() {
+                        // var id = $(this).attr('data-id');
+                        var nama = $(this).attr('data-nama');
+                swal({
+                    title: "Yakin Mau Hapus?",
+                    text: "Kamu Akan Menghapus Data dengan nama " + nama + " ",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Data Berhasil Di hapus", {
+                            icon: "success",
+                        });
+                        window.location = "/deletet/" + id + ""
+                    } else {
+                        swal("Data Tidak Jadi Di hapus");
+                    }
+            });
+        });
+    </script>
 
     @include('sweetalert::alert')
 

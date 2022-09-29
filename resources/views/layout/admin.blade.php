@@ -90,7 +90,6 @@
             </div>
 
 
-            @if (auth()->user()->role == "admin") 
             <div class="main-sidebar-body">
                 <ul class="nav">
                     <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
@@ -98,7 +97,6 @@
                                 class="ti-home sidemenu-icon"></i><span class="sidemenu-label">BERANDA</span></a>
                     </li>
                 </ul>
-                @endif
             @if (auth()->user()->role == "servis") 
             <div class="main-sidebar-body">
                 <ul class="nav">
