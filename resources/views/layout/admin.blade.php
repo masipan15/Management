@@ -95,7 +95,7 @@
                 <ul class="nav">
                     <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
                         <a class="nav-link" href="/welcome"><span class="shape1"></span><span class="shape2"></span><i
-                                class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
+                                class="ti-home sidemenu-icon"></i><span class="sidemenu-label">BERANDA</span></a>
                     </li>
                 </ul>
                 @endif
