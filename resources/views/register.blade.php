@@ -226,12 +226,18 @@
                                             @enderror
                                             <div class="form-group text-left">
                                                 <label>Sandi</label>
-                                                <input class="form-control" name="password"
+                                                <input class="form-control" id="myInput" name="password"
                                                     placeholder="Masukkan Sandi Anda" type="password">
+                                                &nbsp;&nbsp;<input type="checkbox" onclick="myFunction()">Tampilkan
+                                                Sandi
+
+                                                @error('password')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                                @if (session('success'))
+                                                    <div class="text-danger"> {{ session('success') }} </div>
+                                                @endif
                                             </div>
-                                            @error('password')
-                                                <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
                                             <button type="submit" class="btn ripple btn-main-primary btn-block">Buat Akun</button>
                                         </form>
                                         <div class="text-left mt-5 ml-0">
@@ -268,6 +274,16 @@
     <script src="{{ asset('acstemplate/assets/switcher/js/switcher.js') }}"></script>
 
 
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type == "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 
 
 </body>

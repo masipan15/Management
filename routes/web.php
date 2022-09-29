@@ -5,7 +5,6 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DesainController;
-use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\servisController;
 use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\BarangkeluarController;
