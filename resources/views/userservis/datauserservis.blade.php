@@ -6,7 +6,7 @@
             <div class="card custom-card overflow-hidden">
                 <div class="card-body">
                     <div>
-                        <a href="/tambahservis" class="btn btn-primary">Tambah</a>
+
                         <p class="text-muted card-sub-title"></p>
                     </div>
                     <div class="table-responsive">
@@ -19,7 +19,7 @@
                                     <th class="wd-25p">Merk</th>
                                     <th class="wd-20p">Kerusakan</th>
                                     <th class="wd-15p">Status</th>
-                                    
+                                    <th class="wd-20p">Biaya</th>
                                     <th class="wd-20p">Aksi</th>
                                 </tr>
                             </thead>
@@ -30,22 +30,22 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        <td>{{ $row->nama_pelanggan }}</td>
-                                        <td>{{ $row->nama_barang }}</td>
-                                        <td>{{ $row->merk_barang }}</td>
-                                        <td>{{ $row->kerusakan_barang }}</td>
-                                        <td>{{ $row->status_pengerjaan }}</td>
-
+                                        <td>{{ $row->namapelanggan }}</td>
+                                        <td>{{ $row->namabarang }}</td>
+                                        <td>{{ $row->merk }}</td>
+                                        <td>{{ $row->kerusakan }}</td>
+                                        <td>{{ $row->status }}</td>
+                                        <td>Rp.{{ number_format($row['biaya'], 2, '.', '.') }}</td>
 
                                         <td>
-                                            <a href="/editservis/{{ $row->id }}" class="btn btn-success mb-1"><i
+                                            <a href="/edituserservis/{{ $row->id }}" class="btn btn-success mb-1"><i
                                                     class="fas fa-pencil-alt"></i>edit</a><br>
                                             {{-- <a href="/deletet/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                     class="fas fa-trash-alt"></i>hapus</button></a> --}}
 
-                                                    <a href="#" class="btn btn-danger delete"
-                                            data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a>
+                                            <a href="#" class="btn btn-danger delete"
+                                                data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -84,5 +84,4 @@
                     }
         });
     </script> --}}
-
 @endsection

@@ -105,6 +105,7 @@ class BarangController extends Controller
     public function databarang()
     {
         $data = Barang::all();
+
         return view('barang.databarang', compact('data'));
     }
 
