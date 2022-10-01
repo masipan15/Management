@@ -201,15 +201,15 @@
                                             class=" d-lg-none header-brand-img text-left float-left mb-4"
                                             alt="logo"> --}}
                                         <div class="clearfix"></div>
-                                        <h5 class="text-left mb-2">Anda Akan Daftar Sebagai User Servis</h5>
+                                        <h5 class="text-left mb-2">Anda Akan Daftar Sebagai User Desain</h5>
                                         <p class="mb-4 text-muted tx-13 ml-0 text-left"></p>
                                         <nav class="navbar navbar-light bg-light">
                                             <form class="container-fluid justify-content-start">
-                                              <a href="registerdesain" class="btn btn-sm btn-outline-secondary" type="button">User Desain</a>
-                                              <a href="registerservis" class="btn btn-sm btn-outline-secondary" type="button">User Servis</a>
+                                              <a href="registerdesain" class="btn btn-sm btn-outline-primary" type="button">User Desain</a>
+                                              <a href="registerservis" class="btn btn-sm btn-outline-primary" type="button">User Servis</a>
                                             </form>
                                           </nav>
-                                        <form class="mt-4" action="/createservis" method="post">
+                                        <form class="mt-4" action="/createdesain" method="post">
                                             @csrf
                                             <div class="form-group text-left">
                                                 <label>Nama</label>
@@ -241,7 +241,7 @@
                                                     <div class="text-danger"> {{ session('success') }} </div>
                                                 @endif
                                             </div>
-                                            <input type="text" value="servis" name="role" hidden>
+                                            <input type="text" value="desain" name="role" hidden>
                                             <button type="submit" class="btn ripple btn-main-primary btn-block">Buat Akun</button>
                                         </form>
                                         <div class="text-left mt-5 ml-0">

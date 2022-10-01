@@ -45,7 +45,7 @@
                                                     class="fas fa-trash-alt"></i>hapus</button></a> --}}
 
                                                     <a href="#" class="btn btn-danger delete"
-                                            data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a>
+                                            data-id="{{ $row->id }}"data-nama="{{ $row->nama_pelanggan }}">Hapus</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -60,7 +60,7 @@
     
     @include('sweetalert::alert')
 
-    {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
 <script>
         $('.delete').click(function() {
@@ -83,6 +83,7 @@
                         swal("Data Tidak Jadi Di hapus");
                     }
         });
-    </script> --}}
+    });
+    </script>
 
 @endsection

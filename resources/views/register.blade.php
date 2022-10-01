@@ -204,16 +204,12 @@
                                         <h5 class="text-left mb-2">Mendaftar gratis</h5>
                                         <p class="mb-4 text-muted tx-13 ml-0 text-left">Gratis untuk mendaftar dan hanya
                                             membutuhkan waktu satu menit.</p>
-                                            <div class="profile-tab tab-menu-heading">
-                                                <nav class="nav main-nav-line p-3 tabs-menu profile-nav-line bg-gray-100">
-                                                    <a class="nav-link" data-toggle="tab" href="#"></a>
-                                                    <a class="nav-link active" data-toggle="tab" href="/register">User Desain</a>
-                                                    <a class="nav-link" data-toggle="tab" href="#"></a>
-                                                    <a class="nav-link" data-toggle="tab" href="#"></a>
-                                                    <a class="nav-link" data-toggle="tab" href="/registerservis">User Servis</a>
-                                                    <a class="nav-link" data-toggle="tab" href="#"></a>
-                                                </nav>
-                                            </div>
+                                            <nav class="navbar navbar-light bg-light">
+                                                <form class="container-fluid justify-content-start">
+                                                  <a href="registerdesain" class="btn btn-sm btn-outline-secondary" type="button">User Desain</a>
+                                                  <a href="registerservis" class="btn btn-sm btn-outline-secondary" type="button">User Servis</a>
+                                                </form>
+                                              </nav>
                                         <form class="mt-4" action="/registeruser" method="post">
                                             @csrf
                                             <div class="form-group text-left">
@@ -246,6 +242,7 @@
                                                     <div class="text-danger"> {{ session('success') }} </div>
                                                 @endif
                                             </div>
+                                            <input type="text" value="admin" name="role" hidden>
                                             <button type="submit" class="btn ripple btn-main-primary btn-block">Buat Akun</button>
                                         </form>
                                         <div class="text-left mt-5 ml-0">

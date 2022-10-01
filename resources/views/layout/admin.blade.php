@@ -91,17 +91,19 @@
 
 
             <div class="main-sidebar-body">
+                @if (auth()->user()->role == "admin") 
                 <ul class="nav">
-                    <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
-                        <a class="nav-link" href="/welcome"><span class="shape1"></span><span class="shape2"></span><i
-                                class="ti-home sidemenu-icon"></i><span class="sidemenu-label">BERANDA</span></a>
+                    <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}">
+                        <a class="nav-link" href="welcome"><span class="shape1"></span><span class="shape2"></span><i
+                                class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
                     </li>
                 </ul>
+                @endif
             @if (auth()->user()->role == "servis") 
             <div class="main-sidebar-body">
                 <ul class="nav">
-                    <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
-                        <a class="nav-link" href="/welcome"><span class="shape1"></span><span class="shape2"></span><i
+                    <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}">
+                        <a class="nav-link" href="welcome"><span class="shape1"></span><span class="shape2"></span><i
                                 class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
                     </li>
                 </ul>
@@ -109,8 +111,8 @@
             @if (auth()->user()->role == "desain") 
             <div class="main-sidebar-body">
                 <ul class="nav">
-                    <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
-                        <a class="nav-link" href="/welcome"><span class="shape1"></span><span class="shape2"></span><i
+                    <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}">
+                        <a class="nav-link" href="welcome"><span class="shape1"></span><span class="shape2"></span><i
                                 class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
                     </li>
                 </ul>
@@ -157,7 +159,7 @@
                     @endif
                     @if (auth()->user()->role == "desain") 
                     <li class="nav-header"><span class="nav-label">Permintaan</span></li>
-                    <li class="nav-item {{ Route::is('datafdesain') ? 'active' : '' }}">
+                    <li class="nav-item {{ Route::is('datadesain') ? 'active' : '' }}">
                         <a class="nav-link" href="datadesain"><span class="shape1"></span><span
                                 class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
                                 class="sidemenu-label">Data

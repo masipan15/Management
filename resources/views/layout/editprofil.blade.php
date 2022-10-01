@@ -161,227 +161,193 @@
 		</div>
         <!-- End Loader -->
 
-		<!-- Page -->
-		<div class="page">
+		 <!-- Page -->
+    <div class="page">
 
         <!-- Sidemenu -->
-			<div class="main-sidebar main-sidebar-sticky side-menu">
-				<div class="sidemenu-logo">
-					<a class="main-logo" href="index.html">
-						<img src="{{ asset ('acstemplate/assets/img/brand/logo-light.png')}}" class="header-brand-img desktop-logo" alt="logo">
-						<img src="{{ asset ('acstemplate/assets/img/brand/icon-light.png')}}" class="header-brand-img icon-logo" alt="logo">
-						<img src="{{ asset ('acstemplate/assets/img/brand/logo.png')}}" class="header-brand-img desktop-logo theme-logo" alt="logo">
-						<img src="{{ asset ('acstemplate/assets/img/brand/icon.png')}}" class="header-brand-img icon-logo theme-logo" alt="logo">
-					</a>
-				</div>
-				<div class="main-sidebar-body">
+        <div class="main-sidebar main-sidebar-sticky side-menu">
+            <div class="sidemenu-logo">
+                <a class="main-logo" href="index.html">
+                    <img src="{{ asset('acstemplate/assets/img/brand/logo-light.png') }}"
+                        class="header-brand-img desktop-logo" alt="logo">
+                    <img src="{{ asset('acstemplate/assets/img/brand/icon-light.png') }}"
+                        class="header-brand-img icon-logo" alt="logo">
+                    <img src="{{ asset('acstemplate/assets/img/brand/logo.png') }}"
+                        class="header-brand-img desktop-logo theme-logo" alt="logo">
+                    <img src="{{ asset('acstemplate/assets/img/brand/icon.png') }}"
+                        class="header-brand-img icon-logo theme-logo" alt="logo">
+                </a>
+            </div>
 
-					<div class="main-sidebar main-sidebar-sticky side-menu">
-						<div class="sidemenu-logo">
-							<a class="main-logo" href="index.html">
-								<img src="{{ asset('acstemplate/assets/img/brand/logo-light.png') }}"
-									class="header-brand-img desktop-logo" alt="logo">
-								<img src="{{ asset('acstemplate/assets/img/brand/icon-light.png') }}"
-									class="header-brand-img icon-logo" alt="logo">
-								<img src="{{ asset('acstemplate/assets/img/brand/logo.png') }}"
-									class="header-brand-img desktop-logo theme-logo" alt="logo">
-								<img src="{{ asset('acstemplate/assets/img/brand/icon.png') }}"
-									class="header-brand-img icon-logo theme-logo" alt="logo">
-							</a>
-						</div>
-						<div class="main-sidebar-body">
-							<ul class="nav">
-								<li class="nav-header"><span class="nav-label">Beranda</span></li>
-								<li class="nav-item">
-									<a class="nav-link" href="/welcome"><span class="shape1"></span><span class="shape2"></span><i
-											class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
-								</li>
-			
-								<li class="nav-item show">
-									<a class="nav-link with-sub" href="#"><span class="shape1"></span><span
-											class="shape2"></span><i class="ti-agenda sidemenu-icon"></i><span
-											class="sidemenu-label">Tables</span><i class="angle fe fe-chevron-right"></i></a>
-									<ul class="nav-sub">
-										<li class="nav-sub-item">
-											<a class="nav-sub-link" href="/datadesain">Data Desain</a>
-										</li>
-										<li class="nav-sub-item">
-											<a class="nav-sub-link" href="/dataservis">Data Servis</a>
-										<li class="nav-sub-item"> </li>
-										<li class="nav-sub-item">
-											<a class="nav-sub-link" href="/barangmasuk">Barang Masuk</a>
-										</li>
-										<li class="nav-sub-item">
-											<a class="nav-sub-link" href="/barangkeluar">Barang Keluar</a>
-										</li>
-										<li class="nav-sub-item">
-											<a class="nav-sub-link" href="/pengeluaran">Pengeluaran</a>
-										</li>
-										<li class="nav-sub-item">
-											<a class="nav-sub-link" href="/pemasukan">Pemasukan</a>
-										</li>
-								</li>
-			
-							</ul>
-			
-							</ul>
-							</li>
-							</ul>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-			<!-- End Sidemenu -->        <!-- Main Header-->
-			<div class="main-header side-header sticky">
-				<div class="container-fluid">
-					<div class="main-header-left">
-						<a class="main-header-menu-icon" href="#" id="mainSidebarToggle"><span></span></a>
-					</div>
-					<div class="main-header-center">
-						<div class="responsive-logo">
-							<a href="index.html"><img src="{{ asset ('acstemplate/assets/img/brand/logo.png')}}" class="mobile-logo" alt="logo"></a>
-							<a href="index.html"><img src="{{ asset ('acstemplate/assets/img/brand/logo-light.png')}}" class="mobile-logo-dark" alt="logo"></a>
-						</div>
-						<div class="input-group">
-							<div class="input-group-btn search-panel">
-								
-							</div>
-						</div>
-					</div>
-					<div class="main-header-right">
-						<div class="dropdown header-search">
-							
-							<div class="dropdown-menu">
-								<div class="main-form-search p-2">
-									<div class="input-group">
-										<div class="input-group-btn search-panel">
-											<select class="form-control select2-no-search">
-												<option label="All categories">
-												</option>
-												<option value="IT Projects">
-													IT Projects
-												</option>
-												<option value="Business Case">
-													Business Case
-												</option>
-												<option value="Microsoft Project">
-													Microsoft Project
-												</option>
-												<option value="Risk Management">
-													Risk Management
-												</option>
-												<option value="Team Building">
-													Team Building
-												</option>
-											</select>
-										</div>
-										<input type="search" class="form-control" placeholder="Search for anything...">
-										<button class="btn search-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="dropdown main-header-notification flag-dropdown">
-							
-							<div class="dropdown-menu">
-								<a href="#" class="dropdown-item d-flex ">
-									<span class="avatar  mr-3 align-self-center bg-transparent"><img src="{{ asset ('acstemplate/assets/img/flags/french_flag.jpg')}}" alt="img"></span>
-									<div class="d-flex">
-										<span class="mt-2">French</span>
-									</div>
-								</a>
-								<a href="#" class="dropdown-item d-flex">
-									<span class="avatar  mr-3 align-self-center bg-transparent"><img src="{{ asset ('acstemplate/assets/img/flags/germany_flag.jpg')}}" alt="img"></span>
-									<div class="d-flex">
-										<span class="mt-2">Germany</span>
-									</div>
-								</a>
-								<a href="#" class="dropdown-item d-flex">
-									<span class="avatar mr-3 align-self-center bg-transparent"><img src="{{ asset ('acstemplate/assets/img/flags/italy_flag.jpg')}}" alt="img"></span>
-									<div class="d-flex">
-										<span class="mt-2">Italy</span>
-									</div>
-								</a>
-								<a href="#" class="dropdown-item d-flex">
-									<span class="avatar mr-3 align-self-center bg-transparent"><img src="{{ asset ('acstemplate/assets/img/flags/russia_flag.jpg')}}" alt="img"></span>
-									<div class="d-flex">
-										<span class="mt-2">Russia</span>
-									</div>
-								</a>
-								<a href="#" class="dropdown-item d-flex">
-									<span class="avatar  mr-3 align-self-center bg-transparent"><img src="{{ asset ('acstemplate/assets/img/flags/spain_flag.jpg')}}" alt="img"></span>
-									<div class="d-flex">
-										<span class="mt-2">spain</span>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="dropdown d-md-flex">
-							
-						</div>
-						<div class="dropdown main-header-notification">
-							
-							<div class="dropdown-menu">
-								<div class="header-navheading">
-									<p class="main-notification-text">You have 1 unread notification<span class="badge badge-pill badge-primary ml-3">View all</span></p>
-								</div>
-								<div class="main-notification-list">
-									<div class="media new">
-										<div class="main-img-user online"><img alt="avatar" src="{{ asset ('acstemplate/assets/img/users/5.jpg')}}"></div>
-										<div class="media-body">
-											<p>Congratulate <strong>Olivia James</strong> for New template start</p><span>Oct 15 12:32pm</span>
-										</div>
-									</div>
-									<div class="media">
-										<div class="main-img-user"><img alt="avatar" src="{{ asset ('acstemplate/assets/img/users/2.jpg')}}"></div>
-										<div class="media-body">
-											<p><strong>Joshua Gray</strong> New Message Received</p><span>Oct 13 02:56am</span>
-										</div>
-									</div>
-									<div class="media">
-										<div class="main-img-user online"><img alt="avatar" src="{{ asset ('acstemplate/assets/img/users/3.jpg')}}"></div>
-										<div class="media-body">
-											<p><strong>Elizabeth Lewis</strong> added new schedule realease</p><span>Oct 12 10:40pm</span>
-										</div>
-									</div>
-								</div>
-								<div class="dropdown-footer">
-									<a href="#">View All Notifications</a>
-								</div>
-							</div>
-						</div>
-						<div class="main-header-notification">
-							
-						</div>
-						<div class="dropdown main-profile-menu">
-							<a class="d-flex" href="#">
-								<span class="main-img-user" ><img alt="avatar" src="{{ asset('acstemplate/assets/img/wa.png') }}"></span>
-							</a>
-							<div class="dropdown-menu">
-								<div class="header-navheading">
-									<h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
-									<p class="main-notification-text">{{ Auth::user()->role }}</p>
-								</div>
-								<a class="dropdown-item border-top" href="/profil">
-									<i class="fe fe-user"></i> Profil
-								</a>
-								<a class="dropdown-item" href="/editprofil">
-									<i class="fe fe-edit"></i> Edit Profil
-								</a>
-								<a class="dropdown-item" href="/logout">
-									<i class="fe fe-power"></i> Keluar
-								</a>
-							</div>
-						</div>
-						<button class="navbar-toggler navresponsive-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
-							aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-							<i class="fe fe-more-vertical header-icons navbar-toggler-icon"></i>
-						</button><!-- Navresponsive closed -->
-					</div>
-				</div>
-			</div>
-			<!-- End Main Header-->		<!-- Mobile-header -->
+
+            <div class="main-sidebar-body">
+                @if (auth()->user()->role == "admin") 
+                <ul class="nav">
+                    <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}">
+                        <a class="nav-link" href="welcome"><span class="shape1"></span><span class="shape2"></span><i
+                                class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
+                    </li>
+                </ul>
+                @endif
+            @if (auth()->user()->role == "servis") 
+            <div class="main-sidebar-body">
+                <ul class="nav">
+                    <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}">
+                        <a class="nav-link" href="welcome"><span class="shape1"></span><span class="shape2"></span><i
+                                class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
+                    </li>
+                </ul>
+                @endif
+            @if (auth()->user()->role == "desain") 
+            <div class="main-sidebar-body">
+                <ul class="nav">
+                    <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}">
+                        <a class="nav-link" href="welcome"><span class="shape1"></span><span class="shape2"></span><i
+                                class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Beranda</span></a>
+                    </li>
+                </ul>
+                @endif
+                @if (auth()->user()->role == "admin") 
+                <li class="nav-header"><span class="nav-label">Barang</span></li>
+                    <li class="nav-item {{ Route::is('databarang') ? 'active' : '' }}">
+                        <a class="nav-link" href="databarang"><span class="shape1"></span><span
+                             class="shape2"></span><i
+                                class="ti-package sidemenu-icon"></i><span 
+                                class="sidemenu-label">Data
+                                Barang</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "admin") 
+                    <li class="nav-item {{ Route::is('datasupplier') ? 'active' : '' }}">
+                        <a class="nav-link" href="datasupplier"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-truck sidemenu-icon"></i><span
+                                class="sidemenu-label">Data Supplier</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "admin") 
+                    <li class="nav-item {{ Route::is('barangmasuk') ? 'active' : '' }}">
+                        <a class="nav-link" href="barangmasuk"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-truck sidemenu-icon"></i><span
+                                class="sidemenu-label">Barang Masuk</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "admin") 
+                    <li class="nav-item {{ Route::is('barangkeluar') ? 'active' : '' }}">
+                        <a class="nav-link" href="barangkeluar"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-truck-trailer sidemenu-icon"></i><span
+                                class="sidemenu-label">Barang Keluar</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "admin") 
+                    <li class="nav-header"><span class="nav-label">Permintaan</span></li>
+                    <li class="nav-item {{ Route::is('datadesain') ? 'active' : '' }}">
+                        <a class="nav-link" href="datadesain"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
+                                class="sidemenu-label">Data
+                                Desain</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "desain") 
+                    <li class="nav-header"><span class="nav-label">Permintaan</span></li>
+                    <li class="nav-item {{ Route::is('datadesain') ? 'active' : '' }}">
+                        <a class="nav-link" href="datadesain"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
+                                class="sidemenu-label">Data
+                                Desain</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "admin") 
+                    <li class="nav-item {{ Route::is('dataservis') ? 'active' : '' }}">
+                        <a class="nav-link" href="dataservis"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
+                                class="sidemenu-label">Data
+                                Servis</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "servis") 
+                    <li class="nav-header"><span class="nav-label">Permintaan</span></li>
+                    <li class="nav-item {{ Route::is('dataservis') ? 'active' : '' }}">
+                        <a class="nav-link" href="dataservis"><span class="shape1"></span><span
+                                class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
+                                class="sidemenu-label">Data
+                                Servis</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "admin") 
+                    <li class="nav-header"><span class="nav-label">Keuangan</span></li>
+                    <li class="nav-item {{ Route::is('pemasukan') ? 'active' : '' }}">
+                        <a class="nav-link" href="pemasukan"><span class="shape1"></span><span
+                                class="shape2"></span><i class="ti-server sidemenu-icon"></i><span
+                                class="sidemenu-label">Pemasukan</span></a>
+                    </li>
+                    @endif
+                    @if (auth()->user()->role == "admin") 
+                    <li class="nav-item {{ Route::is('pengeluaran') ? 'active' : '' }}">
+                        <a class="nav-link" href="pengeluaran"><span class="shape1"></span><span
+                                class="shape2"></span><i class="ti-server sidemenu-icon"></i><span
+                                class="sidemenu-label">Pengeluaran</span></a>
+                    </li>
+                    @endif
+                    </ul>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End Sidemenu -->
+            <!-- Main Header-->
+            <div class="main-header side-header sticky">
+                <div class="container-fluid">
+                    <div class="main-header-left">
+                        <a class="main-header-menu-icon" href="#" id="mainSidebarToggle"><span></span></a>
+                        <div class="dropdown d-md-flex">
+                            <a class="nav-link icon full-screen-link" href="#">
+                                <i class="fe fe-maximize fullscreen-button fullscreen header-icons"></i>
+                                <i class="fe fe-minimize fullscreen-button exit-fullscreen header-icons"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="main-header-center">
+                        <div class="responsive-logo">
+                            <a href="index.html"><img src="{{ asset('acstemplate/assets/img/brand/logo.png') }}"
+                                    class="mobile-logo" alt="logo"></a>
+                            <a href="index.html"><img
+                                    src="{{ asset('acstemplate/assets/img/brand/logo-light.png') }}"
+                                    class="mobile-logo-dark" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="main-header-right">
+
+                        <div class="dropdown main-profile-menu">
+                            <a class="d-flex" href="#">
+                                <span class="main-img-user"><img alt="avatar"
+                                        src="{{ asset('acstemplate/assets/img/wa.png') }}"></span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="header-navheading">
+                                    <h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
+                                    <p class="main-notification-text">{{ Auth::user()->role }}</p>
+                                </div>
+                                <a class="dropdown-item border-top" href="/profil">
+                                    <i class="fe fe-user"></i> Profil
+                                </a>
+                                <a class="dropdown-item" href="/editprofil">
+                                    <i class="fe fe-edit"></i> Edit Profil
+                                </a>
+                                <a class="dropdown-item" href="/logout">
+                                    <i class="fe fe-power"></i> Keluar
+                                </a>
+                            </div>
+                        </div>
+                        <button class="navbar-toggler navresponsive-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fe fe-more-vertical header-icons navbar-toggler-icon"></i>
+                        </button><!-- Navresponsive closed -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Main Header--> 
+	        <!-- Mobile-header -->
 			<div class="mobile-main-header">
 				<div class="mb-1 navbar navbar-expand-lg  nav nav-item  navbar-nav-right responsive-navbar navbar-dark  ">
 					<div class="collapse navbar-collapse" id="navbarSupportedContent-4">
@@ -630,7 +596,7 @@
                                                                         <label class="form-label">No Telpon</label>
                                                                     </div>
                                                                     <div class="col-md-9">
-                                                                        <input type="text" class="form-control" value="{{ Auth::user()->notelpon }}" name="notelpon">
+                                                                        <input type="number" class="form-control" value="{{ Auth::user()->notelpon }}" name="notelpon">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -643,8 +609,9 @@
                                                                         <div class="custom-controls-stacked">
                                                                             </div>
                                                                         <div class="mt-3">
-                                                                            <button type="submit" class="btn btn-primary mr-1">Save</button>
-                                                                            <button type="reset" class="btn btn-danger">Reset</button>
+                                                                            <button type="submit" class="btn btn-success mr-1">Save</button>
+                                                                            <button type="reset" class="btn btn-primary mr-1">Reset</button>
+                                                                            <a href="profil" type="button" class="btn btn-danger">Batal</a>
                                                                         </div>
                                                                     </div>										
                                                                 </div>

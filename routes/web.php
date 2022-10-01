@@ -33,7 +33,7 @@ Route::get('tes', function () {
 });
 
 
-Route::group(['middleware' => ['auth', 'hakakses:admin,servis,desain']], function () {
+Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
 
     //barang masuk
     Route::get('barangmasuk', [BarangmasukController::class, 'barangmasuk'])->name('barangmasuk')->middleware('auth');
@@ -50,13 +50,33 @@ Route::group(['middleware' => ['auth', 'hakakses:admin,servis,desain']], functio
     Route::get('/editbrgklr/{id}', [BarangkeluarController::class, 'editbrgklr'])->name('editbrgklr');
     Route::post('/updatebrgklr/{id}', [BarangkeluarController::class, 'updatebrgklr'])->name('updatebrgklr');
     Route::get('/delete/{id}', [BarangkeluarController::class, 'delete'])->name('delete');
+
+
+    
+    //pengeluaran
+    Route::get('/pengeluaran', [BarangmasukController::class, 'pengeluaran'])->name('pengeluaran')->middleware('auth');
+
+    //pemasukan
+    Route::get('/pemasukan', [BarangkeluarController::class, 'pemasukan'])->name('pemasukan')->middleware('auth');
+
+    //databarang
+
+    Route::get('/databarang', [BarangController::class, 'databarang'])->name('databarang')->middleware('auth');
+    Route::get('/tambahbarang', [BarangController::class, 'tambahbarang'])->name('tambahbarang')->middleware('auth');
+    Route::post('/insertbarang', [BarangController::class, 'insertbarang'])->name('insertbarang');
+    Route::get('/editbarang/{id}', [BarangController::class, 'editbarang'])->name('editbarang')->middleware('auth');
+    Route::post('/updatebarang/{id}', [BarangController::class, 'updatebarang'])->name('updatebarang');
+    Route::get('/deletese/{id}', [BarangController::class, 'deletese'])->name('deletese');
+
+
+    //supplier
+    Route::get('/datasupplier', [SupplierController::class, 'datasupplier'])->name('datasupplier')->middleware('auth');
+    Route::get('/tambahsupplier', [SupplierController::class, 'tambahsupplier'])->name('tambahsupplier')->middleware('auth');
+    Route::post('/insertsupplier', [SupplierController::class, 'insertsupplier'])->name('insertsupplier');
+    Route::get('/editsupplier/{id}', [SupplierController::class, 'editsupplier'])->name('editsupplier')->middleware('auth');
+    Route::post('/updatesupplier/{id}', [SupplierController::class, 'updatesupplier'])->name('updatesupplier');
+    Route::get('/deletetet/{id}', [SupplierController::class, 'deletetet'])->name('deletetet');
 });
-
-
-
-
-
-
 
 Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
 
@@ -69,10 +89,6 @@ Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
     Route::get('/deletet/{id}', [servisController::class, 'deletet'])->name('deletet');
 });
 
-
-
-
-
 Route::group(['middleware' => ['auth', 'hakakses:desain,admin']], function () {
 
     //desain
@@ -84,35 +100,16 @@ Route::group(['middleware' => ['auth', 'hakakses:desain,admin']], function () {
     Route::get('/deletes/{id}', [DesainController::class, 'deletes'])->name('deletes');
 });
 
-
-
-
-
-
 //login
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/loginproses', [LoginController::class, 'loginproses'])->name('loginproses');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('registeruser');
+Route::get('/registerservis', [LoginController::class, 'registerservis'])->name('registerservis');
+Route::post('/createservis', [LoginController::class, 'createservis'])->name('createservis');
+Route::get('/registerdesain', [LoginController::class, 'registerdesain'])->name('registerdesain');
+Route::post('/createdesain', [LoginController::class, 'createdesain'])->name('createdesain');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
-
-
-
-//pengeluaran
-Route::get('/pengeluaran', [BarangmasukController::class, 'pengeluaran'])->name('pengeluaran')->middleware('auth');
-
-//pemasukan
-Route::get('/pemasukan', [BarangkeluarController::class, 'pemasukan'])->name('pemasukan')->middleware('auth');
-
-//databarang
-
-Route::get('/databarang', [BarangController::class, 'databarang'])->name('databarang')->middleware('auth');
-Route::get('/tambahbarang', [BarangController::class, 'tambahbarang'])->name('tambahbarang')->middleware('auth');
-Route::post('/insertbarang', [BarangController::class, 'insertbarang'])->name('insertbarang');
-Route::get('/editbarang/{id}', [BarangController::class, 'editbarang'])->name('editbarang')->middleware('auth');
-Route::post('/updatebarang/{id}', [BarangController::class, 'updatebarang'])->name('updatebarang');
-Route::get('/deletese/{id}', [BarangController::class, 'deletese'])->name('deletese');
 
 
 //profil
@@ -121,16 +118,5 @@ Route::get('/editprofil', [LoginController::class, 'editprofil'])->name('editpro
 Route::post('/updateprofil', [LoginController::class, 'updateprofil'])->name('updateprofil');
 
 
-//supplier
-Route::get('/datasupplier', [SupplierController::class, 'datasupplier'])->name('datasupplier')->middleware('auth');
-Route::get('/tambahsupplier', [SupplierController::class, 'tambahsupplier'])->name('tambahsupplier')->middleware('auth');
-Route::post('/insertsupplier', [SupplierController::class, 'insertsupplier'])->name('insertsupplier');
-Route::get('/editsupplier/{id}', [SupplierController::class, 'editsupplier'])->name('editsupplier')->middleware('auth');
-Route::post('/updatesupplier/{id}', [SupplierController::class, 'updatesupplier'])->name('updatesupplier');
-Route::get('/deletetet/{id}', [SupplierController::class, 'deletetet'])->name('deletetet');
-
-
-
 //shift data
-
 Route::get('/shiftdata', [BarangmasukController::class, 'shiftdata'])->name('shiftdata');

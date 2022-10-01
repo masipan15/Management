@@ -26,10 +26,16 @@ class LoginController extends Controller
             'password.required' => 'Harus Diisi!',
             'password.min' => 'Minimal 6 huruf!',
         ]);
-        if (Auth::attempt($request->only('email', 'password'))) {
+        if (Auth::attempt(['email'=>$request->email,'password'=>$request->password,'role'=>'admin'])) {
             return redirect('/welcome');
         }
-        return \redirect('login')->with('success', 'Email atau Kata Sandi yang anda masukkan salah');
+        if (Auth::attempt(['email'=>$request->email,'password'=>$request->password,'role'=>'servis'])) {
+            return redirect('/welcome');
+        }
+        if (Auth::attempt(['email'=>$request->email,'password'=>$request->password,'role'=>'desain'])) {
+            return redirect('/welcome');
+        }
+        return redirect('login')->with('success', 'Email atau Kata Sandi yang anda masukkan salah');
     }
 
 
@@ -39,19 +45,44 @@ class LoginController extends Controller
     }
     public function registeruser(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'role' => 'required',
-            'email' => 'required|unique:users,email',
-            'password' => 'required|min:6',
-        ], [
-            'name.required' => 'Harus Diisi!',
-            'role.required' => 'Harus Diisi!',
-            'email.required' => 'Harus Diisi!',
-            'email.unique' => 'Email Sudah Dipakai!',
-            'password.required' => 'Harus Diisi!',
-            'password.min' => 'Minimal 6 huruf!',
+        User::create([
+            'name' => $request->name,   
+            'email' => $request->email,
+            'role' => 'admin',
+            'password' => bcrypt($request->password),
+            'alamat' => '-',
+            'notelpon' => '-',
+            'foto' => '-',
+            'remember_token' => Str::random(60),
         ]);
+        return redirect('/login');
+    }
+
+   
+    public function registerservis()
+    {
+        return view('registerservis');
+    }
+    public function createservis(Request $request){
+        
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'role' => 'desain',
+            'password' => bcrypt($request->password),
+            'alamat' => '-',
+            'notelpon' => '-',
+            'foto' => '-',
+            'remember_token' => Str::random(60),
+        ]);
+        return redirect('login');
+    }
+    public function registerdesain()
+    {
+        return view('registerdesain');
+    }
+    public function createdesain(Request $request){
+       
         User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -62,7 +93,7 @@ class LoginController extends Controller
             'foto' => '-',
             'remember_token' => Str::random(60),
         ]);
-        return redirect('/login');
+        return redirect('login');
     }
 
     public function logout()
@@ -70,9 +101,6 @@ class LoginController extends Controller
         auth::logout();
         return redirect('/login');
     }
-
-
-
 
 
     public function profil()
@@ -100,7 +128,7 @@ class LoginController extends Controller
         $data->update([
             'nama' => $request->nama,
             'alamat' => $request->alamat,
-            'notelon' => $request->notelon,
+            'notelpon' => $request->notelpon,
         ]);
         return redirect()->route('profil')->with('success', 'Data berhasil di Update!');
     }
