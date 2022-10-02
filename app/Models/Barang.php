@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Barang extends Model
 {
     use HasFactory;
-    
+
     protected $guarded=[];
+
+    public function namabarangg(){
+        return $this -> hasMany(barangkeluar::class);
+    }
 }

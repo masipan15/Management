@@ -183,6 +183,7 @@ class BarangController extends Controller
             $data->foto1 = $request->file('foto1')->getClientOriginalName();
             $data->save();
         }
+
         return redirect()->route('databarang')->with('success', 'Data berhasil di Update!');
     }
 

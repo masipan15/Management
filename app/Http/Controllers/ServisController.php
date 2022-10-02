@@ -42,7 +42,7 @@ class ServisController extends Controller
             'nama_barang' => $request->nama_barang,
             'merk_barang' => $request->merk_barang,
             'kerusakan_barang' => $request->kerusakan_barang,
-            'status_pengerjaan' => $request->status_pengerjaan,
+            'biaya_pengerjaan' => $request->biaya_pengerjaan,
 
         ]);
         Userservis::create([
@@ -82,7 +82,7 @@ class ServisController extends Controller
             'merk_barang' => $request->merk_barang,
             'kerusakan_barang' => $request->kerusakan_barang,
             'status_pengerjaan' => $request->status_pengerjaan,
-           
+
         ]);
         return redirect()->route('dataservis')->with('success', 'Data berhasil di Update!');
     }
