@@ -33,8 +33,39 @@
                             <div class="mb-3">
                                 <label for="" class="">Nama
                                     Barang</label>
-                                <input type="text" name="nama_barang" class="form-control" aria-describedby="emailHelp">
-                                @error('nama_barang')
+                                <select class="form-control select2" required style="width:100%;" name="nama_barang"
+                                    class="" id="nama_barang">
+                                    <option value="" selected disabled>Pilih Nama Barang</option>
+                                    @foreach ($barang as $item)
+                                        <option value="{{ $item->id }}" data-harga_jual="{{ $item->hargajual }}"
+                                            data-kodebarang_keluar="{{ $item->kodebarang }}"
+                                            data-merk_keluar="{{ $item->merk }}"
+                                            data-kategori_keluar="{{ $item->kategori }}">
+                                            {{ $item->namabarang }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="">Kode Barang</label>
+                                <input type="text" readonly name="kodebarang_keluar" id="kodebarang_keluar" class="form-control"
+                                    aria-describedby="emailHelp">
+                                @error('kodebarang_keluar')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="">Merk</label>
+                                <input type="text" readonly name="merk_keluar" id="merk_keluar" class="form-control"
+                                    aria-describedby="emailHelp">
+                                @error('merk_keluar')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="">Kategori</label>
+                                <input type="text" name="kategori_keluar" readonly id="kategori_keluar" class="form-control"
+                                    aria-describedby="emailHelp">
+                                @error('kategori_keluar')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -42,8 +73,8 @@
                             <div class="mb-3">
                                 <label for="" class="">Harga</label>
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                    <input type="number" name="harga_jual" id="harga_jual" class="form-control"
+                                    <span class="input-group-text"  id="basic-addon1">Rp.</span>
+                                    <input type="number" name="harga_jual" readonly id="harga_jual" class="form-control"
                                         aria-describedby="emailHelp">
                                 </div>
                                 @error('harga_jual')
@@ -109,6 +140,20 @@
                 var total = jumlah * harga_jual
                 $("#total").val(total);
             });
+        </script>
+
+        <script>
+            const selection = document.getElementById('nama_barang')
+            selection.onchange = function(e) {
+                const harga = e.target.options[e.target.selectedIndex].dataset.harga_jual
+                const kodebarang = e.target.options[e.target.selectedIndex].dataset.kodebarang_keluar
+                const merk = e.target.options[e.target.selectedIndex].dataset.merk_keluar
+                const kategori = e.target.options[e.target.selectedIndex].dataset.kategori_keluar
+                document.getElementById('harga_jual').value = harga;
+                document.getElementById('kodebarang_keluar').value = kodebarang;
+                document.getElementById('merk_keluar').value = merk;
+                document.getElementById('kategori_keluar').value = kategori;
+            }
         </script>
     </body>
 

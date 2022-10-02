@@ -78,7 +78,7 @@
 
 
                                                     <button type="submit" class="btn btn-success">Simpan</button>
-                                                    <a href="/datauserservis" type="button" class="btn btn-danger">
+                                                    <a href="/dataservis" type="button" class="btn btn-danger">
                                                         Batal
                                                     </a>
                                                 </form>

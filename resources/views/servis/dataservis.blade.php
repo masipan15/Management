@@ -19,7 +19,8 @@
                                     <th class="wd-25p">Merk</th>
                                     <th class="wd-20p">Kerusakan</th>
                                     <th class="wd-15p">Status</th>
-                                    
+                                    <th class="wd-15p">Biaya</th>
+
                                     <th class="wd-20p">Aksi</th>
                                 </tr>
                             </thead>
@@ -35,6 +36,7 @@
                                         <td>{{ $row->merk_barang }}</td>
                                         <td>{{ $row->kerusakan_barang }}</td>
                                         <td>{{ $row->status_pengerjaan }}</td>
+                                        <td>{{ $row->biaya_pengerjaan }}</td>
 
 
                                         <td>
@@ -44,8 +46,8 @@
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                     class="fas fa-trash-alt"></i>hapus</button></a> --}}
 
-                                                    <a href="#" class="btn btn-danger delete"
-                                            data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a>
+                                            <a href="#" class="btn btn-danger delete"
+                                                data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -84,5 +86,4 @@
                     }
         });
     </script> --}}
-
 @endsection

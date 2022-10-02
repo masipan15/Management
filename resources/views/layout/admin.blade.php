@@ -334,7 +334,7 @@
                         </a>
                     </div>
                     <div class="dropdown main-profile-menu">
-                        <a class="d-flex" href="#">
+                        <a class="d-flex" href="#"> 
                             <span class="main-img-user"><img alt="avatar"
                                     src="{{ asset('acstemplate/assets/img/wa.png') }}"></span>
                         </a>
@@ -378,8 +378,8 @@
         <div class="container">
             <div class="row row-sm">
                 <div class="col-md-12">
-                    <span>Copyright © 2020 <a href="#">Spruha</a>. Designed by <a
-                            href="https://www.spruko.com/">Spruko</a> All rights reserved.</span>
+                    <span> <a href="#"></a> <a
+                            href="https://www.spruko.com/"></a></span>
                 </div>
             </div>
         </div>

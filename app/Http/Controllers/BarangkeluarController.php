@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\barangkeluar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -10,17 +11,20 @@ class BarangkeluarController extends Controller
 {
     public function index()
     {
-        $data = barangkeluar::all();
-        return view('keluar.barangklr',compact('data'));
+
+        $data = barangkeluar::with('namabarangs')->get();
+        return view('keluar.barangklr', compact('data'));
     }
 
 
     public function tambahbrgklr()
     {
-        return view('keluar.tambahbarangklr');
+        $barang = Barang::all();
+        return view('keluar.tambahbarangklr', compact('barang'));
     }
     public function insertbrgklr(Request $request)
     {
+
         $validated = $request->validate([
             'nama_barang' => 'required',
             'harga_jual' => 'required',
@@ -30,13 +34,21 @@ class BarangkeluarController extends Controller
             'harga_jual.required' => 'harga Harus Diisi!',
             'jumlah.required' => 'jumlah Harus Diisi!',
         ]);
+        $stok_kurang = Barang::find($request->nama_barang);
 
         $data = barangkeluar::create([
             'nama_barang' => $request->nama_barang,
+            'kodebarang_keluar' => $request->kodebarang_keluar,
+            'merk_keluar' => $request->merk_keluar,
+            'kategori_keluar' => $request->kategori_keluar,
             'harga_jual' => $request->harga_jual,
             'jumlah' => $request->jumlah,
             'total' => $request->total,
         ]);
+
+
+        $stok_kurang->stok -= $request->jumlah;
+        $stok_kurang->save();
         return redirect()->route('barangkeluar')->with('success', 'Data Berhasil Di Tambahkan');
     }
 
@@ -57,12 +69,14 @@ class BarangkeluarController extends Controller
         $data = barangkeluar::find($id);
         $data->update([
             'nama_barang' => $request->nama_barang,
+            'kodebarang_keluar' => $request->kodebarang_keluar,
+            'merk_keluar' => $request->merk_keluar,
+            'kategori_keluar' => $request->kategori_keluar,
             'harga_jual' => $request->harga_jual,
             'jumlah' => $request->jumlah,
             'total' => $request->total,
         ]);
         return redirect()->route('barangkeluar')->with('success', 'Data berhasil di Update!');
-
     }
 
     public function delete($id)
@@ -89,5 +103,4 @@ class BarangkeluarController extends Controller
 
         return view('keluar.pemasukan', compact('pemasukan'));
     }
-
 }

@@ -35,12 +35,13 @@ class UserservisController extends Controller
             'status' => $request->status,
             'biaya' => $request->biaya,
         ]);
-        $data = Userservis::find($id);
-        servis::find($id)->update([
+        $data = servis::find($request->namabarang);
+        $data->servis::update([
 
 
 
             'status_pengerjaan' => $request->status,
+            'harga_pengerjaan' => $request->harga,
 
 
 

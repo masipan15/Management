@@ -10,6 +10,8 @@ use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\BarangkeluarController;
 use App\Http\Controllers\UserservisController;
 use App\Models\Barang;
+use App\Models\desain;
+use App\Models\servis;
 use App\Models\Supplier;
 
 /*
@@ -32,8 +34,11 @@ Route::get('/', function () {
 Route::get('/welcome', function () {
 
     $jumlahbarang = Barang::count();
+    $jumlahsupplier = Supplier::count();
+    $jumlahpermintaandesain = desain::count();
+    $jumlahpermintaanservis = servis::count();
 
-    return view('welcome',compact('jumlahbarang'));
+    return view('welcome', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahpermintaanservis'));
 })->middleware('auth');
 
 Route::get('tes', function () {
