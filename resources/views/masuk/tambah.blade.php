@@ -32,88 +32,79 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Nama Supplier</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Supplier</label>
                                 <div class="col-sm-10">
                                     <select class="form-select" @error('suppliers_id')  @enderror name="suppliers_id"
-                                    aria-label="Default select example" id="suppliers_id">
-                                    <option value disabled selected="">Pilih Supplier</option>
-                                    @foreach ($supplier as $p)
-                                        <option value="{{ $p->id }}">{{ $p->nama_supplier }}
-                                        </option>
-                                    @endforeach
-                                </select>                                        
+                                        aria-label="Default select example" id="suppliers_id">
+                                        <option value disabled selected="">Pilih Supplier</option>
+                                        @foreach ($supplier as $p)
+                                            <option value="{{ $p->id }}">{{ $p->nama_supplier }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             @error('suppliers_id')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Nama Barang</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
                                 <div class="col-sm-10">
-                                    <input type="text" required name="namabarang" class="form-control"
-                                    id="inputEmail3">                                               
+                                    <input type="text" required name="namabarang" class="form-control" id="inputEmail3">
                                 </div>
                             </div>
-                                @error('namabarang')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                            @error('namabarang')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Merk</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Merk</label>
                                 <div class="col-sm-10">
-                                    <input type="text" required name="merk_id" class="form-control"
-                                    id="inputEmail3">                                               
+                                    <input type="text" required name="merk_id" class="form-control" id="inputEmail3">
                                 </div>
                             </div>
                             @error('merk_id')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Harga</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga</label>
                                 <div class="col-sm-10">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Rp.</span>
                                         <input type="text" name="harga" id="harga" class="form-control"
-                                    id="inputEmail3">   
-                                    </div>                                            
+                                            id="inputEmail3">
+                                    </div>
                                 </div>
                             </div>
                             @error('harga')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                        <div class="row mb-3">
-                            <label for="inputEmail3"
-                                class="col-sm-2 col-form-label">Jumlah</label>
-                            <div class="col-sm-10">
-                                <input type="number" name="jumlah" id="jumlah" class="form-control"
-                                id="inputEmail3">                                               
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Jumlah</label>
+                                <div class="col-sm-10">
+                                    <input type="number" name="jumlah" id="jumlah" class="form-control"
+                                        id="inputEmail3">
+                                </div>
                             </div>
-                        </div>
-                        @error('jumlah')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                        <div class="row mb-3">
-                            <label for="inputEmail3"
-                                class="col-sm-2 col-form-label">Total</label>
-                            <div class="col-sm-10">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                    <input type="text" name="total" id="total" class="form-control"
-                                id="inputEmail3">     
-                                </div>                                          
+                            @error('jumlah')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Total</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                        <input type="text" name="total" id="total" class="form-control"
+                                            id="inputEmail3">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputEmail3"
-                                class="col-sm-2 col-form-label">Masukkan Gambar</label>
-                            <div class="col-sm-10">
-                                <input type="file" name="foto" id="foto" class="form-control"
-                                id="inputEmail3">                                      
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Masukkan Gambar</label>
+                                <div class="col-sm-10">
+                                    <input type="file" name="foto" id="foto" class="form-control"
+                                        id="inputEmail3">
+                                </div>
                             </div>
-                        </div>
                             @error('foto')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -123,11 +114,11 @@
                             </div>
                             <button class=" ripple btn-main-primary ">Submit</button>
                             <a href="barangmasuk" class=" ripple btn-main-primary btn">Kembali</a>
-                        </div>
-                        </form>
                     </div>
+                    </form>
                 </div>
             </div>
+        </div>
         </div>
         </div>
         </div>
