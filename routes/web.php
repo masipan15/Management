@@ -8,6 +8,7 @@ use App\Http\Controllers\DesainController;
 use App\Http\Controllers\servisController;
 use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\BarangkeluarController;
+use App\Http\Controllers\UserdesainController;
 use App\Http\Controllers\UserservisController;
 use App\Models\Barang;
 use App\Models\desain;
@@ -128,6 +129,9 @@ Route::group(['middleware' => ['auth', 'hakakses:servis']], function () {
 });
 
 Route::group(['middleware' => ['auth', 'hakakses:desain']], function () {
+    Route::get('/datauserdesain', [UserdesainController::class, 'datauserdesain'])->name('datauserdesain')->middleware('auth');
+    Route::get('/edituserdesain/{id}', [UserdesainController::class, 'edituserdesain'])->name('edituserdesain');
+    Route::post('/updateuserdesain/{id}', [UserdesainController::class, 'updateuserdesain'])->name('updateuserdesain');
 });
 
 //login
@@ -146,7 +150,3 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/profil', [LoginController::class, 'profil'])->name('profil');
 Route::get('/editprofil', [LoginController::class, 'editprofil'])->name('editprofil');
 Route::post('/updateprofil', [LoginController::class, 'updateprofil'])->name('updateprofil');
-
-
-//shift data
-Route::get('/shiftdata', [BarangmasukController::class, 'shiftdata'])->name('shiftdata');

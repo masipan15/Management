@@ -107,8 +107,8 @@
             @if (auth()->user()->role == 'servis')
                 <div class="main-sidebar-body">
                     <ul class="nav">
-                        <li class="nav-item {{ Route::is('/welcomeservis') ? 'active' : '' }}">
-                            <a class="nav-link" href="/welcomeservis"><span class="shape1"></span><span
+                        <li class="nav-item {{ Route::is('/welcome') ? 'active' : '' }}">
+                            <a class="nav-link" href="/welcome"><span class="shape1"></span><span
                                     class="shape2"></span><i class="ti-home sidemenu-icon"></i><span
                                     class="sidemenu-label">Beranda</span></a>
                         </li>
@@ -163,9 +163,10 @@
             @endif
             @if (auth()->user()->role == 'desain')
                 <li class="nav-header"><span class="nav-label">Permintaan</span></li>
-                <li class="nav-item {{ Route::is('datafdesain') ? 'active' : '' }}">
-                    <a class="nav-link" href="datadesain"><span class="shape1"></span><span class="shape2"></span><i
-                            class="mdi mdi-pen sidemenu-icon"></i><span class="sidemenu-label">Data
+                <li class="nav-item {{ Route::is('datauserdesain') ? 'active' : '' }}">
+                    <a class="nav-link" href="datauserdesain"><span class="shape1"></span><span
+                            class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
+                            class="sidemenu-label">Data
                             Desain</span></a>
                 </li>
             @endif
@@ -334,7 +335,7 @@
                         </a>
                     </div>
                     <div class="dropdown main-profile-menu">
-                        <a class="d-flex" href="#"> 
+                        <a class="d-flex" href="#">
                             <span class="main-img-user"><img alt="avatar"
                                     src="{{ asset('acstemplate/assets/img/wa.png') }}"></span>
                         </a>
@@ -374,7 +375,7 @@
     <!-- End Main Content-->
 
     <!-- Main Footer-->
-   
+
     </div>
     <!-- End Page -->
 

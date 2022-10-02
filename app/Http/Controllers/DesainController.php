@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Desain;
+use App\Models\Userdesain;
 
 class DesainController extends Controller
 {
@@ -12,8 +13,8 @@ class DesainController extends Controller
         $data = desain::all();
         return view('desain.datadesain',compact('data'));
     }
-    
-    
+
+
     public function tambahdesain()
     {
         return view('desain.tambahdesain');
@@ -47,6 +48,18 @@ class DesainController extends Controller
             'status_pengerjaan' => $request->status_pengerjaan,
             'tgl_pemesan_desain' => $request->tgl_pemesan_desain,
         ]);
+
+        Userdesain::create([
+            'namapemesan' => $request->nama_pemesan,
+            'ukuran' => $request->ukuran_desain,
+            'permintaan' => $request->permintaan_desain,
+            'keterangan' => $request->keterangan,
+            'harga' => $request->harga_desain,
+
+
+
+
+        ]);
         return redirect()->route('datadesain')->with('success', 'Data Berhasil Di Tambahkan');
     }
 
@@ -75,7 +88,7 @@ class DesainController extends Controller
             'tgl_pemesan_desain' => $request->tgl_pemesan_desain,
         ]);
         return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
-        
+
     }
 
     public function deletes($id)

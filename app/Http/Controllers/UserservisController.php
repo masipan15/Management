@@ -35,17 +35,6 @@ class UserservisController extends Controller
             'status' => $request->status,
             'biaya' => $request->biaya,
         ]);
-        $data = servis::find($request->namabarang);
-        $data->servis::update([
-
-
-
-            'status_pengerjaan' => $request->status,
-            'harga_pengerjaan' => $request->harga,
-
-
-
-        ]);
         return redirect()->route('datauserservis')->with('success', 'Data berhasil di Update!');
     }
 }
