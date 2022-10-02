@@ -30,6 +30,7 @@
                             <h3 class="main-content-label mb-1">Edit Barang</h3>
                             <p class="text-muted card-sub-title"></p>
                         </div>
+                                                    <div class="mb-3">
                                                 <form action="/updatebarang/{{ $data->id }}" method="post"
                                                     enctype="multipart/form-data">
                                                     @csrf
