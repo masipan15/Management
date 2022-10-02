@@ -33,7 +33,8 @@
                             <div class="mb-3">
                                 <label for="" class="">Nama
                                     Pelanggan</label>
-                                <input type="text" name="nama_pelanggan" class="form-control" aria-describedby="emailHelp">
+                                <input type="text" name="nama_pelanggan" class="form-control"
+                                    aria-describedby="emailHelp">
                                 @error('nama_pelanggan')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -65,31 +66,22 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                                 <div class="mb-3">
-                                    <label for="" class="">Status</label>
-                                    <input type="text" name="status_pengerjaan" id="status_pengerjaan" class="form-control"
-                                        aria-describedby="emailHelp">
+                                    <label for="" hidden class="">Status</label>
+                                    <input type="text" hidden name="status_pengerjaan" id="status_pengerjaan"
+                                        class="form-control" aria-describedby="emailHelp">
                                 </div>
                                 @error('status_pengerjaan')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
 
-                                <div class="mb-3">
-                                    <label for="" class="">Biaya</label>
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                        <input type="text" name="biaya_servis"  id="biaya_servis" class="form-control"
-                                            aria-describedby="emailHelp">
-                                    </div>
-                                    @error('biaya_servis')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                    <div class="form-group mg-b-20">
-                                        <label class="ckbox">
-                                        </label>
-                                    </div>
-                                    <button class="btn ripple btn-main-primary btn-block">Submit</button>
-                                    <a href="dataservis" class="btn ripple btn-main-primary btn-block">Kembali</a>
+
+                                <div class="form-group mg-b-20">
+                                    <label class="ckbox">
+                                    </label>
                                 </div>
+                                <button class="btn ripple btn-main-primary btn-block">Submit</button>
+                                <a href="dataservis" class="btn ripple btn-main-primary btn-block">Kembali</a>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\servis;
+use App\Models\Userservis;
 
 class ServisController extends Controller
 {
     public function dataservis()
     {
         $data = servis::all();
-        return view('servis.dataservis',compact('data'));
+        return view('servis.dataservis', compact('data'));
     }
-    
-    
+
+
     public function tambahservis()
     {
         return view('servis.tambahservis');
@@ -25,15 +26,15 @@ class ServisController extends Controller
             'nama_barang' => 'required',
             'merk_barang' => 'required',
             'kerusakan_barang' => 'required',
-            'status_pengerjaan' => 'required',
-            'biaya_servis' => 'required',
+
+
         ], [
             'nama_pelanggan.required' => ' Harus Diisi!',
             'nama_barang.required' => ' Harus Diisi!',
             'merk_barang.required' => ' Harus Diisi!',
             'status_pengerjaan.required' => ' Harus Diisi!',
             'kerusakan_barang.required' => ' Harus Diisi!',
-            'biaya_servis.required' => ' Harus Diisi!',
+
         ]);
 
         $data = servis::create([
@@ -42,8 +43,21 @@ class ServisController extends Controller
             'merk_barang' => $request->merk_barang,
             'kerusakan_barang' => $request->kerusakan_barang,
             'status_pengerjaan' => $request->status_pengerjaan,
-            'biaya_servis' => $request->biaya_servis,
+
         ]);
+        Userservis::create([
+            'namapelanggan' => $request->nama_pelanggan,
+            'namabarang' => $request->nama_barang,
+            'merk' => $request->merk_barang,
+            'kerusakan' => $request->kerusakan_barang,
+            'status' => $request->status_pengerjaan,
+
+
+
+        ]);
+
+
+
         return redirect()->route('dataservis')->with('success', 'Data Berhasil Di Tambahkan');
     }
 
@@ -68,10 +82,9 @@ class ServisController extends Controller
             'merk_barang' => $request->merk_barang,
             'kerusakan_barang' => $request->kerusakan_barang,
             'status_pengerjaan' => $request->status_pengerjaan,
-            'biaya_servis' => $request->biaya_servis,
+           
         ]);
         return redirect()->route('dataservis')->with('success', 'Data berhasil di Update!');
-        
     }
 
     public function deletet($id)
@@ -80,6 +93,4 @@ class ServisController extends Controller
         $data->delete();
         return redirect()->route('dataservis')->with('success', 'Data Berhasil Di Hapus');
     }
-
-
 }

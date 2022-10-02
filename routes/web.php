@@ -8,6 +8,9 @@ use App\Http\Controllers\DesainController;
 use App\Http\Controllers\servisController;
 use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\BarangkeluarController;
+use App\Http\Controllers\UserservisController;
+use App\Models\Barang;
+use App\Models\Supplier;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +23,17 @@ use App\Http\Controllers\BarangkeluarController;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('login');
 })->middleware('auth');
 
 Route::get('/welcome', function () {
-    return view('welcome');
+
+    $jumlahbarang = Barang::count();
+
+    return view('welcome',compact('jumlahbarang'));
 })->middleware('auth');
 
 Route::get('tes', function () {
@@ -34,6 +42,7 @@ Route::get('tes', function () {
 
 
 Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
+
 
     //barang masuk
     Route::get('barangmasuk', [BarangmasukController::class, 'barangmasuk'])->name('barangmasuk')->middleware('auth');
@@ -120,3 +129,9 @@ Route::post('/updateprofil', [LoginController::class, 'updateprofil'])->name('up
 
 //shift data
 Route::get('/shiftdata', [BarangmasukController::class, 'shiftdata'])->name('shiftdata');
+
+//userservis
+
+Route::get('/datauserservis', [UserservisController::class, 'datauserservis'])->name('datauserservis');
+Route::get('/edituserservis/{id}', [UserservisController::class, 'edituserservis'])->name('edituserservis')->middleware('auth');
+Route::post('/updateuserservis/{id}', [UserservisController::class, 'updateuserservis'])->name('updateuserservis');

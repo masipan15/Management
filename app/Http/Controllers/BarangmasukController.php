@@ -55,7 +55,7 @@ class BarangmasukController extends Controller
 
 
         ]);
-        dd($ipan);
+
 
         if ($request->hasFile('foto1')) {
             $request->file('foto1')->move('fotobrgmsk/', $request->file('foto1')->getClientOriginalName());
