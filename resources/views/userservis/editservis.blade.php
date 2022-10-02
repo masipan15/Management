@@ -41,68 +41,68 @@
                                                     enctype="multipart/form-data">
                                                     @csrf
 
-                                                    <div class="mb-3">
-                                                        <label for="namapelanggan" class="form-label">Nama
-                                                            Pelanggan</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Nama Pelanggan</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="namapelanggan" class="form-control"
-                                                                id="namapelanggan" value="{{ $data->namapelanggan }}"
-                                                                aria-describedby="emailHelp">
+                                                            id="namapelanggan" value="{{ $data->namapelanggan }}"
+                                                                    id="inputEmail3">                                    
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Nama
-                                                            Barang</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Nama Barang</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="namabarang" class="form-control"
-                                                                id="exampleInputEmail1" value="{{ $data->namabarang }}"
-                                                                aria-describedby="emailHelp">
+                                                            id="exampleInputEmail1" value="{{ $data->namabarang }}"
+                                                                    id="inputEmail3">                                    
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Merek </label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Merek</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="merk" class="form-control"
-                                                                id="exampleInputEmail1" value="{{ $data->merk }}"
-                                                                aria-describedby="emailHelp">
+                                                            id="exampleInputEmail1" value="{{ $data->merk }}"
+                                                                    id="inputEmail3">                                    
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Kerusakan
-                                                            Barang</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Kerusakan Barang</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="kerusakan" class="form-control"
                                                                 id="exampleInputEmail1" value="{{ $data->kerusakan }}"
-                                                                aria-describedby="emailHelp">
+                                                                    id="inputEmail3">                                    
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Status
-                                                            Pengerjaan</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Status Pengerjaan</label>
                                                         <div class="col-sm-10">
                                                             <select class="form-control" required style="width:100%;"
-                                                                id="nameid" name="status">
-                                                                <option disabled value="">Pilih Status Pengerjaan
-                                                                <option value="Sedang Dalam Pengerjaan">Sedang Dalam
-                                                                    Pengerjaan
-                                                                </option>
-                                                                <option value="Selesai">Selesai</option>
-                                                            </select>
+                                                            id="nameid" name="status">
+                                                            <option disabled value="">Pilih Status Pengerjaan
+                                                            <option value="Sedang Dalam Pengerjaan">Sedang Dalam
+                                                                Pengerjaan
+                                                            </option>
+                                                            <option value="Selesai">Selesai</option>
+                                                        </select>                                  
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Biaya
-                                                            Servis</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Biaya Servis</label>
                                                         <div class="col-sm-10">
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon1">Rp.</span>
                                                                 <input type="text" name="biaya" class="form-control"
                                                                     id="exampleInputEmail1" value="{{ $data->biaya }}"
-                                                                    aria-describedby="emailHelp">
-                                                            </div>
+                                                                    id="inputEmail3">  
+                                                            </div>                                  
                                                         </div>
                                                     </div>
-
                                                     <button type="submit" class="btn btn-success">Simpan</button>
                                                     <a href="/datauserservis" type="button" class="btn btn-danger">
                                                         Batal

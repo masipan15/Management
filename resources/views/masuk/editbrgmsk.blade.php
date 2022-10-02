@@ -41,10 +41,9 @@
                                                     enctype="multipart/form-data">
                                                     @csrf
 
-
-                                                    <div class="mb-3">
-                                                        <label for="" class="form-label">Nama
-                                                            Supplier</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Nama Supplier</label>
                                                         <div class="col-sm-10">
                                                             <select class="form-select" @error('suppliers_id')  @enderror
                                                                 name="suppliers_id" aria-label="Default select example"
@@ -58,58 +57,59 @@
                                                                         {{ $p->nama_supplier }}
                                                                     </option>
                                                                 @endforeach
-                                                            </select>
+                                                            </select>                                      
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Nama
-                                                            Barang</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Nama Barang</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="namabarang" class="form-control"
-                                                                id="exampleInputEmail1" value="{{ $data->namabarang }}"
-                                                                aria-describedby="emailHelp">
+                                                            id="inputEmail3" value="{{ $data->namabarang }}">                                       
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Harga </label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Harga</label>
                                                         <div class="col-sm-10">
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                                                <input type="text" name="harga" class="form-control"
-                                                                    id="exampleInputEmail1" value="{{ $data->harga }}"
-                                                                    aria-describedby="emailHelp">
-                                                            </div>
+                                                                <input type="text" name="harga" class="form-control" value="{{ $data->harga }}"
+                                                                    id="inputEmail3">  
+                                                            </div>                                     
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Jumlah</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Jumlah</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="jumlah" class="form-control"
                                                                 id="exampleInputEmail1" value="{{ $data->jumlah }}"
-                                                                aria-describedby="emailHelp">
+                                                                    id="inputEmail3">                                    
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Total </label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Total</label>
                                                         <div class="col-sm-10">
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon1">Rp.</span>
                                                                 <input type="text" name="total" class="form-control"
                                                                     id="exampleInputEmail1" value="{{ $data->total }}"
-                                                                    aria-describedby="emailHelp">
-                                                            </div>
+                                                                    id="inputEmail3"> 
+                                                            </div>                                   
                                                         </div>
                                                     </div>
-
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Foto</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Foto</label>
                                                         <div class="col-sm-10">
                                                             <img class="img mb-3"
-                                                                src="{{ asset('fotobrgmsk/' . $data->foto) }}"alt=""
-                                                                style="width: 40px">
-                                                            <input type="file" name="foto" class="form-control"
-                                                                id="exampleInputEmail1" value="{{ $data->foto }}"
-                                                                aria-describedby="emailHelp">
+                                                            src="{{ asset('fotobrgmsk/' . $data->foto) }}"alt=""
+                                                            style="width: 40px">
+                                                        <input type="file" name="foto" class="form-control"
+                                                            id="exampleInputEmail1" value="{{ $data->foto }}"
+                                                                    id="inputEmail3">                                  
                                                         </div>
                                                     </div>
 

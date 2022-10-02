@@ -40,73 +40,74 @@
                                                     enctype="multipart/form-data">
                                                     @csrf
 
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Nama
-                                                            Pemesan</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Nama Pemesan</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="nama_pemesan" class="form-control"
-                                                                id="exampleInputEmail1" value="{{ $data->nama_pemesan }}"
-                                                                aria-describedby="emailHelp">
+                                                            id="exampleInputEmail1" value="{{ $data->nama_pemesan }}"
+                                                            id="inputEmail3">
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Ukuran
-                                                            Desain</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Ukuran Desain</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="ukuran_desain" class="form-control"
                                                                 id="exampleInputEmail1" value="{{ $data->ukuran_desain }}"
-                                                                aria-describedby="emailHelp">
+                                                            id="inputEmail3">
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Permintaan
-                                                            Desain</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Permintaan Desain</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="permintaan_desain"
                                                                 class="form-control" id="exampleInputEmail1"
                                                                 value="{{ $data->permintaan_desain }}"
-                                                                aria-describedby="emailHelp">
+                                                            id="inputEmail3">
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Keterangan
-                                                        </label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Keterangan</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="keterangan" class="form-control"
                                                                 id="exampleInputEmail1" value="{{ $data->keterangan }}"
-                                                                aria-describedby="emailHelp">
+                                                            id="inputEmail3">
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Harga</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Harga</label>
                                                         <div class="col-sm-10">
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon1">Rp.</span>
                                                                 <input type="text" name="harga_desain"
                                                                     class="form-control" id="exampleInputEmail1"
                                                                     value="{{ $data->harga_desain }}"
-                                                                    aria-describedby="emailHelp">
+                                                            id="inputEmail3">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Status
-                                                            Pengerjaan</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Status Pengerjaan</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="status_pengerjaan"
-                                                                class="form-control" id="exampleInputEmail1"
-                                                                value="{{ $data->status_pengerjaan }}"
-                                                                aria-describedby="emailHelp">
+                                                            class="form-control" id="exampleInputEmail1"
+                                                            value="{{ $data->status_pengerjaan }}"
+                                                            id="inputEmail3">
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Tanggal
-                                                            Pemesan</label>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Tanggal Pemesan</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="tgl_pemesan_desain"
                                                                 class="form-control" id="exampleInputEmail1"
                                                                 value="{{ $data->tgl_pemesan_desain }}"
-                                                                aria-describedby="emailHelp">
+                                                            id="inputEmail3">
                                                         </div>
                                                     </div>
 

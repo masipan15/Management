@@ -59,9 +59,6 @@
                                     id="inputEmail3">
                                 </div>
                             </div>
-                                @error('kodebarang_keluar')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
                             <div class="row mb-3">
                                 <label for="inputEmail3"
                                     class="col-sm-2 col-form-label">Merk</label>
@@ -70,9 +67,6 @@
                                     id="inputEmail3">
                                 </div>
                             </div>
-                                @error('merk_keluar')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
                             <div class="row mb-3">
                                 <label for="inputEmail3"
                                     class="col-sm-2 col-form-label">Kategori</label>
@@ -81,9 +75,6 @@
                                     id="inputEmail3">
                                 </div>
                             </div>
-                                @error('kategori_keluar')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
                             <div class="row mb-3">
                                 <label for="inputEmail3"
                                     class="col-sm-2 col-form-label">Harga</label>
@@ -95,9 +86,6 @@
                                     </div>
                                 </div>
                             </div>
-                                @error('harga_jual')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
                             <div class="row mb-3">
                                 <label for="inputEmail3"
                                     class="col-sm-2 col-form-label">Jumlah</label>
@@ -120,9 +108,6 @@
                                     </div>
                                 </div>
                             </div>
-                                @error('total')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
                                     <div class="form-group mg-b-20">
                                         <label class="ckbox">
                                         </label>
