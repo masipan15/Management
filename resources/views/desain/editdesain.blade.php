@@ -22,50 +22,43 @@
     </head>
 
     <body>
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row justify-content-center">
-                        <div class="col-sm-10">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h1 class="text-center">Edit Desain</h1>
-
-                                    <div class="container">
-
-                                        <div class="row">
-                                            <div class="col mt-2">
+        <div class="row row-sm">
+            <div class="col-lg-12 col-md-12">
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <div>
+                            <h3 class="main-content-label mb-1">Edit Desain</h3>
+                            <p class="text-muted card-sub-title"></p>
+                        </div>
                                                 <form action="/updatedesain/{{ $data->id }}" method="post"
                                                     enctype="multipart/form-data">
                                                     @csrf
 
                                                     <div class="row mb-3">
-                                                        <label for="inputEmail3"
-                                                            class="col-sm-2 col-form-label">Nama Pemesan</label>
+                                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nama
+                                                            Pemesan</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="nama_pemesan" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->nama_pemesan }}"
-                                                            id="inputEmail3">
+                                                                id="exampleInputEmail1" value="{{ $data->nama_pemesan }}"
+                                                                id="inputEmail3">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                        <label for="inputEmail3"
-                                                            class="col-sm-2 col-form-label">Ukuran Desain</label>
+                                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Ukuran
+                                                            Desain</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="ukuran_desain" class="form-control"
                                                                 id="exampleInputEmail1" value="{{ $data->ukuran_desain }}"
-                                                            id="inputEmail3">
+                                                                id="inputEmail3">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                        <label for="inputEmail3"
-                                                            class="col-sm-2 col-form-label">Permintaan Desain</label>
+                                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Permintaan
+                                                            Desain</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="permintaan_desain"
                                                                 class="form-control" id="exampleInputEmail1"
-                                                                value="{{ $data->permintaan_desain }}"
-                                                            id="inputEmail3">
+                                                                value="{{ $data->permintaan_desain }}" id="inputEmail3">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
@@ -74,7 +67,7 @@
                                                         <div class="col-sm-10">
                                                             <input type="text" name="keterangan" class="form-control"
                                                                 id="exampleInputEmail1" value="{{ $data->keterangan }}"
-                                                            id="inputEmail3">
+                                                                id="inputEmail3">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
@@ -85,34 +78,31 @@
                                                                 <span class="input-group-text" id="basic-addon1">Rp.</span>
                                                                 <input type="text" name="harga_desain"
                                                                     class="form-control" id="exampleInputEmail1"
-                                                                    value="{{ $data->harga_desain }}"
-                                                            id="inputEmail3">
+                                                                    value="{{ $data->harga_desain }}" id="inputEmail3">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                        <label for="inputEmail3"
-                                                            class="col-sm-2 col-form-label">Status Pengerjaan</label>
+                                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Status
+                                                            Pengerjaan</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="status_pengerjaan"
-                                                            class="form-control" id="exampleInputEmail1"
-                                                            value="{{ $data->status_pengerjaan }}"
-                                                            id="inputEmail3">
+                                                                class="form-control" id="exampleInputEmail1"
+                                                                value="{{ $data->status_pengerjaan }}" id="inputEmail3">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                        <label for="inputEmail3"
-                                                            class="col-sm-2 col-form-label">Tanggal Pemesan</label>
+                                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal
+                                                            Pemesan</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="tgl_pemesan_desain"
                                                                 class="form-control" id="exampleInputEmail1"
-                                                                value="{{ $data->tgl_pemesan_desain }}"
-                                                            id="inputEmail3">
+                                                                value="{{ $data->tgl_pemesan_desain }}" id="inputEmail3">
                                                         </div>
                                                     </div>
 
                                                     <button type="submit" class="btn btn-success">Simpan</button>
-                                                    <a href="/datakategori" type="button" class="btn btn-danger">
+                                                    <a href="/datadesain" type="button" class="btn btn-danger">
                                                         Batal
                                                     </a>
                                                 </form>
@@ -137,13 +127,13 @@
 
         <!-- Option 2: Separate Popper and Bootstrap JS -->
         <!--
-                    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-                        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
-                    </script>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-                        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
-                    </script>
-                    -->
+                        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+                            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+                        </script>
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+                            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+                        </script>
+                        -->
     </body>
 
     </html>

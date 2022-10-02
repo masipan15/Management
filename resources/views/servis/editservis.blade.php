@@ -23,20 +23,14 @@
     </head>
 
     <body>
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row justify-content-center">
-                        <div class="col-sm-10">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h1 class="text-center">Edit </h1>
-
-                                    <div class="container">
-
-                                        <div class="row">
-                                            <div class="col mt-2">
+        <div class="row row-sm">
+            <div class="col-lg-12 col-md-12">
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <div>
+                            <h3 class="main-content-label mb-1">Edit Servis</h3>
+                            <p class="text-muted card-sub-title"></p>
+                        </div>
                                                 <form action="/updateservis/{{ $data->id }}" method="post"
                                                     enctype="multipart/form-data">
                                                     @csrf
