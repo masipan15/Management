@@ -30,67 +30,88 @@
                         </div>
                         <form action="/insertdesain" method="post" enctype="multipart/form-data">
                             @csrf
-                            <div class="mb-3">
-                                <label for="" class="">Nama Pemesan</label>
-                                <input type="text" required name="nama_pemesan" class="form-control"
-                                    aria-describedby="emailHelp">
-                                </div>
-                                @error('nama_pemesan')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            <div class="mb-3">
-                                <label for="" class="">Ukuran Desain</label>
-                                <input type="text" required name="ukuran_desain" class="form-control"
-                                    aria-describedby="emailHelp">
-                                </div>
-                                @error('ukuran_desain')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            <div class="mb-3">
-                                <label for="" class="">Permintaan Desain</label>
-                                <input type="text" required name="permintaan_desain" class="form-control"
-                                    aria-describedby="emailHelp">
-                                </div>
-                                @error('permintaan_desain')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            <div class="mb-3">
-                                <label for="" class="">Keterangan</label>
-                                <input type="text" required name="keterangan" class="form-control"
-                                    aria-describedby="emailHelp">
-                                </div>
-                                @error('keterangan')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
 
-                            <div class="mb-3">
-                                <label for="" class="">Harga</label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                    <input type="number" name="harga_desain" id="harga_desain" class="form-control"
-                                        aria-describedby="emailHelp">
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Nama Pemesan</label>
+                                <div class="col-sm-10">
+                                    <input type="text" required name="nama_pemesan" class="form-control"
+                                    id="inputEmail3">                                               
                                 </div>
-                                @error('harga_desain')
+                            </div>
+                            @error('nama_pemesan')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <div class="mb-3">
-                                    <label for="" class="">Status</label>
-                                    <input type="text" name="status_pengerjaan" id="status_pengerjaan"
-                                        class="form-control" aria-describedby="emailHelp">
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Ukuran Desain</label>
+                                <div class="col-sm-10">
+                                    <input type="text" required name="ukuran_desain" class="form-control"
+                                    id="inputEmail3">                                               
                                 </div>
-                                @error('status_pengerjaan')
+                            </div>
+                            @error('ukuran_desain')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <div class="mb-3">
-                                    <label for="" class="">Tanggal</label>
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Permintaan Desain</label>
+                                <div class="col-sm-10">
+                                    <input type="text" required name="permintaan_desain" class="form-control"
+                                    id="inputEmail3">                                               
+                                </div>
+                            </div>
+                            @error('permintaan_desain')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Keterangan</label>
+                                <div class="col-sm-10">
+                                    <input type="text" required name="keterangan" class="form-control"
+                                    id="inputEmail3">                                               
+                                </div>
+                            </div>
+                            @error('keterangan')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Harga</label>
+                                <div class="col-sm-10">
                                     <div class="input-group mb-3">
-
-                                        <input type="text" name="tgl_pemesan_desain" id="tgl_pemesan_desain"
-                                            class="form-control" aria-describedby="emailHelp">
+                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                        <input type="number" name="harga_desain" id="harga_desain" class="form-control"
+                                    id="inputEmail3">                                               
                                     </div>
-                                    @error('tgl_pemesan_desain')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
+                                </div>
+                            </div>
+                            @error('harga_desain')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Status</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="status_pengerjaan" id="status_pengerjaan" class="form-control"
+                                    id="inputEmail3">     
+                                </div>
+                            </div>
+                            @error('status_pengerjaan')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Tanggal</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="tgl_pemesan_desain" id="tgl_pemesan_desain" class="form-control"
+                                    id="inputEmail3">                                               
+                                    </div>
+                                </div>
+                            </div>
+                            @error('tgl_pemesan_desain')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                     <div class="form-group mg-b-20">
                                         <label class="ckbox">
                                         </label>

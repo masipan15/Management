@@ -44,22 +44,28 @@
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">Nama
                                                             Supplier</label>
+                                                            <div class="col-sm-10">
                                                         <input type="text" name="nama_supplier" class="form-control"
                                                             id="exampleInputEmail1" value="{{ $data->nama_supplier }}"
                                                             aria-describedby="emailHelp">
                                                     </div>
+                                                    </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">Alamat
                                                             Supplier</label>
+                                                            <div class="col-sm-10">
                                                         <input type="text" name="alamat_supplier" class="form-control"
                                                             id="exampleInputEmail1" value="{{ $data->alamat_supplier }}"
                                                             aria-describedby="emailHelp">
                                                     </div>
+                                                    </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">No Telpon </label>
+                                                        <div class="col-sm-10">
                                                         <input type="text" name="notelpon" class="form-control"
                                                             id="exampleInputEmail1" value="{{ $data->notelpon }}"
                                                             aria-describedby="emailHelp">
+                                                    </div>
                                                     </div>
 
                                                     <button type="submit" class="btn btn-success">Simpan</button>

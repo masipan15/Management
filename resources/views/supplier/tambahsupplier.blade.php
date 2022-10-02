@@ -30,29 +30,37 @@
                         </div>
                         <form action="/insertsupplier" method="post" enctype="multipart/form-data">
                             @csrf
-                            <div class="mb-3">
-                                <label for="" class="">Nama
-                                    Supplier</label>
-                                <input type="text" name="nama_supplier" class="form-control" aria-describedby="emailHelp">
+
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Nama Supplier</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="nama_supplier" class="form-control"
+                                    id="inputEmail3">
+                                </div>
+                            </div>
                                 @error('nama_supplier')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Alamat Supplier</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="alamat_supplier" class="form-control" 
+                                    id="inputEmail3">
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="" class="">Alamat
-                                    Supplier</label>
-                                <input type="text" name="alamat_supplier" class="form-control" aria-describedby="emailHelp">
                                 @error('alamat_supplier')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="" class="">No Telpon</label>
-                                <div class="input-group mb-3">
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">No Telpon</label>
+                                <div class="col-sm-10">
                                     <input type="text" name="notelpon" id="notelpon" class="form-control"
-                                        aria-describedby="emailHelp">
+                                    id="inputEmail3">
                                 </div>
+                            </div>
                                 @error('notelpon')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
