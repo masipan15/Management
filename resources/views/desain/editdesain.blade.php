@@ -5,7 +5,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     @endpush
-    
+
     <!doctype html>
     <html lang="en">
 
@@ -39,56 +39,77 @@
                                                 <form action="/updatedesain/{{ $data->id }}" method="post"
                                                     enctype="multipart/form-data">
                                                     @csrf
-                                                    
+
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">Nama
                                                             Pemesan</label>
-                                                        <input type="text" name="nama_pemesan" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->nama_pemesan }}"
-                                                            aria-describedby="emailHelp">
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="nama_pemesan" class="form-control"
+                                                                id="exampleInputEmail1" value="{{ $data->nama_pemesan }}"
+                                                                aria-describedby="emailHelp">
+                                                        </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">Ukuran
                                                             Desain</label>
-                                                        <input type="text" name="ukuran_desain" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->ukuran_desain }}"
-                                                            aria-describedby="emailHelp">
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="ukuran_desain" class="form-control"
+                                                                id="exampleInputEmail1" value="{{ $data->ukuran_desain }}"
+                                                                aria-describedby="emailHelp">
+                                                        </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">Permintaan
                                                             Desain</label>
-                                                        <input type="text" name="permintaan_desain" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->permintaan_desain }}"
-                                                            aria-describedby="emailHelp">
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="permintaan_desain"
+                                                                class="form-control" id="exampleInputEmail1"
+                                                                value="{{ $data->permintaan_desain }}"
+                                                                aria-describedby="emailHelp">
+                                                        </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">Keterangan
-                                                            </label>
-                                                        <input type="text" name="keterangan" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->keterangan }}"
-                                                            aria-describedby="emailHelp">
+                                                        </label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="keterangan" class="form-control"
+                                                                id="exampleInputEmail1" value="{{ $data->keterangan }}"
+                                                                aria-describedby="emailHelp">
+                                                        </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">Harga</label>
-                                                        <div class="input-group mb-3">
-                                                            <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                                        <input type="text" name="harga_desain" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->harga_desain }}"
-                                                            aria-describedby="emailHelp">
+                                                        <div class="col-sm-10">
+                                                            <div class="input-group mb-3">
+                                                                <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                                                <input type="text" name="harga_desain"
+                                                                    class="form-control" id="exampleInputEmail1"
+                                                                    value="{{ $data->harga_desain }}"
+                                                                    aria-describedby="emailHelp">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Status Pengerjaan</label>
-                                                        <input type="text" name="status_pengerjaan" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->status_pengerjaan }}"
-                                                            aria-describedby="emailHelp">
+                                                        <label for="exampleInputEmail1" class="form-label">Status
+                                                            Pengerjaan</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="status_pengerjaan"
+                                                                class="form-control" id="exampleInputEmail1"
+                                                                value="{{ $data->status_pengerjaan }}"
+                                                                aria-describedby="emailHelp">
+                                                        </div>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Tanggal Pemesan</label>
-                                                        <input type="text" name="tgl_pemesan_desain" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->tgl_pemesan_desain }}"
-                                                            aria-describedby="emailHelp">
+                                                        <label for="exampleInputEmail1" class="form-label">Tanggal
+                                                            Pemesan</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="tgl_pemesan_desain"
+                                                                class="form-control" id="exampleInputEmail1"
+                                                                value="{{ $data->tgl_pemesan_desain }}"
+                                                                aria-describedby="emailHelp">
+                                                        </div>
                                                     </div>
-                                                    
+
                                                     <button type="submit" class="btn btn-success">Simpan</button>
                                                     <a href="/datakategori" type="button" class="btn btn-danger">
                                                         Batal
@@ -115,15 +136,14 @@
 
         <!-- Option 2: Separate Popper and Bootstrap JS -->
         <!--
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-                integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
-            </script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-                integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
-            </script>
-            -->
+                    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+                        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+                    </script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+                        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+                    </script>
+                    -->
     </body>
 
     </html>
-
-    @endsection
+@endsection

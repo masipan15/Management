@@ -30,51 +30,51 @@
                         </div>
                         <form action="/insertservis" method="post" enctype="multipart/form-data">
                             @csrf
-                            <div class="mb-3">
-                                <label for="" class="">Nama
-                                    Pelanggan</label>
-                                <input type="text" name="nama_pelanggan" class="form-control"
-                                    aria-describedby="emailHelp">
+
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Nama Pelanggan</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="nama_pelanggan" class="form-control"
+                                    id="inputEmail3">
+                                </div>
+                            </div>
                                 @error('nama_pelanggan')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Nama Barang</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="nama_barang" class="form-control" 
+                                    id="inputEmail3">
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="" class="">Nama
-                                    Barang</label>
-                                <input type="text" name="nama_barang" class="form-control" aria-describedby="emailHelp">
                                 @error('nama_barang')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="" class="">Merk</label>
-                                <div class="input-group mb-3">
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Merk</label>
+                                <div class="col-sm-10">
                                     <input type="text" name="merk_barang" id="merk_barang" class="form-control"
-                                        aria-describedby="emailHelp">
+                                    id="inputEmail3">
                                 </div>
-                                @error('harga_jual')
+                            </div>
+                                @error('merk_barang')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <div class="mb-3">
-                                    <label for="" class="">Kerusakan</label>
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Kerusakan</label>
+                                <div class="col-sm-10">
                                     <input type="text" name="kerusakan_barang" id="kerusakan_barang" class="form-control"
-                                        aria-describedby="emailHelp">
+                                    id="inputEmail3">
                                 </div>
+                            </div>
                                 @error('kerusakan_barang')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <div class="mb-3">
-                                    <label for="" hidden class="">Status</label>
-                                    <input type="text" hidden name="status_pengerjaan" id="status_pengerjaan"
-                                        class="form-control" aria-describedby="emailHelp">
-                                </div>
-                                @error('status_pengerjaan')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-
-
                                 <div class="form-group mg-b-20">
                                     <label class="ckbox">
                                     </label>
@@ -92,7 +92,7 @@
         </div>
         </div>
         </div>
-        </div>
+        </d iv>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
