@@ -79,8 +79,8 @@
                                     <label class="ckbox">
                                     </label>
                                 </div>
-                                <button class="btn ripple btn-main-primary btn-block">Submit</button>
-                                <a href="dataservis" class="btn ripple btn-main-primary btn-block">Kembali</a>
+                                <button type="submit" class="btn btn-primary">Tambah</button>
+                                    <a href="dataservis" class="btn btn-danger">Batal</a>
                             </div>
                         </form>
                     </div>
