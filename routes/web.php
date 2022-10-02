@@ -28,7 +28,7 @@ use App\Models\Supplier;
 
 
 Route::get('/', function () {
-    return view('login');
+    return view('/login');
 })->middleware('auth');
 
 Route::get('/welcome', function () {

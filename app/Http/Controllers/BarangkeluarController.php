@@ -36,15 +36,20 @@ class BarangkeluarController extends Controller
         ]);
         $stok_kurang = Barang::find($request->nama_barang);
 
-        $data = barangkeluar::create([
-            'nama_barang' => $request->nama_barang,
-            'kodebarang_keluar' => $request->kodebarang_keluar,
-            'merk_keluar' => $request->merk_keluar,
-            'kategori_keluar' => $request->kategori_keluar,
-            'harga_jual' => $request->harga_jual,
-            'jumlah' => $request->jumlah,
-            'total' => $request->total,
-        ]);
+
+        if ($stok_kurang->stok < $request->jumlah) {
+            return redirect()->route('tambahbarangkeluar');
+        } else {
+            $data = barangkeluar::create([
+                'nama_barang' => $request->nama_barang,
+                'kodebarang_keluar' => $request->kodebarang_keluar,
+                'merk_keluar' => $request->merk_keluar,
+                'kategori_keluar' => $request->kategori_keluar,
+                'harga_jual' => $request->harga_jual,
+                'jumlah' => $request->jumlah,
+                'total' => $request->total,
+            ]);
+        }
 
 
         $stok_kurang->stok -= $request->jumlah;
