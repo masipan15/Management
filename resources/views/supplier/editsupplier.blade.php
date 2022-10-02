@@ -41,33 +41,31 @@
                                                     enctype="multipart/form-data">
                                                     @csrf
 
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Nama
-                                                            Supplier</label>
-                                                            <div class="col-sm-10">
-                                                        <input type="text" name="nama_supplier" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->nama_supplier }}"
-                                                            aria-describedby="emailHelp">
-                                                    </div>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Alamat
-                                                            Supplier</label>
-                                                            <div class="col-sm-10">
-                                                        <input type="text" name="alamat_supplier" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->alamat_supplier }}"
-                                                            aria-describedby="emailHelp">
-                                                    </div>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">No Telpon </label>
-                                                        <div class="col-sm-10">
-                                                        <input type="text" name="notelpon" class="form-control"
-                                                            id="exampleInputEmail1" value="{{ $data->notelpon }}"
-                                                            aria-describedby="emailHelp">
-                                                    </div>
-                                                    </div>
 
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Nama Supplier</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="nama_supplier" class="form-control"
+                                                            id="inputEmail3" value="{{ $data->nama_supplier }}">                                          
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">Alamat Supplier</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="alamat_supplier" class="form-control"
+                                                            id="inputEmail3" value="{{ $data->alamat_supplier }}">                                          
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label for="inputEmail3"
+                                                            class="col-sm-2 col-form-label">No Telpon</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="notelpon" class="form-control"
+                                                            id="inputEmail3" value="{{ $data->notelpon }}">                                          
+                                                        </div>
+                                                    </div>
                                                     <button type="submit" class="btn btn-success">Simpan</button>
                                                     <a href="/dataservis" type="button" class="btn btn-danger">
                                                         Batal
