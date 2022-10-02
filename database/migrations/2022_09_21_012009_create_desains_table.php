@@ -20,8 +20,8 @@ return new class extends Migration
             $table->integer('harga_desain');
             $table->string('keterangan');
             $table->string('ukuran_desain');
-            $table->string('status_pengerjaan');
-            $table->string('tgl_pemesan_desain');
+            $table->string('status_pengerjaan')->nullable();
+
             $table->timestamps();
         });
     }

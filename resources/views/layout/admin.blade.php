@@ -15,7 +15,7 @@
         content="admin laravel template, template laravel admin, laravel css template, best admin template for laravel, laravel blade admin template, template admin laravel, laravel admin template bootstrap 4, laravel bootstrap 4 admin template, laravel admin bootstrap 4, admin template bootstrap 4 laravel, bootstrap 4 laravel admin template, bootstrap 4 admin template laravel, laravel bootstrap 4 template, bootstrap blade template, laravel bootstrap admin template">
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('acstemplate/assets/img/brand/favicon.ico') }}" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('acstemplate/assets/img/brand/acs1.ico') }}" type="image/x-icon" />
 
     <!-- Title -->
     <title>ACS Management</title>
@@ -81,12 +81,12 @@
         <!-- Sidemenu -->
         <div class="main-sidebar main-sidebar-sticky side-menu">
             <div class="sidemenu-logo">
-                <a class="main-logo" href="index.html">
-                    <img src="{{ asset('acstemplate/assets/img/brand/logo-light.png') }}"
+                <a class="main-logo" href="#">
+                    <img src="{{ asset('acstemplate/assets/img/brand/acs1.png') }}"
                         class="header-brand-img desktop-logo" alt="logo">
                     <img src="{{ asset('acstemplate/assets/img/brand/icon-light.png') }}"
                         class="header-brand-img icon-logo" alt="logo">
-                    <img src="{{ asset('acstemplate/assets/img/brand/logo.png') }}"
+                    <img src="{{ asset('acstemplate/assets/img/brand/acs1.png') }}"
                         class="header-brand-img desktop-logo theme-logo" alt="logo">
                     <img src="{{ asset('acstemplate/assets/img/brand/icon.png') }}"
                         class="header-brand-img icon-logo theme-logo" alt="logo">

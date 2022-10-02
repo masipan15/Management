@@ -19,7 +19,7 @@
                                     <th class="wd-20p">Keterangan</th>
                                     <th class="wd-20p">Harga Desain</th>
                                     <th class="wd-15p">Status Pengerjaan</th>
-                                    <th class="wd-20p">Tanggal</th>
+
                                     <th class="wd-20p">Aksi</th>
                                 </tr>
                             </thead>
@@ -44,8 +44,8 @@
                                             {{-- <a href="/deletes/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                     class="fas fa-trash-alt"></i>hapus</button></a> --}}
-                                                    <a href="#" class="btn btn-danger delete"
-                                            data-id="{{ $row->id }}"data-nama="{{ $row->nama_pemesan }}">Hapus</a>
+                                            <a href="#" class="btn btn-danger delete"
+                                                data-id="{{ $row->id }}"data-nama="{{ $row->nama_pemesan }}">Hapus</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -62,7 +62,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 
-        <script>
+    <script>
         $('.delete').click(function() {
             var id = $(this).attr('data-id');
             var nama = $(this).attr('data-nama');
@@ -87,5 +87,4 @@
     </script>
 
     @include('sweetalert::alert')
-
 @endsection
