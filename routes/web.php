@@ -36,10 +36,19 @@ Route::get('/welcome', function () {
     $jumlahbarang = Barang::count();
     $jumlahsupplier = Supplier::count();
     $jumlahpermintaandesain = desain::count();
-    $jumlahpermintaanservis = servis::count();
+    $jumlahservis = servis::count();
 
-    return view('welcome', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahpermintaanservis'));
+    return view('welcome', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahservis'));
 })->middleware('auth');
+// Route::get('/welcomeservis', function () {
+
+//     $jumlahbarang = Barang::count();
+//     $jumlahsupplier = Supplier::count();
+//     $jumlahpermintaandesain = desain::count();
+//     $jumlahpermintaanservis = servis::count();
+
+//     return view('welcomeservis', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahpermintaanservis'));
+// })->middleware('auth');
 
 Route::get('tes', function () {
     return view('crypto');
@@ -66,7 +75,7 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/delete/{id}', [BarangkeluarController::class, 'delete'])->name('delete');
 
 
-    
+
     //pengeluaran
     Route::get('/pengeluaran', [BarangmasukController::class, 'pengeluaran'])->name('pengeluaran')->middleware('auth');
 
@@ -90,9 +99,7 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/editsupplier/{id}', [SupplierController::class, 'editsupplier'])->name('editsupplier')->middleware('auth');
     Route::post('/updatesupplier/{id}', [SupplierController::class, 'updatesupplier'])->name('updatesupplier');
     Route::get('/deletetet/{id}', [SupplierController::class, 'deletetet'])->name('deletetet');
-});
 
-Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
 
     //servis
     Route::get('/dataservis', [servisController::class, 'dataservis'])->name('dataservis')->middleware('auth');
@@ -101,9 +108,8 @@ Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
     Route::get('/editservis/{id}', [servisController::class, 'editservis'])->name('editservis');
     Route::post('/updateservis/{id}', [servisController::class, 'updateservis'])->name('updateservis');
     Route::get('/deletet/{id}', [servisController::class, 'deletet'])->name('deletet');
-});
 
-Route::group(['middleware' => ['auth', 'hakakses:desain,admin']], function () {
+
 
     //desain
     Route::get('/datadesain', [DesainController::class, 'index'])->name('datadesain')->middleware('auth');
@@ -112,6 +118,16 @@ Route::group(['middleware' => ['auth', 'hakakses:desain,admin']], function () {
     Route::get('/editdesain/{id}', [DesainController::class, 'editdesain'])->name('editdesain');
     Route::post('/updatedesain/{id}', [DesainController::class, 'updatedesain'])->name('updatedesain');
     Route::get('/deletes/{id}', [DesainController::class, 'deletes'])->name('deletes');
+});
+
+Route::group(['middleware' => ['auth', 'hakakses:servis']], function () {
+    //userservis
+    Route::get('/datauserservis', [UserservisController::class, 'datauserservis'])->name('datauserservis')->middleware('auth');
+    Route::get('/edituserservis/{id}', [UserservisController::class, 'edituserservis'])->name('edituserservis');
+    Route::post('/updateuserservis/{id}', [UserservisController::class, 'updateuserservis'])->name('updateuserservis');
+});
+
+Route::group(['middleware' => ['auth', 'hakakses:desain']], function () {
 });
 
 //login
@@ -134,9 +150,3 @@ Route::post('/updateprofil', [LoginController::class, 'updateprofil'])->name('up
 
 //shift data
 Route::get('/shiftdata', [BarangmasukController::class, 'shiftdata'])->name('shiftdata');
-
-//userservis
-
-Route::get('/datauserservis', [UserservisController::class, 'datauserservis'])->name('datauserservis');
-Route::get('/edituserservis/{id}', [UserservisController::class, 'edituserservis'])->name('edituserservis')->middleware('auth');
-Route::post('/updateuserservis/{id}', [UserservisController::class, 'updateuserservis'])->name('updateuserservis');

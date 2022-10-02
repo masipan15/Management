@@ -68,7 +68,7 @@ class LoginController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'role' => 'desain',
+            'role' => 'servis',
             'password' => bcrypt($request->password),
             'alamat' => '-',
             'notelpon' => '-',
@@ -86,7 +86,7 @@ class LoginController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'role' => $request->role,
+            'role' => 'desain',
             'password' => bcrypt($request->password),
             'alamat' => '-',
             'notelpon' => '-',

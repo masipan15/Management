@@ -1,6 +1,6 @@
-@extends('layout.adminservis')
+@extends('layout.admin')
 
-@section('servis')
+@section('content')
     <div class="row row-sm">
         <div class="col-lg-12">
             <div class="card custom-card overflow-hidden">
