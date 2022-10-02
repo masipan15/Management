@@ -56,15 +56,17 @@
                                         id="inputEmail3">
                                 </div>
                             </div>
-                            @error('notelpon')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                            <div class="form-group mg-b-20">
-                                <label class="ckbox">
-                                </label>
-                            </div>
-                            <button class="btn btn-primary btn-block">Submit</button>
-                            <a href="dataservis" class="btn ripple btn-main-primary btn-block">Kembali</a>
+                                @error('notelpon')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                    <div class="form-group mg-b-20">
+                                        <label class="ckbox">
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Tambah</button>
+                                    <a href="datasupplier" class="btn btn-danger">Batal</a>
+                                </div>
+                        </form>
                     </div>
                     </form>
                 </div>

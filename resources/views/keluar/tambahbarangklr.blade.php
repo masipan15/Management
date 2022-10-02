@@ -86,6 +86,7 @@
                                 <div class="col-sm-10">
                                     <input type="number" name="jumlah" id="jumlah" class="form-control"
                                         id="inputEmail3">
+
                                 </div>
                             </div>
                             @error('jumlah')
@@ -105,8 +106,8 @@
                                 <label class="ckbox">
                                 </label>
                             </div>
-                            <button class="btn ripple btn-primary btn-block">Submit</button>
-                            <a href="barangkeluar" class="btn ripple btn-primary btn-block">Kembali</a>
+                            <button type="submit" class="btn btn-primary">Tambah</button>
+                            <a href="barangkeluar" class="btn btn-danger">Batal</a>
                     </div>
                     </form>
                 </div>

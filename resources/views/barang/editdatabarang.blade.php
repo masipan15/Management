@@ -108,10 +108,8 @@
                                                             id="inputEmail3" value="{{ $data->foto1 }}">                                     
                                                         </div>
                                                     </div>
-                                                    <button type="submit" class="btn btn-success">Simpan</button>
-                                                    <a href="/databarang" type="button" class="btn btn-danger">
-                                                        Batal
-                                                    </a>
+                                                    <button type="submit" class="btn ripple btn-success btn-block">Simpan</button>
+                                                    <a href="databarang" class="btn ripple btn-danger btn-block">Batal</a>
                                                 </form>
                                             </div>
                                         </div>

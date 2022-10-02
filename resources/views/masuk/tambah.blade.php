@@ -112,8 +112,17 @@
                                 <label class="ckbox">
                                 </label>
                             </div>
-                            <button class=" ripple btn-main-primary ">Submit</button>
-                            <a href="barangmasuk" class=" ripple btn-main-primary btn">Kembali</a>
+                            {{-- <button class=" ripple btn-main-primary ">Submit</button>
+                            <a href="/barangmasuk" class=" ripple btn-main-danger ">Submit</a> --}}
+                                    <button type="submit" class="btn btn-primary">Tambah</button>
+                                    <a href="barangmasuk" class="btn btn-danger">Batal</a>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
                     </div>
                     </form>
                 </div>
