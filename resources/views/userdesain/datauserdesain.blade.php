@@ -40,12 +40,9 @@
                                         <td>
                                             <a href="/edituserdesain/{{ $row->id }}" class="btn btn-success mb-1"><i
                                                     class="fas fa-pencil-alt"></i>edit</a><br>
-                                            {{-- <a href="/deletet/{{ $row->id }}" class="btn btn-danger"
-                                                onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
-                                                    class="fas fa-trash-alt"></i>hapus</button></a> --}}
+                                            
 
-                                            <a href="#" class="btn btn-danger delete"
-                                                data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a>
+                                            
                                         </td>
                                     </tr>
                                 @endforeach
