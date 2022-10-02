@@ -32,97 +32,83 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Nama Pemesan</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Pemesan</label>
                                 <div class="col-sm-10">
                                     <input type="text" required name="nama_pemesan" class="form-control"
-                                    id="inputEmail3">                                               
+                                        id="inputEmail3">
                                 </div>
                             </div>
                             @error('nama_pemesan')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Ukuran Desain</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Ukuran Desain</label>
                                 <div class="col-sm-10">
                                     <input type="text" required name="ukuran_desain" class="form-control"
-                                    id="inputEmail3">                                               
+                                        id="inputEmail3">
                                 </div>
                             </div>
                             @error('ukuran_desain')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Permintaan Desain</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Permintaan Desain</label>
                                 <div class="col-sm-10">
                                     <input type="text" required name="permintaan_desain" class="form-control"
-                                    id="inputEmail3">                                               
+                                        id="inputEmail3">
                                 </div>
                             </div>
                             @error('permintaan_desain')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Keterangan</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Keterangan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" required name="keterangan" class="form-control"
-                                    id="inputEmail3">                                               
+                                    <input type="text" required name="keterangan" class="form-control" id="inputEmail3">
                                 </div>
                             </div>
                             @error('keterangan')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Harga</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga</label>
                                 <div class="col-sm-10">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Rp.</span>
                                         <input type="number" name="harga_desain" id="harga_desain" class="form-control"
-                                    id="inputEmail3">                                               
+                                            id="inputEmail3">
                                     </div>
                                 </div>
                             </div>
                             @error('harga_desain')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Status</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="status_pengerjaan" id="status_pengerjaan" class="form-control"
-                                    id="inputEmail3">     
-                                </div>
-                            </div>
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+
                             @error('status_pengerjaan')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Tanggal</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="tgl_pemesan_desain" id="tgl_pemesan_desain" class="form-control"
-                                    id="inputEmail3">                                               
-                                    </div>
+                                    <input type="text" name="tgl_pemesan_desain" id="tgl_pemesan_desain"
+                                        class="form-control" id="inputEmail3">
                                 </div>
                             </div>
-                            @error('tgl_pemesan_desain')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                                    <div class="form-group mg-b-20">
-                                        <label class="ckbox">
-                                        </label>
-                                    </div>
-                                    <button class="btn ripple btn-main-primary btn-block">Submit</button>
-                                    <a href="datadesain" class="btn ripple btn-main-primary btn-block">Kembali</a>
-                                </div>
-                        </form>
                     </div>
+                    @error('tgl_pemesan_desain')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <div class="form-group mg-b-20">
+                        <label class="ckbox">
+                        </label>
+                    </div>
+                    <button class="btn ripple btn-main-primary btn-block">Submit</button>
+                    <a href="datadesain" class="btn ripple btn-main-primary btn-block">Kembali</a>
                 </div>
+                </form>
             </div>
+        </div>
+        </div>
         </div>
         </div>
         </div>

@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Desain;
+use App\Models\Userdesain;
 
 class DesainController extends Controller
 {
     public function index()
     {
         $data = desain::all();
-        return view('desain.datadesain',compact('data'));
+        return view('desain.datadesain', compact('data'));
     }
-    
-    
+
+
     public function tambahdesain()
     {
         return view('desain.tambahdesain');
@@ -26,16 +27,14 @@ class DesainController extends Controller
             'permintaan_desain' => 'required',
             'keterangan' => 'required',
             'harga_desain' => 'required',
-            'status_pengerjaan' => 'required',
-            'tgl_pemesan_desain' => 'required',
+
         ], [
             'nama_pemesan.required' => ' Harus Diisi!',
             'ukuran_desain.required' => ' Harus Diisi!',
             'permintaan_desain.required' => ' Harus Diisi!',
             'keterangan.required' => ' Harus Diisi!',
             'harga_desain.required' => 'harga Harus Diisi!',
-            'status_pengerjaan.required' => ' Harus Diisi!',
-            'tgl_pemesan_desain.required' => ' Harus Diisi!',
+
         ]);
 
         $data = desain::create([
@@ -44,8 +43,20 @@ class DesainController extends Controller
             'permintaan_desain' => $request->permintaan_desain,
             'keterangan' => $request->keterangan,
             'harga_desain' => $request->harga_desain,
-            'status_pengerjaan' => $request->status_pengerjaan,
-            'tgl_pemesan_desain' => $request->tgl_pemesan_desain,
+
+
+        ]);
+
+        Userdesain::create([
+            'namapemesan' => $request->nama_pemesan,
+            'ukuran' => $request->ukuran_desain,
+            'permintaan' => $request->permintaan_desain,
+            'keterangan' => $request->keterangan,
+            'harga' => $request->harga_desain,
+
+
+
+
         ]);
         return redirect()->route('datadesain')->with('success', 'Data Berhasil Di Tambahkan');
     }
@@ -75,7 +86,6 @@ class DesainController extends Controller
             'tgl_pemesan_desain' => $request->tgl_pemesan_desain,
         ]);
         return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
-        
     }
 
     public function deletes($id)
@@ -84,6 +94,4 @@ class DesainController extends Controller
         $data->delete();
         return redirect()->route('datadesain')->with('success', 'Data Berhasil Di Hapus');
     }
-
-
 }
