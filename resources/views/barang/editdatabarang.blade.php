@@ -108,8 +108,21 @@
                                                             id="inputEmail3" value="{{ $data->foto1 }}">                                     
                                                         </div>
                                                     </div>
-                                                    <button type="submit" class="btn ripple btn-success btn-block">Simpan</button>
-                                                    <a href="databarang" class="btn ripple btn-danger btn-block">Batal</a>
+                                                    <div class="form-group mb-0">
+                                                        <div class="row row-sm">
+                                                            <div class="col-md-3">
+                                                            </div>
+                                                            <div class="col-md-9">
+                                                                <div class="custom-controls-stacked">
+                                                                    </div>
+                                                                <div class="mt-3">
+                                                                    <button type="submit" class="btn ripple btn-main-primary active mr-1">Edit</button>
+                                                                    <a href="databarang" type="button" class="btn ripple btn-secondary">Batal</a>
+                                                                </div>
+                                                            </div>										
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 </form>
                                             </div>
                                         </div>
