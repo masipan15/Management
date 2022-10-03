@@ -229,7 +229,7 @@
                                         </form>
                                         <div class="text-left mt-5 ml-0">
                                             {{-- <div class="mb-1"><a href="#">Forgot password?</a></div> --}}
-                                            <div>Belum Punya Akun? <a href="/register">Daftar Sekarang</a></div>
+                                            <div>Belum Punya Akun? <a href="/registerdesain">Daftar Sekarang</a></div>
                                         </div>
                                     </div>
                                 </div>

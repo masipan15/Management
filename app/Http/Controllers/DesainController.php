@@ -83,7 +83,7 @@ class DesainController extends Controller
             'keterangan' => $request->keterangan,
             'harga_desain' => $request->harga_desain,
             'status_pengerjaan' => $request->status_pengerjaan,
-            'tgl_pemesan_desain' => $request->tgl_pemesan_desain,
+
         ]);
         return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
     }

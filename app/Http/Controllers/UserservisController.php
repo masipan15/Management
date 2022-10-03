@@ -24,7 +24,7 @@ class UserservisController extends Controller
 
 
 
-    public function updateuserservis(request $request, $id)
+    public function updateuserservis(Request $request, $id)
     {
         $data = Userservis::find($id);
         $data->update([
@@ -35,6 +35,14 @@ class UserservisController extends Controller
             'status' => $request->status,
             'biaya' => $request->biaya,
         ]);
+
+        $ipan = servis::find($id);
+        $ipan->update([
+            'status_pengerjaan' => $request->status,
+            'biaya_pengerjaan' => $request->biaya
+        ]);
+
+
         return redirect()->route('datauserservis')->with('success', 'Data berhasil di Update!');
     }
 }
