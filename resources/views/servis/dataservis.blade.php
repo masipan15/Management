@@ -64,7 +64,7 @@
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-<script>
+    <script>
         $('.delete').click(function() {
             var id = $(this).attr('data-id');
             var nama = $(this).attr('data-nama');
@@ -84,7 +84,7 @@
                     } else {
                         swal("Data Tidak Jadi Di hapus");
                     }
+                });
         });
-    });
     </script>
-    @endsection
+@endsection

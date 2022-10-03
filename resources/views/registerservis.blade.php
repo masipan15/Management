@@ -25,8 +25,7 @@
 
     <!-- Icons css-->
     <link href="{{ asset('acstemplate/assets/plugins/web-fonts/icons.css') }}" rel="stylesheet" />
-    <link href="{{ asset('acstemplate/assets/plugins/web-fonts/font-awesome/font-awesome.min.css') }}"
-        rel="stylesheet">
+    <link href="{{ asset('acstemplate/assets/plugins/web-fonts/font-awesome/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('acstemplate/assets/plugins/web-fonts/plugin.css') }}" rel="stylesheet" />
 
     <!-- Style css-->
@@ -60,110 +59,110 @@
                 <div class="row">
                     <div class="predefined_styles">
                         <div class="swichermainleft text-cMasukkan Sandi Anda class="p-3">
-                                <a href="http://laravel.spruko.com/spruha/index.html"
-                                    class="btn btn-primary btn-block mt-0">View Demo</a>
-                                <a href="https://themeforest.net/user/spruko/portfolio"
-                                    class="btn btn-secondary btn-block">Buy Now</a>
-                                <a href="https://themeforest.net/user/spruko/portfolio"
-                                    class="btn btn-info btn-block">Our Portfolio</a>
-                            </div>
+                            <a href="http://laravel.spruko.com/spruha/index.html"
+                                class="btn btn-primary btn-block mt-0">View Demo</a>
+                            <a href="https://themeforest.net/user/spruko/portfolio"
+                                class="btn btn-secondary btn-block">Buy Now</a>
+                            <a href="https://themeforest.net/user/spruko/portfolio" class="btn btn-info btn-block">Our
+                                Portfolio</a>
                         </div>
-                        <div class="swichermainleft">
-                            <h4>Navigation Style</h4>
-                            <div class="p-3">
-                                <a href="index.html" class="btn btn-primary btn-block mt-0">LTR VERSION</a>
-                                <a href="https://laravel.spruko.com/spruha/rtl/index"
-                                    class="btn btn-success btn-block">RTL VERSION</a>
-                            </div>
+                    </div>
+                    <div class="swichermainleft">
+                        <h4>Navigation Style</h4>
+                        <div class="p-3">
+                            <a href="index.html" class="btn btn-primary btn-block mt-0">LTR VERSION</a>
+                            <a href="https://laravel.spruko.com/spruha/rtl/index" class="btn btn-success btn-block">RTL
+                                VERSION</a>
                         </div>
+                    </div>
 
-                        <div class="swichermainleft">
-                            <h4 class="font-bold text-sm mr-3">Default Theme Switcher</h4>
-                            <div class="swichermainleft my-4">
-                                <a class="wscolorcode red-btn color blackborder color1" href="#"
-                                    data-theme="{{ asset('acstemplate/assets/css/colors/color1.css') }}"></a>
-                                <a class="wscolorcode purple-btn color blackborder color2" href="#"
-                                    data-theme="{{ asset('acstemplate/assets/css/colors/color2.css') }}"></a>
-                                <a class="wscolorcode green-btn color blackborder color3" href="#"
-                                    data-theme="{{ asset('acstemplate/assets/css/colors/color3.css') }}"></a>
-                                <a class="wscolorcode pink-btn color blackborder color4" href="#"
-                                    data-theme="{{ asset('acstemplate/assets/css/colors/color4.css') }}"></a>
-                                <a class="wscolorcode orange-btn color blackborder color5" href="#"
-                                    data-theme="{{ asset('acstemplate/assets/css/colors/color5.css') }}"></a>
-                            </div>
+                    <div class="swichermainleft">
+                        <h4 class="font-bold text-sm mr-3">Default Theme Switcher</h4>
+                        <div class="swichermainleft my-4">
+                            <a class="wscolorcode red-btn color blackborder color1" href="#"
+                                data-theme="{{ asset('acstemplate/assets/css/colors/color1.css') }}"></a>
+                            <a class="wscolorcode purple-btn color blackborder color2" href="#"
+                                data-theme="{{ asset('acstemplate/assets/css/colors/color2.css') }}"></a>
+                            <a class="wscolorcode green-btn color blackborder color3" href="#"
+                                data-theme="{{ asset('acstemplate/assets/css/colors/color3.css') }}"></a>
+                            <a class="wscolorcode pink-btn color blackborder color4" href="#"
+                                data-theme="{{ asset('acstemplate/assets/css/colors/color4.css') }}"></a>
+                            <a class="wscolorcode orange-btn color blackborder color5" href="#"
+                                data-theme="{{ asset('acstemplate/assets/css/colors/color5.css') }}"></a>
                         </div>
-                        <div class="swichermainleft">
-                            <h4>Ions Styles</h4>
-                            <div class="switch_section my-2">
-                                <div class="switch-toggle d-flex">
-                                    <span class="mr-auto">Icon Style</span>
-                                    <div class="onoffswitch2">
-                                        <input type="checkbox" name="onoffswitch2" id="myonoffswitch51"
-                                            class="onoffswitch2-checkbox">
-                                        <label for="myonoffswitch51" class="onoffswitch2-label"></label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="switch_section my-2">
-                                <div class="switch-toggle d-flex">
-                                    <span class="mr-auto">Theme Style</span>
-                                    <div class="onoffswitch2">
-                                        <input type="checkbox" name="onoffswitch2" id="myonoffswitch52"
-                                            class="onoffswitch2-checkbox">
-                                        <label for="myonoffswitch52" class="onoffswitch2-label"></label>
-                                    </div>
+                    </div>
+                    <div class="swichermainleft">
+                        <h4>Ions Styles</h4>
+                        <div class="switch_section my-2">
+                            <div class="switch-toggle d-flex">
+                                <span class="mr-auto">Icon Style</span>
+                                <div class="onoffswitch2">
+                                    <input type="checkbox" name="onoffswitch2" id="myonoffswitch51"
+                                        class="onoffswitch2-checkbox">
+                                    <label for="myonoffswitch51" class="onoffswitch2-label"></label>
                                 </div>
                             </div>
                         </div>
-                        <div class="swichermainleft">
-                            <h4>Theme Layout</h4>
-                            <div class="switch_section d-flex my-4">
-                                <div class="d-block text-center mx-auto">
-                                    <button type="button" id="background5"
-                                        class="bg5 mb-3 wscolorcode1 blackborder"></button>
-                                    <span class="badge badge-light tx-12">Dark layout</span>
-                                </div>
-                                <div class="d-block text-center mx-auto">
-                                    <button type="button" id="background6"
-                                        class="bg6 mb-3 wscolorcode1 blackborder"></button>
-                                    <span class="badge badge-light tx-12">Light layout</span>
+                        <div class="switch_section my-2">
+                            <div class="switch-toggle d-flex">
+                                <span class="mr-auto">Theme Style</span>
+                                <div class="onoffswitch2">
+                                    <input type="checkbox" name="onoffswitch2" id="myonoffswitch52"
+                                        class="onoffswitch2-checkbox">
+                                    <label for="myonoffswitch52" class="onoffswitch2-label"></label>
                                 </div>
                             </div>
                         </div>
-                        <div class="swichermainleft">
-                            <h4>Header Styles Mode</h4>
-                            <div class="switch_section d-flex my-4">
-                                <div class="d-block text-center mx-auto">
-                                    <button type="button" id="background3"
-                                        class="bg3 mb-3 wscolorcode1 blackborder"></button>
-                                    <span class="badge badge-light tx-12">Dark Header</span>
-                                </div>
-                                <div class="d-block text-center mx-auto">
-                                    <button type="button" id="background4"
-                                        class="bg4 mb-3 wscolorcode1 blackborder"></button>
-                                    <span class="badge badge-light tx-12">Color Header</span>
-                                </div>
+                    </div>
+                    <div class="swichermainleft">
+                        <h4>Theme Layout</h4>
+                        <div class="switch_section d-flex my-4">
+                            <div class="d-block text-center mx-auto">
+                                <button type="button" id="background5"
+                                    class="bg5 mb-3 wscolorcode1 blackborder"></button>
+                                <span class="badge badge-light tx-12">Dark layout</span>
+                            </div>
+                            <div class="d-block text-center mx-auto">
+                                <button type="button" id="background6"
+                                    class="bg6 mb-3 wscolorcode1 blackborder"></button>
+                                <span class="badge badge-light tx-12">Light layout</span>
                             </div>
                         </div>
-                        <div class="swichermainleft">
-                            <h4>Leftmenu Styles Mode</h4>
-                            <div class="switch_section d-flex my-4">
-                                <div class="d-block text-center mx-auto">
-                                    <button type="button" id="background1"
-                                        class="bg1 wscolorcode1 blackborder"></button>
-                                    <span class="badge badge-light tx-12">Color Menu</span>
-                                </div>
-                                <div class="d-block text-center mx-auto">
-                                    <button type="button" id="background2"
-                                        class="bg2 wscolorcode1 blackborder"></button>
-                                    <span class="badge badge-light tx-12">Light Menu</span>
-                                </div>
+                    </div>
+                    <div class="swichermainleft">
+                        <h4>Header Styles Mode</h4>
+                        <div class="switch_section d-flex my-4">
+                            <div class="d-block text-center mx-auto">
+                                <button type="button" id="background3"
+                                    class="bg3 mb-3 wscolorcode1 blackborder"></button>
+                                <span class="badge badge-light tx-12">Dark Header</span>
+                            </div>
+                            <div class="d-block text-center mx-auto">
+                                <button type="button" id="background4"
+                                    class="bg4 mb-3 wscolorcode1 blackborder"></button>
+                                <span class="badge badge-light tx-12">Color Header</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swichermainleft">
+                        <h4>Leftmenu Styles Mode</h4>
+                        <div class="switch_section d-flex my-4">
+                            <div class="d-block text-center mx-auto">
+                                <button type="button" id="background1"
+                                    class="bg1 wscolorcode1 blackborder"></button>
+                                <span class="badge badge-light tx-12">Color Menu</span>
+                            </div>
+                            <div class="d-block text-center mx-auto">
+                                <button type="button" id="background2"
+                                    class="bg2 wscolorcode1 blackborder"></button>
+                                <span class="badge badge-light tx-12">Light Menu</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!-- End Switcher -->
 
@@ -190,7 +189,8 @@
                                 <img src="{{ asset('acstemplate/assets/img/svgs/user.svg') }}" class="ht-100 mb-0"
                                     alt="user">
                                 <h5 class="mt-4 text-white">Buat akunmu</h5>
-                                <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Daftar untuk membuat, menemukan, dan terhubung dengan komunitas global</span>
+                                <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Daftar untuk membuat, menemukan, dan
+                                    terhubung dengan komunitas global</span>
                             </div>
                         </div>
                         <div class="col-lg-6 col-xl-7 col-xs-12 col-sm-12 login_form ">
@@ -205,10 +205,12 @@
                                         <p class="mb-4 text-muted tx-13 ml-0 text-left"></p>
                                         <nav class="navbar navbar-light bg-light">
                                             <form class="container-fluid justify-content-start">
-                                              <a href="registerdesain" class="btn btn-sm btn-outline-secondary" type="button">User Desain</a>
-                                              <a href="registerservis" class="btn btn-sm btn-outline-secondary" type="button">User Servis</a>
+                                                <a href="registerdesain" class="btn btn-sm btn-outline-primary "
+                                                    type="button">User Desain</a>
+                                                <a href="registerservis" class="btn btn-sm btn-outline-primary active"
+                                                    type="button">User Servis</a>
                                             </form>
-                                          </nav>
+                                        </nav>
                                         <form class="mt-4" action="/createservis" method="post">
                                             @csrf
                                             <div class="form-group text-left">
@@ -242,7 +244,8 @@
                                                 @endif
                                             </div>
                                             <input type="text" value="servis" name="role" hidden>
-                                            <button type="submit" class="btn ripple btn-main-primary btn-block">Buat Akun</button>
+                                            <button type="submit" class="btn ripple btn-main-primary btn-block">Buat
+                                                Akun</button>
                                         </form>
                                         <div class="text-left mt-5 ml-0">
                                             <p class="mb-0">Sudah Punya Akun? <a href="/login">Masuk</a></p>

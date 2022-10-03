@@ -103,7 +103,7 @@
                                 <div class="col-sm-10">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                        <input type="text" name="total" readonly id="total" class="form-control"                                   
+                                        <input type="text" name="total" readonly id="total" class="form-control"
                                     id="inputEmail3">
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@
                                             <button type="submit" class="btn ripple btn-main-primary active mr-1">Tambah</button>
                                             <a href="barangkeluar" type="button" class="btn ripple btn-secondary">Batal</a>
                                         </div>
-                                    </div>										
+                                    </div>
                                 </div>
                             </div>
                         </div>

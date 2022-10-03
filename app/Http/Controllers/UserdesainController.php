@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\desain;
 use App\Models\Userdesain;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,7 @@ class UserdesainController extends Controller
 
 
 
-    public function updateuserdesain(request $request, $id)
+    public function updateuserdesain(Request $request, $id)
     {
         $data = Userdesain::find($id);
         $data->update([
@@ -33,6 +34,12 @@ class UserdesainController extends Controller
             'keterangan' => $request->keterangan,
             'ukuran' => $request->ukuran,
             'status' => $request->status,
+        ]);
+
+        $ipan = desain::find($id);
+        $ipan->update([
+            'status_pengerjaan' => $request->status,
+            'harga_desain' => $request->harga
         ]);
         return redirect()->route('datauserdesain')->with('success', 'Data berhasil di Update!');
     }

@@ -41,7 +41,7 @@
                                                         <div class="col-sm-10">
                                                             <input type="text" name="namapemesan" class="form-control"
                                                             id="namapemesan" value="{{ $data->namapemesan }}"
-                                                                    id="inputEmail3">                                    
+                                                                    id="inputEmail3">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
@@ -50,7 +50,7 @@
                                                         <div class="col-sm-10">
                                                             <input type="text" name="permintaan" class="form-control"
                                                             id="exampleInputEmail1" value="{{ $data->permintaan }}"
-                                                                    id="inputEmail3">                                    
+                                                                    id="inputEmail3">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
@@ -59,7 +59,7 @@
                                                         <div class="col-sm-10">
                                                             <input type="text" name="keterangan" class="form-control"
                                                             id="exampleInputEmail1" value="{{ $data->keterangan }}"
-                                                                    id="inputEmail3">                                    
+                                                                    id="inputEmail3">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
@@ -68,7 +68,7 @@
                                                         <div class="col-sm-10">
                                                             <input type="text" name="ukuran" class="form-control"
                                                                 id="exampleInputEmail1" value="{{ $data->ukuran }}"
-                                                                    id="inputEmail3">                                    
+                                                                    id="inputEmail3">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
@@ -82,7 +82,7 @@
                                                                 Pengerjaan
                                                             </option>
                                                             <option value="Selesai">Selesai</option>
-                                                        </select>                                  
+                                                        </select>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
@@ -93,8 +93,8 @@
                                                                 <span class="input-group-text" id="basic-addon1">Rp.</span>
                                                                 <input type="text" name="harga" class="form-control"
                                                                     id="exampleInputEmail1" value="{{ $data->harga }}"
-                                                                    id="inputEmail3">  
-                                                            </div>                                  
+                                                                    id="inputEmail3">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group mb-0">
@@ -108,7 +108,7 @@
                                                                     <button type="submit" class="btn ripple btn-main-primary  active mr-1">Simpan</button>
                                                                     <a href="datauserservis" type="button" class="btn ripple btn-secondary ">Batal</a>
                                                                 </div>
-                                                            </div>										
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
