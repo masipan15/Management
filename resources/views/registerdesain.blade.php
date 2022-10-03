@@ -93,8 +93,8 @@
                                         <h5 class="text-left mb-2">Anda Akan Daftar Sebagai User Desain</h5>
                                         <p class="mb-4 text-muted tx-13 ml-0 text-left"></p>
                                         <nav class="navbar navbar-light bg-light">
-                                            <form class="container-fluid justify-content-start">
-                                                <a href="registerdesain" class="btn btn-sm btn-outline-primary active"
+                                            <form class="container-fluid justify-content-center">
+                                                <a href="registerdesain" class="btn btn-sm btn-outline-primary active mr-3"
                                                     type="button">User Desain</a>
                                                 <a href="registerservis" class="btn btn-sm btn-outline-primary"
                                                     type="button">User Servis</a>
