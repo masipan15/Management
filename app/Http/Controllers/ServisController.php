@@ -81,9 +81,21 @@ class ServisController extends Controller
             'nama_barang' => $request->nama_barang,
             'merk_barang' => $request->merk_barang,
             'kerusakan_barang' => $request->kerusakan_barang,
-            'status_pengerjaan' => $request->status_pengerjaan,
+            
 
         ]);
+        $ipan=Userservis::find($id);
+        $ipan->update([
+            'namapelanggan' => $request->nama_pelanggan,
+            'namabarang' => $request->nama_barang,
+            'merk' => $request->merk_barang,
+            'kerusakan' => $request->kerusakan_barang,
+
+
+
+
+        ]);
+
         return redirect()->route('dataservis')->with('success', 'Data berhasil di Update!');
     }
 
