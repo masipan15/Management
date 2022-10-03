@@ -81,8 +81,15 @@ class DesainController extends Controller
             'ukuran_desain' => $request->ukuran_desain,
             'permintaan_desain' => $request->permintaan_desain,
             'keterangan' => $request->keterangan,
-            'harga_desain' => $request->harga_desain,
-            'status_pengerjaan' => $request->status_pengerjaan,
+
+
+        ]);
+        $ipan = Userdesain::find($id);
+        $ipan->update([
+            'namapemesan' => $request->nama_pemesan,
+            'ukuran' => $request->ukuran_desain,
+            'permintaan' => $request->permintaan_desain,
+            'keterangan' => $request->keterangan,
 
         ]);
         return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
