@@ -43,12 +43,12 @@
                                         <td>{{ $row->created_at->format('d/m/y') }}</td>
 
                                         <td>
-                                            {{-- <a href="/editbrgklr/{{ $row->id }}"
+                                            <a href="/editbrgklr/{{ $row->id }}"
                                             class="btn btn-success mb-1"><i
-                                                class="fas fa-pencil-alt"></i>Edit</a><br> --}}
-                                            <a href="/delete/{{ $row->id }}" class="btn btn-danger"
+                                                class="fas fa-pencil-alt"></i>edit</a><br>
+                                            {{-- <a href="/delete/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
-                                                    class="fas fa-trash-alt"></i>Hapus</button></a>
+                                                    class="fas fa-trash-alt"></i>Hapus</button></a> --}}
                                         </td>
                                     </tr>
                                 @endforeach

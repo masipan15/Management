@@ -62,8 +62,8 @@ class BarangkeluarController extends Controller
     public function editbrgklr($id)
     {
         $data = barangkeluar::findOrFail($id);
-
-        return view('keluar.editbarangklr', compact('data'));
+        $barang = barang::all();
+        return view('keluar.editbarangklr', compact('data','barang'));
     }
 
 
