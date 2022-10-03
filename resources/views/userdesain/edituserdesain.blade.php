@@ -31,7 +31,7 @@
                             <h3 class="main-content-label mb-1">Edit User Desain</h3>
                             <p class="text-muted card-sub-title"></p>
                         </div>
-                                                <form action="/updateuserservis/{{ $data->id }}" method="post"
+                                                <form action="/updateuserdesain/{{ $data->id }}" method="post"
                                                     enctype="multipart/form-data">
                                                     @csrf
 

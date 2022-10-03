@@ -83,16 +83,6 @@
                             @error('harga_desain')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="tgl_pemesan_desain" id="tgl_pemesan_desain"
-                                        class="form-control" id="inputEmail3">
-                            </div>
-                    </div>
-                    @error('tgl_pemesan_desain')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
                     <div class="form-group mb-0">
                         <div class="row row-sm">
                             <div class="col-md-3">
