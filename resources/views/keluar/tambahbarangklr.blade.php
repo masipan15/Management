@@ -108,13 +108,21 @@
                                     </div>
                                 </div>
                             </div>
-                                    <div class="form-group mg-b-20">
-                                        <label class="ckbox">
-                                        </label>
+                            <div class="form-group mb-0">
+                                <div class="row row-sm">
+                                    <div class="col-md-3">
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Tambah</button>
-                                    <a href="barangkeluar" class="btn btn-danger">Batal</a>
+                                    <div class="col-md-9">
+                                        <div class="custom-controls-stacked">
+                                            </div>
+                                        <div class="mt-3">
+                                            <button type="submit" class="btn ripple btn-main-primary active mr-1">Tambah</button>
+                                            <a href="barangkeluar" type="button" class="btn ripple btn-secondary">Batal</a>
+                                        </div>
+                                    </div>										
                                 </div>
+                            </div>
+                        </div>
                         </form>
                     </div>
                 </div>

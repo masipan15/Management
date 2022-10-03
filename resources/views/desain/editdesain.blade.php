@@ -91,20 +91,22 @@
                                                                 value="{{ $data->status_pengerjaan }}" id="inputEmail3">
                                                         </div>
                                                     </div>
-                                                    <div class="row mb-3">
-                                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal
-                                                            Pemesan</label>
-                                                        <div class="col-sm-10">
-                                                            <input type="text" name="tgl_pemesan_desain"
-                                                                class="form-control" id="exampleInputEmail1"
-                                                                value="{{ $data->tgl_pemesan_desain }}" id="inputEmail3">
-                                                        </div>
-                                                    </div>
-
-                                                    <button type="submit" class="btn btn-success">Simpan</button>
-                                                    <a href="/datadesain" type="button" class="btn btn-danger">
-                                                        Batal
-                                                    </a>
+                                                    <div class="mb-4 main-content-label"></div>
+                    <div class="form-group mb-0">
+                        <div class="row row-sm">
+                            <div class="col-md-3">
+                            </div>
+                            <div class="col-md-9">
+                                <div class="custom-controls-stacked">
+                                    </div>
+                                <div class="mt-3">
+                                    <button type="submit" class="btn ripple btn-main-primary active mr-1">Simpan</button>
+                                    <a href="datadesain" type="button" class="btn ripple btn-secondary">Batal</a>
+                                </div>
+                            </div>										
+                        </div>
+                    </div>
+                </div>
                                                 </form>
                                             </div>
                                         </div>

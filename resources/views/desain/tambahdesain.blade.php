@@ -83,27 +83,30 @@
                             @error('harga_desain')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-
-                            @error('status_pengerjaan')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="tgl_pemesan_desain" id="tgl_pemesan_desain"
                                         class="form-control" id="inputEmail3">
-                                </div>
                             </div>
                     </div>
                     @error('tgl_pemesan_desain')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                    <div class="form-group mg-b-20">
-                        <label class="ckbox">
-                        </label>
+                    <div class="form-group mb-0">
+                        <div class="row row-sm">
+                            <div class="col-md-3">
+                            </div>
+                            <div class="col-md-9">
+                                <div class="custom-controls-stacked">
+                                    </div>
+                                <div class="mt-3">
+                                    <button type="submit" class="btn ripple btn-main-primary active mr-1">Tambah</button>
+                                    <a href="datadesain" type="button" class="btn ripple btn-secondary">Batal</a>
+                                </div>
+                            </div>										
+                        </div>
                     </div>
-                    <button class="btn ripple btn-main-primary btn-block">Submit</button>
-                    <a href="datadesain" class="btn ripple btn-main-primary btn-block">Kembali</a>
                 </div>
                 </form>
             </div>
