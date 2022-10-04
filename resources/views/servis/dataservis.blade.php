@@ -36,7 +36,7 @@
                                         <td>{{ $row->merk_barang }}</td>
                                         <td>{{ $row->kerusakan_barang }}</td>
                                         <td>{{ $row->status_pengerjaan }}</td>
-                                        <td>{{ $row->biaya_pengerjaan }}</td>
+                                        <td>Rp.{{ number_format($row['biaya_pengerjaan'], 2, '.', '.') }}</td>
 
 
                                         <td>

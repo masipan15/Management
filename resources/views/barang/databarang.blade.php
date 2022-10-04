@@ -41,6 +41,7 @@
                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
                                         <td>Rp.{{ number_format($row['hargajual'], 2, '.', '.') }}</td>
                                         <td>{{ $row->deskripsi }}</td>
+
                                         <td>
                                             <img src="{{ asset('fotobarang/' . $row->foto1) }}" alt=""
                                                 style="width: 50px";>

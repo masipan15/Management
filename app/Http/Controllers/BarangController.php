@@ -177,6 +177,17 @@ class BarangController extends Controller
             'hargajual' => $request->hargajual,
             'stok' => $request->stok,
         ]);
+        $ipan=Barangkeluar::find($id);
+        $ipan->update([
+            'namapelanggan' => $request->nama_pelanggan,
+            'namabarang' => $request->nama_barang,
+            'merk' => $request->merk_barang,
+            'kerusakan' => $request->kerusakan_barang,
+
+
+
+
+        ]);
 
         if ($request->hasfile('foto1')) {
             $request->file('foto1')->move('fotobarang/', $request->file('foto1')->getClientOriginalName());

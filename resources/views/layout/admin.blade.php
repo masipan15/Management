@@ -125,7 +125,7 @@
                     </ul>
             @endif
             @if (auth()->user()->role == 'admin')
-                <li class="nav-header"><span class="nav-label">Barang</span></li>
+                <li class="nav-header"><span class="nav-label"></span></li>
                 <li class="nav-item {{ Route::is('databarang') ? 'active' : '' }}">
                     <a class="nav-link" href="databarang"><span class="shape1"></span><span class="shape2"></span><i
                             class="ti-package sidemenu-icon"></i><span class="sidemenu-label">Data
@@ -135,7 +135,7 @@
             @if (auth()->user()->role == 'admin')
                 <li class="nav-item {{ Route::is('datasupplier') ? 'active' : '' }}">
                     <a class="nav-link" href="datasupplier"><span class="shape1"></span><span
-                            class="shape2"></span><i class="mdi mdi-truck sidemenu-icon"></i><span
+                            class="shape2"></span><i class="far fa-address-card sidemenu-icon"></i><span
                             class="sidemenu-label">Data Supplier</span></a>
                 </li>
             @endif
@@ -426,9 +426,11 @@
     <!-- Owl Carousel js -->
     <script src="{{ asset('acstemplate/assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
 
-
     <!-- Internal Apexchart js-->
     <script src="{{ asset('acstemplate/assets/js/apexcharts.js') }}"></script>
+
+    <!-- Sparkline js-->
+    <script src="{{ asset('acstemplate/assets/plugins/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
 
     <!-- Internal Polyfills js-->
     <script src="{{ asset('acstemplate/assets/plugins/polyfill/polyfill.min.js') }}"></script>
