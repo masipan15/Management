@@ -10,6 +10,7 @@ use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\BarangkeluarController;
 use App\Http\Controllers\UserdesainController;
 use App\Http\Controllers\UserservisController;
+use App\Http\Controllers\kategoriController;
 use App\Models\Barang;
 use App\Models\desain;
 use App\Models\servis;
@@ -74,6 +75,16 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/editbrgklr/{id}', [BarangkeluarController::class, 'editbrgklr'])->name('editbrgklr');
     Route::post('/updatebrgklr/{id}', [BarangkeluarController::class, 'updatebrgklr'])->name('updatebrgklr');
     Route::get('/delete/{id}', [BarangkeluarController::class, 'delete'])->name('delete');
+
+
+    //Kategori
+    Route::get('/datakategori', [kategoriController::class, 'index'])->name('datakategori');
+    Route::get('/tambahkategori', [kategoriController::class, 'tambahkategori'])->name('tambahkategori');
+    Route::post('/insertkategori', [kategoriController::class, 'insertkategori'])->name('insertkategori');
+    Route::get('/editkategori/{id}', [kategoriController::class, 'editkategori'])->name('editkategori');
+    Route::post('/updatekategori/{id}', [kategoriController::class, 'updatekategori'])->name('updatekategori');
+    Route::get('/hapusktgr/{id}', [kategoriController::class, 'hapusktgr'])->name('hapusktgr');
+
 
 
 

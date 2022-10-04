@@ -48,21 +48,32 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Nama Barang</label>
                                 <div class="col-sm-10">
-                                    <input type="text" required name="namabarang" class="form-control" id="inputEmail3">
+                                    <select class="form-control select2" required style="width:100%;" name="barangs_id"
+                                    class="" id="barangs_id">
+                                    <option value="" selected disabled>Pilih Nama Barang</option>
+                                    @foreach ($barang as $item)
+                                        <option value="{{ $item->id }}" 
+                                            data-merk="{{ $item->merk }}"
+                                            data-harga="{{ $item->harga }}">
+                                            {{ $item->namabarang }}</option>
+                                    @endforeach
+                                </select>
                                 </div>
                             </div>
-                            @error('namabarang')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                            @error('barangs_id')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Merk</label>
                                 <div class="col-sm-10">
-                                    <input type="text" required name="merk_id" class="form-control" id="inputEmail3">
+                                    <input type="text" required name="merk" readonly class="form-control" id="merk"
+                                    id="inputEmail3">
                                 </div>
                             </div>
-                            @error('merk_id')
+                            @error('merk')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="row mb-3">
@@ -70,7 +81,7 @@
                                 <div class="col-sm-10">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                        <input type="text" name="harga" id="harga" class="form-control"
+                                        <input type="text" name="harga" readonly id="harga" class="form-control"
                                             id="inputEmail3">
                                     </div>
                                 </div>
@@ -98,16 +109,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Masukkan Gambar</label>
-                                <div class="col-sm-10">
-                                    <input type="file" name="foto" id="foto" class="form-control"
-                                        id="inputEmail3">
-                                </div>
-                            </div>
-                            @error('foto')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                             <div class="form-group mb-0">
                                 <div class="row row-sm">
                                     <div class="col-md-3">
@@ -154,6 +155,16 @@
                 $("#total").val(total);
             });
         </script>
+
+<script>
+    const selection = document.getElementById('barangs_id')
+    selection.onchange = function(e) {
+        const merk = e.target.options[e.target.selectedIndex].dataset.merk
+        const harga = e.target.options[e.target.selectedIndex].dataset.harga
+        document.getElementById('merk').value = merk;
+        document.getElementById('harga').value = harga;
+    }
+</script>
     </body>
 
     </html>

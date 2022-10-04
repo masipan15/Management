@@ -17,5 +17,9 @@ class barangmasuk extends Model
         return $this->belongsTo(Supplier::class,'suppliers_id','id');
     }
 
+    public function barang(){
+        return $this->belongsTo(Barang::class,'barangs_id','id');
+    }
+
     
 }
