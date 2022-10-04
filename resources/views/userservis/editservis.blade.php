@@ -37,28 +37,28 @@
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Pelanggan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="namapelanggan" class="form-control" id="namapelanggan"
+                                    <input type="text" readonly name="namapelanggan" class="form-control" id="namapelanggan"
                                         value="{{ $data->namapelanggan }}" id="inputEmail3">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="namabarang" class="form-control" id="exampleInputEmail1"
+                                    <input type="text" readonly name="namabarang" class="form-control" id="exampleInputEmail1"
                                         value="{{ $data->namabarang }}" id="inputEmail3">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Merek</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="merk" class="form-control" id="exampleInputEmail1"
+                                    <input type="text" readonly name="merk" class="form-control" id="exampleInputEmail1"
                                         value="{{ $data->merk }}" id="inputEmail3">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Kerusakan Barang</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="kerusakan" class="form-control" id="exampleInputEmail1"
+                                    <input type="text" name="kerusakan" readonly class="form-control" id="exampleInputEmail1"
                                         value="{{ $data->kerusakan }}" id="inputEmail3">
                                 </div>
                             </div>

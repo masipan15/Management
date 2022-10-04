@@ -104,5 +104,7 @@ class ServisController extends Controller
         $data = servis::find($id);
         $data->delete();
         return redirect()->route('dataservis')->with('success', 'Data Berhasil Di Hapus');
+
+        
     }
 }

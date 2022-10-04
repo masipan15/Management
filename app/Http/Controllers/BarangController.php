@@ -168,7 +168,7 @@ class BarangController extends Controller
     {
         $data = Barang::find($id);
         $data->update([
-            'kodebarang' => random_int(1000, 99999),
+            'kodebarang' => random_int(1000, 99999),    
             'kategori' => $request->kategori,
             'namabarang' => $request->namabarang,
             'merk' => $request->merk,
@@ -177,18 +177,8 @@ class BarangController extends Controller
             'hargajual' => $request->hargajual,
             'stok' => $request->stok,
         ]);
-        $ipan=Barangkeluar::find($id);
-        $ipan->update([
-            'namapelanggan' => $request->nama_pelanggan,
-            'namabarang' => $request->nama_barang,
-            'merk' => $request->merk_barang,
-            'kerusakan' => $request->kerusakan_barang,
-
-
-
-
-        ]);
-
+        
+        
         if ($request->hasfile('foto1')) {
             $request->file('foto1')->move('fotobarang/', $request->file('foto1')->getClientOriginalName());
             $data->foto1 = $request->file('foto1')->getClientOriginalName();

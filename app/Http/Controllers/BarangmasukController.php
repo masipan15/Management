@@ -80,7 +80,7 @@ class BarangmasukController extends Controller
 
     public function updatebrgmsk(request $request, $id)
     {
-        $barang = Barang::find($request->namabarang);
+       
         $data = barangmasuk::find($id);
         $data->update([
             'suppliers_id' => $request->suppliers_id,
@@ -97,9 +97,19 @@ class BarangmasukController extends Controller
             $data->foto = $request->file('foto')->getClientOriginalName();
             $data->save();
 
-            $barang->stok += $request->jumlah;
-            $barang->save();
+         
         }
+        $ipan= barang::find($id);
+        $ipan->update([
+            
+            'namabarang' => $request->namabarang,
+            
+            'merk' => $request->merk_id,
+            'stok' => $request->jumlah,
+           
+        ]);
+
+
         return redirect()->route('barangmasuk')->with('success', 'Data berhasil di Update!');
     }
 

@@ -81,6 +81,9 @@ class BarangkeluarController extends Controller
             'jumlah' => $request->jumlah,
             'total' => $request->total,
         ]);
+        $stok_kurang = Barang::find($request -> nama_barang);
+        $stok_kurang->stok -= $request->jumlah;
+        $stok_kurang->save();
         return redirect()->route('barangkeluar')->with('success', 'Data berhasil di Update!');
     }
 
