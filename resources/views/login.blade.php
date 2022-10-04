@@ -190,7 +190,7 @@
                                     alt="user">
                                 <h5 class="mt-4 text-white">Buat akunmu</h5>
                                 <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Daftar untuk membuat, menemukan, dan
-                                    terhubung dengan komunitas global</span>
+                                    terhubung </span>
                             </div>
                         </div>
                         <div class="col-lg-6 col-xl-7 col-xs-12 col-sm-12 login_form ">
@@ -204,7 +204,7 @@
                                             @csrf
                                             <h5 class="text-left mb-2">Masuk ke akun Anda</h5>
                                             <p class="mb-4 text-muted tx-13 ml-0 text-left">Masuk untuk membuat,
-                                                menemukan, dan terhubung dengan komunitas global</p>
+                                                menemukan, dan terhubung </p>
                                             <div class="form-group text-left">
                                                 <label>Email</label>
                                                 <input class="form-control" name="email"

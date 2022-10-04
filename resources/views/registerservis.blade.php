@@ -190,7 +190,7 @@
                                     alt="user">
                                 <h5 class="mt-4 text-white">Buat akunmu</h5>
                                 <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Daftar untuk membuat, menemukan, dan
-                                    terhubung dengan komunitas global</span>
+                                    terhubung</span>
                             </div>
                         </div>
                         <div class="col-lg-6 col-xl-7 col-xs-12 col-sm-12 login_form ">

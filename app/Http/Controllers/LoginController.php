@@ -126,7 +126,7 @@ class LoginController extends Controller
     {
         $data = User::find(Auth::user()->id);
         $data->update([
-            'nama' => $request->nama,
+            'name' => $request->name,
             'alamat' => $request->alamat,
             'notelpon' => $request->notelpon,
         ]);
