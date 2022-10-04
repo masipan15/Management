@@ -75,7 +75,7 @@ class DesainController extends Controller
 
     public function updatedesain(request $request, $id)
     {
-        $data = desain::find($id);
+        $data = desain::findorfail($id);
         $data->update([
             'nama_pemesan' => $request->nama_pemesan,
             'ukuran_desain' => $request->ukuran_desain,

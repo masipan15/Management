@@ -608,7 +608,7 @@
                                                                         <div class="mt-3">
                                                                             <button type="submit" class="btn btn-success mr-1">Save</button>
                                                                             <button type="reset" class="btn btn-primary mr-1">Reset</button>
-                                                                            <a href="profil" type="button" class="btn btn-danger">Batal</a>
+                                                                            <a href="/profil" type="button" class="btn btn-danger">Batal</a>
                                                                         </div>
                                                                     </div>										
                                                                 </div>

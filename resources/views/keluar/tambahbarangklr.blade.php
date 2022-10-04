@@ -117,7 +117,7 @@
                                             </div>
                                         <div class="mt-3">
                                             <button type="submit" class="btn ripple btn-main-primary active mr-1">Tambah</button>
-                                            <a href="barangkeluar" type="button" class="btn ripple btn-secondary">Batal</a>
+                                            <a href="/barangkeluar" type="button" class="btn ripple btn-secondary">Batal</a>
                                         </div>
                                     </div>
                                 </div>
@@ -127,12 +127,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

@@ -32,75 +32,63 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Nama Pelanggan</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Pelanggan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="nama_pelanggan" class="form-control"
-                                    id="inputEmail3">
+                                    <input type="text" name="nama_pelanggan" class="form-control" id="inputEmail3">
                                 </div>
                             </div>
-                                @error('nama_pelanggan')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                            @error('nama_pelanggan')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Nama Barang</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="nama_barang" class="form-control" 
-                                    id="inputEmail3">
+                                    <input type="text" name="nama_barang" class="form-control" id="inputEmail3">
                                 </div>
                             </div>
-                                @error('nama_barang')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                            @error('nama_barang')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Merk</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Merk</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="merk_barang" id="merk_barang" class="form-control"
-                                    id="inputEmail3">
+                                        id="inputEmail3">
                                 </div>
                             </div>
-                                @error('merk_barang')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                            @error('merk_barang')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Kerusakan</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Kerusakan</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="kerusakan_barang" id="kerusakan_barang" class="form-control"
-                                    id="inputEmail3">
+                                        id="inputEmail3">
                                 </div>
                             </div>
-                                @error('kerusakan_barang')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                                <div class="form-group mb-0">
-                                    <div class="row row-sm">
-                                        <div class="col-md-3">
+                            @error('kerusakan_barang')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group mb-0">
+                                <div class="row row-sm">
+                                    <div class="col-md-3">
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="custom-controls-stacked">
                                         </div>
-                                        <div class="col-md-9">
-                                            <div class="custom-controls-stacked">
-                                                </div>
-                                            <div class="mt-3">
-                                                <button type="submit" class="btn ripple btn-main-primary active mr-1">Tambah</button>
-                                                <a href="dataservis" type="button" class="btn ripple btn-secondary">Batal</a>
-                                            </div>
-                                        </div>										
+                                        <div class="mt-3">
+                                            <button type="submit"
+                                                class="btn ripple btn-main-primary active mr-1">Tambah</button>
+                                            <a href="/dataservis" type="button" class="btn ripple btn-secondary">Batal</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </form>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </d iv>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">

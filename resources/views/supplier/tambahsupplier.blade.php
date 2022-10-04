@@ -25,7 +25,7 @@
                 <div class="card custom-card">
                     <div class="card-body">
                         <div>
-                            <h3 class="main-content-label mb-1">Tambah Data Servis</h3>
+                            <h3 class="main-content-label mb-1">Tambah Data Supplier</h3>
                             <p class="text-muted card-sub-title"></p>
                         </div>
                         <form action="/insertsupplier" method="post" enctype="multipart/form-data">
@@ -56,36 +56,30 @@
                                         id="inputEmail3">
                                 </div>
                             </div>
-                                @error('notelpon')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                                <div class="form-group mb-0">
-                                    <div class="row row-sm">
-                                        <div class="col-md-3">
+                            @error('notelpon')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group mb-0">
+                                <div class="row row-sm">
+                                    <div class="col-md-3">
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="custom-controls-stacked">
                                         </div>
-                                        <div class="col-md-9">
-                                            <div class="custom-controls-stacked">
-                                                </div>
-                                            <div class="mt-3">
-                                                <button type="submit" class="btn ripple btn-main-primary active mr-1">Tambah</button>
-                                                <a href="datasupplier" type="button" class="btn ripple btn-secondary">Batal</a>
-                                            </div>
-                                        </div>										
+                                        <div class="mt-3">
+                                            <button type="submit"
+                                                class="btn ripple btn-main-primary active mr-1">Tambah</button>
+                                            <a href="/datasupplier" type="button"
+                                                class="btn ripple btn-secondary">Batal</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </form>
                     </div>
                     </form>
                 </div>
+                </form>
             </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

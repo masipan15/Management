@@ -76,7 +76,7 @@
                                         <div class="mt-3">
                                             <button type="submit"
                                                 class="btn ripple btn-main-primary active mr-1">Simpan</button>
-                                            <a href="datadesain" type="button" class="btn ripple btn-secondary">Batal</a>
+                                            <a href="/datadesain" type="button" class="btn ripple btn-secondary">Batal</a>
                                         </div>
                                     </div>
                                 </div>
@@ -85,14 +85,6 @@
                     </form>
                 </div>
             </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
         </div>
 
         <!-- Optional JavaScript; choose one of the two! -->
