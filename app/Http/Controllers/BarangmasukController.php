@@ -29,6 +29,21 @@ class BarangmasukController extends Controller
 
     public function prosestambah(Request $request)
     {
+        $validated = $request->validate([
+        'suppliers_id' => 'required' ,
+        'barangs_id' => 'required' ,
+        'jumlah' => 'required' ,
+    ], [
+        'suppliers_id.required' => 'supplier Harus Diisi!',
+        'barangs_id.required' => 'barang Harus Diisi!',
+        'jumlah.required' => 'jumlah Harus Diisi!',
+    ]);
+        $stok_nambah = Barang::find($request->barangs_id);
+
+
+        if ($stok_nambah->stok < $request->jumlah) {
+            return redirect()->route('tambahbarangmasuk');
+        } else {
         $data = barangmasuk::create([
             'suppliers_id' => $request->suppliers_id,
             'barangs_id' => $request->barangs_id,
@@ -37,6 +52,9 @@ class BarangmasukController extends Controller
             'harga' => $request->harga,
             'total' => $request->total,
         ]);
+    }
+    $stok_nambah->stok += $request->jumlah;
+    $stok_nambah->save();
         return redirect()->route('barangmasuk');
     }
 

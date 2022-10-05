@@ -7,6 +7,7 @@ use App\Models\Barang;
 use App\Models\Barangmasuk;
 
 use App\Models\Barangkeluar;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
@@ -104,7 +105,7 @@ class BarangController extends Controller
 
     public function databarang()
     {
-        $data = Barang::all();
+        $data = Barang::with('kategori')->get();
 
         return view('barang.databarang', compact('data'));
     }
@@ -112,14 +113,15 @@ class BarangController extends Controller
     public function tambahbarang()
     {
         $data = Barang::all();
-        return view('barang.tambahdatabarang', compact('data'));
+        $kategori = kategori::all();
+        return view('barang.tambahdatabarang', compact('data','kategori'));
     }
 
     public function insertbarang(Request $request)
     {
 
         $validated = $request->validate([
-            'kategori' => 'required',
+            'kategoris_id' => 'required',
             'namabarang' => 'required',
             'merk' => 'required',
             'deskripsi' => 'required',
@@ -128,7 +130,7 @@ class BarangController extends Controller
             'stok' => 'required',
             'foto1' => 'required|mimes:jpg,png,jpeg,jfif,webp',
         ], [
-            'kategori.required' => 'kategori Harus Diisi!',
+            'kategoris_id.required' => 'kategori Harus Diisi!',
             'namabarang.required' => 'namabarang Harus Diisi!',
             'merk.required' => 'merk Harus Diisi!',
             'deskripsi.required' => 'deskripsi Harus Diisi!',
@@ -140,7 +142,7 @@ class BarangController extends Controller
         ]);
         $data = Barang::create([
             'kodebarang' => random_int(1000, 999999),
-            'kategori' => $request->kategori,
+            'kategoris_id' => $request->kategoris_id,
             'namabarang' => $request->namabarang,
             'merk' => $request->merk,
             'deskripsi' => $request->deskripsi,
@@ -161,15 +163,16 @@ class BarangController extends Controller
     public function editbarang($id)
     {
         $data = Barang::findOrFail($id);
+        $kategori = kategori::all();
 
-        return view('barang.editdatabarang', compact('data'));
+        return view('barang.editdatabarang', compact('data','kategori'));
     }
     public function updatebarang(request $request, $id)
     {
         $data = Barang::find($id);
         $data->update([
             'kodebarang' => random_int(1000, 99999),    
-            'kategori' => $request->kategori,
+            'kategoris_id' => $request->kategoris_id,
             'namabarang' => $request->namabarang,
             'merk' => $request->merk,
             'deskripsi' => $request->deskripsi,

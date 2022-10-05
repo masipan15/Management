@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\barangkeluar;
 use App\Models\barangmasuk;
+use App\Models\Kategori;
 
 class Barang extends Model
 {
@@ -19,5 +20,9 @@ class Barang extends Model
     public function barangmasuk()
     {
         return $this->hasMany(Barangmasuk::class);
+    }
+
+    public function kategori(){
+        return $this->belongsTo(Kategori::class,'kategoris_id','id');
     }
 }

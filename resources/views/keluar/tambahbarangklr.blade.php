@@ -160,11 +160,11 @@
                 const harga = e.target.options[e.target.selectedIndex].dataset.harga_jual
                 const kodebarang = e.target.options[e.target.selectedIndex].dataset.kodebarang_keluar
                 const merk = e.target.options[e.target.selectedIndex].dataset.merk_keluar
-                const kategori = e.target.options[e.target.selectedIndex].dataset.kategori_keluar
+                const kategoris_id = e.target.options[e.target.selectedIndex].dataset.kategori_keluar
                 document.getElementById('harga_jual').value = harga;
                 document.getElementById('kodebarang_keluar').value = kodebarang;
                 document.getElementById('merk_keluar').value = merk;
-                document.getElementById('kategori_keluar').value = kategori;
+                document.getElementById('kategori_keluar').value = kategoris_id;
             }
         </script>
     </body>

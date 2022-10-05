@@ -44,7 +44,7 @@
                                         <td>{{ $row->kodebarang }}</td>
                                         <td>{{ $row->namabarang }}</td>
                                         <td>{{ $row->merk }}</td>
-                                        <td>{{ $row->kategori }}</td>
+                                        <td>{{ $row->kategori ? $row->kategori->kategori : 'Data Tidak Ada' }}</td>
                                         <td>{{ $row->stok }}</td>
                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
                                         <td>Rp.{{ number_format($row['hargajual'], 2, '.', '.') }}</td>
