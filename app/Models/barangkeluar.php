@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Kategori;
 use App\Models\Barang;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,5 +15,8 @@ class barangkeluar extends Model
 
     public function namabarangs(){
         return $this -> belongsTo(Barang::class,'nama_barang','id');
+    }
+    public function kategori(){
+        return $this -> belongsTo(Kategori::class,'kategoris_id','id');
     }
 }

@@ -42,7 +42,7 @@
                                         <option value="{{ $item->id }}" data-harga_jual="{{ $item->hargajual }}"
                                             data-kodebarang_keluar="{{ $item->kodebarang }}"
                                             data-merk_keluar="{{ $item->merk }}"
-                                            data-kategori_keluar="{{ $item->kategori }}">
+                                            data-kategoris_keluar="{{ json_encode($item->kategoris_id) }}">
                                             {{ $item->namabarang }}</option>
                                     @endforeach
                                 </select>
@@ -71,7 +71,7 @@
                                 <label for="inputEmail3"
                                     class="col-sm-2 col-form-label">Kategori</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="kategori_keluar" readonly id="kategori_keluar" class="form-control"
+                                    <input type="text" readonly name="kategori_keluar" id="kategori_keluar" class="form-control"
                                     id="inputEmail3">
                                 </div>
                             </div>
@@ -160,11 +160,20 @@
                 const harga = e.target.options[e.target.selectedIndex].dataset.harga_jual
                 const kodebarang = e.target.options[e.target.selectedIndex].dataset.kodebarang_keluar
                 const merk = e.target.options[e.target.selectedIndex].dataset.merk_keluar
-                const kategori = e.target.options[e.target.selectedIndex].dataset.kategori_keluar
+                // const kategoris_id = e.target.options[e.target.selectedIndex].dataset.kategori_keluar
                 document.getElementById('harga_jual').value = harga;
                 document.getElementById('kodebarang_keluar').value = kodebarang;
                 document.getElementById('merk_keluar').value = merk;
-                document.getElementById('kategori_keluar').value = kategori;
+                // document.getElementById('kategori_keluar').value = kategoris_id;
+            }
+        </script>
+        
+        <script>
+            const selection = document.getElementById('nama_barang')
+            selection.onchange = function(e) {
+                let kategoris_id = e.target.options[e.target.selectedIndex].dataset.kategori_keluar
+                kategoris_id = JSON.parse(kategori_keluar)
+                document.getElementById('kategori_keluar').value = `$(kategoris_id.kategori_keluar)`;
             }
         </script>
     </body>

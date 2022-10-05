@@ -12,6 +12,7 @@ use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\UserdesainController;
 use App\Http\Controllers\UserservisController;
+use App\Http\Controllers\kategoriController;
 use App\Models\Barang;
 use App\Models\desain;
 use App\Models\servis;
@@ -43,15 +44,6 @@ Route::get('/welcome', function () {
 
     return view('welcome', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahservis'));
 })->middleware('auth');
-// Route::get('/welcomeservis', function () {
-
-//     $jumlahbarang = Barang::count();
-//     $jumlahsupplier = Supplier::count();
-//     $jumlahpermintaandesain = desain::count();
-//     $jumlahpermintaanservis = servis::count();
-
-//     return view('welcomeservis', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahpermintaanservis'));
-// })->middleware('auth');
 
 Route::get('tes', function () {
     return view('crypto');
@@ -78,6 +70,13 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/delete/{id}', [BarangkeluarController::class, 'delete'])->name('delete');
 
 
+    //Kategori
+    Route::get('/datakategori', [kategoriController::class, 'index'])->name('datakategori');
+    Route::get('/tambahkategori', [kategoriController::class, 'tambahkategori'])->name('tambahkategori');
+    Route::post('/insertkategori', [kategoriController::class, 'insertkategori'])->name('insertkategori');
+    Route::get('/editkategori/{id}', [kategoriController::class, 'editkategori'])->name('editkategori');
+    Route::post('/updatekategori/{id}', [kategoriController::class, 'updatekategori'])->name('updatekategori');
+    Route::get('/hapusktgr/{id}', [kategoriController::class, 'hapusktgr'])->name('hapusktgr');
 
     //pengeluaran
     Route::get('/pengeluaran', [PengeluaranController::class, 'pengeluaran'])->name('pengeluaran')->middleware('auth');
@@ -86,7 +85,6 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/pemasukan', [PemasukanController::class, 'pemasukan'])->name('pemasukan')->middleware('auth');
     Route::post('pemasukan', [PemasukanController::class, 'create']);
     //databarang
-
     Route::get('/databarang', [BarangController::class, 'databarang'])->name('databarang')->middleware('auth');
     Route::get('/tambahbarang', [BarangController::class, 'tambahbarang'])->name('tambahbarang')->middleware('auth');
     Route::post('/insertbarang', [BarangController::class, 'insertbarang'])->name('insertbarang');

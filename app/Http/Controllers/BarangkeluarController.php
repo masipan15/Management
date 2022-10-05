@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use Carbon\Carbon;
+=======
+use App\Models\Kategori;
+>>>>>>> d40b36879c4052b43ea4e0ed9cd13ede5704ebce
 use App\Models\Barang;
 use App\Models\desain;
 use App\Models\servis;
@@ -16,7 +20,7 @@ class BarangkeluarController extends Controller
     public function index()
     {
 
-        $data = barangkeluar::with('namabarangs')->get();
+        $data = barangkeluar::with('namabarangs','kategori')->get();
         return view('keluar.barangklr', compact('data'));
     }
 
@@ -24,7 +28,8 @@ class BarangkeluarController extends Controller
     public function tambahbrgklr()
     {
         $barang = Barang::all();
-        return view('keluar.tambahbarangklr', compact('barang'));
+        $kategori = kategori::all();
+        return view('keluar.tambahbarangklr', compact('barang','kategori'));
     }
     public function insertbrgklr(Request $request)
     {
@@ -89,7 +94,8 @@ class BarangkeluarController extends Controller
     {
         $data = barangkeluar::findOrFail($id);
         $barang = barang::all();
-        return view('keluar.editbarangklr', compact('data', 'barang'));
+        $kategori = kategori::all();
+        return view('keluar.editbarangklr', compact('data','barang','kategori'));
     }
 
 

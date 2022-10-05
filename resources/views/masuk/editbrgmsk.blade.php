@@ -37,7 +37,7 @@
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Supplier</label>
                                 <div class="col-sm-10">
-                                    <select class="form-select" @error('suppliers_id')  @enderror name="suppliers_id"
+                                    <select class="form-select" name="suppliers_id"
                                         aria-label="Default select example" id="suppliers_id">
                                         <option value disabled selected="">Pilih Supplier
                                         </option>
@@ -54,15 +54,27 @@
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="namabarang" class="form-control" id="inputEmail3"
-                                        value="{{ $data->namabarang }}">
+                                    <select class="form-select" name="barangs_id"
+                                        aria-label="Default select example" id="barangs_id">
+                                        <option value disabled selected="">Pilih Barang
+                                        </option>
+                                        @foreach ($barang as $p)
+                                            <option value="{{ $p->id }}"
+                                                data-merk="{{ $p->merk }}"
+                                                data-harga="{{ $p->harga }}"<?php if ($data->barangs_id == $p->id) {
+                                                echo 'selected';
+                                            } ?>>
+                                                {{ $p->namabarang }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Merk</label>
                                 <div class="col-sm-10">
-                                    <input type="text" required name="merk_id" class="form-control" id="inputEmail3"
-                                    value="{{ $data->merk_id }}">
+                                    <input type="text" required name="merk" readonly class="form-control" id="inputEmail3"
+                                    value="{{ $data->merk }}">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -70,7 +82,7 @@
                                 <div class="col-sm-10">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                        <input type="text" name="harga" class="form-control"
+                                        <input type="text" readonly name="harga" class="form-control"
                                             value="{{ $data->harga }}" id="inputEmail3">
                                     </div>
                                 </div>
@@ -90,15 +102,6 @@
                                         <input type="text" name="total" readonly class="form-control" id="exampleInputEmail1"
                                             value="{{ $data->total }}" id="inputEmail3">
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Foto</label>
-                                <div class="col-sm-10">
-                                    <img class="img mb-3" src="{{ asset('fotobrgmsk/' . $data->foto) }}"alt=""
-                                        style="width: 40px">
-                                    <input type="file" name="foto" class="form-control" id="exampleInputEmail1"
-                                        value="{{ $data->foto }}" id="inputEmail3">
                                 </div>
                             </div>
                             <div class="form-group mb-0">
@@ -138,6 +141,35 @@
                     integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
                 </script>
                 -->
+                <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+                integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    
+            <script>
+                $(document).ready(function() {
+                    $("#jumlah").change(function() {
+                        var jumlah = $("#jumlah").val();
+                        var harga = $("#harga").val();
+                        var total = jumlah * harga
+                        $("#total").val(total);
+                    });
+                });
+                $("#jumlah").keyup(function() {
+                    var jumlah = $("#jumlah").val();
+                    var harga = $("#harga").val();
+                    var total = jumlah * harga
+                    $("#total").val(total);
+                });
+            </script>
+    
+    <script>
+        const selection = document.getElementById('barangs_id')
+        selection.onchange = function(e) {
+            const merk = e.target.options[e.target.selectedIndex].dataset.merk
+            const harga = e.target.options[e.target.selectedIndex].dataset.harga
+            document.getElementById('merk').value = merk;
+            document.getElementById('harga').value = harga;
+        }
+    </script>
     </body>
 
     </html>

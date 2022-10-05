@@ -63,7 +63,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Harga</label>
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Beli</label>
                                     <div class="col-sm-10">
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1">Rp.</span>

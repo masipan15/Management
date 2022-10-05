@@ -21,7 +21,6 @@
                                     <th class="wd-20p">Harga</th>
                                     <th class="wd-15p">Total</th>
                                     <th class="wd-20p">Tanggal</th>
-                                    <th class="wd-20p">Foto</th>
                                     <th class="wd-20p">Aksi</th>
                                 </tr>
                             </thead>
@@ -32,19 +31,18 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
+                                        {{-- <td>
+                                            <img src="{{ asset('fotobrgmsk/' . $row->foto) }}" alt=""
+                                                style="width: 50px;">
+                                        </td> --}}
                                         <td>{{ $row->supplier ? $row->supplier->nama_supplier : 'Data Tidak Ada' }}</td>
-                                        
-                                        <td>{{ $row->namabarang }}</td>
-                                        <td>{{ $row->merk_id }}</td>
+                                        <td>{{ $row->barang ? $row->barang->namabarang : 'Data Tidak Ada' }}</td>
+                                        <td>{{ $row->merk }}</td>
                                         <td>{{ $row->jumlah }}</td>
                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
                                         <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
                                         <td>{{ $row->created_at->format('d/m/y') }}</td>
 
-                                        <td>
-                                            <img src="{{ asset('fotobrgmsk/' . $row->foto) }}" alt=""
-                                                style="width: 50px;">
-                                        </td>
 
                                         <td>
                                             <a href="/editbrgmsk/{{ $row->id }}"

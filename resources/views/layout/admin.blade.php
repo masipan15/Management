@@ -126,6 +126,13 @@
             @endif
             @if (auth()->user()->role == 'admin')
                 <li class="nav-header"><span class="nav-label"></span></li>
+                <li class="nav-item {{ Route::is('datakategori') ? 'active' : '' }}">
+                    <a class="nav-link" href="/datakategori"><span class="shape1"></span><span class="shape2"></span><i
+                            class="ti-layers sidemenu-icon"></i><span class="sidemenu-label">Kategori
+                            </span></a>
+                </li>
+            @endif
+            @if (auth()->user()->role == 'admin')
                 <li class="nav-item {{ Route::is('databarang') ? 'active' : '' }}">
                     <a class="nav-link" href="/databarang"><span class="shape1"></span><span class="shape2"></span><i
                             class="ti-package sidemenu-icon"></i><span class="sidemenu-label">Data

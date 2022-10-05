@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use App\Models\Supplier;
 use App\Models\barangmasuk;
+use App\Models\barangkeluar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,55 +15,47 @@ class BarangmasukController extends Controller
     public function barangmasuk()
     {
         $data = barangmasuk::with('supplier')->get();
-        return view('masuk.barangmasuk', compact('data'));
+        $dataa = barangmasuk::with('barang')->get();
+        return view('masuk.barangmasuk', compact('data','dataa'));
     }
 
     public function tambahbarangmasuk()
     {
         $data = barangmasuk::all();
         $supplier = Supplier::all();
-        return view('masuk.tambah', compact('data', 'supplier'));
+        $barang = barang::all();
+        return view('masuk.tambah', compact('data', 'supplier','barang'));
     }
 
     public function prosestambah(Request $request)
     {
+        $validated = $request->validate([
+        'suppliers_id' => 'required' ,
+        'barangs_id' => 'required' ,
+        'jumlah' => 'required' ,
+    ], [
+        'suppliers_id.required' => 'supplier Harus Diisi!',
+        'barangs_id.required' => 'barang Harus Diisi!',
+        'jumlah.required' => 'jumlah Harus Diisi!',
+    ]);
+        $stok_nambah = Barang::find($request->barangs_id);
+
+
+        if ($stok_nambah->stok < $request->jumlah) {
+            return redirect()->route('tambahbarangmasuk');
+        } else {
         $data = barangmasuk::create([
             'suppliers_id' => $request->suppliers_id,
-
-            'namabarang' => $request->namabarang,
-            'barang_lama' => $request->barang_lama,
-            'merk_id' => $request->merk_id,
+            'barangs_id' => $request->barangs_id,
+            'merk' => $request->merk,
+            'kategoris_id' => $request->kategoris_id,
             'jumlah' => $request->jumlah,
             'harga' => $request->harga,
             'total' => $request->total,
-            'foto' => $request->foto,
         ]);
-
-
-        if ($request->hasFile('foto')) {
-            $request->file('foto')->move('fotobrgmsk/', $request->file('foto')->getClientOriginalName());
-            $data->foto = $request->file('foto')->getClientOriginalName();
-            $data->save();
-        }
-
-        $ipan = Barang::create([
-            'namabarang' => $request->namabarang,
-
-
-            'stok' => $request->jumlah,
-            'harga' => $request->harga,
-            'merk' => $request->merk_id,
-
-
-        ]);
-
-
-        if ($request->hasFile('foto1')) {
-            $request->file('foto1')->move('fotobrgmsk/', $request->file('foto1')->getClientOriginalName());
-            $ipan->foto1 = $request->file('foto1')->getClientOriginalName();
-            $ipan->save();
-        }
-
+    }
+    $stok_nambah->stok += $request->jumlah;
+    $stok_nambah->save();
         return redirect()->route('barangmasuk');
     }
 
@@ -71,8 +64,9 @@ class BarangmasukController extends Controller
     {
         $data = barangmasuk::findOrFail($id);
         $supplier = Supplier::all();
+        $barang = barang::all();
 
-        return view('masuk.editbrgmsk', compact('data', 'supplier'));
+        return view('masuk.editbrgmsk', compact('data', 'supplier','barang'));
     }
 
 
@@ -84,8 +78,8 @@ class BarangmasukController extends Controller
         $data = barangmasuk::find($id);
         $data->update([
             'suppliers_id' => $request->suppliers_id,
-            'namabarang' => $request->namabarang,
-            'merk_id' => $request->merk_id,
+            'barangs_id' => $request->barangs_id,
+            'merk' => $request->merk,
             'harga' => $request->harga,
             'jumlah' => $request->jumlah,
             'total' => $request->total,
