@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('suppliers_id');
             $table->string('barangs_id');
+            $table->string('kategoris_id');
             $table->string('merk');
             $table->integer('jumlah');
             $table->string('harga');

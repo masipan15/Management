@@ -57,7 +57,8 @@
                                     @foreach ($barang as $item)
                                         <option value="{{ $item->id }}" 
                                             data-merk="{{ $item->merk }}"
-                                            data-harga="{{ $item->harga }}">
+                                            data-harga="{{ $item->harga }}"
+                                            data-kategoris_id="{{ $item->kategori->kategori}}">
                                             {{ $item->namabarang }}</option>
                                     @endforeach
                                 </select>
@@ -74,6 +75,16 @@
                                 </div>
                             </div>
                             @error('merk')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Kategori</label>
+                                <div class="col-sm-10">
+                                    <input type="text" required name="kategoris_id" readonly class="form-control" id="kategoris_id"
+                                    id="inputEmail3">
+                                </div>
+                            </div>
+                            @error('kategoris_id')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="row mb-3">
@@ -161,8 +172,11 @@
     selection.onchange = function(e) {
         const merk = e.target.options[e.target.selectedIndex].dataset.merk
         const harga = e.target.options[e.target.selectedIndex].dataset.harga
+        const kategoris_id = e.target.options[e.target.selectedIndex].dataset.kategoris_id
+        alert(kategoris_id);
         document.getElementById('merk').value = merk;
         document.getElementById('harga').value = harga;
+        document.getElementById('kategoris_id').value = kategoris_id;
     }
 </script>
     </body>

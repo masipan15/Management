@@ -48,6 +48,7 @@ class BarangmasukController extends Controller
             'suppliers_id' => $request->suppliers_id,
             'barangs_id' => $request->barangs_id,
             'merk' => $request->merk,
+            'kategoris_id' => $request->kategoris_id,
             'jumlah' => $request->jumlah,
             'harga' => $request->harga,
             'total' => $request->total,

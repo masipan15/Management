@@ -42,15 +42,6 @@ Route::get('/welcome', function () {
 
     return view('welcome', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahservis'));
 })->middleware('auth');
-// Route::get('/welcomeservis', function () {
-
-//     $jumlahbarang = Barang::count();
-//     $jumlahsupplier = Supplier::count();
-//     $jumlahpermintaandesain = desain::count();
-//     $jumlahpermintaanservis = servis::count();
-
-//     return view('welcomeservis', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahpermintaanservis'));
-// })->middleware('auth');
 
 Route::get('tes', function () {
     return view('crypto');
@@ -85,9 +76,6 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::post('/updatekategori/{id}', [kategoriController::class, 'updatekategori'])->name('updatekategori');
     Route::get('/hapusktgr/{id}', [kategoriController::class, 'hapusktgr'])->name('hapusktgr');
 
-
-
-
     //pengeluaran
     Route::get('/pengeluaran', [BarangmasukController::class, 'pengeluaran'])->name('pengeluaran')->middleware('auth');
 
@@ -95,7 +83,6 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/pemasukan', [BarangkeluarController::class, 'pemasukan'])->name('pemasukan')->middleware('auth');
 
     //databarang
-
     Route::get('/databarang', [BarangController::class, 'databarang'])->name('databarang')->middleware('auth');
     Route::get('/tambahbarang', [BarangController::class, 'tambahbarang'])->name('tambahbarang')->middleware('auth');
     Route::post('/insertbarang', [BarangController::class, 'insertbarang'])->name('insertbarang');
