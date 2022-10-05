@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('kodebarang_keluar');
             $table->string('nama_barang');
             $table->string('merk_keluar');
-            $table->string('kategori_keluar');
+            $table->string('kategoris_id');
             $table->string('harga_jual');
             $table->bigInteger('jumlah');
             $table->bigInteger('total');

@@ -16,6 +16,7 @@
                                     <th class="wd-20p">No</th>
                                     <th class="wd-25p">Nama Supplier</th>
                                     <th class="wd-20p">Nama Barang</th>
+                                    <th class="wd-20p">Kategori</th>
                                     <th class="wd-20p">Merk</th>
                                     <th class="wd-25p">Jumlah</th>
                                     <th class="wd-20p">Harga</th>
@@ -37,6 +38,7 @@
                                         </td> --}}
                                         <td>{{ $row->supplier ? $row->supplier->nama_supplier : 'Data Tidak Ada' }}</td>
                                         <td>{{ $row->barang ? $row->barang->namabarang : 'Data Tidak Ada' }}</td>
+                                        <td>{{ $row->kategoris_id }}</td>
                                         <td>{{ $row->merk }}</td>
                                         <td>{{ $row->jumlah }}</td>
                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>

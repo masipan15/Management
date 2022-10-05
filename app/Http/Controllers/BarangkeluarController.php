@@ -13,16 +13,16 @@ class BarangkeluarController extends Controller
     public function index()
     {
 
-        $data = barangkeluar::with('namabarangs','kategori')->get();
+        $data = barangkeluar::with('namabarangs')->get();
         return view('keluar.barangklr', compact('data'));
     }
 
 
     public function tambahbrgklr()
     {
+        $data = barangkeluar::all();
         $barang = Barang::all();
-        $kategori = kategori::all();
-        return view('keluar.tambahbarangklr', compact('barang','kategori'));
+        return view('keluar.tambahbarangklr', compact('data','barang'));
     }
     public function insertbrgklr(Request $request)
     {
@@ -46,7 +46,7 @@ class BarangkeluarController extends Controller
                 'nama_barang' => $request->nama_barang,
                 'kodebarang_keluar' => $request->kodebarang_keluar,
                 'merk_keluar' => $request->merk_keluar,
-                'kategori_keluar' => $request->kategori_keluar,
+                'kategoris_id' => $request->kategoris_id,
                 'harga_jual' => $request->harga_jual,
                 'jumlah' => $request->jumlah,
                 'total' => $request->total,
@@ -65,8 +65,7 @@ class BarangkeluarController extends Controller
     {
         $data = barangkeluar::findOrFail($id);
         $barang = barang::all();
-        $kategori = kategori::all();
-        return view('keluar.editbarangklr', compact('data','barang','kategori'));
+        return view('keluar.editbarangklr', compact('data','barang'));
     }
 
 
@@ -79,7 +78,7 @@ class BarangkeluarController extends Controller
             'nama_barang' => $request->nama_barang,
             'kodebarang_keluar' => $request->kodebarang_keluar,
             'merk_keluar' => $request->merk_keluar,
-            'kategori_keluar' => $request->kategori_keluar,
+            'kategoris_id' => $request->kategoris_id,
             'harga_jual' => $request->harga_jual,
             'jumlah' => $request->jumlah,
             'total' => $request->total,

@@ -16,7 +16,4 @@ class barangkeluar extends Model
     public function namabarangs(){
         return $this -> belongsTo(Barang::class,'nama_barang','id');
     }
-    public function kategori(){
-        return $this -> belongsTo(Kategori::class,'kategoris_id','id');
-    }
 }
