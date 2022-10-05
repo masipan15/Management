@@ -79,7 +79,7 @@
                                 <div class="col-sm-10">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                        <input type="text" name="harga" class="form-control" id="exampleInputEmail1"
+                                        <input type="number" name="harga" class="form-control" id="exampleInputEmail1"
                                             value="{{ $data->harga }}" id="inputEmail3">
                                     </div>
                                 </div>

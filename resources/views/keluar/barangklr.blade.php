@@ -14,6 +14,7 @@
                             <thead>
                                 <tr>
                                     <th class="wd-20p">No</th>
+                                    <th class="wd-20p">Nama Pelanggan</th>
                                     <th class="wd-20p">Kode Barang</th>
                                     <th class="wd-20p">Nama Barang</th>
                                     <th class="wd-20p">Merk</th>
@@ -33,6 +34,7 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
+                                        <td>{{ $row->nama_pelanggan }}</td>
                                         <td>{{ $row->kodebarang_keluar }}</td>
                                         <td>{{ $row->namabarangs->namabarang }}</td>
                                         <td>{{ $row->merk_keluar }}</td>

@@ -58,7 +58,7 @@
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Stok</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly name="stok" class="form-control" id="inputEmail3"
+                                        <input type="number" readonly name="stok" class="form-control" id="inputEmail3"
                                             value="{{ $data->stok }}">
                                     </div>
                                 </div>

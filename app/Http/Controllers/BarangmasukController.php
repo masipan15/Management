@@ -78,7 +78,7 @@ class BarangmasukController extends Controller
         }
         $stok_nambah->stok += $request->jumlah;
         $stok_nambah->save();
-        return redirect()->route('barangmasuk');
+        return redirect()->route('barangmasuk')->with('success', 'Data berhasil di Tambahkan');;
     }
 
 
@@ -102,6 +102,7 @@ class BarangmasukController extends Controller
             'suppliers_id' => $request->suppliers_id,
             'barangs_id' => $request->barangs_id,
             'merk' => $request->merk,
+            'kategoris_id' => $request->kategoris_id,
             'harga' => $request->harga,
             'jumlah' => $request->jumlah,
             'total' => $request->total,
@@ -113,15 +114,6 @@ class BarangmasukController extends Controller
             $data->foto = $request->file('foto')->getClientOriginalName();
             $data->save();
         }
-        $ipan = barang::find($id);
-        $ipan->update([
-
-            'namabarang' => $request->namabarang,
-
-            'merk' => $request->merk_id,
-            'stok' => $request->jumlah,
-
-        ]);
 
 
         return redirect()->route('barangmasuk')->with('success', 'Data berhasil di Update!');
