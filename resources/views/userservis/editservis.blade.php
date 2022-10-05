@@ -66,7 +66,7 @@
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Status Pengerjaan</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" required style="width:100%;" id="nameid" name="status">
-                                        <option disabled value="">Pilih Status Pengerjaan
+                                        <option disabled selected value="">Pilih Status Pengerjaan
                                         <option value="Sedang Dalam Pengerjaan">Sedang Dalam
                                             Pengerjaan
                                         </option>

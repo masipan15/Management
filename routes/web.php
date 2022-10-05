@@ -8,6 +8,8 @@ use App\Http\Controllers\DesainController;
 use App\Http\Controllers\servisController;
 use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\BarangkeluarController;
+use App\Http\Controllers\PemasukanController;
+use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\UserdesainController;
 use App\Http\Controllers\UserservisController;
 use App\Models\Barang;
@@ -78,11 +80,11 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
 
 
     //pengeluaran
-    Route::get('/pengeluaran', [BarangmasukController::class, 'pengeluaran'])->name('pengeluaran')->middleware('auth');
-
+    Route::get('/pengeluaran', [PengeluaranController::class, 'pengeluaran'])->name('pengeluaran')->middleware('auth');
+    Route::post('pengeluaran', [PengeluaranController::class, 'create']);
     //pemasukan
-    Route::get('/pemasukan', [BarangkeluarController::class, 'pemasukan'])->name('pemasukan')->middleware('auth');
-
+    Route::get('/pemasukan', [PemasukanController::class, 'pemasukan'])->name('pemasukan')->middleware('auth');
+    Route::post('pemasukan', [PemasukanController::class, 'create']);
     //databarang
 
     Route::get('/databarang', [BarangController::class, 'databarang'])->name('databarang')->middleware('auth');

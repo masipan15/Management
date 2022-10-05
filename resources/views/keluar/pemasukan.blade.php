@@ -7,7 +7,7 @@
                 <div class="card-body">
 
                     <div>
-                        <h4>Pengeluaran</h4>
+                        <h4>Pemasukan</h4>
                         <p class="text-muted card-sub-title"></p>
                     </div>
 
@@ -31,11 +31,9 @@
                                 @foreach ($pemasukan as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        <td>{{ $row->day }}</td>
-                                        <td>{{ $row->month }}</td>
-                                        <td>{{ $row->year }}</td>
-
-
+                                        <td>{{ $row->tanggal }}</td>
+                                        <td>{{ $row->bulan }}</td>
+                                        <td>{{ $row->tahun }}</td>
                                         <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
 
 
@@ -51,5 +49,4 @@
     </div>
 
     @include('sweetalert::alert')
-
 @endsection
