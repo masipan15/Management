@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Barang;
 use App\Models\Supplier;
 use App\Models\barangmasuk;
 use App\Models\barangkeluar;
+use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +18,7 @@ class BarangmasukController extends Controller
     {
         $data = barangmasuk::with('supplier')->get();
         $dataa = barangmasuk::with('barang')->get();
-        return view('masuk.barangmasuk', compact('data','dataa'));
+        return view('masuk.barangmasuk', compact('data', 'dataa'));
     }
 
     public function tambahbarangmasuk()
@@ -24,38 +26,58 @@ class BarangmasukController extends Controller
         $data = barangmasuk::all();
         $supplier = Supplier::all();
         $barang = barang::all();
-        return view('masuk.tambah', compact('data', 'supplier','barang'));
+        return view('masuk.tambah', compact('data', 'supplier', 'barang'));
     }
 
     public function prosestambah(Request $request)
     {
         $validated = $request->validate([
-        'suppliers_id' => 'required' ,
-        'barangs_id' => 'required' ,
-        'jumlah' => 'required' ,
-    ], [
-        'suppliers_id.required' => 'supplier Harus Diisi!',
-        'barangs_id.required' => 'barang Harus Diisi!',
-        'jumlah.required' => 'jumlah Harus Diisi!',
-    ]);
+            'suppliers_id' => 'required',
+            'barangs_id' => 'required',
+            'jumlah' => 'required',
+        ], [
+            'suppliers_id.required' => 'supplier Harus Diisi!',
+            'barangs_id.required' => 'barang Harus Diisi!',
+            'jumlah.required' => 'jumlah Harus Diisi!',
+        ]);
         $stok_nambah = Barang::find($request->barangs_id);
+        $tanggal = Carbon::parse(now())->isoformat('DD');
+        $bulan = Carbon::parse(now())->isoformat('MMMM');
+        $tahun = Carbon::parse(now())->isoformat('Y');
+        $pengeluaran = Pengeluaran::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun)->first();
+
+        $hariini = Carbon::parse(now())->isoformat('Y-M-DD');
+        $barangmasuk = barangmasuk::where('created_at', $hariini)->sum('total');
 
 
         if ($stok_nambah->stok < $request->jumlah) {
             return redirect()->route('tambahbarangmasuk');
         } else {
-        $data = barangmasuk::create([
-            'suppliers_id' => $request->suppliers_id,
-            'barangs_id' => $request->barangs_id,
-            'merk' => $request->merk,
-            'kategoris_id' => $request->kategoris_id,
-            'jumlah' => $request->jumlah,
-            'harga' => $request->harga,
-            'total' => $request->total,
-        ]);
-    }
-    $stok_nambah->stok += $request->jumlah;
-    $stok_nambah->save();
+            $data = barangmasuk::create([
+                'suppliers_id' => $request->suppliers_id,
+                'barangs_id' => $request->barangs_id,
+                'merk' => $request->merk,
+                'kategoris_id' => $request->kategoris_id,
+                'jumlah' => $request->jumlah,
+                'harga' => $request->harga,
+                'total' => $request->total,
+            ]);
+        }
+        if (!$pengeluaran) {
+            Pengeluaran::create([
+                'tanggal' => $tanggal,
+                'bulan' => $bulan,
+                'tahun' => $tahun,
+                'total' => $barangmasuk + $request->total
+            ]);
+        } else {
+            $update = Pengeluaran::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun);
+            $update->update([
+                'total' => $barangmasuk + $request->total
+            ]);
+        }
+        $stok_nambah->stok += $request->jumlah;
+        $stok_nambah->save();
         return redirect()->route('barangmasuk');
     }
 
@@ -66,7 +88,7 @@ class BarangmasukController extends Controller
         $supplier = Supplier::all();
         $barang = barang::all();
 
-        return view('masuk.editbrgmsk', compact('data', 'supplier','barang'));
+        return view('masuk.editbrgmsk', compact('data', 'supplier', 'barang'));
     }
 
 
@@ -90,10 +112,8 @@ class BarangmasukController extends Controller
             $request->file('foto')->move('fotobrgmsk/', $request->file('foto')->getClientOriginalName());
             $data->foto = $request->file('foto')->getClientOriginalName();
             $data->save();
-
-
         }
-        $ipan= barang::find($id);
+        $ipan = barang::find($id);
         $ipan->update([
 
             'namabarang' => $request->namabarang,

@@ -171,7 +171,7 @@ class BarangController extends Controller
     {
         $data = Barang::find($id);
         $data->update([
-            'kodebarang' => random_int(1000, 99999),    
+            'kodebarang' => $request->kodebarang,
             'kategoris_id' => $request->kategoris_id,
             'namabarang' => $request->namabarang,
             'merk' => $request->merk,
@@ -180,8 +180,8 @@ class BarangController extends Controller
             'hargajual' => $request->hargajual,
             'stok' => $request->stok,
         ]);
-        
-        
+
+
         if ($request->hasfile('foto1')) {
             $request->file('foto1')->move('fotobarang/', $request->file('foto1')->getClientOriginalName());
             $data->foto1 = $request->file('foto1')->getClientOriginalName();

@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
 use Carbon\Carbon;
-=======
 use App\Models\Kategori;
->>>>>>> d40b36879c4052b43ea4e0ed9cd13ede5704ebce
 use App\Models\Barang;
 use App\Models\desain;
 use App\Models\servis;
