@@ -36,7 +36,7 @@
                                         <td>{{ $row->kodebarang_keluar }}</td>
                                         <td>{{ $row->namabarangs->namabarang }}</td>
                                         <td>{{ $row->merk_keluar }}</td>
-                                        <td>{{ $row->kategori_keluar }}</td>
+                                        <td>{{ $row->kategoris_id }}</td>
                                         <td>Rp.{{ number_format($row['harga_jual'], 2, '.', '.') }}</td>
                                         <td>{{ $row->jumlah }}</td>
                                         <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>

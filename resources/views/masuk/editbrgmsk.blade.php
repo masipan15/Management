@@ -61,6 +61,7 @@
                                         @foreach ($barang as $p)
                                             <option value="{{ $p->id }}"
                                                 data-merk="{{ $p->merk }}"
+                                                data-kategoris_id="{{ $p->kategoris_id }}"
                                                 data-harga="{{ $p->harga }}"<?php if ($data->barangs_id == $p->id) {
                                                 echo 'selected';
                                             } ?>>
@@ -75,6 +76,13 @@
                                 <div class="col-sm-10">
                                     <input type="text" required name="merk" readonly class="form-control" id="inputEmail3"
                                     value="{{ $data->merk }}">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Kategori</label>
+                                <div class="col-sm-10">
+                                    <input type="text" required name="kategoris_id" readonly class="form-control" id="inputEmail3"
+                                    value="{{ $data->kategoris_id }}">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -166,8 +174,10 @@
         selection.onchange = function(e) {
             const merk = e.target.options[e.target.selectedIndex].dataset.merk
             const harga = e.target.options[e.target.selectedIndex].dataset.harga
+            const kategoris_id = e.target.options[e.target.selectedIndex].dataset.kategoris_id
             document.getElementById('merk').value = merk;
             document.getElementById('harga').value = harga;
+            document.getElementById('kategoris_id').value = kategoris_id;
         }
     </script>
     </body>
