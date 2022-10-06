@@ -10,10 +10,6 @@
                     <h4>Pengeluaran</h4>
                     <p class="text-muted card-sub-title"></p>
                 </div>
-                <div>
-                    <a href="/exportpdf" class="btn btn-primary">Export PDF</a>
-                    <p class="text-muted card-sub-title"></p>
-                </div>
                 <div class="table-responsive">
                     <table class="table" id="example1">
                         <thead>
@@ -30,7 +26,7 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach ($pengeluaran as $row)
+                            @foreach ($data as $row)
                                 <tr>
                                     <th scope="row">{{ $no++ }}</th>
                                     <td>{{ $row->day }}</td>
@@ -38,10 +34,6 @@
                                     <td>{{ $row->year }}</td>
 
                                     <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
-                                    <td>
-                                        <img src="{{ asset('fotobrgmsk/' . $row->foto) }}"
-                                            alt="" style="width: 50px;">
-                                    </td>
                                 </tr>
                             @endforeach
 

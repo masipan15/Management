@@ -161,6 +161,13 @@
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
+                <li class="nav-item {{ Route::is('datapelanggan') ? 'active' : '' }}">
+                    <a class="nav-link" href="/datapelanggan"><span class="shape1"></span><span
+                            class="shape2"></span><i class="fa fa-group sidemenu-icon"></i><span
+                            class="sidemenu-label">Data Pelanggan</span></a>
+                </li>
+            @endif
+            @if (auth()->user()->role == 'admin')
                 <li class="nav-header"><span class="nav-label">Permintaan</span></li>
                 <li class="nav-item {{ Route::is('datadesain') ? 'active' : '' }}">
                     <a class="nav-link" href="/datadesain"><span class="shape1"></span><span class="shape2"></span><i
