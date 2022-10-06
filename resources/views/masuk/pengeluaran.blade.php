@@ -33,9 +33,9 @@
                             @foreach ($pengeluaran as $row)
                                 <tr>
                                     <th scope="row">{{ $no++ }}</th>
-                                    <td>{{ $row->day }}</td>
-                                    <td>{{ $row->month }}</td>
-                                    <td>{{ $row->year }}</td>
+                                    <td>{{ $row->tanggal }}</td>
+                                    <td>{{ $row->bulan }}</td>
+                                    <td>{{ $row->tahun }}</td>
 
                                     <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
                                     <td>

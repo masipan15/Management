@@ -18,17 +18,17 @@ class BarangkeluarController extends Controller
     public function index()
     {
 
-        $data = barangkeluar::with('namabarangs')->get();
+        $data = barangkeluar::with('namabarangs', 'kategori')->get();
         return view('keluar.barangklr', compact('data'));
     }
 
 
     public function tambahbrgklr()
     {
-        $data = barangkeluar::all();
         $barang = Barang::all();
         $pelanggan = Pelanggan::all();
         return view('keluar.tambahbarangklr', compact('data','barang','pelanggan'));
+       
     }
     public function insertbrgklr(Request $request)
     {
@@ -124,12 +124,6 @@ class BarangkeluarController extends Controller
         $desain = desain::where('created_at', $hariini)->sum('harga_desain');
         $servis = servis::where('created_at', $hariini)->sum('biaya_pengerjaan');
         $hasilakhir = $request->total - $data->total;
-        if ($pemasukan) {
-            $update = Pemasukan::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun);
-            $update->update([
-                'total' => $barangkeluar + $hasilakhir + $desain + $servis,
-            ]);
-        }
 
         $data->update([
             'nama_pelanggan' => $request->nama_pelanggan,
@@ -145,6 +139,14 @@ class BarangkeluarController extends Controller
         $ipan->update([
             'nama_pelanggan' => $request->nama_pelanggan,
         ]);
+
+        if ($pemasukan) {
+            $update = Pemasukan::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun);
+            $update->update([
+                'total' => $barangkeluar + $hasilakhir + $desain + $servis,
+            ]);
+        }
+
 
         return redirect()->route('barangkeluar')->with('success', 'Data berhasil di Update!');
     }

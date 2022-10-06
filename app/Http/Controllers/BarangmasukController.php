@@ -50,19 +50,20 @@ class BarangmasukController extends Controller
         $barangmasuk = barangmasuk::where('created_at', $hariini)->sum('total');
 
 
-        if ($stok_nambah->stok < $request->jumlah) {
-            return redirect()->route('tambahbarangmasuk');
-        } else {
-            $data = barangmasuk::create([
-                'suppliers_id' => $request->suppliers_id,
-                'barangs_id' => $request->barangs_id,
-                'merk' => $request->merk,
-                'kategoris_id' => $request->kategoris_id,
-                'jumlah' => $request->jumlah,
-                'harga' => $request->harga,
-                'total' => $request->total,
-            ]);
-        }
+
+
+
+        $data = barangmasuk::create([
+            'suppliers_id' => $request->suppliers_id,
+            'barangs_id' => $request->barangs_id,
+            'merk' => $request->merk,
+            'kategoris_id' => $request->kategoris_id,
+            'jumlah' => $request->jumlah,
+            'harga' => $request->harga,
+            'total' => $request->total,
+            'created_at' => Carbon::parse(now())->isoformat('Y-M-DD')
+        ]);
+
         if (!$pengeluaran) {
             Pengeluaran::create([
                 'tanggal' => $tanggal,
@@ -98,6 +99,23 @@ class BarangmasukController extends Controller
     {
 
         $data = barangmasuk::find($id);
+        $stok_nambah = Barang::find($request->barangs_id);
+
+
+        $stok_nambah = Barang::find($request->barangs_id);
+        $stok_nambah->stok -= $data->jumlah;
+        $stok_nambah->stok += $request->jumlah;
+        $stok_nambah->save();
+
+        $tanggal = Carbon::parse(now())->isoformat('DD');
+        $bulan = Carbon::parse(now())->isoformat('MMMM');
+        $tahun = Carbon::parse(now())->isoformat('Y');
+        $pengeluaran = Pengeluaran::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun)->first();
+
+        $hariini = Carbon::parse(now())->isoformat('Y-M-DD');
+        $barangmasuk = barangmasuk::where('created_at', $hariini)->sum('total');
+        $hasilakhir = $request->total - $data->total;
+
         $data->update([
             'suppliers_id' => $request->suppliers_id,
             'barangs_id' => $request->barangs_id,
@@ -108,12 +126,23 @@ class BarangmasukController extends Controller
             'total' => $request->total,
         ]);
 
+        if ($pengeluaran) {
+            $update = Pengeluaran::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun);
+            $update->update([
+                'total' => $barangmasuk + $hasilakhir
+            ]);
+        }
+
+
+
 
         if ($request->hasfile('foto')) {
             $request->file('foto')->move('fotobrgmsk/', $request->file('foto')->getClientOriginalName());
             $data->foto = $request->file('foto')->getClientOriginalName();
             $data->save();
         }
+
+
 
 
         return redirect()->route('barangmasuk')->with('success', 'Data berhasil di Update!');
