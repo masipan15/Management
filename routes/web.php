@@ -1,22 +1,25 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\BarangController;
-use App\Http\Controllers\DesainController;
-use App\Http\Controllers\servisController;
-use App\Http\Controllers\BarangmasukController;
-use App\Http\Controllers\BarangkeluarController;
-use App\Http\Controllers\PemasukanController;
-use App\Http\Controllers\PengeluaranController;
-use App\Http\Controllers\UserdesainController;
-use App\Http\Controllers\UserservisController;
-use App\Http\Controllers\kategoriController;
 use App\Models\Barang;
 use App\Models\desain;
 use App\Models\servis;
 use App\Models\Supplier;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CartsController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\DesainController;
+use App\Http\Controllers\servisController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\kategoriController;
+use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\PemasukanController;
+use App\Http\Controllers\UserdesainController;
+use App\Http\Controllers\UserservisController;
+use App\Http\Controllers\BarangmasukController;
+use App\Http\Controllers\PengeluaranController;
+use App\Http\Controllers\BarangkeluarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -150,3 +153,9 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/profil', [LoginController::class, 'profil'])->name('profil');
 Route::get('/editprofil', [LoginController::class, 'editprofil'])->name('editprofil');
 Route::post('/updateprofil', [LoginController::class, 'updateprofil'])->name('updateprofil');
+
+
+//cart
+Route::get('cart', [ProductController::class, 'cart'])->name('cart');
+Route::get('/tambahcart', [ProductController::class, 'tambahcart'])->name('tambahcart');
+Route::post('/cart', [ProductController::class, 'insertcart'])->name('insertcart');

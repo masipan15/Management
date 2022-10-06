@@ -17,16 +17,16 @@ class BarangkeluarController extends Controller
     public function index()
     {
 
-        $data = barangkeluar::with('namabarangs')->get();
+        $data = barangkeluar::with('namabarangs', 'kategori')->get();
         return view('keluar.barangklr', compact('data'));
     }
 
 
     public function tambahbrgklr()
     {
-        $data = barangkeluar::all();
         $barang = Barang::all();
-        return view('keluar.tambahbarangklr', compact('data','barang'));
+        $kategori = kategori::all();
+        return view('keluar.tambahbarangklr', compact('barang', 'kategori'));
     }
     public function insertbrgklr(Request $request)
     {
@@ -91,7 +91,8 @@ class BarangkeluarController extends Controller
     {
         $data = barangkeluar::findOrFail($id);
         $barang = barang::all();
-        return view('keluar.editbarangklr', compact('data','barang'));
+        $kategori = kategori::all();
+        return view('keluar.editbarangklr', compact('data', 'barang', 'kategori'));
     }
 
 
@@ -117,12 +118,6 @@ class BarangkeluarController extends Controller
         $desain = desain::where('created_at', $hariini)->sum('harga_desain');
         $servis = servis::where('created_at', $hariini)->sum('biaya_pengerjaan');
         $hasilakhir = $request->total - $data->total;
-        if ($pemasukan) {
-            $update = Pemasukan::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun);
-            $update->update([
-                'total' => $barangkeluar + $hasilakhir + $desain + $servis,
-            ]);
-        }
 
         $data->update([
             'nama_barang' => $request->nama_barang,
@@ -133,6 +128,14 @@ class BarangkeluarController extends Controller
             'jumlah' => $request->jumlah,
             'total' => $request->total,
         ]);
+
+        if ($pemasukan) {
+            $update = Pemasukan::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun);
+            $update->update([
+                'total' => $barangkeluar + $hasilakhir + $desain + $servis,
+            ]);
+        }
+
 
         return redirect()->route('barangkeluar')->with('success', 'Data berhasil di Update!');
     }
