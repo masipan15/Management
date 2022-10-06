@@ -31,7 +31,19 @@
                         <form action="/insertbarangkeluar" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Nama Pelanggan</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="nama_pelanggan" id="nama_pelanggan" class="form-control"
+                                    id="inputEmail3">
+                                </div>
+                            </div>
+                            @error('nama_pelanggan')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                            <div class="row mb-3">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label">Nama Barang</label>
                                 <div class="col-sm-10">
                                     <select class="form-control select2" required style="width:100%;" name="nama_barang"
                                         class="" id="nama_barang">

@@ -18,8 +18,7 @@
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 
-
-        <title>Edit Data</title>
+        <title>ACS Management</title>
     </head>
 
     <body>
@@ -28,34 +27,30 @@
                 <div class="card custom-card">
                     <div class="card-body">
                         <div>
-                            <h3 class="main-content-label mb-1">Edit Supplier</h3>
+                            <h3 class="main-content-label mb-1">Edit Pelanggan</h3>
                             <p class="text-muted card-sub-title"></p>
                         </div>
-                        <form action="/updatesupplier/{{ $data->id }}" method="post" enctype="multipart/form-data">
+                        <form action="/updatepelanggan/{{ $data->id }}" method="post" enctype="multipart/form-data">
                             @csrf
 
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Pelanggan
+                                    </label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="nama_pelanggan" class="form-control" id="nama_pelanggan"
+                                        value="{{ $data->nama_pelanggan }}" id="inputEmail3">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">No Telpon
+                                    </label>
+                                <div class="col-sm-10">
+                                    <input type="number" name="notelpon" class="form-control" id="notelpon"
+                                        value="{{ $data->notelpon }}" id="inputEmail3">
+                                </div>
+                            </div>
 
-                            <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Supplier</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="nama_supplier" class="form-control" id="inputEmail3"
-                                        value="{{ $data->nama_supplier }}">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Alamat Supplier</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="alamat_supplier" class="form-control" id="inputEmail3"
-                                        value="{{ $data->alamat_supplier }}">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">No Telpon</label>
-                                <div class="col-sm-10">
-                                    <input type="number" name="notelpon" class="form-control" id="inputEmail3"
-                                        value="{{ $data->notelpon }}">
-                                </div>
-                            </div>
+                            <div class="mb-4 main-content-label"></div>
                             <div class="form-group mb-0">
                                 <div class="row row-sm">
                                     <div class="col-md-3">
@@ -66,8 +61,7 @@
                                         <div class="mt-3">
                                             <button type="submit"
                                                 class="btn ripple btn-main-primary active mr-1">Simpan</button>
-                                            <a href="/datasupplier" type="button"
-                                                class="btn ripple btn-secondary">Batal</a>
+                                            <a href="/datapelanggan" type="button" class="btn ripple btn-secondary">Batal</a>
                                         </div>
                                     </div>
                                 </div>
@@ -87,13 +81,13 @@
 
         <!-- Option 2: Separate Popper and Bootstrap JS -->
         <!--
-                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-                    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
-                </script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-                    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
-                </script>
-                -->
+                                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+                                    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+                                </script>
+                                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+                                    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+                                </script>
+                                -->
     </body>
 
     </html>

@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Kategori;
 use App\Models\Barang;
 use App\Models\desain;
+use App\Models\Pelanggan;
 use App\Models\servis;
 use App\Models\Pemasukan;
 use App\Models\barangkeluar;
@@ -25,8 +26,9 @@ class BarangkeluarController extends Controller
     public function tambahbrgklr()
     {
         $barang = Barang::all();
-        $kategori = kategori::all();
-        return view('keluar.tambahbarangklr', compact('barang', 'kategori'));
+        $pelanggan = Pelanggan::all();
+        return view('keluar.tambahbarangklr', compact('data','barang','pelanggan'));
+       
     }
     public function insertbrgklr(Request $request)
     {
@@ -56,6 +58,7 @@ class BarangkeluarController extends Controller
             return redirect()->route('tambahbarangkeluar');
         } else {
             $data = barangkeluar::create([
+                'nama_pelanggan' => $request->nama_pelanggan,
                 'nama_barang' => $request->nama_barang,
                 'kodebarang_keluar' => $request->kodebarang_keluar,
                 'merk_keluar' => $request->merk_keluar,
@@ -64,6 +67,9 @@ class BarangkeluarController extends Controller
                 'jumlah' => $request->jumlah,
                 'total' => $request->total,
                 'created_at' => Carbon::parse(now())->isoformat('Y-M-DD')
+            ]);
+            Pelanggan::create([
+                'nama_pelanggan' => $request->nama_pelanggan,
             ]);
             if (!$pemasukan) {
                 Pemasukan::create([
@@ -91,8 +97,8 @@ class BarangkeluarController extends Controller
     {
         $data = barangkeluar::findOrFail($id);
         $barang = barang::all();
-        $kategori = kategori::all();
-        return view('keluar.editbarangklr', compact('data', 'barang', 'kategori'));
+        $pelanggan = Pelanggan::all();
+        return view('keluar.editbarangklr', compact('data','barang','pelanggan'));
     }
 
 
@@ -120,6 +126,7 @@ class BarangkeluarController extends Controller
         $hasilakhir = $request->total - $data->total;
 
         $data->update([
+            'nama_pelanggan' => $request->nama_pelanggan,
             'nama_barang' => $request->nama_barang,
             'kodebarang_keluar' => $request->kodebarang_keluar,
             'merk_keluar' => $request->merk_keluar,
@@ -127,6 +134,10 @@ class BarangkeluarController extends Controller
             'harga_jual' => $request->harga_jual,
             'jumlah' => $request->jumlah,
             'total' => $request->total,
+        ]);
+        $ipan = Pelanggan::find($id);
+        $ipan->update([
+            'nama_pelanggan' => $request->nama_pelanggan,
         ]);
 
         if ($pemasukan) {

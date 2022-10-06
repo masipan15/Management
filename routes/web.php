@@ -1,10 +1,8 @@
 <?php
 
-use App\Models\Barang;
-use App\Models\desain;
-use App\Models\servis;
-use App\Models\Supplier;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CartsController;
 use App\Http\Controllers\LoginController;
@@ -20,6 +18,10 @@ use App\Http\Controllers\UserservisController;
 use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\BarangkeluarController;
+use App\Models\Barang;
+use App\Models\desain;
+use App\Models\servis;
+use App\Models\Supplier;
 
 /*
 |--------------------------------------------------------------------------
@@ -122,6 +124,13 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/editdesain/{id}', [DesainController::class, 'editdesain'])->name('editdesain');
     Route::post('/updatedesain/{id}', [DesainController::class, 'updatedesain'])->name('updatedesain');
     Route::get('/deletes/{id}', [DesainController::class, 'deletes'])->name('deletes');
+
+
+    //pelanggan
+    Route::get('/datapelanggan', [PelangganController::class, 'datapelanggan'])->name('datapelanggan');
+    Route::get('/editpelanggan/{id}', [PelangganController::class, 'editpelanggan'])->name('editpelanggan');
+    Route::post('/updatepelanggan/{id}', [PelangganController::class, 'updatepelanggan'])->name('updatepelanggan');
+    Route::get('/hapuspelanggan/{id}', [PelangganController::class, 'hapuspelanggan'])->name('hapuspelanggan');
 });
 
 Route::group(['middleware' => ['auth', 'hakakses:servis']], function () {
@@ -153,6 +162,16 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/profil', [LoginController::class, 'profil'])->name('profil');
 Route::get('/editprofil', [LoginController::class, 'editprofil'])->name('editprofil');
 Route::post('/updateprofil', [LoginController::class, 'updateprofil'])->name('updateprofil');
+
+
+
+
+//exportpdf
+Route::get('/exportpdf', [PengeluaranController::class, 'exportpdf'])->name('exportpdf');
+Route::get('/exportpdfm', [PemasukanController::class, 'exportpdfm'])->name('exportpdfm');
+
+
+
 
 
 //cart

@@ -10,6 +10,10 @@
                         <h4>Pemasukan</h4>
                         <p class="text-muted card-sub-title"></p>
                     </div>
+                    <div>
+                        <a href="/exportpdfm" class="btn btn-primary">Export PDF</a>
+                        <p class="text-muted card-sub-title"></p>
+                    </div>
 
                     <div class="table-responsive">
                         <table class="table" id="example1">

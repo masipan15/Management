@@ -58,13 +58,14 @@
                                         id="barangs_id">
                                         <option value disabled selected="">Pilih Barang
                                         </option>
-                                        @foreach ($barang as $p)
-                                            <option value="{{ $p->id }}" data-merk="{{ $p->merk }}"
-                                                data-kategoris_id="{{ $p->kategoris_id }}"
-                                                data-harga="{{ $p->harga }}"<?php if ($data->barangs_id == $p->id) {
-                                                    echo 'selected';
-                                                } ?>>
-                                                {{ $p->namabarang }}
+                                        @foreach ($barang as $item)
+                                            <option value="{{ $item->id }}"<?php if ($data->barangs_id == $item->id) {
+                                                echo 'selected';
+                                            } ?>
+                                                data-merk="{{ $item->merk }}"
+                                                data-kategoris_id="{{ $item->kategoris_id }}"
+                                                data-harga="{{ $item->harga }}">
+                                                {{ $item->namabarang }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -106,7 +107,7 @@
                                 <div class="col-sm-10">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                        <input type="text" name="total" readonly class="form-control" id="total"
+                                        <input type="number" name="total" readonly class="form-control" id="exampleInputEmail1"
                                             value="{{ $data->total }}" id="inputEmail3">
                                     </div>
                                 </div>
