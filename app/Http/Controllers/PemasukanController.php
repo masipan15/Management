@@ -7,6 +7,7 @@ use App\Models\Pemasukan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PemasukanController extends Controller
 {
@@ -31,5 +32,13 @@ class PemasukanController extends Controller
         return view('keluar.pemasukan', compact('pemasukan'));
     }
 
+    public function exportpdfm()
+    {
+        $data = Pemasukan::all();
+
+        view()->share('data', $data);
+        $pdf = PDF::loadview('datapemasukanpdf');
+        return $pdf->download('datapemasukan.pdf');
+    }
 
 }

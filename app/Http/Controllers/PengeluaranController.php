@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PengeluaranController extends Controller
 {
@@ -19,7 +19,7 @@ class PengeluaranController extends Controller
         $data = Pengeluaran::all();
 
         view()->share('data', $data);
-        $pdf = PDF::loadview('masuk.datapengeluaran-pdf');
-        return $pdf->download('data.pdf');
+        $pdf = PDF::loadview('datapengeluaranpdf');
+        return $pdf->download('datapengeluaran.pdf');
     }
 }

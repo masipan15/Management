@@ -2,23 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\BarangController;
-use App\Http\Controllers\DesainController;
-use App\Http\Controllers\servisController;
-use App\Http\Controllers\BarangmasukController;
-use App\Http\Controllers\BarangkeluarController;
-use App\Http\Controllers\PemasukanController;
-use App\Http\Controllers\PengeluaranController;
-use App\Http\Controllers\UserdesainController;
-use App\Http\Controllers\UserservisController;
-use App\Http\Controllers\kategoriController;
 use App\Http\Controllers\PelangganController;
-use App\Models\Barang;
-use App\Models\desain;
-use App\Models\servis;
-use App\Models\Supplier;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CartsController;
 use App\Http\Controllers\LoginController;
@@ -34,6 +18,10 @@ use App\Http\Controllers\UserservisController;
 use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\BarangkeluarController;
+use App\Models\Barang;
+use App\Models\desain;
+use App\Models\servis;
+use App\Models\Supplier;
 
 /*
 |--------------------------------------------------------------------------
@@ -180,6 +168,7 @@ Route::post('/updateprofil', [LoginController::class, 'updateprofil'])->name('up
 
 //exportpdf
 Route::get('/exportpdf', [PengeluaranController::class, 'exportpdf'])->name('exportpdf');
+Route::get('/exportpdfm', [PemasukanController::class, 'exportpdfm'])->name('exportpdfm');
 
 
 
