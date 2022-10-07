@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\barangkeluar;
-use App\Models\Pemasukan;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
+
+use App\Models\Pemasukan;
+use PDF;
 use Illuminate\Support\Facades\DB;
-use Barryvdh\DomPDF\Facade\Pdf;
 
 class PemasukanController extends Controller
 {
@@ -40,5 +39,4 @@ class PemasukanController extends Controller
         $pdf = PDF::loadview('datapemasukanpdf');
         return $pdf->download('datapemasukan.pdf');
     }
-
 }
