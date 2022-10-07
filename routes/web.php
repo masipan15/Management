@@ -169,6 +169,9 @@ Route::post('/updateprofil', [LoginController::class, 'updateprofil'])->name('up
 //exportpdf
 Route::get('/exportpdf', [PengeluaranController::class, 'exportpdf'])->name('exportpdf');
 Route::get('/exportpdfm', [PemasukanController::class, 'exportpdfm'])->name('exportpdfm');
+//exportexcel
+Route::get('/exportexcel', [PengeluaranController::class, 'exportexcel'])->name('exportexcel');
+Route::get('/exportexcelm', [PemasukanController::class, 'exportexcelm'])->name('exportexcelm');
 
 
 
