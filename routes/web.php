@@ -181,4 +181,5 @@ Route::get('/exportexcelm', [PemasukanController::class, 'exportexcelm'])->name(
 Route::get('cart', [ProductController::class, 'cart'])->name('cart');
 Route::get('/tambahcart', [ProductController::class, 'tambahcart'])->name('tambahcart');
 Route::post('/cart', [ProductController::class, 'insertcart'])->name('insertcart');
-
+Route::patch('update-cart', [ProductController::class, 'update'])->name('update.cart');
+Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
