@@ -8,6 +8,10 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Exports\PemasukanExport;
+use Maatwebsite\Excel\Facades\Excel;
+
+
 
 class PemasukanController extends Controller
 {
@@ -39,6 +43,11 @@ class PemasukanController extends Controller
         view()->share('data', $data);
         $pdf = PDF::loadview('datapemasukanpdf');
         return $pdf->download('datapemasukan.pdf');
+    }
+
+    public function exportexcelm()
+    {
+        return Excel::download(new PemasukanExport, 'datapemasukan.xlsx');
     }
 
 }
