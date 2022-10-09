@@ -22,6 +22,7 @@
                                     <th class="wd-20p">Permintaan</th>
                                     <th class="wd-25p">Keterangan</th>
                                     <th class="wd-20p">Ukuran</th>
+                                    <th class="wd-20p">Status</th>
                                     <th class="wd-20p">Harga</th>
                                     <th class="wd-20p">Aksi</th>
                                 </tr>
@@ -37,6 +38,7 @@
                                         <td>{{ $row->permintaan }}</td>
                                         <td>{{ $row->keterangan }}</td>
                                         <td>{{ $row->ukuran }}</td>
+                                        <td>{{ $row->status }}</td>
                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
                                         <td>
                                             <a href="/hapuspenyelesaian/{{ $row->id }}" class="btn btn-danger"

@@ -22,6 +22,7 @@
                                     <th class="wd-20p">Nama Barang</th>
                                     <th class="wd-25p">Merk</th>
                                     <th class="wd-20p">Kerusakan</th>
+                                    <th class="wd-20p">Status</th>
                                     <th class="wd-15p">Biaya</th>
                                 </tr>
                             </thead>
@@ -36,6 +37,7 @@
                                         <td>{{ $row->namabarang }}</td>
                                         <td>{{ $row->merk }}</td>
                                         <td>{{ $row->kerusakan }}</td>
+                                        <td>{{ $row->status }}</td>
                                         <td>Rp.{{ number_format($row['biaya'], 2, '.', '.') }}</td>
                                         <td>
                                             <a href="/hapusservisselesai/{{ $row->id }}" class="btn btn-danger"
