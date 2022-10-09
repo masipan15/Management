@@ -26,6 +26,7 @@ class BarangkeluarController extends Controller
     public function tambahbrgklr()
     {
         $barang = Barang::all();
+        $data = Barangkeluar::all();
         $pelanggan = Pelanggan::all();
         return view('keluar.tambahbarangklr', compact('data','barang','pelanggan'));
        

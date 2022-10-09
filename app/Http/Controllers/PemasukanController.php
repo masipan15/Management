@@ -21,7 +21,7 @@ class PemasukanController extends Controller
 
 
 
-        //     DB::raw("(sum(total)) as total"),
+                                                       //     DB::raw("(sum(total)) as total"),
         //     DB::raw("(DATE_FORMAT(created_at, '%d')) as day"),
         //     DB::raw("(DATE_FORMAT(created_at, '%M')) as month"),
         //     DB::raw("(DATE_FORMAT(created_at, '%Y')) as year")

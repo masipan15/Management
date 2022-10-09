@@ -42,7 +42,7 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Kategori</label>
                                 <div class="col-sm-10">
                                     <select class="form-control select2" required style="width:100%;" name="kategoris_id"
                                         class="" id="kategoris_id">
@@ -77,7 +77,7 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Beli</label>
                                 <div class="col-sm-10">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Rp.</span>

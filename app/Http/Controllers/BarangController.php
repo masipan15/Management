@@ -171,7 +171,6 @@ class BarangController extends Controller
     {
         $data = Barang::find($id);
         $data->update([
-            'kodebarang' => $request->kodebarang,
             'kategoris_id' => $request->kategoris_id,
             'namabarang' => $request->namabarang,
             'merk' => $request->merk,

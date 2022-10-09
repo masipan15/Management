@@ -37,28 +37,36 @@
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly name="namabarang" class="form-control" id="inputEmail3"
+                                        <input type="text" name="namabarang" class="form-control" id="inputEmail3"
                                             value="{{ $data->namabarang }}">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Merk</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly name="merk" class="form-control" id="inputEmail3"
+                                        <input type="text" name="merk" class="form-control" id="inputEmail3"
                                             value="{{ $data->merk }}">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Kategori</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="kategori" class="form-control" id="inputEmail3"
-                                            value="{{ $data->kategori }}">
+                                       <select class="form-control select2" required style="width:100%;" name="kategoris_id"
+                                        class="" id="kategoris_id">
+                                        <option value="" selected disabled>Pilih Kategori</option>
+                                        @foreach ($kategori as $item)
+                                            <option value="{{ $item->id }}"  <?php if ($data->kategoris_id == $item->id) {
+                                                echo 'selected';
+                                            } ?>>
+                                                {{ $item->kategori }}</option>
+                                        @endforeach
+                                    </select>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Stok</label>
                                     <div class="col-sm-10">
-                                        <input type="number" readonly name="stok" class="form-control" id="inputEmail3"
+                                        <input type="number" name="stok" class="form-control" id="inputEmail3"
                                             value="{{ $data->stok }}">
                                     </div>
                                 </div>
@@ -67,7 +75,7 @@
                                     <div class="col-sm-10">
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                            <input type="number" readonly name="harga" class="form-control"
+                                            <input type="number" name="harga" class="form-control"
                                                 id="inputEmail3" value="{{ $data->harga }}">
                                         </div>
                                     </div>
@@ -92,7 +100,7 @@
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Foto</label>
                                     <div class="col-sm-10">
-                                        <img class="img mb-3" src="{{ asset('fotobarang/' . $data->foto) }}"alt=""
+                                        <img class="img mb-3" src="{{ asset('fotobarang/' . $data->foto1) }}"alt=""
                                             style="width: 40px">
                                         <input type="file" name="foto1" class="form-control" id="inputEmail3"
                                             value="{{ $data->foto1 }}">
