@@ -127,15 +127,17 @@
             @if (auth()->user()->role == 'admin')
                 <li class="nav-header"><span class="nav-label"></span></li>
                 <li class="nav-item {{ Route::is('datakategori') ? 'active' : '' }}">
-                    <a class="nav-link" href="/datakategori"><span class="shape1"></span><span class="shape2"></span><i
-                            class="ti-layers sidemenu-icon"></i><span class="sidemenu-label">Kategori
-                            </span></a>
+                    <a class="nav-link" href="/datakategori"><span class="shape1"></span><span
+                            class="shape2"></span><i class="ti-layers sidemenu-icon"></i><span
+                            class="sidemenu-label">Kategori
+                        </span></a>
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
                 <li class="nav-item {{ Route::is('databarang') ? 'active' : '' }}">
-                    <a class="nav-link" href="/databarang"><span class="shape1"></span><span class="shape2"></span><i
-                            class="ti-package sidemenu-icon"></i><span class="sidemenu-label">Data
+                    <a class="nav-link" href="/databarang"><span class="shape1"></span><span
+                            class="shape2"></span><i class="ti-package sidemenu-icon"></i><span
+                            class="sidemenu-label">Data
                             Barang</span></a>
                 </li>
             @endif
@@ -170,8 +172,9 @@
             @if (auth()->user()->role == 'admin')
                 <li class="nav-header"><span class="nav-label">Permintaan</span></li>
                 <li class="nav-item {{ Route::is('datadesain') ? 'active' : '' }}">
-                    <a class="nav-link" href="/datadesain"><span class="shape1"></span><span class="shape2"></span><i
-                            class="mdi mdi-pen sidemenu-icon"></i><span class="sidemenu-label">Data
+                    <a class="nav-link" href="/datadesain"><span class="shape1"></span><span
+                            class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
+                            class="sidemenu-label">Data
                             Desain</span></a>
                 </li>
             @endif
@@ -186,8 +189,9 @@
             @endif
             @if (auth()->user()->role == 'admin')
                 <li class="nav-item {{ Route::is('dataservis') ? 'active' : '' }}">
-                    <a class="nav-link" href="/dataservis"><span class="shape1"></span><span class="shape2"></span><i
-                            class="mdi mdi-wrench sidemenu-icon"></i><span class="sidemenu-label">Data
+                    <a class="nav-link" href="/dataservis"><span class="shape1"></span><span
+                            class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
+                            class="sidemenu-label">Data
                             Servis</span></a>
                 </li>
             @endif
@@ -479,6 +483,9 @@
 
     <!-- Switcher js -->
     <script src="{{ asset('acstemplate/assets/switcher/js/switcher.js') }}"></script>
+
+
+
 </body>
 
 <!-- Mirrored from laravel.spruko.com/spruha/ltr/index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 Sep 2022 01:07:12 GMT -->

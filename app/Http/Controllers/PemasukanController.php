@@ -6,10 +6,8 @@ use Carbon\Carbon;
 
 use App\Models\Pemasukan;
 use PDF;
-use Illuminate\Support\Facades\DB;
-use Barryvdh\DomPDF\Facade\Pdf;
 use App\Exports\PemasukanExport;
-use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Facades\Excel; 
 
 
 

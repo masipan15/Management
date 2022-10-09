@@ -15,10 +15,10 @@
                                 <tr>
                                     <th class="wd-20p">No</th>
                                     <th class="wd-20p">Nama Pelanggan</th>
-                                    <th class="wd-20p">Kode Barang</th>
+                                    <th class="wd-20p">Kode Transaksi</th>
                                     <th class="wd-20p">Nama Barang</th>
+                                    <th class="wd-20p">Kode Barang</th>
                                     <th class="wd-20p">Merk</th>
-                                    <th class="wd-20p">Kategori</th>
                                     <th class="wd-25p">Harga Jual</th>
                                     <th class="wd-20p">Jumlah</th>
                                     <th class="wd-15p">Total</th>
@@ -35,19 +35,19 @@
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->nama_pelanggan }}</td>
-                                        <td>{{ $row->kodebarang_keluar }}</td>
+                                        <td>{{ $row->kodetransaksi }}</td>
                                         <td>{{ $row->namabarangs->namabarang }}</td>
+                                        <td>{{ $row->kodebarang_keluar }}</td>
                                         <td>{{ $row->merk_keluar }}</td>
-                                        <td>{{ $row->kategoris_id }}</td>
+
                                         <td>Rp.{{ number_format($row['harga_jual'], 2, '.', '.') }}</td>
                                         <td>{{ $row->jumlah }}</td>
                                         <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
                                         <td>{{ $row->created_at->format('d/m/y') }}</td>
 
                                         <td>
-                                            <a href="/editbrgklr/{{ $row->id }}"
-                                            class="btn btn-success mb-1"><i
-                                                class="fas fa-pencil-alt"></i>edit</a><br>
+                                            <a href="/editbrgklr/{{ $row->id }}" class="btn btn-success mb-1"><i
+                                                    class="fas fa-pencil-alt"></i>edit</a><br>
                                             {{-- <a href="/delete/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                     class="fas fa-trash-alt"></i>Hapus</button></a> --}}

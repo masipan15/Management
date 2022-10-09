@@ -30,109 +30,87 @@
                         </div>
                         <form action="/insertbarangkeluar" method="post" enctype="multipart/form-data">
                             @csrf
-                            <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Nama Pelanggan</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="nama_pelanggan" id="nama_pelanggan" class="form-control"
-                                    id="inputEmail3">
-                                </div>
-                            </div>
-                            @error('nama_pelanggan')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                            <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Nama Barang</label>
-                                <div class="col-sm-10">
-                                    <select class="form-control select2" required style="width:100%;" name="nama_barang"
-                                        class="" id="nama_barang">
-                                        <option value="" selected disabled>Pilih Nama Barang</option>
-                                        @foreach ($barang as $item)
-                                            <option value="{{ $item->id }}" data-harga_jual="{{ $item->hargajual }}"
-                                                data-kodebarang_keluar="{{ $item->kodebarang }}"
-                                                data-merk_keluar="{{ $item->merk }}"
-                                                data-kategoris_id="{{ $item->kategori->kategori }}">
-                                                {{ $item->namabarang }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            @error('nama_barang')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                            <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Barang</label>
-                                <div class="col-sm-10">
-                                    <input type="text" readonly name="kodebarang_keluar" id="kodebarang_keluar"
-                                        class="form-control" id="inputEmail3">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Merk</label>
-                                <div class="col-sm-10">
-                                    <input type="text" readonly name="merk_keluar" id="merk_keluar" class="form-control"
-                                        id="inputEmail3">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Kategori</label>
-                                <div class="col-sm-10">
-                                    <input type="text" readonly name="kategoris_id" id="kategoris_id"
-                                        class="form-control" id="inputEmail3">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga</label>
-                                <div class="col-sm-10">
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                        <input type="number" name="harga_jual" readonly id="harga_jual"
-                                            class="form-control" id="inputEmail3">
+                            <div class="mb-3">
+                                <label class="">Nama Pelanggan</label>
+                                <input type="text" class="form-control mb-3" id="nama_pelanggan" name="nama_pelanggan">
+                                @error('nama_pelanggan')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <div class="row mb-3">
+                                    <label class="">Nama Barang</label>
+                                    <div class="form-label">
+                                        <select class="form-control select2" required style="width:100%;" name="nama_barang"
+                                            class="" id="nama_barang">
+                                            <option value="" selected disabled>Pilih Nama Barang</option>
+                                            @foreach ($barang as $item)
+                                                <option value="{{ $item->id }}" data-harga_jual="{{ $item->hargajual }}"
+                                                    data-kodebarang_keluar="{{ $item->kodebarang }}"
+                                                    data-merk_keluar="{{ $item->merk }}"
+                                                    data-kategoris_id="{{ $item->kategori->kategori }}">
+                                                    {{ $item->namabarang }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Jumlah</label>
-                                <div class="col-sm-10">
-                                    <input type="number" name="jumlah" id="jumlah" class="form-control"
-                                        id="inputEmail3">
-                                </div>
-                            </div>
-                            @error('jumlah')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                            <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Total</label>
-                                <div class="col-sm-10">
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                        <input type="text" name="total" readonly id="total" class="form-control"
-                                            id="inputEmail3">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group mb-0">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="custom-controls-stacked">
-                                        </div>
-                                        <div class="mt-3">
-                                            <button type="submit"
-                                                class="btn ripple btn-main-primary active mr-1">Tambah</button>
-                                            <a href="/barangkeluar" type="button"
-                                                class="btn ripple btn-secondary">Batal</a>
+                                @error('nama_barang')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <div class="row row-sm text-center">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="row row-sm">
+                                            <div class="col-lg">
+                                                <p class="form-label">Kode Barang</p>
+                                                <input class="form-control text-center" readonly required
+                                                    name="kodebarang_keluar" type="text" id="kodebarang_keluar">
+                                            </div>
+                                            <div class="col-lg mg-t-10 mg-lg-t-0">
+                                                <p class="form-label">Merk</p>
+                                                <input class="form-control text-center" readonly required name="merk_keluar"
+                                                    id="merk_keluar" type="text">
+                                            </div>
+                                            <div class="col-lg mg-t-10 mg-lg-t-0">
+                                                <p class="form-label">Harga Jual</p>
+                                                <input class="form-control text-center" readonly required name="harga_jual"
+                                                    id="harga_jual" type="number">
+                                            </div>
+                                            <div class="col-lg mg-t-10 mg-lg-t-0">
+                                                <p class="form-label">Jumlah</p>
+                                                <input class="form-control text-center" required name="jumlah"
+                                                    id="jumlah" type="text">
+                                            </div>
+                                            <div class="col-lg mg-t-10 mg-lg-t-0">
+                                                <p class="form-label">Total</p>
+                                                <input class="form-control text-center" required name="total"
+                                                    id="total" type="text">
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" hidden class="col-sm-2 col-form-label">Kode Transaksi</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" hidden readonly required name="kodetransaksi"
+                                            id="kodetransaksi" class="form-control" id="inputEmail3">
+                                    </div>
+                                </div>
+                                <div id="formbaru"></div>
+                                <div class="text-center mt-3">
+                                    <button type="button" value="Tambah" id="tambah" class="btn btn-primary btn-sm"><i
+                                            class="fas fa-plus"></i></button>
+                                    <button type="button" value="Hapus" id="hapus"
+                                        class="btn btn-outline-primary btn-sm"><i class="fas fa-minus"></i></button>
+                                </div>
+                                <div class="text-center mt-4 mb-3">
+                                    <button type="submit" class="btn ripple btn-main-primary active mr-1">Tambah</button>
+                                    <a href="/barangkeluar" type="button" class="btn ripple btn-secondary">Batal</a>
+                                </div>
+
                             </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
-        </div>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -161,6 +139,67 @@
         </script>
 
         <script>
+
+
+
+            let counter = 1
+            $('#tambah').click(function() {
+                counter++
+                let tambahform = `
+                <div class="row mb-3">
+                                    <label class="">Nama Barang</label>
+                                    <div class="form-label">
+                                        <select class="form-control select2" required style="width:100%;" name="nama_barang"
+                                            class="" id="nama_barang">
+                                            <option value="" selected disabled>Pilih Nama Barang</option>
+                                            @foreach ($barang as $item)
+                                                <option value="{{ $item->id }}" data-harga_jual="{{ $item->hargajual }}"
+                                                    data-kodebarang_keluar="{{ $item->kodebarang }}"
+                                                    data-merk_keluar="{{ $item->merk }}"
+                                                    data-kategoris_id="{{ $item->kategori->kategori }}">
+                                                    {{ $item->namabarang }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                @error('nama_barang')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <div class="row row-sm text-center">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="row row-sm">
+                                            <div class="col-lg">
+                                                <p class="form-label">Kode Barang</p>
+                                                <input class="form-control text-center"  required
+                                                    name="kodebarang_keluar" type="text" id="kodebarang_keluar">
+                                            </div>
+                                            <div class="col-lg mg-t-10 mg-lg-t-0">
+                                                <p class="form-label">Merk</p>
+                                                <input class="form-control text-center"  required name="merk_keluar"
+                                                    id="merk_keluar" type="text">
+                                            </div>
+                                            <div class="col-lg mg-t-10 mg-lg-t-0">
+                                                <p class="form-label">Harga Jual</p>
+                                                <input class="form-control text-center"  required name="harga_jual"
+                                                    id="harga_jual" type="number">
+                                            </div>
+                                            <div class="col-lg mg-t-10 mg-lg-t-0">
+                                                <p class="form-label">Jumlah</p>
+                                                <input class="form-control text-center" required name="jumlah"
+                                                    id="jumlah" type="text">
+                                            </div>
+                                            <div class="col-lg mg-t-10 mg-lg-t-0">
+                                                <p class="form-label">Total</p>
+                                                <input class="form-control text-center" required name="total"
+                                                    id="total" type="text">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>`
+            $('#formbaru').append(tambahform)
+            });
+
             const selection = document.getElementById('nama_barang')
             selection.onchange = function(e) {
                 const harga = e.target.options[e.target.selectedIndex].dataset.harga_jual
@@ -172,7 +211,72 @@
                 document.getElementById('merk_keluar').value = merk;
                 document.getElementById('kategoris_id').value = kategoris_id;
             }
+
         </script>
+
+        <script>
+
+        </script>
+        {{-- <script>
+
+            let counter = 1
+            $('#tambah').click(function() {
+                counter++
+                let tambahform = `
+                <div class="row mb-3">
+                                    <label class="">Nama Barang</label>
+                                    <div class="form-label">
+                                        <select class="form-control select2" required style="width:100%;" name="nama_barang"
+                                            class="" id="nama_barang">
+                                            <option value="" selected disabled>Pilih Nama Barang</option>
+                                            @foreach ($barang as $item)
+                                                <option value="{{ $item->id }}" data-harga_jual="{{ $item->hargajual }}"
+                                                    data-kodebarang_keluar="{{ $item->kodebarang }}"
+                                                    data-merk_keluar="{{ $item->merk }}"
+                                                    data-kategoris_id="{{ $item->kategori->kategori }}">
+                                                    {{ $item->namabarang }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                @error('nama_barang')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <div class="row row-sm text-center">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="row row-sm">
+                                            <div class="col-lg">
+                                                <p class="form-label">Kode Barang</p>
+                                                <input class="form-control text-center" readonly required
+                                                    name="kodebarang_keluar" type="text" id="kodebarang_keluar">
+                                            </div>
+                                            <div class="col-lg mg-t-10 mg-lg-t-0">
+                                                <p class="form-label">Merk</p>
+                                                <input class="form-control text-center" readonly required name="merk_keluar"
+                                                    id="merk_keluar" type="text">
+                                            </div>
+                                            <div class="col-lg mg-t-10 mg-lg-t-0">
+                                                <p class="form-label">Harga Jual</p>
+                                                <input class="form-control text-center" readonly required name="harga_jual"
+                                                    id="harga_jual" type="number">
+                                            </div>
+                                            <div class="col-lg mg-t-10 mg-lg-t-0">
+                                                <p class="form-label">Jumlah</p>
+                                                <input class="form-control text-center" required name="jumlah"
+                                                    id="jumlah" type="text">
+                                            </div>
+                                            <div class="col-lg mg-t-10 mg-lg-t-0">
+                                                <p class="form-label">Total</p>
+                                                <input class="form-control text-center" required name="total"
+                                                    id="total" type="text">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>`
+            $('#formbaru').append(tambahform)
+            });
+        </script> --}}
 
         {{-- <script>
             const selection = document.getElementById('nama_barang')

@@ -27,9 +27,8 @@ class BarangkeluarController extends Controller
     {
         $data = barangkeluar::all();
         $barang = Barang::all();
-        $pelanggan = Pelanggan::all();
-        return view('keluar.tambahbarangklr', compact('data','barang','pelanggan'));
 
+        return view('keluar.tambahbarangklr', compact('data', 'barang'));
     }
     public function insertbrgklr(Request $request)
     {
@@ -60,10 +59,11 @@ class BarangkeluarController extends Controller
         } else {
             $data = barangkeluar::create([
                 'nama_pelanggan' => $request->nama_pelanggan,
+                'kodetransaksi' => random_int(10000, 999999),
                 'nama_barang' => $request->nama_barang,
                 'kodebarang_keluar' => $request->kodebarang_keluar,
                 'merk_keluar' => $request->merk_keluar,
-                'kategoris_id' => $request->kategoris_id,
+
                 'harga_jual' => $request->harga_jual,
                 'jumlah' => $request->jumlah,
                 'total' => $request->total,
@@ -99,7 +99,7 @@ class BarangkeluarController extends Controller
         $data = barangkeluar::findOrFail($id);
         $barang = barang::all();
         $pelanggan = Pelanggan::all();
-        return view('keluar.editbarangklr', compact('data','barang','pelanggan'));
+        return view('keluar.editbarangklr', compact('data', 'barang', 'pelanggan'));
     }
 
 
@@ -128,10 +128,11 @@ class BarangkeluarController extends Controller
 
         $data->update([
             'nama_pelanggan' => $request->nama_pelanggan,
+            'kodetransaksi' => $request->kodetransaksi,
             'nama_barang' => $request->nama_barang,
             'kodebarang_keluar' => $request->kodebarang_keluar,
             'merk_keluar' => $request->merk_keluar,
-            'kategoris_id' => $request->kategoris_id,
+
             'harga_jual' => $request->harga_jual,
             'jumlah' => $request->jumlah,
             'total' => $request->total,
