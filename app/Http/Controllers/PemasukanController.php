@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\barangkeluar;
-use App\Models\Pemasukan;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Barryvdh\DomPDF\Facade\Pdf;
+
+use App\Models\Pemasukan;
+use PDF;
 use App\Exports\PemasukanExport;
-use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Facades\Excel; 
 
 
 

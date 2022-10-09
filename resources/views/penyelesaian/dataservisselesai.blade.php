@@ -6,6 +6,10 @@
             <div class="card custom-card overflow-hidden">
                 <div class="card-body">
                     <div>
+                        <div>
+                        {{-- <a href="/tambahbarang" class="btn btn-primary">Tambah</a> --}}
+                        <p class="text-muted card-sub-title"></p>
+                    </div>
 
                         <p class="text-muted card-sub-title"></p>
                     </div>
@@ -18,9 +22,7 @@
                                     <th class="wd-20p">Nama Barang</th>
                                     <th class="wd-25p">Merk</th>
                                     <th class="wd-20p">Kerusakan</th>
-                                    <th class="wd-15p">Status</th>
-                                    <th class="wd-20p">Biaya</th>
-                                    <th class="wd-20p">Aksi</th>
+                                    <th class="wd-15p">Biaya</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,16 +36,12 @@
                                         <td>{{ $row->namabarang }}</td>
                                         <td>{{ $row->merk }}</td>
                                         <td>{{ $row->kerusakan }}</td>
-                                        <td>{{ $row->status }}</td>
                                         <td>Rp.{{ number_format($row['biaya'], 2, '.', '.') }}</td>
-
                                         <td>
-                                            <a href="/edituserservis/{{ $row->id }}" class="btn btn-success mb-1"><i
-                                                    class="fas fa-pencil-alt"></i>edit</a><br>
-                                            <a href="/servisselesai/{{ $row->id }}" class="btn btn-success mb-1"><i
-                                                    class="fas fa-pencil-alt"></i>selesai</a>
-                                     
-                                    
+                                            <a href="/hapusservisselesai/{{ $row->id }}" class="btn btn-danger"
+                                                onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
+                                                    class="fas fa-trash-alt"></i>hapus</button></a>
+                                        </td>
                                     </tr>
                                 @endforeach
 
@@ -56,29 +54,4 @@
     </div>
 
     @include('sweetalert::alert')
-
-    {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-<script>
-        $('.delete').click(function() {
-            var id = $(this).attr('data-id');
-            var nama = $(this).attr('data-nama');
-            swal({
-                    title: "Yakin Mau Hapus?",
-                    text: "Kamu Akan Menghapus Data dengan nama " + nama + " ",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        swal("Data Berhasil Di hapus", {
-                            icon: "success",
-                        });
-                        window.location = "/deletet/" + id + ""
-                    } else {
-                        swal("Data Tidak Jadi Di hapus");
-                    }
-        });
-    </script> --}}
 @endsection

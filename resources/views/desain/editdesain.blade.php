@@ -75,19 +75,8 @@
                                     </div>
                                 </div>
                             </div>
-
-
-                            <div class="mb-4 main-content-label"></div>
-                            <div class="form-group mb-0">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="custom-controls-stacked">
-                                        </div>
-                                        <div class="mt-3">
-                                            <button type="submit"
-                                                class="btn ripple btn-main-primary active mr-1">Simpan</button>
+                                        <div class="text-center mt-4 mb-3">
+                                            <button type=" submit" class="btn ripple btn-main-primary active mr-1">Simpan</button>
                                             <a href="/datadesain" type="button" class="btn ripple btn-secondary">Batal</a>
                                         </div>
                                     </div>

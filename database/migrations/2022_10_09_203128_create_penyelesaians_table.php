@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pelanggans', function (Blueprint $table) {
+        Schema::create('penyelesaians', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_pelanggan')->nullable();
-            $table->string('notelpon')->nullable();
+            $table->string('namapemesan');
+            $table->string('permintaan');
+            $table->string('harga');
+            $table->string('keterangan');
+            $table->string('ukuran');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pelanggans');
+        Schema::dropIfExists('penyelesaians');
     }
 };

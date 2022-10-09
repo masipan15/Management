@@ -83,15 +83,17 @@
                             @error('harga_desain')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                    <div class="form-group mb-0">
-                        <div class="row row-sm">
-                            <div class="col-md-3">
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Status Pengerjaan</label>
+                                <div class="col-sm-10">
+                                    <input type="text" required name="status_pengerjaan" class="form-control" id="inputEmail3">
+                                </div>
                             </div>
-                            <div class="col-md-9">
-                                <div class="custom-controls-stacked">
-                                    </div>
-                                <div class="mt-3">
-                                    <button type="submit" class="btn ripple btn-main-primary active mr-1">Tambah</button>
+                            @error('status_pengerjaan')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                                    <div class="text-center mt-4 mb-3">
+                                        <button type="submit" class="btn ripple btn-main-primary active mr-1">Tambah</button>
                                     <a href="/datadesain" type="button" class="btn ripple btn-secondary">Batal</a>
                                 </div>
                             </div>

@@ -69,14 +69,20 @@
                             @error('kerusakan_barang')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            <div class="form-group mb-0">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Biaya</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                        <input type="number" name="biaya_pengerjaan" id="biaya_pengerjaan" class="form-control"
+                                            id="inputEmail3">
                                     </div>
-                                    <div class="col-md-9">
-                                        <div class="custom-controls-stacked">
-                                        </div>
-                                        <div class="mt-3">
+                                </div>
+                            </div>
+                            @error('biaya_pengerjaan')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                                        <div class="text-center mt-4 mb-3">
                                             <button type="submit"
                                                 class="btn ripple btn-main-primary active mr-1">Tambah</button>
                                             <a href="/dataservis" type="button" class="btn ripple btn-secondary">Batal</a>

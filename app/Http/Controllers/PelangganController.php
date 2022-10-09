@@ -11,8 +11,8 @@ class PelangganController extends Controller
     public function datapelanggan()
     {
         $data = pelanggan::all();
-        $barangkeluar = barangkeluar::all();
-        return view('pelanggan.datapelanggan', compact('data','barangkeluar'));
+
+        return view('pelanggan.datapelanggan', compact('data',));
     }
 
     public function editpelanggan($id)
@@ -20,7 +20,7 @@ class PelangganController extends Controller
         $data = pelanggan::findOrFail($id);
         $barangkeluar = barangkeluar::all();
 
-        return view('pelanggan.editpelanggan', compact('data','barangkeluar'));
+        return view('pelanggan.editpelanggan', compact('data', 'barangkeluar'));
     }
 
     public function updatepelanggan(request $request, $id)
@@ -39,5 +39,4 @@ class PelangganController extends Controller
         $data->delete();
         return redirect()->route('datapelanggan')->with('success', 'Data Berhasil Di Hapus');
     }
-
 }

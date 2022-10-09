@@ -25,22 +25,20 @@ class BarangkeluarController extends Controller
 
     public function tambahbrgklr()
     {
+        $data = barangkeluar::all();
         $barang = Barang::all();
-        $data = Barangkeluar::all();
         $pelanggan = Pelanggan::all();
         return view('keluar.tambahbarangklr', compact('data','barang','pelanggan'));
        
+
     }
     public function insertbrgklr(Request $request)
     {
 
         $validated = $request->validate([
-            'nama_barang' => 'required',
-            'harga_jual' => 'required',
-            'jumlah' => 'required',
+            
         ], [
             'nama_barang.required' => 'nama_barang Harus Diisi!',
-            'harga_jual.required' => 'harga Harus Diisi!',
             'jumlah.required' => 'jumlah Harus Diisi!',
         ]);
         $stok_kurang = Barang::find($request->nama_barang);
@@ -60,11 +58,12 @@ class BarangkeluarController extends Controller
         } else {
             $data = barangkeluar::create([
                 'nama_pelanggan' => $request->nama_pelanggan,
+                'kodetransaksi' => random_int(10000, 999999),
                 'nama_barang' => $request->nama_barang,
                 'kodebarang_keluar' => $request->kodebarang_keluar,
                 'merk_keluar' => $request->merk_keluar,
-                'kategoris_id' => $request->kategoris_id,
                 'harga_jual' => $request->harga_jual,
+                'stok' => $request->stok,
                 'jumlah' => $request->jumlah,
                 'total' => $request->total,
                 'created_at' => Carbon::parse(now())->isoformat('Y-M-DD')
@@ -99,7 +98,7 @@ class BarangkeluarController extends Controller
         $data = barangkeluar::findOrFail($id);
         $barang = barang::all();
         $pelanggan = Pelanggan::all();
-        return view('keluar.editbarangklr', compact('data','barang','pelanggan'));
+        return view('keluar.editbarangklr', compact('data', 'barang', 'pelanggan'));
     }
 
 
@@ -128,11 +127,13 @@ class BarangkeluarController extends Controller
 
         $data->update([
             'nama_pelanggan' => $request->nama_pelanggan,
+            'kodetransaksi' => $request->kodetransaksi,
             'nama_barang' => $request->nama_barang,
             'kodebarang_keluar' => $request->kodebarang_keluar,
             'merk_keluar' => $request->merk_keluar,
-            'kategoris_id' => $request->kategoris_id,
+
             'harga_jual' => $request->harga_jual,
+            'stok' => $request->stok,
             'jumlah' => $request->jumlah,
             'total' => $request->total,
         ]);

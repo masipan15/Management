@@ -36,7 +36,6 @@ class ServisController extends Controller
             'nama_pelanggan.required' => ' Harus Diisi!',
             'nama_barang.required' => ' Harus Diisi!',
             'merk_barang.required' => ' Harus Diisi!',
-            'status_pengerjaan.required' => ' Harus Diisi!',
             'kerusakan_barang.required' => ' Harus Diisi!',
 
         ]);
@@ -70,6 +69,7 @@ class ServisController extends Controller
             'nama_barang' => $request->nama_barang,
             'merk_barang' => $request->merk_barang,
             'kerusakan_barang' => $request->kerusakan_barang,
+            'status_pengerjaan' => $request->status_pengerjaan,
             'biaya_pengerjaan' => $request->biaya_pengerjaan,
             'created_at' => Carbon::parse(now())->isoformat('Y-M-DD')
 
@@ -79,7 +79,8 @@ class ServisController extends Controller
             'namabarang' => $request->nama_barang,
             'merk' => $request->merk_barang,
             'kerusakan' => $request->kerusakan_barang,
-            'status' => $request->status_pengerjaan,
+            'biaya' => $request->biaya_pengerjaan,
+            'status_pengerjaan' => $request->status_pengerjaan,
 
 
 
@@ -128,6 +129,8 @@ class ServisController extends Controller
             'nama_barang' => $request->nama_barang,
             'merk_barang' => $request->merk_barang,
             'kerusakan_barang' => $request->kerusakan_barang,
+            'biaya_pengerjaan' => $request->biaya_pengerjaan,
+
 
 
         ]);
@@ -137,6 +140,7 @@ class ServisController extends Controller
             'namabarang' => $request->nama_barang,
             'merk' => $request->merk_barang,
             'kerusakan' => $request->kerusakan_barang,
+            'biaya' => $request->biaya_pengerjaan,
         ]);
 
 

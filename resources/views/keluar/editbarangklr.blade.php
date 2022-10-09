@@ -33,110 +33,96 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Nama Pelanggan</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Pelanggan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="nama_pelanggan" id="nama_pelanggan"  value="{{ $data->nama_pelanggan }}" class="form-control"
-                                    id="inputEmail3">
+                                    <input type="text" name="nama_pelanggan" id="nama_pelanggan"
+                                        value="{{ $data->nama_pelanggan }}" class="form-control" id="inputEmail3">
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Nama Barang</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
                                 <div class="col-sm-10">
                                     <select class="form-control select2" required style="width:100%;" name="nama_barang"
-                                    class="" id="nama_barang">
-                                    <option value="" selected disabled>Pilih Nama Barang</option>
-                                    @foreach ($barang as $item)
-                                        <option value="{{ $item->id }}"
-                                            <?php if ($data->nama_barang == $item->id) {
+                                        class="" id="nama_barang">
+                                        <option value="" selected disabled>Pilih Nama Barang</option>
+                                        @foreach ($barang as $item)
+                                            <option value="{{ $item->id }}" <?php if ($data->nama_barang == $item->id) {
                                                 echo 'selected';
                                             } ?>
-                                            data-harga_jual="{{ $item->hargajual }}"
-                                            data-kodebarang_keluar="{{ $item->kodebarang }}"
-                                            data-merk_keluar="{{ $item->merk }}"
-                                            data-kategoris_id="{{ $item->kategori->kategori }}">
-                                            {{ $item->namabarang }}</option>
-                                    @endforeach
-                                </select>
+                                                data-harga_jual="{{ $item->hargajual }}"
+                                                data-kodebarang_keluar="{{ $item->kodebarang }}"
+                                                data-merk_keluar="{{ $item->merk }}"
+                                                data-stok="{{ $item->stok }}"
+                                                data-kategoris_id="{{ $item->kategori->kategori }}">
+                                                {{ $item->namabarang }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Kode Barang</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Barang</label>
                                 <div class="col-sm-10">
-                                    <input type="text" readonly name="kodebarang_keluar" id="kodebarang_keluar"  value="{{ $data->kodebarang_keluar }}" class="form-control"
-                                    id="inputEmail3">
+                                    <input type="text" readonly name="kodebarang_keluar" id="kodebarang_keluar"
+                                        value="{{ $data->kodebarang_keluar }}" class="form-control" id="inputEmail3">
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Merk</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Merk</label>
                                 <div class="col-sm-10">
-                                    <input type="text" readonly name="merk_keluar" id="merk_keluar"  value="{{ $data->merk_keluar }}" class="form-control"
-                                    id="inputEmail3">
+                                    <input type="text" readonly name="merk_keluar" id="merk_keluar"
+                                        value="{{ $data->merk_keluar }}" class="form-control" id="inputEmail3">
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Kategori</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="kategoris_id" readonly id="kategoris_id"  value="{{ $data->kategoris_id }}" class="form-control"
-                                    id="inputEmail3">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Harga</label>
-                                <div class="col-sm-10">
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text"  id="basic-addon1">Rp.</span>
-                                        <input type="number" name="harga_jual" readonly id="harga_jual"  value="{{ $data->harga_jual }}" class="form-control"
-                                    id="inputEmail3">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Jumlah</label>
-                                <div class="col-sm-10">
-                                    <input type="number" name="jumlah" id="jumlah"  value="{{ $data->jumlah }}" class="form-control"
-                                    id="inputEmail3">
-                                </div>
-                            </div>
-                                @error('jumlah')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            <div class="row mb-3">
-                                <label for="inputEmail3"
-                                    class="col-sm-2 col-form-label">Total</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga</label>
                                 <div class="col-sm-10">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                        <input type="text" name="total" readonly id="total" value="{{ $data->total }}" class="form-control"
-                                    id="inputEmail3">
+                                        <input type="number" name="harga_jual" readonly id="harga_jual"
+                                            value="{{ $data->harga_jual }}" class="form-control" id="inputEmail3">
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group mb-0">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Stok</label>
+                                <div class="col-sm-10">
+                                    <input type="number" name="stok" id="stok" readonly value="{{ $data->stok }}"
+                                        class="form-control" id="inputEmail3">
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Jumlah</label>
+                                <div class="col-sm-10">
+                                    <input type="number" name="jumlah" id="jumlah" value="{{ $data->jumlah }}"
+                                        class="form-control" id="inputEmail3">
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Total</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                        <input type="text" name="total" readonly id="total"
+                                            value="{{ $data->total }}" class="form-control" id="inputEmail3">
                                     </div>
-                                    <div class="col-md-9">
-                                        <div class="custom-controls-stacked">
-                                            </div>
-                                        <div class="mt-3">
-                                            <button type="submit" class="btn ripple btn-main-primary active mr-1">Simpan</button>
-                                            <a href="/barangkeluar" type="button" class="btn ripple btn-secondary">Batal</a>
+                                </div>
+                            </div>
+                                        <div class="text-center mt-4 mb-3">
+                                            <button type="submit"
+                                                class="btn ripple btn-main-primary active mr-1">Simpan</button>
+                                            <a href="/barangkeluar" type="button"
+                                                class="btn ripple btn-secondary">Batal</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        </form>
                     </div>
+                    </form>
                 </div>
             </div>
+        </div>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -170,15 +156,15 @@
                 const harga = e.target.options[e.target.selectedIndex].dataset.harga_jual
                 const kodebarang = e.target.options[e.target.selectedIndex].dataset.kodebarang_keluar
                 const merk = e.target.options[e.target.selectedIndex].dataset.merk_keluar
+                const stok = e.target.options[e.target.selectedIndex].dataset.stok
                 const kategoris_id = e.target.options[e.target.selectedIndex].dataset.kategoris_id
                 document.getElementById('harga_jual').value = harga;
                 document.getElementById('kodebarang_keluar').value = kodebarang;
-                document.getElementById('merk_keluar').value = merk;
-                document.getElementById('kategoris_id').value = kategoris_id    ;
+                document.getElementById('stok').value = stok;
+                document.getElementById('kategoris_id').value = kategoris_id;
             }
         </script>
     </body>
 
     </html>
 @endsection
-

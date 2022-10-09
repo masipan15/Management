@@ -59,14 +59,7 @@
                             @error('notelpon')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            <div class="form-group mb-0">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="custom-controls-stacked">
-                                        </div>
-                                        <div class="mt-3">
+                                        <div class="text-center mt-4 mb-3">
                                             <button type="submit"
                                                 class="btn ripple btn-main-primary active mr-1">Tambah</button>
                                             <a href="/datasupplier" type="button"

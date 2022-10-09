@@ -15,10 +15,10 @@
                                 <tr>
                                     <th class="wd-20p">No</th>
                                     <th class="wd-20p">Nama Pelanggan</th>
-                                    <th class="wd-20p">Kode Barang</th>
+                                    <th class="wd-20p">Kode Transaksi</th>
                                     <th class="wd-20p">Nama Barang</th>
+                                    <th class="wd-20p">Kode Barang</th>
                                     <th class="wd-20p">Merk</th>
-                                    <th class="wd-20p">Kategori</th>
                                     <th class="wd-25p">Harga Jual</th>
                                     <th class="wd-20p">Jumlah</th>
                                     <th class="wd-15p">Total</th>
@@ -35,10 +35,11 @@
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->nama_pelanggan }}</td>
-                                        <td>{{ $row->kodebarang_keluar }}</td>
+                                        <td>{{ $row->kodetransaksi }}</td>
                                         <td>{{ $row->namabarangs->namabarang }}</td>
+                                        <td>{{ $row->kodebarang_keluar }}</td>
                                         <td>{{ $row->merk_keluar }}</td>
-                                        <td>{{ $row->kategoris_id }}</td>
+
                                         <td>Rp.{{ number_format($row['harga_jual'], 2, '.', '.') }}</td>
                                         <td>{{ $row->jumlah }}</td>
                                         <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>

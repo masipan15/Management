@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('barangkeluars', function (Blueprint $table) {
             $table->id();
-            $table->integer('nama_pelanggan');
+            $table->string('kodetransaksi')->nullable();
+            $table->string('nama_pelanggan')->nullable();
             $table->string('kodebarang_keluar');
             $table->string('nama_barang');
             $table->string('merk_keluar');
-            $table->string('kategoris_id');
             $table->string('harga_jual');
+            $table->string('stok');
             $table->bigInteger('jumlah');
             $table->bigInteger('total');
             $table->timestamps();

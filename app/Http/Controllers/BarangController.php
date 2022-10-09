@@ -14,94 +14,6 @@ use App\Http\Controllers\Controller;
 
 class BarangController extends Controller
 {
-    // public function databarang()
-    // {
-
-    //     $data = Barang::all();
-    //     return view('barang.databarang', compact('data'));
-    // }
-    // public function tambahbarang()
-    // {
-    //     $data = Barang::all();
-    //     return view('barang.tambahdatabarang', compact('data'));
-    // }
-    // public function insertbarang(Request $request)
-    // {
-    //     $request->validate([
-    //         'kodebarang' => 'unique:barangs',
-    //         'namabarang' => 'required',
-    //         'kategori_id' => 'required',
-    //         'harga' => 'required',
-    //         'hargajual' => 'required',
-    //         'stok' => 'required',
-    //         'foto1' => 'required|mimes:jpg,png,webp,jpeg',
-    //     ], [
-
-    //         'kodebarang.unique' => 'Kode Barang Sudah digunakan.',
-
-    //         'foto1.mimes' => 'wajib jpg,png,webp,jpeg',
-    //     ]);
-    //     $data = Barang::create([
-    //         'kodebarang' => random_int(1000, 999999),
-    //         'namabarang' => $request->namabarang,
-    //         'harga' => $request->harga,
-    //         'hargajual' => $request->hargajual,
-    //         'stok' =>  $request->hargajual,
-    //         'foto1' => $request->foto1
-    //     ]);
-    //     if ($request->hasfile('foto1')) {
-    //         $request->file('foto1')->move('fotobarang/', $request->file('foto1')->getClientOriginalName());
-    //         $data->foto1 = $request->file('foto1')->getClientOriginalName();
-    //         $data->save();
-    //     }
-    //     dd($data);
-    //     return redirect()->route('index')->with('success', 'Data Berhasil Ditambahkan');
-    // }
-    // public function editbarang($id)
-    // {
-    //     $data = Barang::findOrFail($id);
-
-    //     return view('barang.editdatabarang', compact('kategori', 'data'));
-    // }
-    // public function updatebarang(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'kodebarang' => ['required', Rule::unique('barangs')->ignore($id)],
-    //         'foto1' => 'image'
-    //     ], [
-    //         'kodebarang.required' => 'Kode Barang Harus diisi!',
-    //         'kodebarang.unique' => 'Kode Barang Sudah Dipakai!',
-    //         'foto1.image' => 'Harus bertipe Gambar!'
-    //     ]);
-    //     $data = Barang::find($id);
-    //     $data->update([
-    //         'kodebarang' => $request->kodebarang,
-    //         'namabarang' => $request->namabarang,
-    //         'harga' => $request->harga,
-    //         'hargajual' => $request->hargajual,
-    //         'stok' => $request->stok
-
-    //     ]);
-    //     if ($request->hasfile('foto1')) {
-    //         $request->file('foto1')->move('fotobarang/', $request->file('foto1')->getClientOriginalName());
-    //         $data->foto1 = $request->file('foto1')->getClientOriginalName();
-    //         $data->save();
-    //     }
-    //     return redirect()->route('index')->with('success', 'Data Berhasil Di Ubah');
-    // }
-    // public function deletese($id)
-    // {
-    //     $count = Barangmasuk::where('keterangan', $id)->count();
-    //     $kont = Barangkeluar::where('nama_barang', $id)->count();
-    //     if ($count > 0) {
-    //         return back()->with('error', 'Kode Barang sedang digunakan');
-    //     } elseif ($kont > 0) {
-    //         return back()->with('error', 'Kode barang sedang digunakan');
-    //     }
-    //     $data = Barang::find($id);
-    //     $data->delete();
-    //     return redirect()->route('index')->with('success', 'Data Berhasil Dihapus');
-    // }
 
     public function databarang()
     {
@@ -114,7 +26,7 @@ class BarangController extends Controller
     {
         $data = Barang::all();
         $kategori = kategori::all();
-        return view('barang.tambahdatabarang', compact('data','kategori'));
+        return view('barang.tambahdatabarang', compact('data', 'kategori'));
     }
 
     public function insertbarang(Request $request)
@@ -127,7 +39,6 @@ class BarangController extends Controller
             'deskripsi' => 'required',
             'harga' => 'required',
             'hargajual' => 'required',
-            'stok' => 'required',
             'foto1' => 'required|mimes:jpg,png,jpeg,jfif,webp',
         ], [
             'kategoris_id.required' => 'kategori Harus Diisi!',
@@ -147,8 +58,8 @@ class BarangController extends Controller
             'merk' => $request->merk,
             'deskripsi' => $request->deskripsi,
             'harga' => $request->harga,
+            'stok' => 0,
             'hargajual' => $request->hargajual,
-            'stok' => $request->stok,
             'foto1' => $request->foto1,
         ]);
         if ($request->hasFile('foto1')) {
@@ -165,7 +76,7 @@ class BarangController extends Controller
         $data = Barang::findOrFail($id);
         $kategori = kategori::all();
 
-        return view('barang.editdatabarang', compact('data','kategori'));
+        return view('barang.editdatabarang', compact('data', 'kategori'));
     }
     public function updatebarang(request $request, $id)
     {

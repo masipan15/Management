@@ -68,6 +68,7 @@ class DesainController extends Controller
             'ukuran_desain' => $request->ukuran_desain,
             'permintaan_desain' => $request->permintaan_desain,
             'keterangan' => $request->keterangan,
+            'status_pengerjaan' => $request->status_pengerjaan,
             'harga_desain' => $request->harga_desain,
             'created_at' => Carbon::parse(now())->isoformat('Y-M-DD')
 
@@ -80,6 +81,7 @@ class DesainController extends Controller
             'permintaan' => $request->permintaan_desain,
             'keterangan' => $request->keterangan,
             'harga' => $request->harga_desain,
+            'status_pengerjaan' => $request->status_pengerjaan,
 
 
 
