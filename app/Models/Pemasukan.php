@@ -14,4 +14,6 @@ class Pemasukan extends Model
         'tahun',
         'total'
     ];
+
+
 }

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('userdesains', function (Blueprint $table) {
             $table->id();
             $table->string('namapemesan');
+            $table->string('namapedesains')->nullable();
             $table->string('permintaan');
             $table->string('harga');
             $table->string('keterangan');

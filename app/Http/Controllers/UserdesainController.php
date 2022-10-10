@@ -30,6 +30,7 @@ class UserdesainController extends Controller
         $data = Userdesain::findOrFail($id);
         $data->update([
             'namapemesan' => $request->namapemesan,
+            'namapedesains' => $request->namapedesains,
             'permintaan' => $request->permintaan,
             'harga' => $request->harga,
             'keterangan' => $request->keterangan,
@@ -40,7 +41,8 @@ class UserdesainController extends Controller
         $ipan = desain::findOrFail($id);
         $ipan->update([
             'status_pengerjaan' => $request->status,
-            'harga_desain' => $request->harga
+            'harga_desain' => $request->harga,
+            'namapedesain' => $request->namapedesains
         ]);
         return redirect()->route('datauserdesain')->with('success', 'Data berhasil di Update!');
     }
@@ -58,7 +60,7 @@ class UserdesainController extends Controller
     public function masukpenyelesaiandesain($id)
     {
         $data = Userdesain::findOrFail($id);
-        $tes=  penyelesaian::create([
+        $tes =  penyelesaian::create([
             'namapemesan' => $data->namapemesan,
             'permintaan' => $data->permintaan,
             'harga' => $data->harga,
@@ -66,7 +68,7 @@ class UserdesainController extends Controller
             'ukuran' => $data->ukuran,
             'status' => $data->status,
         ]);
-        // dd($tes);    
+        // dd($tes);
         return redirect()->route('datauserdesain')->with('success', 'Data Sudah Selesai');
     }
 

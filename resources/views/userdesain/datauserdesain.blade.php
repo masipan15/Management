@@ -14,7 +14,9 @@
                             <thead>
                                 <tr>
                                     <th class="wd-20p">No</th>
+                                    <th class="wd-20p">Tanggal</th>
                                     <th class="wd-20p">Nama Pemesan</th>
+                                    <th class="wd-20p">Nama Pedesain</th>
                                     <th class="wd-20p">Permintaan</th>
                                     <th class="wd-25p">Keterangan</th>
                                     <th class="wd-20p">Ukuran</th>
@@ -30,7 +32,9 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
+                                        <td>{{ $row->created_at->format('d/m/y') }}</td>
                                         <td>{{ $row->namapemesan }}</td>
+                                        <td>{{ $row->namapedesains }}</td>
                                         <td>{{ $row->permintaan }}</td>
                                         <td>{{ $row->keterangan }}</td>
                                         <td>{{ $row->ukuran }}</td>
@@ -42,9 +46,9 @@
                                                     class="fas fa-pencil-alt"></i>edit</a><br>
                                             <a href="/prosesselesai/{{ $row->id }}" class="btn btn-danger mb-1"><i
                                                     class="fas fa-pencil-alt"></i>selesai</a>
-                                            
 
-                                            
+
+
                                         </td>
                                     </tr>
                                 @endforeach

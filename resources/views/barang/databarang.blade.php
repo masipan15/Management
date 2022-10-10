@@ -50,7 +50,8 @@
                                         <td>Rp.{{ number_format($row['hargajual'], 2, '.', '.') }}</td>
                                         <td><a href="#/{{ $row->id }}" value="{{ route('show', ['id' => $row->id]) }}"
                                                 class="modalMd" title="Lihat Deskripsi Barang" data-toggle="modal"
-                                                data-target="#modalMd{{ $row->id }}"><i class="fas fa-eye text-success  fa-lg"></i>
+                                                data-target="#modalMd{{ $row->id }}"><i
+                                                    class="fas fa-eye text-success  fa-lg"></i>
                                             </a></a>
 
 
@@ -62,14 +63,16 @@
                                                     class="fas fa-trash-alt"></i>hapus</button></a>
                                         </td>
                                     </tr>
-                                    <div class="modal fade" id="modalMd{{ $row->id }}" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal fade" id="modalMd{{ $row->id }}" role="dialog"
+                                        aria-labelledby="myModalLabel">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     {{ $row->namabarang }}
                                                     <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    <h4 class="modal-title" id="modalMdTitle"></h4>
+                                                        aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                        <h4 class="modal-title" id="modalMdTitle"></h4>
+                                                    </button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="modalError"></div>

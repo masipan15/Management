@@ -13,7 +13,9 @@
                             <thead>
                                 <tr>
                                     <th class="wd-20p">No</th>
+                                    <th class="wd-20p">Tanggal</th>
                                     <th class="wd-25p">Nama Pemesan</th>
+                                    <th class="wd-25p">Nama Pedesain</th>
                                     <th class="wd-25p">Ukuran Desain</th>
                                     <th class="wd-25p">Permintaan Desain</th>
                                     <th class="wd-20p">Keterangan</th>
@@ -30,7 +32,9 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
+                                        <td>{{ $row->created_at->format('d/m/y') }}</td>
                                         <td>{{ $row->nama_pemesan }}</td>
+                                        <td>{{ $row->namapedesain }}</td>
                                         <td>{{ $row->ukuran_desain }}</td>
                                         <td>{{ $row->permintaan_desain }}</td>
                                         <td>{{ $row->keterangan }}</td>

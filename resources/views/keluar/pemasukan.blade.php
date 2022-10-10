@@ -15,7 +15,7 @@
                         <a href="/exportexcelm" class="btn btn-success">Export Excel</a>
                         <p class="text-muted card-sub-title"></p>
                     </div>
-                       
+
 
                     <div class="table-responsive">
                         <table class="table" id="example1">
@@ -25,6 +25,7 @@
                                     <th class="wd-20p">Tanggal</th>
                                     <th class="wd-25p">Bulan</th>
                                     <th class="wd-20p">Tahun</th>
+                                    <th class="wd-20p">Pemasukan Dari</th>
                                     <th class="wd-15p">Total</th>
 
 
@@ -34,12 +35,13 @@
                                 @php
                                     $no = 1;
                                 @endphp
-                                @foreach ($pemasukan as $row)
+                                @foreach ($array as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        <td>{{ $row->tanggal }}</td>
-                                        <td>{{ $row->bulan }}</td>
-                                        <td>{{ $row->tahun }}</td>
+                                        <td>{{ $row['tanggal'] }}</td>
+                                        <td>{{ $row['bulan'] }}</td>
+                                        <td>{{ $row['tahun'] }}</td>
+                                        <td>{{ $row['type'] }}</td>
                                         <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
 
 

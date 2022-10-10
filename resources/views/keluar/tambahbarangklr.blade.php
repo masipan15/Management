@@ -43,7 +43,7 @@
                                             class="" id="nama_barang">
                                             <option value="" selected disabled>Pilih Nama Barang</option>
                                             @foreach ($barang as $item)
-                                                <option value="{{ $item->id }}" data-harga_jual="{{ $item->hargajual }}"
+                                                <option value="{{ $item->namabarang }}" data-harga_jual="{{ $item->hargajual }}"
                                                     data-kodebarang_keluar="{{ $item->kodebarang }}"
                                                     data-merk_keluar="{{ $item->merk }}"
                                                     data-stok="{{ $item->stok }}"
@@ -159,10 +159,10 @@
                                             class="" id="nama_barang">
                                             <option value="" selected disabled>Pilih Nama Barang</option>
                                             @foreach ($barang as $item)
-                                                <option value="{{ $item->id }}" data-harga_jual="{{ $item->hargajual }}"
-                                                    data-kodebarang_keluar="{{ $item->kodebarang }}"
-                                                    data-merk_keluar="{{ $item->merk }}"
-                                                    data-kategoris_id="{{ $item->kategori->kategori }}">
+                                                <option value="{{ $item->id }}" data-harga_jual='{{ $item->hargajual }}''
+                                                    data-kodebarang_keluar='{{ $item->kodebarang }}''
+                                                    data-merk_keluar='{{ $item->merk }}''
+                                                    data-kategoris_id='{{ $item->kategori->kategori }}''>
                                                     {{ $item->namabarang }}</option>
                                             @endforeach
                                         </select>
@@ -178,7 +178,7 @@
                                                 <p class="form-label">Kode Barang</p>
                                                 <input class="form-control text-center"  required
                                                     name="kodebarang_keluar" type="text" id="kodebarang_keluar">
-                                            </div> 
+                                            </div>
                                             <div class="col-lg mg-t-10 mg-lg-t-0">
                                                 <p class="form-label">Merk</p>
                                                 <input class="form-control text-center"  required name="merk_keluar"
@@ -215,6 +215,19 @@
 
             const selection = document.getElementById('nama_barang')
             selection.onchange = function(e) {
+                const harga = e.target.options[e.target.selectedIndex].dataset.harga_jual
+                const kodebarang = e.target.options[e.target.selectedIndex].dataset.kodebarang_keluar
+                const merk = e.target.options[e.target.selectedIndex].dataset.merk_keluar
+                const stok = e.target.options[e.target.selectedIndex].dataset.stok
+                const kategoris_id = e.target.options[e.target.selectedIndex].dataset.kategoris_id
+                document.getElementById('harga_jual').value = harga;
+                document.getElementById('kodebarang_keluar').value = kodebarang;
+                document.getElementById('stok').value = stok;
+                document.getElementById('merk_keluar').value = merk;
+                document.getElementById('kategoris_id').value = kategoris_id;
+            }
+            const selection2 = document.getElementById('nama_barang');
+            selection2.onchange = function(e) {
                 const harga = e.target.options[e.target.selectedIndex].dataset.harga_jual
                 const kodebarang = e.target.options[e.target.selectedIndex].dataset.kodebarang_keluar
                 const merk = e.target.options[e.target.selectedIndex].dataset.merk_keluar

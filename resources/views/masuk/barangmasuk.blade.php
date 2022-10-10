@@ -13,7 +13,8 @@
                         <table class="table" id="example1">
                             <thead>
                                 <tr>
-                                    <th class="wd-20p">No</th>
+                                    <th class="wd-1p">No</th>
+                                    <th class="wd-20p">Tanggal</th>
                                     <th class="wd-25p">Nama Supplier</th>
                                     <th class="wd-20p">Nama Barang</th>
                                     <th class="wd-20p">Kategori</th>
@@ -21,7 +22,6 @@
                                     <th class="wd-25p">Jumlah</th>
                                     <th class="wd-20p">Harga</th>
                                     <th class="wd-15p">Total</th>
-                                    <th class="wd-20p">Tanggal</th>
                                     <th class="wd-20p">Aksi</th>
                                 </tr>
                             </thead>
@@ -36,6 +36,7 @@
                                             <img src="{{ asset('fotobrgmsk/' . $row->foto) }}" alt=""
                                                 style="width: 50px;">
                                         </td> --}}
+                                        <td>{{ $row->created_at->format('d/m/y') }}</td>
                                         <td>{{ $row->supplier ? $row->supplier->nama_supplier : 'Data Tidak Ada' }}</td>
                                         <td>{{ $row->barang ? $row->barang->namabarang : 'Data Tidak Ada' }}</td>
                                         <td>{{ $row->kategoris_id }}</td>
@@ -43,13 +44,11 @@
                                         <td>{{ $row->jumlah }}</td>
                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
                                         <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
-                                        <td>{{ $row->created_at->format('d/m/y') }}</td>
 
 
                                         <td>
-                                            <a href="/editbrgmsk/{{ $row->id }}"
-                                            class="btn btn-success mb-1"><i
-                                                class="fas fa-pencil-alt"></i>edit</a><br>
+                                            <a href="/editbrgmsk/{{ $row->id }}" class="btn btn-success mb-1"><i
+                                                    class="fas fa-pencil-alt"></i>edit</a><br>
                                             <a href="/deletee/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                     class="fas fa-trash-alt"></i>hapus</button></a>
