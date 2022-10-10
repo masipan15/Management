@@ -41,28 +41,8 @@ class DesainController extends Controller
 
         ]);
 
-        $tanggal = Carbon::parse(now())->isoformat('DD');
-        $bulan = Carbon::parse(now())->isoformat('MMMM');
-        $tahun = Carbon::parse(now())->isoformat('Y');
-        $pemasukan = Pemasukan::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun)->first();
 
-        $hariini = Carbon::parse(now())->isoformat('Y-M-DD');
-        $barangkeluar = barangkeluar::where('created_at', $hariini)->sum('total');
-        $desain = desain::where('created_at', $hariini)->sum('harga_desain');
-        $servis = servis::where('created_at', $hariini)->sum('biaya_pengerjaan');
-        // if (!$pemasukan) {
-        Pemasukan::create([
-            'tanggal' => $request->permintaan_desain,
-            'bulan' => $bulan,
-            'tahun' => $tahun,
-            'total' => $request->harga_desain
-        ]);
-        // } else {
-        //     $update = Pemasukan::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun);
-        //     $update->update([
-        //         'total' => $barangkeluar + $request->harga_desain + $desain + $servis,
-        //     ]);
-        // }
+
         $data = desain::create([
             'nama_pemesan' => $request->nama_pemesan,
             'ukuran_desain' => $request->ukuran_desain,
@@ -96,18 +76,6 @@ class DesainController extends Controller
     public function updatedesain(request $request, $id)
     {
         $data = desain::findorfail($id);
-
-        $tanggal = Carbon::parse(now())->isoformat('DD');
-        $bulan = Carbon::parse(now())->isoformat('MMMM');
-        $tahun = Carbon::parse(now())->isoformat('Y');
-        $pemasukan = Pemasukan::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun)->first();
-
-        $hariini = Carbon::parse(now())->isoformat('Y-M-DD');
-        $barangkeluar = barangkeluar::where('created_at', $hariini)->sum('total');
-        $desain = desain::where('created_at', $hariini)->sum('harga_desain');
-        $servis = servis::where('created_at', $hariini)->sum('biaya_pengerjaan');
-        $hasilakhir = $request->harga_desain - $data->harga_desain;
-        // if ($pemasukan) {
         $update = Pemasukan::find($id);
         $update->update([
             'total' => $request->harga_desain,
@@ -129,14 +97,7 @@ class DesainController extends Controller
             $data->fotod = $request->file('fotod')->getClientOriginalName();
             $data->save();
         }
-        // $ipan = Userdesain::findorfail($id);
-        // $ipan->update([
-        //     'namapemesan' => $request->nama_pemesan,
-        //     'ukuran' => $request->ukuran_desain,
-        //     'permintaan' => $request->permintaan_desain,
-        //     'keterangan' => $request->keterangan,
-
-        // ]);
+     
 
         return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
     }

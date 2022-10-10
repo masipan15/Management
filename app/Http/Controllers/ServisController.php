@@ -43,28 +43,7 @@ class ServisController extends Controller
         ]);
 
 
-        $tanggal = Carbon::parse(now())->isoformat('DD');
-        $bulan = Carbon::parse(now())->isoformat('MMMM');
-        $tahun = Carbon::parse(now())->isoformat('Y');
-        $pemasukan = Pemasukan::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun)->first();
 
-        $hariini = Carbon::parse(now())->isoformat('Y-M-DD');
-        $barangkeluar = barangkeluar::where('created_at', $hariini)->sum('total');
-        $desain = desain::where('created_at', $hariini)->sum('harga_desain');
-        $servis = servis::where('created_at', $hariini)->sum('biaya_pengerjaan');
-        if (!$pemasukan) {
-            Pemasukan::create([
-                'tanggal' => $tanggal,
-                'bulan' => $bulan,
-                'tahun' => $tahun,
-                'total' => $barangkeluar + $request->biaya_pengerjaan + $desain + $servis,
-            ]);
-        } else {
-            $update = Pemasukan::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun);
-            $update->update([
-                'total' => $barangkeluar + $request->biaya_pengerjaan + $desain + $servis,
-            ]);
-        }
 
         $data = servis::create([
             'nama_pelanggan' => $request->nama_pelanggan,
@@ -114,22 +93,7 @@ class ServisController extends Controller
     {
         $data = servis::find($id);
 
-        $tanggal = Carbon::parse(now())->isoformat('dddd');
-        $bulan = Carbon::parse(now())->isoformat('MMMM');
-        $tahun = Carbon::parse(now())->isoformat('Y');
-        $pemasukan = Pemasukan::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun)->first();
 
-        $hariini = Carbon::parse(now())->isoformat('Y-M-DD');
-        $barangkeluar = barangkeluar::where('created_at', $hariini)->sum('total');
-        $desain = desain::where('created_at', $hariini)->sum('harga_desain');
-        $servis = servis::where('created_at', $hariini)->sum('biaya_pengerjaan');
-        $hasilakhir = $request->biaya_pengerjaan - $data->biaya_pengerjaan;
-        if ($pemasukan) {
-            $update = Pemasukan::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun);
-            $update->update([
-                'total' => $barangkeluar + $hasilakhir + $desain + $servis,
-            ]);
-        }
 
         $data->update([
             'nama_pelanggan' => $request->nama_pelanggan,
@@ -144,7 +108,7 @@ class ServisController extends Controller
             $data->fotos = $request->file('fotos')->getClientOriginalName();
             $data->save();
         }
-       
+
         // $ipan = Userservis::findorfail($id);
         // $ipan->update([
         //     'namapelanggan' => $request->nama_pelanggan,
@@ -176,7 +140,7 @@ class ServisController extends Controller
     public function masukservisselesai($id)
     {
         $data = servis::findOrFail($id);
-        $tes=  servisselesai::create([
+        $tes =  servisselesai::create([
             'nama_pelanggan' => $data->nama_pelanggan,
             'namaservis' => $data->namaservis,
             'nama_barang' => $data->nama_barang,
@@ -184,7 +148,7 @@ class ServisController extends Controller
             'kerusakan_barang' => $data->kerusakan_barang,
             'biaya_pengerjaan' => $data->biaya_pengerjaan,
         ]);
-        // dd($tes);    
+        // dd($tes);
         return redirect()->route('dataservis')->with('success', 'Data Sudah Selesai');
     }
 
