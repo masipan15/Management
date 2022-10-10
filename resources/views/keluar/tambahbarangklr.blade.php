@@ -46,6 +46,7 @@
                                                 <option value="{{ $item->id }}" data-harga_jual="{{ $item->hargajual }}"
                                                     data-kodebarang_keluar="{{ $item->kodebarang }}"
                                                     data-merk_keluar="{{ $item->merk }}"
+                                                    data-stok="{{ $item->stok }}"
                                                     data-kategoris_id="{{ $item->kategori->kategori }}">
                                                     {{ $item->namabarang }}</option>
                                             @endforeach
@@ -74,14 +75,19 @@
                                                     id="harga_jual" type="number">
                                             </div>
                                             <div class="col-lg mg-t-10 mg-lg-t-0">
+                                                <p class="form-label">Stok</p>
+                                                <input class="form-control text-center" readonly required name="stok"
+                                                    id="stok" type="number">
+                                            </div>
+                                            <div class="col-lg mg-t-10 mg-lg-t-0">
                                                 <p class="form-label">Jumlah</p>
                                                 <input class="form-control text-center" required name="jumlah"
-                                                    id="jumlah" type="text">
+                                                    id="jumlah" type="number">
                                             </div>
                                             <div class="col-lg mg-t-10 mg-lg-t-0">
                                                 <p class="form-label">Total</p>
-                                                <input class="form-control text-center" required name="total"
-                                                    id="total" type="text">
+                                                <input class="form-control text-center" readonly required name="total"
+                                                    id="total" type="number">
                                             </div>
 
                                         </div>
@@ -205,9 +211,11 @@
                 const harga = e.target.options[e.target.selectedIndex].dataset.harga_jual
                 const kodebarang = e.target.options[e.target.selectedIndex].dataset.kodebarang_keluar
                 const merk = e.target.options[e.target.selectedIndex].dataset.merk_keluar
+                const stok = e.target.options[e.target.selectedIndex].dataset.stok
                 const kategoris_id = e.target.options[e.target.selectedIndex].dataset.kategoris_id
                 document.getElementById('harga_jual').value = harga;
                 document.getElementById('kodebarang_keluar').value = kodebarang;
+                document.getElementById('stok').value = stok;
                 document.getElementById('merk_keluar').value = merk;
                 document.getElementById('kategoris_id').value = kategoris_id;
             }

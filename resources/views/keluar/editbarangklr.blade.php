@@ -52,6 +52,7 @@
                                                 data-harga_jual="{{ $item->hargajual }}"
                                                 data-kodebarang_keluar="{{ $item->kodebarang }}"
                                                 data-merk_keluar="{{ $item->merk }}"
+                                                data-stok="{{ $item->stok }}"
                                                 data-kategoris_id="{{ $item->kategori->kategori }}">
                                                 {{ $item->namabarang }}</option>
                                         @endforeach
@@ -83,15 +84,21 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Stok</label>
+                                <div class="col-sm-10">
+                                    <input type="number" name="stok" id="stok" readonly value="{{ $data->stok }}"
+                                        class="form-control" id="inputEmail3">
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Jumlah</label>
                                 <div class="col-sm-10">
                                     <input type="number" name="jumlah" id="jumlah" value="{{ $data->jumlah }}"
                                         class="form-control" id="inputEmail3">
                                 </div>
                             </div>
-                            @error('jumlah')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                            
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Total</label>
                                 <div class="col-sm-10">
@@ -102,14 +109,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group mb-0">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="custom-controls-stacked">
-                                        </div>
-                                        <div class="mt-3">
+                                        <div class="text-center mt-4 mb-3">
                                             <button type="submit"
                                                 class="btn ripple btn-main-primary active mr-1">Simpan</button>
                                             <a href="/barangkeluar" type="button"
@@ -156,10 +156,11 @@
                 const harga = e.target.options[e.target.selectedIndex].dataset.harga_jual
                 const kodebarang = e.target.options[e.target.selectedIndex].dataset.kodebarang_keluar
                 const merk = e.target.options[e.target.selectedIndex].dataset.merk_keluar
+                const stok = e.target.options[e.target.selectedIndex].dataset.stok
                 const kategoris_id = e.target.options[e.target.selectedIndex].dataset.kategoris_id
                 document.getElementById('harga_jual').value = harga;
                 document.getElementById('kodebarang_keluar').value = kodebarang;
-                document.getElementById('merk_keluar').value = merk;
+                document.getElementById('stok').value = stok;
                 document.getElementById('kategoris_id').value = kategoris_id;
             }
         </script>

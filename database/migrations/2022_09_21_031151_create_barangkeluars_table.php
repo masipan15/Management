@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('nama_barang');
             $table->string('merk_keluar');
             $table->string('harga_jual');
+            $table->string('stok');
             $table->bigInteger('jumlah');
             $table->bigInteger('total');
             $table->timestamps();

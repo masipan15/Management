@@ -143,7 +143,7 @@
             @endif
             @if (auth()->user()->role == 'admin')
                 <li class="nav-item {{ Route::is('datasupplier') ? 'active' : '' }}">
-                    <a class="nav-link" href="datasupplier"><span class="shape1"></span><span
+                    <a class="nav-link" href="/datasupplier"><span class="shape1"></span><span
                             class="shape2"></span><i class="far fa-address-card sidemenu-icon"></i><span
                             class="sidemenu-label">Data Supplier</span></a>
                 </li>
@@ -202,6 +202,22 @@
                             class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
                             class="sidemenu-label">Data
                             Servis</span></a>
+                </li>
+            @endif
+            @if (auth()->user()->role == 'admin')
+                <li class="nav-header"><span class="nav-label">Pekerjaan Selesai</span></li>
+                <li class="nav-item {{ Route::is('desainselesai') ? 'active' : '' }}">
+                    <a class="nav-link" href="/desainselesai"><span class="shape1"></span><span
+                            class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
+                            class="sidemenu-label">
+                            Desain Selesai</span></a>
+                </li>
+            @endif
+            @if (auth()->user()->role == 'admin')
+                <li class="nav-item {{ Route::is('dataservisselesai') ? 'active' : '' }}">
+                    <a class="nav-link" href="/dataservisselesai"><span class="shape1"></span><span
+                            class="shape2"></span><i class="ti-server sidemenu-icon"></i><span
+                            class="sidemenu-label">Servis Selesai</span></a>
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
