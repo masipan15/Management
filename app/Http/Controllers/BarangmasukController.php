@@ -41,14 +41,8 @@ class BarangmasukController extends Controller
             'jumlah.required' => 'jumlah Harus Diisi!',
         ]);
         $stok_nambah = Barang::find($request->barangs_id);
-        $tanggal = Carbon::parse(now())->isoformat('DD');
-        $bulan = Carbon::parse(now())->isoformat('MMMM');
-        $tahun = Carbon::parse(now())->isoformat('Y');
-        $pengeluaran = Pengeluaran::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun)->first();
 
-        $hariini = Carbon::parse(now())->isoformat('Y-M-DD');
-        $barangmasuk = barangmasuk::where('created_at', $hariini)->sum('total');
-        
+
 
 
 
@@ -64,19 +58,8 @@ class BarangmasukController extends Controller
             'created_at' => Carbon::parse(now())->isoformat('Y-M-DD')
         ]);
 
-        if (!$pengeluaran) {
-            Pengeluaran::create([
-                'tanggal' => $tanggal,
-                'bulan' => $bulan,
-                'tahun' => $tahun,
-                'total' => $barangmasuk + $request->total
-            ]);
-        } else {
-            $update = Pengeluaran::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun);
-            $update->update([
-                'total' => $barangmasuk + $request->total
-            ]);
-        }
+
+
         $stok_nambah->stok += $request->jumlah;
         $stok_nambah->save();
         return redirect()->route('barangmasuk')->with('success', 'Data berhasil di Tambahkan');;
@@ -107,14 +90,6 @@ class BarangmasukController extends Controller
         $stok_nambah->stok += $request->jumlah;
         $stok_nambah->save();
 
-        $tanggal = Carbon::parse(now())->isoformat('DD');
-        $bulan = Carbon::parse(now())->isoformat('MMMM');
-        $tahun = Carbon::parse(now())->isoformat('Y');
-        $pengeluaran = Pengeluaran::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun)->first();
-
-        $hariini = Carbon::parse(now())->isoformat('Y-M-DD');
-        $barangmasuk = barangmasuk::where('created_at', $hariini)->sum('total');
-        $hasilakhir = $request->total - $data->total;
 
         $data->update([
             'suppliers_id' => $request->suppliers_id,
@@ -126,12 +101,7 @@ class BarangmasukController extends Controller
             'total' => $request->total,
         ]);
 
-        if ($pengeluaran) {
-            $update = Pengeluaran::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun);
-            $update->update([
-                'total' => $barangmasuk + $hasilakhir
-            ]);
-        }
+    
 
 
 
