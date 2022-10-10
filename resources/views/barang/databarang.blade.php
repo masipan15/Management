@@ -48,7 +48,10 @@
                                         <td>{{ $row->stok }}</td>
                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
                                         <td>Rp.{{ number_format($row['hargajual'], 2, '.', '.') }}</td>
-                                        <td>{{ $row->deskripsi }}
+                                        <td><a href="#/{{ $row->id }}" value="{{ route('show', ['id' => $row->id]) }}"
+                                                class="modalMd" title="Lihat Deskripsi Barang" data-toggle="modal"
+                                                data-target="#modalMd{{ $row->id }}"><i class="fas fa-eye text-success  fa-lg"></i>
+                                            </a></a>
 
 
                                         <td>
@@ -59,7 +62,7 @@
                                                     class="fas fa-trash-alt"></i>hapus</button></a>
                                         </td>
                                     </tr>
-                                    <div class="modal fade" id="modalMd" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal fade" id="modalMd{{ $row->id }}" role="dialog" aria-labelledby="myModalLabel">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
