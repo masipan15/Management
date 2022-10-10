@@ -33,7 +33,10 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        <td>{{ $row->fotod }}</td>
+                                        <td>
+                                            <img src="{{ asset('fotodesain/' . $row->fotod) }}" alt=""
+                                                style="width: 75px; height: 80px;">
+                                        </td>
                                         <td>{{ $row->nama_pemesan }}</td>
                                         <td>{{ $row->ukuran_desain }}</td>
                                         <td>{{ $row->permintaan_desain }}</td>
@@ -45,9 +48,12 @@
                                         <td>
                                             <a href="/editdesain/{{ $row->id }}" class="btn btn-success mb-1"><i
                                                     class="fas fa-pencil-alt"></i>edit</a><br>
+
+                                                    @if (auth()->user()->role == 'admin')
                                             <a href="/deletes/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                     class="fas fa-trash-alt"></i>hapus</button></a>
+                                                    @endif
                                             {{-- <a href="#" class="btn btn-danger delete"
                                                 data-id="{{ $row->id }}"data-nama="{{ $row->nama_pemesan }}">Hapus</a> --}}
                                         </td>

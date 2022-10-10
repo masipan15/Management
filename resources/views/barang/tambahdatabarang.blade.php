@@ -94,7 +94,7 @@
                             <div class="row mb-3 mt-3">
                                 <label>Foto</label>
                                 <div class="form-label">
-                                    <input type="file" name="foto1" class="form-control" id="foto1">
+                                    <input type="file" required name="foto1" class="form-control" id="foto1">
                                 </div>
                             </div>
                             @error('foto1')

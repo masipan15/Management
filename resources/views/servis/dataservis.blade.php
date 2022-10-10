@@ -35,7 +35,10 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        <td>{{ $row->fotos }}</td>
+                                        <td>
+                                            <img src="{{ asset('fotoservis/' . $row->fotos) }}" alt=""
+                                                style="width: 75px; height: 80px;">
+                                        </td>
                                         <td>{{ $row->nama_pelanggan }}</td>
                                         <td>{{ $row->namaservis }}</td>
                                         <td>{{ $row->nama_barang }}</td>
@@ -48,9 +51,12 @@
                                         <td>
                                             <a href="/editservis/{{ $row->id }}" class="btn btn-success mb-1"><i
                                                     class="fas fa-pencil-alt"></i>edit</a><br>
+
+                                                    @if (auth()->user()->role == 'admin')
                                             <a href="/deletet/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                     class="fas fa-trash-alt"></i>hapus</button></a>
+                                                    @endif
 
                                             {{-- <a href="#" class="btn btn-danger delete"
                                                 data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a> --}}

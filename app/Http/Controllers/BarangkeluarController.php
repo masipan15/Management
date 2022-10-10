@@ -36,7 +36,8 @@ class BarangkeluarController extends Controller
     {
 
         $validated = $request->validate([
-            
+            'nama_barang' => 'required',
+            'jumlah' => 'required',
         ], [
             'nama_barang.required' => 'nama_barang Harus Diisi!',
             'jumlah.required' => 'jumlah Harus Diisi!',

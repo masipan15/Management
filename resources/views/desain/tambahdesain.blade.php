@@ -73,7 +73,7 @@
                             <div class="row mb-3">
                                 <label for="inputEmail3" hidden class="col-sm-2 col-form-label">Status</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" hidden required style="width:100%;" id="status_pengerjaan" name="status_pengerjaan">
+                                    <select class="form-control" hidden style="width:100%;" id="status_pengerjaan" name="status_pengerjaan">
                                         <option value disabled =""></option>
                                         <option selected value  ="Sedang Dalam Pengerjaan">Sedang Dalam
                                             Pengerjaan

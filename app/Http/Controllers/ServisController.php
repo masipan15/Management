@@ -28,17 +28,20 @@ class ServisController extends Controller
     {
         $validated = $request->validate([
             'nama_pelanggan' => 'required',
+            'namaservis' => 'required',
             'nama_barang' => 'required',
             'merk_barang' => 'required',
             'kerusakan_barang' => 'required',
-
+            'fotos' => 'required|mimes:jpg,png,jpeg,jfif,webp',
 
         ], [
             'nama_pelanggan.required' => ' Harus Diisi!',
+            'namaservis.required' => ' Harus Diisi!',
             'nama_barang.required' => ' Harus Diisi!',
             'merk_barang.required' => ' Harus Diisi!',
             'kerusakan_barang.required' => ' Harus Diisi!',
-
+            'fotos.required' => 'foto Harus Diisi!',
+            'fotos.mimes' => 'Harus Image',
         ]);
 
 
