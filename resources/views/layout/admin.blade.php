@@ -204,7 +204,7 @@
                             Servis</span></a>
                 </li>
             @endif
-            @if (auth()->user()->role == 'admin')
+            {{-- @if (auth()->user()->role == 'admin')
                 <li class="nav-header"><span class="nav-label">Pekerjaan Selesai</span></li>
                 <li class="nav-item {{ Route::is('desainselesai') ? 'active' : '' }}">
                     <a class="nav-link" href="/desainselesai"><span class="shape1"></span><span
@@ -219,7 +219,7 @@
                             class="shape2"></span><i class="ti-server sidemenu-icon"></i><span
                             class="sidemenu-label">Servis Selesai</span></a>
                 </li>
-            @endif
+            @endif --}}
             @if (auth()->user()->role == 'admin')
                 <li class="nav-header"><span class="nav-label">Keuangan</span></li>
                 <li class="nav-item {{ Route::is('pemasukan') ? 'active' : '' }}">

@@ -80,7 +80,7 @@ class ServisController extends Controller
             'merk' => $request->merk_barang,
             'kerusakan' => $request->kerusakan_barang,
             'biaya' => $request->biaya_pengerjaan,
-            'status_pengerjaan' => $request->status_pengerjaan,
+            'status' => $request->status_pengerjaan,
 
 
 
@@ -134,7 +134,7 @@ class ServisController extends Controller
 
 
         ]);
-        $ipan = Userservis::find($id);
+        $ipan = Userservis::findorfail($id);
         $ipan->update([
             'namapelanggan' => $request->nama_pelanggan,
             'namabarang' => $request->nama_barang,

@@ -40,7 +40,7 @@
                                         <td>
                                             <a href="/edituserservis/{{ $row->id }}" class="btn btn-success mb-1"><i
                                                     class="fas fa-pencil-alt"></i>edit</a><br>
-                                            <a href="/servisselesai/{{ $row->id }}" class="btn btn-success mb-1"><i
+                                            <a href="/servisselesai/{{ $row->id }}" class="btn btn-danger mb-1"><i
                                                     class="fas fa-pencil-alt"></i>selesai</a>
                                      
                                     

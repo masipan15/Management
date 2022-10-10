@@ -31,7 +31,7 @@ class UserservisController extends Controller
 
     public function updateuserservis(Request $request, $id)
     {
-        $data = Userservis::find($id);
+        $data = Userservis::findOrFail($id);
 
 
         $tanggal = Carbon::parse(now())->isoformat('DD');
@@ -60,7 +60,7 @@ class UserservisController extends Controller
             'status' => $request->status,
         ]);
 
-        $ipan = servis::find($id);
+        $ipan = servis::findOrFail($id);
         $ipan->update([
             'status_pengerjaan' => $request->status,
             'biaya_pengerjaan' => $request->biaya
@@ -78,7 +78,7 @@ class UserservisController extends Controller
 
     public function masukservisselesai($id)
     {
-        $data = Userservis::find($id);
+        $data = Userservis::findOrFail($id);
         $tes=  servisselesai::create([
             'namapelanggan' => $data->namapelanggan,
             'namabarang' => $data->namabarang,

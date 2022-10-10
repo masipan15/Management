@@ -81,7 +81,7 @@ class DesainController extends Controller
             'permintaan' => $request->permintaan_desain,
             'keterangan' => $request->keterangan,
             'harga' => $request->harga_desain,
-            'status_pengerjaan' => $request->status_pengerjaan,
+            'status' => $request->status_pengerjaan,
 
 
 
@@ -133,7 +133,7 @@ class DesainController extends Controller
 
 
         ]);
-        $ipan = Userdesain::find($id);
+        $ipan = Userdesain::findorfail($id);
         $ipan->update([
             'namapemesan' => $request->nama_pemesan,
             'ukuran' => $request->ukuran_desain,
