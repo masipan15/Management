@@ -65,7 +65,6 @@ class DesainController extends Controller
         // }
         $data = desain::create([
             'nama_pemesan' => $request->nama_pemesan,
-            'namapedesain' => $request->namapedesain,
             'ukuran_desain' => $request->ukuran_desain,
             'permintaan_desain' => $request->permintaan_desain,
             'keterangan' => $request->keterangan,
@@ -119,6 +118,7 @@ class DesainController extends Controller
 
         $data->update([
             'nama_pemesan' => $request->nama_pemesan,
+            'namapedesain' => $request->namapedesain,
             'ukuran_desain' => $request->ukuran_desain,
             'permintaan_desain' => $request->permintaan_desain,
             'keterangan' => $request->keterangan,

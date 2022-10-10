@@ -41,6 +41,16 @@
                                         value="{{ $data->nama_pemesan }}" id="inputEmail3">
                                 </div>
                             </div>
+                            @if (auth()->user()->role == 'desain')
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama
+                                    Pendesain</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="namapedesain" class="form-control" id="exampleInputEmail1"
+                                        value="{{ $data->namapedesain }}" id="inputEmail3">
+                                </div>
+                            </div>
+                            @endif
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Ukuran
                                     Desain</label>

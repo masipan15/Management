@@ -41,15 +41,6 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Penyervis</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="namaservis" class="form-control" id="inputEmail3">
-                                </div>
-                            </div>
-                            @error('namaservis')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                            <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="nama_barang" class="form-control" id="inputEmail3">

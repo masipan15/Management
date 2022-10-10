@@ -28,7 +28,6 @@ class ServisController extends Controller
     {
         $validated = $request->validate([
             'nama_pelanggan' => 'required',
-            'namaservis' => 'required',
             'nama_barang' => 'required',
             'merk_barang' => 'required',
             'kerusakan_barang' => 'required',
@@ -36,7 +35,6 @@ class ServisController extends Controller
 
         ], [
             'nama_pelanggan.required' => ' Harus Diisi!',
-            'namaservis.required' => ' Harus Diisi!',
             'nama_barang.required' => ' Harus Diisi!',
             'merk_barang.required' => ' Harus Diisi!',
             'kerusakan_barang.required' => ' Harus Diisi!',
@@ -70,7 +68,6 @@ class ServisController extends Controller
 
         $data = servis::create([
             'nama_pelanggan' => $request->nama_pelanggan,
-            'namaservis' => $request->namaservis,
             'nama_barang' => $request->nama_barang,
             'merk_barang' => $request->merk_barang,
             'kerusakan_barang' => $request->kerusakan_barang,
