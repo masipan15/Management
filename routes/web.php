@@ -83,12 +83,20 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::post('/updatekategori/{id}', [kategoriController::class, 'updatekategori'])->name('updatekategori');
     Route::get('/hapusktgr/{id}', [kategoriController::class, 'hapusktgr'])->name('hapusktgr');
 
+
+    
     //pengeluaran
     Route::get('/pengeluaran', [PengeluaranController::class, 'pengeluaran'])->name('pengeluaran')->middleware('auth');
     Route::post('pengeluaran', [PengeluaranController::class, 'create']);
+
+
+
     //pemasukan
     Route::get('/pemasukan', [PemasukanController::class, 'pemasukan'])->name('pemasukan')->middleware('auth');
     Route::post('pemasukan', [PemasukanController::class, 'create']);
+
+
+
     //databarang
     Route::get('/databarang', [BarangController::class, 'databarang'])->name('databarang')->middleware('auth');
     Route::get('/tambahbarang', [BarangController::class, 'tambahbarang'])->name('tambahbarang')->middleware('auth');
@@ -108,6 +116,24 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/deletetet/{id}', [SupplierController::class, 'deletetet'])->name('deletetet');
 
 
+    //pelanggan
+    Route::get('/datapelanggan', [PelangganController::class, 'datapelanggan'])->name('datapelanggan');
+    Route::get('/editpelanggan/{id}', [PelangganController::class, 'editpelanggan'])->name('editpelanggan');
+    Route::post('/updatepelanggan/{id}', [PelangganController::class, 'updatepelanggan'])->name('updatepelanggan');
+    Route::get('/hapuspelanggan/{id}', [PelangganController::class, 'hapuspelanggan'])->name('hapuspelanggan');
+
+
+    //penyelesaian desain
+    Route::get('/desainselesai',[desainController::class, 'datapenyelesaiandesain'])->name('desainselesai');
+    Route::get('/hapuspenyelesaian/{id}',[desainController::class, 'hapuspenyelesaian'])->name('hapuspenyelesaian');
+
+
+    //penyelesaian servis
+    Route::get('/dataservisselesai',[servisController::class, 'dataservisselesai'])->name('dataservisselesai');
+    Route::get('/hapusservisselesai/{id}',[servisController::class, 'hapusservisselesai'])->name('hapusservisselesai');
+});
+
+Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
     //servis
     Route::get('/dataservis', [servisController::class, 'dataservis'])->name('dataservis')->middleware('auth');
     Route::get('/tambahservis', [servisController::class, 'tambahservis'])->name('tambahservis');
@@ -117,7 +143,11 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/deletet/{id}', [servisController::class, 'deletet'])->name('deletet');
 
 
+    //penyelesaian
+    Route::get('/servisselesai/{id}',[servisController::class, 'masukservisselesai'])->name('servisselesai');
+});
 
+Route::group(['middleware' => ['auth', 'hakakses:desain,admin']], function () {
     //desain
     Route::get('/datadesain', [DesainController::class, 'index'])->name('datadesain')->middleware('auth');
     Route::get('/tambahdesain', [DesainController::class, 'tambahdesain'])->name('tambahdesain');
@@ -127,41 +157,8 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/deletes/{id}', [DesainController::class, 'deletes'])->name('deletes');
 
 
-    //pelanggan
-    Route::get('/datapelanggan', [PelangganController::class, 'datapelanggan'])->name('datapelanggan');
-    Route::get('/editpelanggan/{id}', [PelangganController::class, 'editpelanggan'])->name('editpelanggan');
-    Route::post('/updatepelanggan/{id}', [PelangganController::class, 'updatepelanggan'])->name('updatepelanggan');
-    Route::get('/hapuspelanggan/{id}', [PelangganController::class, 'hapuspelanggan'])->name('hapuspelanggan');
-
-
-    //penyelesaian desain
-    Route::get('/desainselesai',[UserdesainController::class, 'datapenyelesaiandesain'])->name('desainselesai');
-    Route::get('/hapuspenyelesaian/{id}',[UserdesainController::class, 'hapuspenyelesaian'])->name('hapuspenyelesaian');
-
-
-    //penyelesaian servis
-    Route::get('/dataservisselesai',[UserservisController::class, 'dataservisselesai'])->name('dataservisselesai');
-    Route::get('/hapusservisselesai/{id}',[UserservisController::class, 'hapusservisselesai'])->name('hapusservisselesai');
-});
-
-Route::group(['middleware' => ['auth', 'hakakses:servis']], function () {
-    //userservis
-    Route::get('/datauserservis', [UserservisController::class, 'datauserservis'])->name('datauserservis')->middleware('auth');
-    Route::get('/edituserservis/{id}', [UserservisController::class, 'edituserservis'])->name('edituserservis');
-    Route::post('/updateuserservis/{id}', [UserservisController::class, 'updateuserservis'])->name('updateuserservis');
-
     //penyelesaian
-    Route::get('/servisselesai/{id}',[UserservisController::class, 'masukservisselesai'])->name('servisselesai');
-});
-
-Route::group(['middleware' => ['auth', 'hakakses:desain']], function () {
-    //desain
-    Route::get('/datauserdesain', [UserdesainController::class, 'datauserdesain'])->name('datauserdesain')->middleware('auth');
-    Route::get('/edituserdesain/{id}', [UserdesainController::class, 'edituserdesain'])->name('edituserdesain');
-    Route::post('/updateuserdesain/{id}', [UserdesainController::class, 'updateuserdesain'])->name('updateuserdesain');
-
-    //penyelesaian
-    Route::get('/prosesselesai/{id}',[UserdesainController::class, 'masukpenyelesaiandesain'])->name('prosesselesai');
+    Route::get('/prosesselesai/{id}',[DesainController::class, 'masukpenyelesaiandesain'])->name('prosesselesai');
 });
 
 //login

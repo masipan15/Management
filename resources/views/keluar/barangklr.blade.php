@@ -20,7 +20,7 @@
                                     <th class="wd-20p">Kode Barang</th>
                                     <th class="wd-20p">Merk</th>
                                     <th class="wd-25p">Harga Jual</th>
-                                    <th class="wd-20p">Jumlah</th>
+                                    <th class="wd-20p">Jumlah Beli</th>
                                     <th class="wd-15p">Total</th>
                                     <th class="wd-15p">Tanggal</th>
                                     <th class="wd-15p">Aksi</th>

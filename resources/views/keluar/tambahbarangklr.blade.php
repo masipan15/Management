@@ -80,7 +80,7 @@
                                                     id="stok" type="number">
                                             </div>
                                             <div class="col-lg mg-t-10 mg-lg-t-0">
-                                                <p class="form-label">Jumlah</p>
+                                                <p class="form-label">Jumlah Beli</p>
                                                 <input class="form-control text-center" required name="jumlah"
                                                     id="jumlah" type="number">
                                             </div>

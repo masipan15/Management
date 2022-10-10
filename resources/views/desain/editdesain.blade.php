@@ -64,7 +64,7 @@
                                         value="{{ $data->keterangan }}" id="inputEmail3">
                                 </div>
                             </div>
-
+                            @if (auth()->user()->role == 'desain')
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Harga</label>
                                 <div class="col-sm-10">
@@ -75,6 +75,18 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
+                            @if (auth()->user()->role == 'desain')
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Foto Desain</label>
+                                <div class="col-sm-10">
+                                        <img class="img mb-3" src="{{ asset('fotodesain/' . $data->fotod) }}"alt=""
+                                    style="width: 40px">
+                                <input type="file" name="fotod" class="form-control" id="inputEmail3"
+                                    value="{{ $data->fotod }}">
+                                </div>
+                            </div>
+                            @endif
                                         <div class="text-center mt-4 mb-3">
                                             <button type=" submit" class="btn ripple btn-main-primary active mr-1">Simpan</button>
                                             <a href="/datadesain" type="button" class="btn ripple btn-secondary">Batal</a>

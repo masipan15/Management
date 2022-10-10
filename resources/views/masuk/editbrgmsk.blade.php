@@ -96,7 +96,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Jumlah</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Jumlah Beli</label>
                                 <div class="col-sm-10">
                                     <input type="number" name="jumlah" class="form-control" id="jumlah"
                                         value="{{ $data->jumlah }}" id="inputEmail3">

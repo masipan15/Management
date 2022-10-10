@@ -4,15 +4,18 @@
         <div class="col-lg-12">
             <div class="card custom-card overflow-hidden">
                 <div class="card-body">
+                    @if (auth()->user()->role == 'admin')
                     <div>
                         <a href="/tambahdesain" class="btn btn-primary">Tambah</a>
                         <p class="text-muted card-sub-title"></p>
                     </div>
+                    @endif
                     <div class="table-responsive">
                         <table class="table" id="example1">
                             <thead>
                                 <tr>
                                     <th class="wd-20p">No</th>
+                                    <th class="wd-20p">Foto Desain</th>
                                     <th class="wd-25p">Nama Pemesan</th>
                                     <th class="wd-25p">Ukuran Desain</th>
                                     <th class="wd-25p">Permintaan Desain</th>
@@ -30,6 +33,7 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
+                                        <td>{{ $row->fotod }}</td>
                                         <td>{{ $row->nama_pemesan }}</td>
                                         <td>{{ $row->ukuran_desain }}</td>
                                         <td>{{ $row->permintaan_desain }}</td>

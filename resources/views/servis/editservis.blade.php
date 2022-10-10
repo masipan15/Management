@@ -42,6 +42,13 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Penyervis</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="namaservis" class="form-control" id="exampleInputEmail1"
+                                        value="{{ $data->namaservis }}" id="inputEmail3">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="nama_barang" class="form-control" id="exampleInputEmail1"
@@ -62,6 +69,7 @@
                                         id="exampleInputEmail1" value="{{ $data->kerusakan_barang }}" id="inputEmail3">
                                 </div>
                             </div>
+                            @if (auth()->user()->role == 'servis')
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Biaya</label>
                                 <div class="col-sm-10">
@@ -72,6 +80,25 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Foto Servis</label>
+                                <div class="col-sm-10">
+                                        <img class="img mb-3" src="{{ asset('fotoservis/' . $data->fotos) }}"alt=""
+                                    style="width: 40px">
+                                <input type="file" name="fotos" class="form-control" id="inputEmail3"
+                                    value="{{ $data->fotos }}">
+                                </div>
+                            </div>
+                            {{-- <div class="row mb-3 mt-3">
+                                <label>Foto Servis</label>
+                                <div class="form-label">
+                                    <img class="img mb-3" src="{{ asset('fotoservis/' . $data->fotos) }}"alt=""
+                                    style="width: 40px">
+                                <input type="file" name="fotos" class="form-control" id="inputEmail3"
+                                    value="{{ $data->fotos }}">
+                                </div>
+                            </div> --}}
 
                                         <div class="text-center mt-4 mb-3">
                                             <button type="submit"

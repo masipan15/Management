@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\desain;
+use App\Models\penyelesaian;
 use App\Models\Pemasukan;
-use App\Models\Userdesain;
+// use App\Models\Userdesain;
 use App\Models\barangkeluar;
 use App\Models\servis;
 use Illuminate\Http\Request;
@@ -30,14 +31,12 @@ class DesainController extends Controller
             'ukuran_desain' => 'required',
             'permintaan_desain' => 'required',
             'keterangan' => 'required',
-            'harga_desain' => 'required',
 
         ], [
             'nama_pemesan.required' => ' Harus Diisi!',
             'ukuran_desain.required' => ' Harus Diisi!',
             'permintaan_desain.required' => ' Harus Diisi!',
             'keterangan.required' => ' Harus Diisi!',
-            'harga_desain.required' => 'harga Harus Diisi!',
 
         ]);
 
@@ -69,24 +68,21 @@ class DesainController extends Controller
             'permintaan_desain' => $request->permintaan_desain,
             'keterangan' => $request->keterangan,
             'status_pengerjaan' => $request->status_pengerjaan,
-            'harga_desain' => $request->harga_desain,
             'created_at' => Carbon::parse(now())->isoformat('Y-M-DD')
 
-
         ]);
 
-        Userdesain::create([
-            'namapemesan' => $request->nama_pemesan,
-            'ukuran' => $request->ukuran_desain,
-            'permintaan' => $request->permintaan_desain,
-            'keterangan' => $request->keterangan,
-            'harga' => $request->harga_desain,
-            'status' => $request->status_pengerjaan,
+        // Userdesain::create([
+        //     'namapemesan' => $request->nama_pemesan,
+        //     'ukuran' => $request->ukuran_desain,
+        //     'permintaan' => $request->permintaan_desain,
+        //     'keterangan' => $request->keterangan,
+        //     'status' => $request->status_pengerjaan,
 
 
 
 
-        ]);
+        // ]);
         return redirect()->route('datadesain')->with('success', 'Data Berhasil Di Tambahkan');
     }
 
@@ -130,17 +126,20 @@ class DesainController extends Controller
             'permintaan_desain' => $request->permintaan_desain,
             'keterangan' => $request->keterangan,
             'harga_desain' => $request->harga_desain,
-
-
         ]);
-        $ipan = Userdesain::findorfail($id);
-        $ipan->update([
-            'namapemesan' => $request->nama_pemesan,
-            'ukuran' => $request->ukuran_desain,
-            'permintaan' => $request->permintaan_desain,
-            'keterangan' => $request->keterangan,
+        if ($request->hasfile('fotod')) {
+            $request->file('fotod')->move('fotodesain/', $request->file('fotod')->getClientOriginalName());
+            $data->fotod = $request->file('fotod')->getClientOriginalName();
+            $data->save();
+        }
+        // $ipan = Userdesain::findorfail($id);
+        // $ipan->update([
+        //     'namapemesan' => $request->nama_pemesan,
+        //     'ukuran' => $request->ukuran_desain,
+        //     'permintaan' => $request->permintaan_desain,
+        //     'keterangan' => $request->keterangan,
 
-        ]);
+        // ]);
 
         return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
     }
@@ -150,5 +149,36 @@ class DesainController extends Controller
         $data = desain::find($id);
         $data->delete();
         return redirect()->route('datadesain')->with('success', 'Data Berhasil Di Hapus');
+    }
+
+
+
+    public function datapenyelesaiandesain()
+    {
+        $data = penyelesaian::all();
+        // dd($data);s
+        return view('penyelesaian.datapenyelesaiandesain', compact('data'));
+    }
+
+    public function masukpenyelesaiandesain($id)
+    {
+        $data = desain::findOrFail($id);
+        $tes=  penyelesaian::create([
+            'nama_pemesan' => $data->nama_pemesan,
+            'ukuran_desain' => $data->ukuran_desain,
+            'permintaan_desain' => $data->permintaan_desain,
+            'keterangan' => $data->keterangan,
+            'harga_desain' => $data->harga_desain,
+            'status_pengerjaan' => $data->status_pengerjaan,
+        ]);
+        // dd($tes);    
+        return redirect()->route('datadesain')->with('success', 'Data Sudah Selesai');
+    }
+
+    public function hapuspenyelesaian($id)
+    {
+        $data = penyelesaian::find($id);
+        $data->delete();
+        return redirect()->route('datapenyelesaiandesain')->with('success', 'Data Berhasil Di Hapus');
     }
 }

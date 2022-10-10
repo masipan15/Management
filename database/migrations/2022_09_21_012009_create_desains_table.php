@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('nama_pemesan');
             $table->string('permintaan_desain');
-            $table->integer('harga_desain');
+            $table->integer('harga_desain')->nullable();
             $table->string('keterangan');
             $table->string('ukuran_desain');
             $table->string('status_pengerjaan')->nullable();
+            $table->string('fotod')->nullable();
 
             $table->timestamps();
         });
