@@ -7,9 +7,9 @@
                 <div class="card-body">
                     <div>
                         <div>
-                        <a href="/tambahbarang" class="btn btn-primary">Tambah</a>
-                        <p class="text-muted card-sub-title"></p>
-                    </div>
+                            <a href="/tambahbarang" class="btn btn-primary">Tambah</a>
+                            <p class="text-muted card-sub-title"></p>
+                        </div>
 
                         <p class="text-muted card-sub-title"></p>
                     </div>
@@ -48,8 +48,7 @@
                                         <td>{{ $row->stok }}</td>
                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
                                         <td>Rp.{{ number_format($row['hargajual'], 2, '.', '.') }}</td>
-                                        <td>{{ $row->deskripsi }}</td>
-
+                                        <td>{{ $row->deskripsi }}
 
 
                                         <td>
@@ -60,6 +59,24 @@
                                                     class="fas fa-trash-alt"></i>hapus</button></a>
                                         </td>
                                     </tr>
+                                    <div class="modal fade" id="modalMd" role="dialog" aria-labelledby="myModalLabel">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    {{ $row->namabarang }}
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="modalMdTitle"></h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="modalError"></div>
+                                                    <div id="modalMdContent">
+                                                        {{ $row->deskripsi }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endforeach
 
                             </tbody>
@@ -70,5 +87,13 @@
         </div>
     </div>
 
+    <script>
+        $(document).on('ajaxComplete ready', function() {
+            $('.modalMd').off('click').on('click', function() {
+                $('#modalMdContent').load($(this).attr('value'));
+                $('#modalMdTitle').html($(this).attr('title'));
+            });
+        });
+    </script>
     @include('sweetalert::alert')
 @endsection

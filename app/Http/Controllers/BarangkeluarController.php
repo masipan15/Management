@@ -63,12 +63,12 @@ class BarangkeluarController extends Controller
                 'nama_barang' => $request->nama_barang,
                 'kodebarang_keluar' => $request->kodebarang_keluar,
                 'merk_keluar' => $request->merk_keluar,
-
                 'harga_jual' => $request->harga_jual,
                 'jumlah' => $request->jumlah,
                 'total' => $request->total,
                 'created_at' => Carbon::parse(now())->isoformat('Y-M-DD')
             ]);
+
             Pelanggan::create([
                 'nama_pelanggan' => $request->nama_pelanggan,
             ]);

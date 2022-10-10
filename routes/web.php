@@ -96,6 +96,7 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/editbarang/{id}', [BarangController::class, 'editbarang'])->name('editbarang')->middleware('auth');
     Route::post('/updatebarang/{id}', [BarangController::class, 'updatebarang'])->name('updatebarang');
     Route::get('/deletese/{id}', [BarangController::class, 'deletese'])->name('deletese');
+    Route::get('/show', [BarangController::class, 'show'])->name('show')->middleware('auth');
 
 
     //supplier
