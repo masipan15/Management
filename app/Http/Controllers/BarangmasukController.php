@@ -48,7 +48,7 @@ class BarangmasukController extends Controller
 
         $hariini = Carbon::parse(now())->isoformat('Y-M-DD');
         $barangmasuk = barangmasuk::where('created_at', $hariini)->sum('total');
-
+        
 
 
 

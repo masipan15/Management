@@ -178,7 +178,7 @@
                                                 <p class="form-label">Kode Barang</p>
                                                 <input class="form-control text-center"  required
                                                     name="kodebarang_keluar" type="text" id="kodebarang_keluar">
-                                            </div>
+                                            </div> 
                                             <div class="col-lg mg-t-10 mg-lg-t-0">
                                                 <p class="form-label">Merk</p>
                                                 <input class="form-control text-center"  required name="merk_keluar"
@@ -226,8 +226,10 @@
                 document.getElementById('merk_keluar').value = merk;
                 document.getElementById('kategoris_id').value = kategoris_id;
             }
-
         </script>
+
+
+
 
         <script>
 

@@ -28,16 +28,12 @@ class BarangkeluarController extends Controller
         $data = barangkeluar::all();
         $barang = Barang::all();
         $pelanggan = Pelanggan::all();
-        return view('keluar.tambahbarangklr', compact('data','barang','pelanggan'));
-       
-
+        return view('keluar.tambahbarangklr', compact('data', 'barang', 'pelanggan'));
     }
     public function insertbrgklr(Request $request)
     {
 
-        $validated = $request->validate([
-            
-        ], [
+        $validated = $request->validate([], [
             'nama_barang.required' => 'nama_barang Harus Diisi!',
             'jumlah.required' => 'jumlah Harus Diisi!',
         ]);
@@ -52,6 +48,7 @@ class BarangkeluarController extends Controller
         $barangkeluar = barangkeluar::where('created_at', $hariini)->sum('total');
         $desain = desain::where('created_at', $hariini)->sum('harga_desain');
         $servis = servis::where('created_at', $hariini)->sum('biaya_pengerjaan');
+
 
         if ($stok_kurang->stok < $request->jumlah) {
             return redirect()->route('tambahbarangkeluar');
