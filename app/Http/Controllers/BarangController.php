@@ -108,4 +108,10 @@ class BarangController extends Controller
         $data->delete();
         return redirect()->route('databarang')->with('success', 'Data Berhasil Di Hapus');
     }
+
+    public function show(Request $request, $id)
+    {
+        $ipan = Barang::find($id);
+        return view('databarang', compact('ipan'));
+    }
 }

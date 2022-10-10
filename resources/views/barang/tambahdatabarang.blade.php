@@ -111,7 +111,7 @@
                             </div>
                             <div class="text-center mt-4 mb-3">
                                 <button type="submit" class="btn ripple btn-main-primary active mr-1">Tambah</button>
-                                <a href="/barangkeluar" type="button" class="btn ripple btn-secondary">Batal</a>
+                                <a href="/databarang" type="button" class="btn ripple btn-secondary">Batal</a>
                             </div>
 
                     </div>

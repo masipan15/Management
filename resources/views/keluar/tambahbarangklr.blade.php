@@ -189,6 +189,13 @@
                                                 <input class="form-control text-center"  required name="harga_jual"
                                                     id="harga_jual" type="number">
                                             </div>
+
+                                              <div class="col-lg mg-t-10 mg-lg-t-0">
+                                                <p class="form-label">Stok</p>
+                                                <input class="form-control text-center" readonly required name="stok"
+                                                    id="stok" type="number">
+                                            </div>
+
                                             <div class="col-lg mg-t-10 mg-lg-t-0">
                                                 <p class="form-label">Jumlah</p>
                                                 <input class="form-control text-center" required name="jumlah"

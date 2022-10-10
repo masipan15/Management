@@ -68,6 +68,7 @@ class BarangkeluarController extends Controller
                 'total' => $request->total,
                 'created_at' => Carbon::parse(now())->isoformat('Y-M-DD')
             ]);
+
             Pelanggan::create([
                 'nama_pelanggan' => $request->nama_pelanggan,
             ]);
