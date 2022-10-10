@@ -41,10 +41,20 @@ class BarangkeluarController extends Controller
             'jumlah.required' => 'jumlah Harus Diisi!',
         ]);
         $stok_kurang = Barang::find($request->nama_barang);
+
+        $tanggal = Carbon::parse(now())->isoformat('DD');
+        $bulan = Carbon::parse(now())->isoformat('MMMM');
+        $tahun = Carbon::parse(now())->isoformat('Y');
+        $pemasukan = Pemasukan::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun)->first();
+
+        $hariini = Carbon::parse(now())->isoformat('Y-M-DD');
+        $barangkeluar = barangkeluar::where('created_at', $hariini)->sum('total');
+        $desain = desain::where('created_at', $hariini)->sum('harga_desain');
+        $servis = servis::where('created_at', $hariini)->sum('biaya_pengerjaan');
+
         if ($stok_kurang->stok < $request->jumlah) {
             return redirect()->route('tambahbarangkeluar');
         } else {
-
             $data = barangkeluar::create([
                 'nama_pelanggan' => $request->nama_pelanggan,
                 'kodetransaksi' => random_int(10000, 999999),
@@ -55,15 +65,29 @@ class BarangkeluarController extends Controller
                 'stok' => $request->stok,
                 'jumlah' => $request->jumlah,
                 'total' => $request->total,
-
+                'created_at' => Carbon::parse(now())->isoformat('Y-M-DD')
             ]);
-            $stok_kurang->stok -= $request->jumlah;
-            $stok_kurang->save();
 
             Pelanggan::create([
                 'nama_pelanggan' => $request->nama_pelanggan,
             ]);
+            if (!$pemasukan) {
+                Pemasukan::create([
+                    'tanggal' => $tanggal,
+                    'bulan' => $bulan,
+                    'tahun' => $tahun,
+                    'total' => $barangkeluar + $request->total + $desain + $servis,
+                ]);
+            } else {
+                $update = Pemasukan::where('tanggal', $tanggal)->where('bulan', $bulan)->where('tahun', $tahun);
+                $update->update([
+                    'total' => $barangkeluar + $request->total + $desain + $servis,
+                ]);
+            }
+            $stok_kurang->stok -= $request->jumlah;
+            $stok_kurang->save();
         }
+
         return redirect()->route('barangkeluar')->with('success', 'Data Berhasil Di Tambahkan');
     }
 

@@ -43,7 +43,7 @@
                                             class="" id="nama_barang" @error('nama_barang')  @enderror>
                                             <option value="" selected disabled>Pilih Nama Barang</option>
                                             @foreach ($barang as $item)
-                                                <option value="{{ $item->namabarang }}" data-harga_jual="{{ $item->hargajual }}"
+                                                <option value="{{ $item->id }}" data-harga_jual="{{ $item->hargajual }}"
                                                     data-kodebarang_keluar="{{ $item->kodebarang }}"
                                                     data-merk_keluar="{{ $item->merk }}"
                                                     data-stok="{{ $item->stok }}"

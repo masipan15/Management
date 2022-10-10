@@ -37,7 +37,7 @@
                                         <td>{{ $row->created_at->format('d/m/y') }}</td>
                                         <td>{{ $row->nama_pelanggan }}</td>
                                         <td>{{ $row->kodetransaksi }}</td>
-                                        <td>{{ $row->nama_barang }}</td>
+                                        <td>{{ $row->namabarangs->namabarang }}</td>
                                         <td>{{ $row->kodebarang_keluar }}</td>
                                         <td>{{ $row->merk_keluar }}</td>
 
