@@ -53,7 +53,7 @@
                                         <div class="text-center mt-4 mb-3">
                                             <button type="submit"
                                                 class="btn ripple btn-main-primary active mr-1">Simpan</button>
-                                            <a href="/datadesain" type="button" class="btn ripple btn-secondary">Batal</a>
+                                            <a href="/datakategori" type="button" class="btn ripple btn-secondary">Batal</a>
                                         </div>
                                     </div>
                                 </div>

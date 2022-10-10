@@ -82,6 +82,21 @@
                             @error('biaya_pengerjaan')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
+                            <div class="row mb-3">
+                                <label for="inputEmail3" hidden class="col-sm-2 col-form-label">Status</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" hidden required style="width:100%;" id="status_pengerjaan" name="status_pengerjaan">
+                                        <option value disabled =""></option>
+                                        <option selected value  ="Sedang Dalam Pengerjaan">Sedang Dalam
+                                            Pengerjaan
+                                        </option>
+                                        <option value="Selesai">Selesai</option>
+                                    </select>
+                                </div>
+                            </div>
+                            @error('status_pengerjaan')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                                         <div class="text-center mt-4 mb-3">
                                             <button type="submit"
                                                 class="btn ripple btn-main-primary active mr-1">Tambah</button>

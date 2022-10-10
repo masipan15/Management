@@ -84,9 +84,15 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Status Pengerjaan</label>
+                                <label for="inputEmail3" hidden class="col-sm-2 col-form-label">Status</label>
                                 <div class="col-sm-10">
-                                    <input type="text" required name="status_pengerjaan" class="form-control" id="inputEmail3">
+                                    <select class="form-control" hidden required style="width:100%;" id="status_pengerjaan" name="status_pengerjaan">
+                                        <option value disabled =""></option>
+                                        <option selected value  ="Sedang Dalam Pengerjaan">Sedang Dalam
+                                            Pengerjaan
+                                        </option>
+                                        <option value="Selesai">Selesai</option>
+                                    </select>
                                 </div>
                             </div>
                             @error('status_pengerjaan')

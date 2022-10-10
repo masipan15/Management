@@ -27,7 +27,7 @@ class UserdesainController extends Controller
 
     public function updateuserdesain(Request $request, $id)
     {
-        $data = Userdesain::find($id);
+        $data = Userdesain::findOrFail($id);
         $data->update([
             'namapemesan' => $request->namapemesan,
             'permintaan' => $request->permintaan,
@@ -37,7 +37,7 @@ class UserdesainController extends Controller
             'status' => $request->status,
         ]);
 
-        $ipan = desain::find($id);
+        $ipan = desain::findOrFail($id);
         $ipan->update([
             'status_pengerjaan' => $request->status,
             'harga_desain' => $request->harga
@@ -57,7 +57,7 @@ class UserdesainController extends Controller
 
     public function masukpenyelesaiandesain($id)
     {
-        $data = Userdesain::find($id);
+        $data = Userdesain::findOrFail($id);
         $tes=  penyelesaian::create([
             'namapemesan' => $data->namapemesan,
             'permintaan' => $data->permintaan,
