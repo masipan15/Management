@@ -71,22 +71,9 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga</label>
-                                <div class="col-sm-10">
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                        <input type="number" name="harga_desain" id="harga_desain" class="form-control"
-                                            id="inputEmail3">
-                                    </div>
-                                </div>
-                            </div>
-                            @error('harga_desain')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                            <div class="row mb-3">
                                 <label for="inputEmail3" hidden class="col-sm-2 col-form-label">Status</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" hidden required style="width:100%;" id="status_pengerjaan" name="status_pengerjaan">
+                                    <select class="form-control" hidden style="width:100%;" id="status_pengerjaan" name="status_pengerjaan">
                                         <option value disabled =""></option>
                                         <option selected value  ="Sedang Dalam Pengerjaan">Sedang Dalam
                                             Pengerjaan

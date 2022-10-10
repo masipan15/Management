@@ -180,8 +180,8 @@
             @endif
             @if (auth()->user()->role == 'desain')
                 <li class="nav-header"><span class="nav-label">Permintaan</span></li>
-                <li class="nav-item {{ Route::is('datauserdesain') ? 'active' : '' }}">
-                    <a class="nav-link" href="/datauserdesain"><span class="shape1"></span><span
+                <li class="nav-item {{ Route::is('datadesain') ? 'active' : '' }}">
+                    <a class="nav-link" href="/datadesain"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
                             class="sidemenu-label">Data
                             Desain</span></a>
@@ -197,8 +197,8 @@
             @endif
             @if (auth()->user()->role == 'servis')
                 <li class="nav-header"><span class="nav-label">Permintaan</span></li>
-                <li class="nav-item {{ Route::is('datauserservis') ? 'active' : '' }}">
-                    <a class="nav-link" href="/datauserservis"><span class="shape1"></span><span
+                <li class="nav-item {{ Route::is('dataservis') ? 'active' : '' }}">
+                    <a class="nav-link" href="/dataservis"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
                             class="sidemenu-label">Data
                             Servis</span></a>

@@ -41,6 +41,15 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Penyervis</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="namaservis" class="form-control" id="inputEmail3">
+                                </div>
+                            </div>
+                            @error('namaservis')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="nama_barang" class="form-control" id="inputEmail3">
@@ -70,19 +79,6 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Biaya</label>
-                                <div class="col-sm-10">
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                        <input type="number" name="biaya_pengerjaan" id="biaya_pengerjaan" class="form-control"
-                                            id="inputEmail3">
-                                    </div>
-                                </div>
-                            </div>
-                            @error('biaya_pengerjaan')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                            <div class="row mb-3">
                                 <label for="inputEmail3" hidden class="col-sm-2 col-form-label">Status</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" hidden required style="width:100%;" id="status_pengerjaan" name="status_pengerjaan">
@@ -95,6 +91,15 @@
                                 </div>
                             </div>
                             @error('status_pengerjaan')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Foto Servis</label>
+                                <div class="col-sm-10">
+                                    <input type="file" name="fotos" class="form-control" id="fotos">
+                                </div>
+                            </div>
+                            @error('fotos')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                                         <div class="text-center mt-4 mb-3">

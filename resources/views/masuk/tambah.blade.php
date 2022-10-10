@@ -51,7 +51,7 @@
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
                                 <div class="col-sm-10">
                                     <select class="form-control select2" required style="width:100%;" name="barangs_id"
-                                        class="" id="barangs_id">
+                                        class="" id="barangs_id" @error('barangs_id')  @enderror>
                                         <option value="" selected disabled>Pilih Nama Barang</option>
                                         @foreach ($barang as $item)
                                             <option value="{{ $item->id }}" data-merk="{{ $item->merk }}"
@@ -72,9 +72,6 @@
                                         id="merk" id="inputEmail3">
                                 </div>
                             </div>
-                            @error('merk')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Kategori</label>
                                 <div class="col-sm-10">
@@ -82,9 +79,6 @@
                                         id="kategoris_id" id="inputEmail3">
                                 </div>
                             </div>
-                            @error('kategoris_id')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Harga</label>
                                 <div class="col-sm-10">
@@ -95,11 +89,8 @@
                                     </div>
                                 </div>
                             </div>
-                            @error('harga')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                             <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Jumlah</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Jumlah Beli</label>
                                 <div class="col-sm-10">
                                     <input type="number" name="jumlah" id="jumlah" class="form-control"
                                         id="inputEmail3">

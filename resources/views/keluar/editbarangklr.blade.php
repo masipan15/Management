@@ -40,6 +40,13 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Transaksi</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="kodetransaksi" readonly id="kodetransaksi"
+                                        value="{{ $data->kodetransaksi }}" class="form-control" id="inputEmail3">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
                                 <div class="col-sm-10">
                                     <select class="form-control select2" required style="width:100%;" name="nama_barang"
@@ -92,7 +99,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Jumlah</label>
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Jumlah Beli</label>
                                 <div class="col-sm-10">
                                     <input type="number" name="jumlah" id="jumlah" value="{{ $data->jumlah }}"
                                         class="form-control" id="inputEmail3">

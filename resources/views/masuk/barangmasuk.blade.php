@@ -19,7 +19,7 @@
                                     <th class="wd-20p">Nama Barang</th>
                                     <th class="wd-20p">Kategori</th>
                                     <th class="wd-20p">Merk</th>
-                                    <th class="wd-25p">Jumlah</th>
+                                    <th class="wd-25p">Jumlah Beli</th>
                                     <th class="wd-20p">Harga</th>
                                     <th class="wd-15p">Total</th>
                                     <th class="wd-20p">Aksi</th>
