@@ -18,7 +18,7 @@
                                     <th class="wd-20p">Tanggal</th>
                                     <th class="wd-20p">Foto Desain</th>
                                     <th class="wd-25p">Nama Pemesan</th>
-                                    <th class="wd-25p">Nama Pedesain</th>
+                                    <th class="wd-25p">Nama Pendesain</th>
                                     <th class="wd-25p">Ukuran Desain</th>
                                     <th class="wd-25p">Permintaan Desain</th>
                                     <th class="wd-20p">Keterangan</th>

@@ -41,6 +41,7 @@
                                         value="{{ $data->nama_pelanggan }}" id="inputEmail3">
                                 </div>
                             </div>
+                            @if (auth()->user()->role == 'servis')
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Penyervis</label>
                                 <div class="col-sm-10">
@@ -48,6 +49,7 @@
                                         value="{{ $data->namaservis }}" id="inputEmail3">
                                 </div>
                             </div>
+                            @endif
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
                                 <div class="col-sm-10">
@@ -78,6 +80,18 @@
                                         <input type="number" name="biaya_pengerjaan" id="biaya_pengerjaan" class="form-control"
                                             id="inputEmail3" value="{{ $data->biaya_pengerjaan }}">
                                     </div>
+                                </div>
+                            </div>
+                            @endif
+                            @if (auth()->user()->role == 'servis')
+                            <div class="row mb-3">
+                                <label for="inputEmail3"  class="col-sm-2 col-form-label">Status</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control"  required style="width:100%;" id="status_pengerjaan" name="status_pengerjaan">
+                                        <option disabled value="">Pilih Status Pengerjaan</option>
+                                        <option value="Sedang dalam pengerjaan" {{ $data->status_pengerjaan == 'Sedang dalam pengerjaan' ? 'selected' : '' }}>Sedang dalam pengerjaan</option>
+                                        <option value="Selesai" {{ $data->status_pengerjaan == 'Selesai' ? 'selected' : 'Selesai' }}>Selesai</option>
+                                    </select>
                                 </div>
                             </div>
                             @endif

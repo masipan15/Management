@@ -14,7 +14,7 @@
                     <div>
                         <a href="/exportpdf" class="btn btn-primary">Export PDF</a>
                         {{-- <p class="text-muted card-sub-title"></p> --}}
-                        <a href="/exportexcel" class="btn btn-success">Export Excel</a>
+                        {{-- <a href="/exportexcel" class="btn btn-success">Export Excel</a> --}}
                         <p class="text-muted card-sub-title"></p>
                     </div>
 

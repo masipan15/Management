@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_pelanggan')->nullable();
             $table->string('nama_barang');
-            $table->string('namaservis');
+            $table->string('namaservis')->nullable();
             $table->string('merk_barang');
             $table->string('kerusakan_barang');
             $table->string('status_pengerjaan')->nullable();
