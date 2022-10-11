@@ -87,6 +87,18 @@
                                 </div>
                             @endif
                             @if (auth()->user()->role == 'desain')
+                            <div class="row mb-3">
+                                <label for="inputEmail3"  class="col-sm-2 col-form-label">Status</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control"  required style="width:100%;" id="status_pengerjaan" name="status_pengerjaan">
+                                        <option disabled value="">Pilih Status Pengerjaan</option>
+                                        <option value="Sedang dalam pengerjaan" {{ $data->status_pengerjaan == 'Sedang dalam pengerjaan' ? 'selected' : '' }}>Sedang dalam pengerjaan</option>
+                                        <option value="Selesai" {{ $data->status_pengerjaan == 'Selesai' ? 'selected' : 'Selesai' }}>Selesai</option>
+                                    </select>
+                                </div>
+                            </div>
+                            @endif
+                            @if (auth()->user()->role == 'desain')
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Foto Desain</label>
                                     <div class="col-sm-10">

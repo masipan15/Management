@@ -100,6 +100,7 @@ class ServisController extends Controller
             'namaservis' => $request->namaservis,
             'nama_barang' => $request->nama_barang,
             'merk_barang' => $request->merk_barang,
+            'status_pengerjaan' => $request->status_pengerjaan,
             'kerusakan_barang' => $request->kerusakan_barang,
             'biaya_pengerjaan' => $request->biaya_pengerjaan,
         ]);

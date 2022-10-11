@@ -81,6 +81,7 @@ class DesainController extends Controller
             'namapedesain' => $request->namapedesain,
             'ukuran_desain' => $request->ukuran_desain,
             'permintaan_desain' => $request->permintaan_desain,
+            'status_pengerjaan' => $request->status_pengerjaan,
             'keterangan' => $request->keterangan,
             'harga_desain' => $request->harga_desain,
         ]);
