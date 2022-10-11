@@ -48,10 +48,11 @@
 
 
         </tr>
+
         @php
             $no = 1;
         @endphp
-        @foreach ($data as $row)
+        @foreach ($array as $row)
             <tr>
                 <th scope="row">{{ $no++ }}</th>
                 <td>{{ $row['tanggal'] }}</td>
@@ -63,6 +64,7 @@
 
             </tr>
         @endforeach
+
 
     </table>
 

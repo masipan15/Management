@@ -76,14 +76,6 @@ class DesainController extends Controller
     public function updatedesain(request $request, $id)
     {
         $data = desain::findorfail($id);
-        // $update = Pemasukan::find($id);
-        // $update->update([
-        //     'total' => $request->harga_desain,
-        //     'tanggal' => $request->permintaan_desain,
-        // ]);
-
-
-
         $data->update([
             'nama_pemesan' => $request->nama_pemesan,
             'namapedesain' => $request->namapedesain,
@@ -97,7 +89,7 @@ class DesainController extends Controller
             $data->fotod = $request->file('fotod')->getClientOriginalName();
             $data->save();
         }
-     
+
 
         return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
     }
@@ -121,7 +113,7 @@ class DesainController extends Controller
     public function masukpenyelesaiandesain($id)
     {
         $data = desain::findOrFail($id);
-        $tes=  penyelesaian::create([
+        $tes =  penyelesaian::create([
             'nama_pemesan' => $data->nama_pemesan,
             'ukuran_desain' => $data->ukuran_desain,
             'permintaan_desain' => $data->permintaan_desain,

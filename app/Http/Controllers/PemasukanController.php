@@ -41,26 +41,26 @@ class PemasukanController extends Controller
         $array = [];
 
         foreach ($barang as $b) {
-            $b->setAttribute('tanggal', date('D', strtotime($b->created_at)));
+            $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
             $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
-            $b->setAttribute('bulan', date('M', strtotime($b->created_at)));
+            $b->setAttribute('bulan', date('m', strtotime($b->created_at)));
             $b->setAttribute('type', 'Barang Keluar');
             $b->setAttribute('total', $b->total);
             array_push($array, $b->getAttributes());
         }
         foreach ($desain as $b) {
-            $b->setAttribute('tanggal', date('D', strtotime($b->created_at)));
+            $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
             $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
-            $b->setAttribute('bulan', date('M', strtotime($b->created_at)));
+            $b->setAttribute('bulan', date('m', strtotime($b->created_at)));
             $b->setAttribute('total', $b->harga_desain);
             $b->setAttribute('nama_pelanggan', $b->nama_pemesan);
             $b->setAttribute('type', 'Desain');
             array_push($array, $b->getAttributes());
         }
         foreach ($service as $b) {
-            $b->setAttribute('tanggal', date('D', strtotime($b->created_at)));
+            $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
             $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
-            $b->setAttribute('bulan', date('M', strtotime($b->created_at)));
+            $b->setAttribute('bulan', date('m', strtotime($b->created_at)));
             $b->setAttribute('total', $b->biaya_pengerjaan);
             $b->setAttribute('type', 'Servis');
             array_push($array, $b->getAttributes());
@@ -73,11 +73,45 @@ class PemasukanController extends Controller
 
     public function exportpdfm()
     {
-        $data = Pemasukan::all();
+        $array = [];
 
-        view()->share('data', $data);
+
+
+
+
+        $barang = barangkeluar::all();
+        $desain = desain::all();
+        $service = servis::all();
+
+
+        foreach ($barang as $b) {
+            $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
+            $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
+            $b->setAttribute('bulan', date('m', strtotime($b->created_at)));
+            $b->setAttribute('type', 'Barang Keluar');
+            $b->setAttribute('total', $b->total);
+            array_push($array, $b->getAttributes());
+        }
+        foreach ($desain as $b) {
+            $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
+            $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
+            $b->setAttribute('bulan', date('m', strtotime($b->created_at)));
+            $b->setAttribute('total', $b->harga_desain);
+
+            $b->setAttribute('type', 'Desain');
+            array_push($array, $b->getAttributes());
+        }
+        foreach ($service as $b) {
+            $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
+            $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
+            $b->setAttribute('bulan', date('m', strtotime($b->created_at)));
+            $b->setAttribute('total', $b->biaya_pengerjaan);
+            $b->setAttribute('type', 'Servis');
+            array_push($array, $b->getAttributes());
+        }
+        view()->share('array', $array);
         $pdf = PDF::loadview('datapemasukanpdf');
-        return $pdf->download('datapemasukan.pdf');
+        return $pdf->download('datapemasukan.pdf', compact('array'));
     }
 
     public function exportexcelm()
