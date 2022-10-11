@@ -76,11 +76,11 @@ class DesainController extends Controller
     public function updatedesain(request $request, $id)
     {
         $data = desain::findorfail($id);
-        $update = Pemasukan::find($id);
-        $update->update([
-            'total' => $request->harga_desain,
-            'tanggal' => $request->permintaan_desain,
-        ]);
+        // $update = Pemasukan::find($id);
+        // $update->update([
+        //     'total' => $request->harga_desain,
+        //     'tanggal' => $request->permintaan_desain,
+        // ]);
 
 
 

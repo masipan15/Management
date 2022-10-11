@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 
 use App\Models\Pemasukan;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Exports\PemasukanExport;
 use App\Models\barangkeluar;
 use App\Models\desain;
