@@ -43,20 +43,22 @@
             <th class="wd-20p">Tanggal</th>
             <th class="wd-25p">Bulan</th>
             <th class="wd-20p">Tahun</th>
-            <th class="wd-15p">Pengeluaran</th>
+            <th class="wd-20p">Pengeluran Dari</th>
+            <th class="wd-15p">Total</th>
 
 
         </tr>
+
         @php
             $no = 1;
         @endphp
-        @foreach ($data as $row)
+        @foreach ($array as $row)
             <tr>
                 <th scope="row">{{ $no++ }}</th>
-                <td>{{ $row->tanggal }}</td>
-                <td>{{ $row->bulan }}</td>
-                <td>{{ $row->tahun }}</td>
-
+                <td>{{ $row['tanggal'] }}</td>
+                <td>{{ $row['bulan'] }}</td>
+                <td>{{ $row['tahun'] }}</td>
+                <td>{{ $row['type'] }}</td>
                 <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
 
 

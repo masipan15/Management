@@ -13,27 +13,36 @@ class PengeluaranController extends Controller
 {
     public function pengeluaran()
     {
-        $pengeluaran = Pengeluaran::all();
-        return view('masuk.pengeluaran', compact('pengeluaran'));
+
+
 
         $barangmasuk = barangmasuk::all();
-
-
+        $array = [];
         foreach ($barangmasuk as $b) {
-            $b->setAttribute('tanggal', date('D', strtotime($b->created_at)));
+            $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
             $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
-            $b->setAttribute('bulan', date('M', strtotime($b->created_at)));
+            $b->setAttribute('bulan', date('m', strtotime($b->created_at)));
             $b->setAttribute('type', 'Barang Masuk');
             $b->setAttribute('total', $b->total);
             array_push($array, $b->getAttributes());
         }
+        return view('masuk.pengeluaran', compact('array'));
     }
 
     public function exportpdf()
     {
-        $data = Pengeluaran::all();
+        $barangmasuk = barangmasuk::all();
+        $array = [];
+        foreach ($barangmasuk as $b) {
+            $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
+            $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
+            $b->setAttribute('bulan', date('m', strtotime($b->created_at)));
+            $b->setAttribute('type', 'Barang Masuk');
+            $b->setAttribute('total', $b->total);
+            array_push($array, $b->getAttributes());
+        }
 
-        view()->share('data', $data);
+        view()->share('array', $array);
         $pdf = PDF::loadview('datapengeluaranpdf');
         return $pdf->download('datapengeluaran.pdf');
     }
