@@ -12,11 +12,11 @@
                     </div>
                     <div>
                         <a href="/exportpdfm" class="btn btn-primary">Export PDF</a>
-                        {{-- <a href="/exportexcelm" class="btn btn-success">Export Excel</a> --}}
+                        <a href="/exportexcelm" class="btn btn-success">Export Excel</a>
                         <p class="text-muted card-sub-title"></p>
                     </div>
-
-
+                    
+                    
                     <div class="table-responsive">
                         <table class="table" id="example1">
                             <thead>

@@ -104,8 +104,8 @@
                                 <div class="text-center mt-3">
                                     <button type="button" value="Tambah" id="tambah" class="btn btn-primary btn-sm"><i
                                             class="fas fa-plus"></i></button>
-                                    <button type="button" value="Hapus" id="hapus"
-                                        class="btn btn-outline-primary btn-sm"><i class="fas fa-minus"></i></button>
+                                    {{-- <button type="button" value="Hapus" id="hapus"
+                                        class="btn btn-outline-primary btn-sm"><i class="fas fa-minus"></i></button> --}}
                                 </div>
                                 <div class="text-center mt-4 mb-3">
                                     <button type="submit" class="btn ripple btn-main-primary active mr-1">Tambah</button>

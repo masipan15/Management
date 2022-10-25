@@ -38,8 +38,9 @@
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>
-                                            <img src="{{ asset('fotobarang/' . $row->foto1) }}" alt=""
-                                                style="width: 50px";>
+                                            <a href="{{ asset('fotobarang/' . $row->foto1) }}" data-lightbox="">
+                                            <img src="{{ asset('fotobarang/' . $row->foto1) }}" alt="" class="img-fluid"
+                                                style="width: 50px";></a>
                                         </td>
                                         <td>{{ $row->kodebarang }}</td>
                                         <td>{{ $row->namabarang }}</td>

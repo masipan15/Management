@@ -3,15 +3,27 @@
 namespace App\Exports;
 
 use App\Models\Pemasukan;
+use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromView;
 
-class PemasukanExport implements FromCollection
+class PemasukanExport implements FromView
 {
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function collection()
+    public function __construct(string $keyword)
     {
-        return Pemasukan::all();
+        $this->tanggal = $keyword;
     }
+    public function view(): View
+    {
+        return view('pemasukanexcel', [
+            'data' => Pemasukan::where('tanggal', 'like', '%' . $this->tanggal . '%')->get()
+        ]);
+    }
+    // public function collection()
+    // {
+    //     return Pemasukan::all();
+    // }
 }

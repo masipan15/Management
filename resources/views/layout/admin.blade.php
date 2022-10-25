@@ -28,6 +28,12 @@
     <link href="{{ asset('acstemplate/assets/plugins/web-fonts/font-awesome/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('acstemplate/assets/plugins/web-fonts/plugin.css') }}" rel="stylesheet" />
 
+
+    <!-- Light Box -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+
     <!-- Style css-->
     <link href="{{ asset('acstemplate/assets/css/style/style.css') }}" rel="stylesheet">
     <link href="{{ asset('acstemplate/assets/css/skins.css') }}" rel="stylesheet">

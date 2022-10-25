@@ -1,6 +1,4 @@
-
-
-
+ 
 $(document).ready(function() {
     $("#jumlah").change(function() {
         var jumlah = $("#jumlah").val();

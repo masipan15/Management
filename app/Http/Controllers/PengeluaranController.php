@@ -16,8 +16,8 @@ class PengeluaranController extends Controller
 
 
 
-        $barangmasuk = barangmasuk::all();
         $array = [];
+        $barangmasuk = barangmasuk::all();
         foreach ($barangmasuk as $b) {
             $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
             $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
@@ -31,8 +31,8 @@ class PengeluaranController extends Controller
 
     public function exportpdf()
     {
-        $barangmasuk = barangmasuk::all();
         $array = [];
+        $barangmasuk = barangmasuk::all();
         foreach ($barangmasuk as $b) {
             $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
             $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
@@ -44,11 +44,11 @@ class PengeluaranController extends Controller
 
         view()->share('array', $array);
         $pdf = PDF::loadview('datapengeluaranpdf');
-        return $pdf->download('datapengeluaran.pdf');
+        return $pdf->download('datapengeluaran.pdf', compact('array'));
     }
 
     public function exportexcel()
     {
-        return Excel::download(new PengeluaranExport, 'dataengeluaran.xlsx');
+        return Excel::download(new PengeluaranExport('rangga'), 'datapengeluaran.xlsx');
     }
 }

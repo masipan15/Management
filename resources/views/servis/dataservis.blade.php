@@ -38,8 +38,9 @@
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->created_at->format('d/m/y') }}</td>
                                         <td>
-                                            <img src="{{ asset('fotoservis/' . $row->fotos) }}" alt=""
-                                                style="width: 75px; height: 80px;">
+                                            <a href="{{ asset('fotoservis/' . $row->fotos) }}" data-lightbox="">
+                                            <img src="{{ asset('fotoservis/' . $row->fotos) }}" alt="" class="img-fluid"
+                                                style="width: 50px";></a>
                                         </td>
                                         <td>{{ $row->nama_pelanggan }}</td>
                                         <td>{{ $row->namaservis }}</td>

@@ -129,6 +129,7 @@ class LoginController extends Controller
             'name' => $request->name,
             'alamat' => $request->alamat,
             'notelpon' => $request->notelpon,
+            'foto' => $request->foto,
         ]);
         return redirect()->route('profil')->with('success', 'Data berhasil di Update!');
     }

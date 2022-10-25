@@ -100,7 +100,7 @@ class PemasukanController extends Controller
 
             $b->setAttribute('type', 'Desain');
             array_push($array, $b->getAttributes());
-        }
+        }   
         foreach ($service as $b) {
             $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
             $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
@@ -116,6 +116,6 @@ class PemasukanController extends Controller
 
     public function exportexcelm()
     {
-        return Excel::download(new PemasukanExport, 'datapemasukan.xlsx');
+        return Excel::download(new PemasukanExport('rangga'), 'datapemasukan.xlsx');
     }
 }
