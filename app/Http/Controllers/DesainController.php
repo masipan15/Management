@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Response;
 use Carbon\Carbon;
 use App\Models\desain;
-use App\Models\penyelesaian;
-use App\Models\Pemasukan;
-// use App\Models\Userdesain;
-use App\Models\barangkeluar;
 use App\Models\servis;
+// use App\Models\Userdesain;
+use App\Models\Pemasukan;
+use App\Models\barangkeluar;
+use App\Models\penyelesaian;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromView;
 
 class DesainController extends Controller
@@ -138,5 +140,12 @@ class DesainController extends Controller
         $data = penyelesaian::find($id);
         $data->delete();
         return redirect()->route('datapenyelesaiandesain')->with('success', 'Data Berhasil Di Hapus');
+    }
+
+    public function download($id)
+    {
+        $data = DB::table('desains')->where('id', $id)->first();
+        $filepath = public_path("fotodesain/{$data->fotod}");
+        return response()->download($filepath);
     }
 }

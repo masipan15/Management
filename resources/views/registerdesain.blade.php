@@ -15,7 +15,7 @@
         content="admin laravel template, template laravel admin, laravel css template, best admin template for laravel, laravel blade admin template, template admin laravel, laravel admin template bootstrap 4, laravel bootstrap 4 admin template, laravel admin bootstrap 4, admin template bootstrap 4 laravel, bootstrap 4 laravel admin template, bootstrap 4 admin template laravel, laravel bootstrap 4 template, bootstrap blade template, laravel bootstrap admin template">
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('acstemplate/assets/img/brand/favicon.ico') }}" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('acstemplate/assets/img/brand/acs1.ico') }}" type="image/x-icon" />
 
     <!-- Title -->
     <title>ACS Management</title>
@@ -94,7 +94,8 @@
                                         <p class="mb-4 text-muted tx-13 ml-0 text-left"></p>
                                         <nav class="navbar navbar-light bg-light">
                                             <form class="container-fluid justify-content-center">
-                                                <a href="registerdesain" class="btn btn-sm btn-outline-primary active mr-3"
+                                                <a href="registerdesain"
+                                                    class="btn btn-sm btn-outline-primary active mr-3"
                                                     type="button">User Desain</a>
                                                 <a href="registerservis" class="btn btn-sm btn-outline-primary"
                                                     type="button">User Servis</a>
@@ -104,7 +105,7 @@
                                             @csrf
                                             <div class="form-group text-left">
                                                 <label>Nama</label>
-                                                <input class="form-control" name="name"
+                                                <input class="form-control" required name="name"
                                                     placeholder="Masukkan Nama Anda" type="text">
                                             </div>
                                             @error('name')
@@ -112,7 +113,7 @@
                                             @enderror
                                             <div class="form-group text-left">
                                                 <label>Email</label>
-                                                <input class="form-control" name="email"
+                                                <input class="form-control" required name="email"
                                                     placeholder="Masukkan Email Anda" type="text">
                                             </div>
                                             @error('email')
@@ -120,7 +121,7 @@
                                             @enderror
                                             <div class="form-group text-left">
                                                 <label>Sandi</label>
-                                                <input class="form-control" id="myInput" name="password"
+                                                <input class="form-control" required id="myInput" name="password"
                                                     placeholder="Masukkan Sandi Anda" type="password">
                                                 &nbsp;&nbsp;<input type="checkbox" onclick="myFunction()">Tampilkan
                                                 Sandi

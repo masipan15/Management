@@ -1,7 +1,7 @@
 @extends('layout.admin')
 
 @section('content')
-    <div class="row row-sm">
+    <div class="row row-sm mt-3">
         <div class="col-lg-12">
             <div class="card custom-card overflow-hidden">
                 <div class="card-body">
@@ -48,10 +48,10 @@
 
                                         <td>
                                             <a href="/editbrgmsk/{{ $row->id }}" class="btn btn-success mb-1"><i
-                                                    class="fas fa-pencil-alt"></i>edit</a><br>
+                                                    class="fas fa-pencil-alt"></i></a><br>
                                             <a href="/deletee/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
-                                                    class="fas fa-trash-alt"></i>hapus</button></a>
+                                                    class="fas fa-trash-alt"></i></button></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -63,6 +63,7 @@
             </div>
         </div>
     </div>
+
 
     @include('sweetalert::alert')
 @endsection

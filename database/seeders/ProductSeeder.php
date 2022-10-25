@@ -15,21 +15,35 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        Product::create([
-            'name' => 'Barbie',
-            'price' => 1999,
-        ]);
-        Product::create([
-            'name' => 'Lego',
-            'price' => 4999,
-        ]);
-        Product::create([
-            'name' => 'iPhone',
-            'price' => 109999,
-        ]);
-        Product::create([
-            'name' => 'Samsung Galaxy Buds',
-            'price' => 19999,
-        ]);
+        $products = [
+            [
+                'name' => 'Samsung Galaxy',
+                'description' => 'Samsung Brand',
+                'image' => 'https://dummyimage.com/200x300/000/fff&text=Samsung',
+                'price' => 100
+            ],
+            [
+                'name' => 'Apple iPhone 12',
+                'description' => 'Apple Brand',
+                'image' => 'https://dummyimage.com/200x300/000/fff&text=Iphone',
+                'price' => 500
+            ],
+            [
+                'name' => 'Google Pixel 2 XL',
+                'description' => 'Google Pixel Brand',
+                'image' => 'https://dummyimage.com/200x300/000/fff&text=Google',
+                'price' => 400
+            ],
+            [
+                'name' => 'LG V10 H800',
+                'description' => 'LG Brand',
+                'image' => 'https://dummyimage.com/200x300/000/fff&text=LG',
+                'price' => 200
+            ]
+        ];
+
+        foreach ($products as $key => $value) {
+            Product::create($value);
+        }
     }
 }

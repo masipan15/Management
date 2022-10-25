@@ -1,7 +1,11 @@
 @extends('layout.admin')
 
 @section('content')
-    <div class="row row-sm">
+    @push('css')
+    @endpush
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css"> --}}
+    <div class="row row-sm mt-3">
         <div class="col-lg-12">
             <div class="card custom-card overflow-hidden">
                 <div class="card-body">
@@ -38,9 +42,9 @@
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>
-                                            <a href="{{ asset('fotobarang/' . $row->foto1) }}" data-lightbox="">
-                                            <img src="{{ asset('fotobarang/' . $row->foto1) }}" alt="" class="img-fluid"
-                                                style="width: 50px";></a>
+                                            <a href="{{ asset('fotobarang/' . $row->foto1) }}" data-lightbox=""
+                                                button="close"> <img src="{{ asset('fotobarang/' . $row->foto1) }}"
+                                                    class="img-fluid" alt="" style="width: 50px";></a>
                                         </td>
                                         <td>{{ $row->kodebarang }}</td>
                                         <td>{{ $row->namabarang }}</td>
@@ -49,8 +53,9 @@
                                         <td>{{ $row->stok }}</td>
                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
                                         <td>Rp.{{ number_format($row['hargajual'], 2, '.', '.') }}</td>
-                                        <td><a href="#/{{ $row->id }}" value="{{ route('show', ['id' => $row->id]) }}"
-                                                class="modalMd" title="Lihat Deskripsi Barang" data-toggle="modal"
+                                        <td><a href="#/{{ $row->id }}"
+                                                value="{{ route('show', ['id' => $row->id]) }}" class="modalMd"
+                                                title="Lihat Deskripsi Barang" data-toggle="modal"
                                                 data-target="#modalMd{{ $row->id }}"><i
                                                     class="fas fa-eye text-success  fa-lg"></i>
                                             </a></a>
@@ -58,10 +63,10 @@
 
                                         <td>
                                             <a href="/editbarang/{{ $row->id }}" class="btn btn-success mb-1"><i
-                                                    class="fas fa-pencil-alt"></i>edit</a><br>
+                                                    class="fas fa-pencil-alt"></i></a><br>
                                             <a href="/deletese/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
-                                                    class="fas fa-trash-alt"></i>hapus</button></a>
+                                                    class="fas fa-trash-alt"></i></button></a>
                                         </td>
                                     </tr>
                                     <div class="modal fade" id="modalMd{{ $row->id }}" role="dialog"

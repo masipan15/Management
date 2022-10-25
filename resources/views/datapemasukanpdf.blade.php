@@ -11,12 +11,12 @@
 
         #customers td,
         #customers th {
-            border: 1px solid rgb(0 ,0, 0);
+            border: 1px solid rgb(0, 0, 0);
             padding: 8px;
         }
 
         #customers tr:nth-child(even) {
-            background-color: rgb(255,255, 255);
+            background-color: rgb(255, 255, 255);
         }
 
         #customers tr:hover {
@@ -27,7 +27,7 @@
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
-            background-color: rgb(255,255, 255);
+            background-color: rgb(255, 255, 255);
             color: rgb(11, 11, 11);
         }
     </style>

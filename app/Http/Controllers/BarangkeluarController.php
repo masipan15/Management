@@ -3,73 +3,122 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Models\Kategori;
 use App\Models\Barang;
 use App\Models\desain;
-use App\Models\Pelanggan;
 use App\Models\servis;
+use App\Models\Kategori;
+use App\Models\Pelanggan;
 use App\Models\Pemasukan;
 use App\Models\barangkeluar;
+use App\Models\Databarangkeluar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class BarangkeluarController extends Controller
 {
     public function index()
     {
 
-        $data = barangkeluar::with('namabarangs', 'kategori')->get();
+        $data = Databarangkeluar::with('namabarangs', 'kategori')->get();
         return view('keluar.barangklr', compact('data'));
     }
- 
-
-    public function tambahbrgklr()
+    public function tambahbrgklr(Request $request)
     {
         $data = barangkeluar::all();
         $barang = Barang::all();
         $pelanggan = Pelanggan::all();
+
+
         return view('keluar.tambahbarangklr', compact('data', 'barang', 'pelanggan'));
+    }
+    public function read()
+    {
+        $data = barangkeluar::with('namabarangs')->get();
+        $barang = Barang::all();
+        $pelanggan = Pelanggan::all();
+
+        return response()->json([
+            'data' => $data,
+            'barang' => $barang,
+            'pelanggan' => $pelanggan,
+        ]);
     }
     public function insertbrgklr(Request $request)
     {
 
-        $validated = $request->validate([
+
+        $validator = Validator::make($request->all(), [
             'nama_barang' => 'required',
+
+            'kodebarang_keluar' => 'required',
+            'merk_keluar' => 'required',
+            'harga_jual' => 'required',
+            'stok' => 'required',
             'jumlah' => 'required',
-        ], [
-            'nama_barang.required' => 'nama_barang Harus Diisi!',
-            'jumlah.required' => 'jumlah Harus Diisi!',
+            'total' => 'required',
         ]);
-        $stok_kurang = Barang::find($request->nama_barang);
 
-
-
-        if ($stok_kurang->stok < $request->jumlah) {
-            return redirect()->route('tambahbarangkeluar');
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
         } else {
-            $data = barangkeluar::create([
-                'nama_pelanggan' => $request->nama_pelanggan,
-                'kodetransaksi' => random_int(10000, 999999),
+            barangkeluar::create([
+                'kodetransaksi' => random_int(10000, 99999),
                 'nama_barang' => $request->nama_barang,
+                'nama_pelanggan' => $request->nama_pelanggan,
                 'kodebarang_keluar' => $request->kodebarang_keluar,
                 'merk_keluar' => $request->merk_keluar,
                 'harga_jual' => $request->harga_jual,
                 'stok' => $request->stok,
                 'jumlah' => $request->jumlah,
                 'total' => $request->total,
-                'created_at' => Carbon::parse(now())->isoformat('Y-M-DD')
             ]);
-
             Pelanggan::create([
                 'nama_pelanggan' => $request->nama_pelanggan,
             ]);
+            Databarangkeluar::create([
+                'kodetransaksi' => $request->kodetransaksi,
+                'nama_barang' => $request->nama_barang,
+                'nama_pelanggan' => $request->nama_pelanggan,
+                'kodebarang_keluar' => $request->kodebarang_keluar,
+                'merk_keluar' => $request->merk_keluar,
+                'harga_jual' => $request->harga_jual,
+                'stok' => $request->stok,
+                'jumlah' => $request->jumlah,
+                'total' => $request->total,
+            ]);
 
-             
+            $stok_kurang = Barang::find($request->nama_barang);
             $stok_kurang->stok -= $request->jumlah;
             $stok_kurang->save();
+            return response()->json([
+                'status' => 200,
+                'message' => 'barang keluar berhasil ditambahkan'
+            ]);
         }
 
-        return redirect()->route('barangkeluar')->with('success', 'Data Berhasil Di Tambahkan');
+
+
+
+        //     $data['nama_pelanggan'] = $request->nama_pelanggan;
+        //     $data['nama_barang'] = $request->nama_barang;
+        //     $data['kodebarang_keluar'] = $request->kodebarang_keluar;
+        //     $data['merk_keluar'] = $request->merk_keluar;
+        //     $data['kodetransaksi'] = random_int(10000, 999999);
+        //     $data['harga_jual'] = $request->harga_jual;
+        //     $data['stok'] = $request->stok;
+        //     $data['jumlah'] = $request->jumlah;
+        //     $data['total'] = $request->total;
+        //     barangkeluar::insert($data);
+
+
+
+
+
+
     }
 
 
@@ -118,11 +167,14 @@ class BarangkeluarController extends Controller
         return redirect()->route('barangkeluar')->with('success', 'Data berhasil di Update!');
     }
 
-    public function delete($id)
+    public function deletebarangkeluar($id)
     {
         $data = barangkeluar::find($id);
         $data->delete();
-        return redirect()->route('barangkeluar')->with('success', 'Data Berhasil Di Hapus');
+        return response()->json([
+            'status' => 400,
+            'message' => 'Data berhasil dihapus'
+        ]);
     }
 
     // public function pemasukan()
