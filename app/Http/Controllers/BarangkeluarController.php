@@ -21,7 +21,7 @@ class BarangkeluarController extends Controller
         $data = barangkeluar::with('namabarangs', 'kategori')->get();
         return view('keluar.barangklr', compact('data'));
     }
-
+ 
 
     public function tambahbrgklr()
     {
@@ -141,5 +141,5 @@ class BarangkeluarController extends Controller
     //         ->get();
 
     //     return view('keluar.pemasukan', compact('pemasukan'));
-    // }
+    // }   git 
 }
