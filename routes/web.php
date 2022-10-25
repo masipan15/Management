@@ -1,8 +1,12 @@
 <?php
 
 
+use App\Models\Barang;
+use App\Models\desain;
+use App\Models\servis;
+use App\Models\Supplier;
+use App\Http\Controllers\LiveTable;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CartsController;
 use App\Http\Controllers\LoginController;
@@ -12,16 +16,14 @@ use App\Http\Controllers\servisController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\kategoriController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\UserdesainController;
 use App\Http\Controllers\UserservisController;
 use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\BarangkeluarController;
-use App\Models\Barang;
-use App\Models\desain;
-use App\Models\servis;
-use App\Models\Supplier;
+use App\Http\Controllers\databarangkeluar;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,11 +70,13 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
 
     //barang keluar
     Route::get('/barangkeluar', [BarangkeluarController::class, 'index'])->name('barangkeluar');
+    Route::get('/read', [BarangkeluarController::class, 'read'])->name('read');
+
     Route::get('/tambahbarangkeluar', [BarangkeluarController::class, 'tambahbrgklr'])->name('tambahbarangkeluar');
-    Route::post('/insertbarangkeluar', [BarangkeluarController::class, 'insertbrgklr'])->name('insertbarangkeluar');
+    Route::post('/insertbrgklr', [BarangkeluarController::class, 'insertbrgklr'])->name('insertbrgklr');
     Route::get('/editbrgklr/{id}', [BarangkeluarController::class, 'editbrgklr'])->name('editbrgklr');
     Route::post('/updatebrgklr/{id}', [BarangkeluarController::class, 'updatebrgklr'])->name('updatebrgklr');
-    Route::get('/delete/{id}', [BarangkeluarController::class, 'delete'])->name('delete');
+    Route::delete('/deletebarangkeluar/{id}', [BarangkeluarController::class, 'deletebarangkeluar'])->name('deletebarangkeluar');
 
 
     //Kategori
@@ -84,7 +88,7 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/hapusktgr/{id}', [kategoriController::class, 'hapusktgr'])->name('hapusktgr');
 
 
-    
+
     //pengeluaran
     Route::get('/pengeluaran', [PengeluaranController::class, 'pengeluaran'])->name('pengeluaran')->middleware('auth');
     Route::post('pengeluaran', [PengeluaranController::class, 'create']);
@@ -124,13 +128,13 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
 
 
     //penyelesaian desain
-    Route::get('/desainselesai',[desainController::class, 'datapenyelesaiandesain'])->name('desainselesai');
-    Route::get('/hapuspenyelesaian/{id}',[desainController::class, 'hapuspenyelesaian'])->name('hapuspenyelesaian');
+    Route::get('/desainselesai', [desainController::class, 'datapenyelesaiandesain'])->name('desainselesai');
+    Route::get('/hapuspenyelesaian/{id}', [desainController::class, 'hapuspenyelesaian'])->name('hapuspenyelesaian');
 
 
     //penyelesaian servis
-    Route::get('/dataservisselesai',[servisController::class, 'dataservisselesai'])->name('dataservisselesai');
-    Route::get('/hapusservisselesai/{id}',[servisController::class, 'hapusservisselesai'])->name('hapusservisselesai');
+    Route::get('/dataservisselesai', [servisController::class, 'dataservisselesai'])->name('dataservisselesai');
+    Route::get('/hapusservisselesai/{id}', [servisController::class, 'hapusservisselesai'])->name('hapusservisselesai');
 });
 
 Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
@@ -144,7 +148,7 @@ Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
 
 
     //penyelesaian
-    Route::get('/servisselesai/{id}',[servisController::class, 'masukservisselesai'])->name('servisselesai');
+    Route::get('/servisselesai/{id}', [servisController::class, 'masukservisselesai'])->name('servisselesai');
 });
 
 Route::group(['middleware' => ['auth', 'hakakses:desain,admin']], function () {
@@ -158,7 +162,7 @@ Route::group(['middleware' => ['auth', 'hakakses:desain,admin']], function () {
 
 
     //penyelesaian
-    Route::get('/prosesselesai/{id}',[DesainController::class, 'masukpenyelesaiandesain'])->name('prosesselesai');
+    Route::get('/prosesselesai/{id}', [DesainController::class, 'masukpenyelesaiandesain'])->name('prosesselesai');
 });
 
 //login
@@ -195,10 +199,12 @@ Route::get('/exportexcelm', [PemasukanController::class, 'exportexcelm'])->name(
 //cart
 Route::get('cart', [ProductController::class, 'cart'])->name('cart');
 Route::get('/tambahcart', [ProductController::class, 'tambahcart'])->name('tambahcart');
-Route::post('/cart', [ProductController::class, 'insertcart'])->name('insertcart');
+Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
 Route::patch('update-cart', [ProductController::class, 'update'])->name('update.cart');
 Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
+//download file
+
+Route::get('/download/{id}', [DesainController::class, 'download'])->name('download');
 
 
-
-
+Route::get('databarangkeluar', [databarangkeluar::class, 'databarangkeluar'])->name('databarangkeluar');

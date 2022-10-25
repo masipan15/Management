@@ -101,7 +101,7 @@ class BarangmasukController extends Controller
             'total' => $request->total,
         ]);
 
-    
+
 
 
 

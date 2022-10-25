@@ -418,6 +418,7 @@
 
     <!-- Jquery js-->
     <script src="{{ asset('acstemplate/assets/plugins/jquery/jquery.min.js') }}"></script>
+  
 
     <!-- Bootstrap js-->
     <script src="{{ asset('acstemplate/assets/plugins/bootstrap/js/popper.min.js') }}"></script>
@@ -479,6 +480,12 @@
     <!-- Internal Morris js -->
     <script src="{{ asset('acstemplate/assets/plugins/raphael/raphael.min.js') }}"></script>
     <script src="{{ asset('acstemplate/assets/plugins/morris.js/morris.min.js') }}"></script>
+
+    <!-- Internal Bootstrap -->
+    @push('css')
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            red="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="red">
+    @endpush
 
     <!-- Circle Progress js-->
     <script src="{{ asset('acstemplate/assets/js/circle-progress.min.js') }}"></script>

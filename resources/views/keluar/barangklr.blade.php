@@ -1,7 +1,7 @@
 @extends('layout.admin')
 
 @section('content')
-    <div class="row row-sm">
+    <div class="row row-sm mt-3">
         <div class="col-lg-12">
             <div class="card custom-card overflow-hidden">
                 <div class="card-body">
@@ -16,7 +16,6 @@
                                     <th class="wd-20p">No</th>
                                     <th class="wd-15p">Tanggal</th>
                                     <th class="wd-20p">Nama Pelanggan</th>
-                                    <th class="wd-20p">Kode Transaksi</th>
                                     <th class="wd-20p">Nama Barang</th>
                                     <th class="wd-20p">Kode Barang</th>
                                     <th class="wd-20p">Merk</th>
@@ -35,8 +34,8 @@
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->created_at->format('d/m/y') }}</td>
-                                        <td>{{ $row->nama_pelanggan }}</td>
-                                        <td>{{ $row->kodetransaksi }}</td>
+                                        <td>{{ $row->nama_pelanggan ?: 'Pelanggan Umum' }}</td>
+
                                         <td>{{ $row->namabarangs->namabarang }}</td>
                                         <td>{{ $row->kodebarang_keluar }}</td>
                                         <td>{{ $row->merk_keluar }}</td>
@@ -47,7 +46,7 @@
 
                                         <td>
                                             <a href="/editbrgklr/{{ $row->id }}" class="btn btn-success mb-1"><i
-                                                    class="fas fa-pencil-alt"></i>edit</a><br>
+                                                    class="fas fa-pencil-alt"></i></a><br>
                                             {{-- <a href="/delete/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                     class="fas fa-trash-alt"></i>Hapus</button></a> --}}

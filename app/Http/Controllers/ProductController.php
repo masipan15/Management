@@ -11,22 +11,53 @@ class ProductController extends Controller
     public function cart()
     {
         $products = Product::all();
-        return view('cart', compact('products'));
+        return view('product', compact('products'));
     }
-
-    public function tambahcart($id_product){
-        $cart = session("cart");
-    }
-
-    public function insertcart(Request $request)
+    public function tambahcart()
     {
-        $product = Product::findorfail($request->input('id'));
-        Cart::create(
-            $product->id,
-            $product->name,
-            $request->input('quantity'),
-            $product->price / 100,
-        );
-        return redirect()->route('/cart')->with('message', 'Successfully added');
+        return view('cart');
+    }
+    public function addToCart($id)
+    {
+        $product = Product::findOrFail($id);
+
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "name" => $product->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                "image" => $product->image
+            ];
+        }
+
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
+    }
+
+
+    public function update(Request $request)
+    {
+        if ($request->id && $request->quantity) {
+            $cart = session()->get('cart');
+            $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'Cart updated successfully');
+        }
+    }
+
+    public function remove(Request $request)
+    {
+        if ($request->id) {
+            $cart = session()->get('cart');
+            if (isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Product removed successfully');
+        }
     }
 }

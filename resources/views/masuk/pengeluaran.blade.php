@@ -1,7 +1,7 @@
 @extends('layout.admin')
 
 @section('content')
-    <div class="row row-sm">
+    <div class="row row-sm mt-3">
         <div class="col-lg-12">
             <div class="card custom-card overflow-hidden">
                 <div class="card-body">

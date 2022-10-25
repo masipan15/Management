@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('stok');
             $table->string('harga');
             $table->string('hargajual');
-            $table->string('foto1');
+            $table->string('foto1')->nullable();
             $table->timestamps();
         });
     }

@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('pemasukans', function (Blueprint $table) {
             $table->id();
-            $table->string('tanggal');
-            $table->string('bulan');
-            $table->string('tahun');
-            $table->integer('total');
+            $table->string('tanggal')->nullable();
+            $table->string('bulan')->nullable();
+            $table->string('tahun')->nullable();
+            $table->integer('total')->nullable();
             $table->timestamps();
         });
     }

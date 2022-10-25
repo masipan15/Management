@@ -1,14 +1,14 @@
 @extends('layout.admin')
 @section('content')
-    <div class="row row-sm">
+    <div class="row row-sm mt-3">
         <div class="col-lg-12">
             <div class="card custom-card overflow-hidden">
                 <div class="card-body">
                     @if (auth()->user()->role == 'admin')
-                    <div>
-                        <a href="/tambahdesain" class="btn btn-primary">Tambah</a>
-                        <p class="text-muted card-sub-title"></p>
-                    </div>
+                        <div>
+                            <a href="/tambahdesain" class="btn btn-primary">Tambah</a>
+                            <p class="text-muted card-sub-title"></p>
+                        </div>
                     @endif
                     <div class="table-responsive">
                         <table class="table" id="example1">
@@ -37,8 +37,9 @@
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->created_at->format('d/m/y') }}</td>
                                         <td>
-                                            <img src="{{ asset('fotodesain/' . $row->fotod) }}" alt=""
-                                                style="width: 75px; height: 80px;">
+                                            <a href="{{ asset('fotodesain/' . $row->fotod) }}" data-lightbox=""
+                                                button="close"> <img src="{{ asset('fotodesain/' . $row->fotod) }}"
+                                                    class="img-fluid" alt="" style="width: 50px";></a>
                                         </td>
                                         <td>{{ $row->nama_pemesan }}</td>
                                         <td>{{ $row->namapedesain }}</td>
@@ -51,13 +52,13 @@
 
                                         <td>
                                             <a href="/editdesain/{{ $row->id }}" class="btn btn-success mb-1"><i
-                                                    class="fas fa-pencil-alt"></i>edit</a><br>
+                                                    class="fas fa-pencil-alt"></i></a><br>
 
-                                                    @if (auth()->user()->role == 'admin')
-                                            <a href="/deletes/{{ $row->id }}" class="btn btn-danger"
-                                                onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
-                                                    class="fas fa-trash-alt"></i>hapus</button></a>
-                                                    @endif
+                                            @if (auth()->user()->role == 'admin')
+                                                <a href="/deletes/{{ $row->id }}" class="btn btn-danger"
+                                                    onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
+                                                        class="fas fa-trash-alt"></i></button></a>
+                                            @endif
                                             {{-- <a href="#" class="btn btn-danger delete"
                                                 data-id="{{ $row->id }}"data-nama="{{ $row->nama_pemesan }}">Hapus</a> --}}
                                         </td>
