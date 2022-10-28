@@ -63,6 +63,7 @@ class BarangController extends Controller
         $hargajual = $request->hargajual;
         $deskripsi = $request->deskripsi;
         $foto1 = $request->foto1;
+        
 
         for ($i = 0; $i < count($namabarang); $i++) {
             $datasave = [

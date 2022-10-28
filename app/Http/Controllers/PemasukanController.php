@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use App\Models\Pemasukan;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Exports\PemasukanExport;
-use App\Models\barangkeluar;
+use App\Models\barangkeluar;    
 use App\Models\desain;
 use App\Models\servis;
 use Maatwebsite\Excel\Facades\Excel;
@@ -117,6 +117,6 @@ class PemasukanController extends Controller
     public function exportexcelm()
     {
         
-        return Excel::download(new PemasukanExport, 'datapemasukan.xlsx');
+        return Excel::download(new PemasukanExport('rangga'), 'datapemasukan.xlsx');
     }
 }

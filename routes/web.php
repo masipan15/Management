@@ -135,6 +135,10 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     //penyelesaian servis
     Route::get('/dataservisselesai', [servisController::class, 'dataservisselesai'])->name('dataservisselesai');
     Route::get('/hapusservisselesai/{id}', [servisController::class, 'hapusservisselesai'])->name('hapusservisselesai');
+
+    //Grafik
+    Route::get('/grafik', [PengeluaranController::class, 'grafik'])->name('grafik');
+
 });
 
 Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {

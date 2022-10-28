@@ -240,6 +240,13 @@
                             class="sidemenu-label">Pengeluaran</span></a>
                 </li>
             @endif
+            {{-- @if (auth()->user()->role == 'admin')
+                <li class="nav-item {{ Route::is('grafik') ? 'active' : '' }}">
+                    <a class="nav-link" href="/grafik"><span class="shape1"></span><span
+                            class="shape2"></span><i class="ti-server sidemenu-icon"></i><span
+                            class="sidemenu-label">Grafik</span></a>
+                </li>
+            @endif --}}
             </ul>
             </li>
             </ul>
@@ -442,9 +449,6 @@
     <!-- Sidebar js -->
     <script src="{{ asset('acstemplate/assets/plugins/sidebar/sidebar.js') }}"></script>
 
-    <!-- Internal Chart.Bundle js-->
-    <script src="{{ asset('acstemplate/assets/plugins/chart.js/Chart.bundle.min.js') }}"></script>
-
     <!-- Peity js-->
     <script src="{{ asset('acstemplate/assets/plugins/peity/jquery.peity.min.js') }}"></script>
 
@@ -463,6 +467,9 @@
     <script src="{{ asset('acstemplate/assets/js/table-data.js') }}"></script>
 
 
+    <!-- Internal Chartjs charts js-->
+		<script src="{{ asset('acstemplate/assets/plugins/chart.js/Chart.bundle.min.js') }}"></script>
+		<script src="{{ asset('acstemplate/assets/js/chart.chartjs.js') }}"></script>
 
     <!-- Owl Carousel js -->
     <script src="{{ asset('acstemplate/assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
@@ -516,6 +523,7 @@
 
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script>
 
+    @yield('charts')
 
 
 </body>
