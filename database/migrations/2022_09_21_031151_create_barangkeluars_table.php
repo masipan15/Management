@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('stok');
             $table->bigInteger('jumlah');
             $table->bigInteger('total');
+            $table->bigInteger('subtotal')->nullable();
             $table->timestamps();
         });
     }

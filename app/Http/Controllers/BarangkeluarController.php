@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
 use App\Models\Barang;
-use App\Models\desain;
-use App\Models\servis;
-use App\Models\Kategori;
 use App\Models\Pelanggan;
 use App\Models\Pemasukan;
 use App\Models\barangkeluar;
@@ -21,27 +17,48 @@ class BarangkeluarController extends Controller
     {
 
         $data = Databarangkeluar::with('namabarangs', 'kategori')->get();
-        return view('keluar.barangklr', compact('data'));
+        $subtotal = Databarangkeluar::sum('total');
+        return view('keluar.barangklr', compact('data', 'subtotal'));
     }
     public function tambahbrgklr(Request $request)
     {
+
         $data = barangkeluar::all();
         $barang = Barang::all();
         $pelanggan = Pelanggan::all();
+        $subtotal = barangkeluar::select(
+
+            DB::raw("(sum(total)) as total")
+        )->get();
 
 
-        return view('keluar.tambahbarangklr', compact('data', 'barang', 'pelanggan'));
+
+
+        return view('keluar.tambahbarangklr', compact('data', 'barang', 'pelanggan', 'subtotal'));
+    }
+
+    public function print()
+    {
+        $barangkeluar = Barangkeluar::all();
+        return view('keluar.print', compact('barangkeluar'));
     }
     public function read()
     {
-        $data = barangkeluar::with('namabarangs')->get();
+        $data = barangkeluar::orderBy('id', 'DESC')->with('namabarangs')->get();
         $barang = Barang::all();
         $pelanggan = Pelanggan::all();
+        $subtotal = barangkeluar::select(
+            DB::raw("(sum(total)) as total")
+        )->get();
+        $subtotalakhir = barangkeluar::sum('total');
+
 
         return response()->json([
             'data' => $data,
             'barang' => $barang,
             'pelanggan' => $pelanggan,
+            'subtotal' => $subtotal,
+            'subtotalakhir' => $subtotalakhir
         ]);
     }
     public function insertbrgklr(Request $request)
@@ -58,12 +75,17 @@ class BarangkeluarController extends Controller
             'jumlah' => 'required',
             'total' => 'required',
         ]);
-
         if ($validator->fails()) {
             return response()->json([
                 'status' => 400,
                 'errors' => $validator->messages(),
             ]);
+        }
+        $barang = Barang::find($request->nama_barang);
+        $barang = Barang::find($request->nama_barang);
+        if ($barang->stok < $request->jumlahbarang) {
+
+            return redirect('tambahbarangkeluar')->with('success', 'Jumlah Barang melebihi stok');
         } else {
             barangkeluar::create([
                 'kodetransaksi' => random_int(10000, 99999),
@@ -78,6 +100,9 @@ class BarangkeluarController extends Controller
             ]);
             Pelanggan::create([
                 'nama_pelanggan' => $request->nama_pelanggan,
+            ]);
+            Pemasukan::create([
+                'total' => $request->total,
             ]);
             Databarangkeluar::create([
                 'kodetransaksi' => $request->kodetransaksi,
@@ -94,9 +119,13 @@ class BarangkeluarController extends Controller
             $stok_kurang = Barang::find($request->nama_barang);
             $stok_kurang->stok -= $request->jumlah;
             $stok_kurang->save();
+            $subtotal = barangkeluar::sum('total');
+
+
             return response()->json([
                 'status' => 200,
-                'message' => 'barang keluar berhasil ditambahkan'
+                'message' => 'barang keluar berhasil ditambahkan',
+                'subtotal' => $subtotal,
             ]);
         }
 
@@ -170,10 +199,15 @@ class BarangkeluarController extends Controller
     public function deletebarangkeluar($id)
     {
         $data = barangkeluar::find($id);
+        $subtotaldelete = barangkeluar::sum('total');
+        $datas = databarangkeluar::find($id);
         $data->delete();
+        $datas->delete();
+
         return response()->json([
             'status' => 400,
-            'message' => 'Data berhasil dihapus'
+            'message' => 'Data berhasil dihapus',
+            'subtotaldelete' => $subtotaldelete
         ]);
     }
 

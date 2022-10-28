@@ -58,6 +58,11 @@ class BarangmasukController extends Controller
             'created_at' => Carbon::parse(now())->isoformat('Y-M-DD')
         ]);
 
+        Pengeluaran::create([
+            'total' => $request->total,
+            'bulan' => Carbon::parse(now())->isoformat('MMM')
+        ]);
+
 
 
         $stok_nambah->stok += $request->jumlah;

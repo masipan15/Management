@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 
-use App\Models\Pemasukan;
-use Barryvdh\DomPDF\Facade\Pdf;
-use App\Exports\PemasukanExport;
-use App\Models\barangkeluar;
 use App\Models\desain;
 use App\Models\servis;
+use App\Models\Pemasukan;
+use App\Models\barangkeluar;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Exports\PemasukanExport;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -22,7 +23,7 @@ class PemasukanController extends Controller
 
 
 
-        //     DB::raw("(sum(total)) as total"),
+        // DB::raw("(sum(total)) as total"),
         //     DB::raw("(DATE_FORMAT(created_at, '%d')) as day"),
         //     DB::raw("(DATE_FORMAT(created_at, '%M')) as month"),
         //     DB::raw("(DATE_FORMAT(created_at, '%Y')) as year")
@@ -37,6 +38,14 @@ class PemasukanController extends Controller
         $barang = barangkeluar::all();
         $desain = desain::all();
         $service = servis::all();
+        // $totalbarangkeluar = barangkeluar::select(DB::raw("(sum(total))as total"))->get();
+        // $totaldesain = desain::select(DB::raw("(sum(harga_desain))as total"))->get();
+        // $totalservis = servis::select(DB::raw("(sum(biaya_pengerjaan))as total"))->get();
+        $totalbarangkeluar = barangkeluar::sum('total');
+        $totaldesain = desain::sum('harga_desain');
+        $totalservis = servis::sum('biaya_pengerjaan');
+        $subtotal = $totalbarangkeluar + $totaldesain + $totalservis;
+        // return $subtotal;
 
         $array = [];
 
@@ -68,7 +77,7 @@ class PemasukanController extends Controller
 
         // dd($array);
 
-        return view('keluar.pemasukan', compact('array'));
+        return view('keluar.pemasukan', compact('array', 'subtotal'));
     }
 
     public function exportpdfm()
@@ -116,7 +125,7 @@ class PemasukanController extends Controller
 
     public function exportexcelm()
     {
-        
+
         return Excel::download(new PemasukanExport, 'datapemasukan.xlsx');
     }
 }

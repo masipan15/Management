@@ -47,8 +47,13 @@
 
                                     </tr>
                                 @endforeach
-
                             </tbody>
+                            <tr>
+                                <td colspan="4">
+                                </td>
+                                <td style="font-weight: 900;">SubTotal :</td>
+                                <td style="font-weight: 900;">Rp.{{ number_format($subtotal, 2, '.', '.') }}</td>
+                            </tr>
                         </table>
                     </div>
                 </div>
