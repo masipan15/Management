@@ -60,6 +60,8 @@ class DesainController extends Controller
 
 
 
+
+
         return redirect()->route('datadesain')->with('success', 'Data Berhasil Di Tambahkan');
     }
 
@@ -99,6 +101,10 @@ class DesainController extends Controller
             $data->fotod = $request->file('fotod')->getClientOriginalName();
             $data->save();
         }
+
+        Pemasukan::create([
+            'total' => $request->harga_desain,
+        ]);
 
 
         return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');

@@ -34,7 +34,6 @@
                                     </select>
 
                                 </div>
-
                                 <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
                                     <p class="">Stok</p>
                                     <input class="form-control text-center mb-3" readonly name="stok" type="number"
@@ -47,8 +46,8 @@
                                 </div>
                                 <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
                                     <p class="">Jumlah</p>
-                                    <input class="form-control text-center mb-3" required name="jumlah" type="number"
-                                        id="jumlah">
+                                    <input class="form-control text-center mb-3" min="1" required name="jumlah"
+                                        type="number" id="jumlah">
                                 </div>
                             </div>
                         </div>
@@ -63,7 +62,7 @@
                                 id="kodebarang_keluar" type="text">
                         </div>
 
-                        <div class="col-lg mg-t-10 mg-lg-t-0"hidden>
+                        <div class="col-lg mg-t-10 mg-lg-t-0">
                             <p class="form-label">Total</p>
                             <input class="form-control text-center" readonly required name="total" id="total"
                                 type="number">
@@ -100,28 +99,29 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
-
                                 </tbody>
                             </table>
+
                             <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
-                                <p class="form-label">Total Harga</p>
-                                <input class="form-control text-center" readonly required name="total" id="total"
+                                <p class="form-label">Subtotal</p>
+                                <input class="form-control text-center" readonly required name="subtotal" id="subtotal"
                                     type="number">
                             </div>
+
                             <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
                                 <p class="form-label">Total Pembayaran</p>
-                                <input class="form-control text-center" required name="total" id="total"
-                                    type="number">
+                                <input class="form-control text-center" required min="500" name="pembayaran"
+                                    id="pembayaran" type="number">
                             </div>
+
                             <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
                                 <p class="form-label">Kembalian</p>
-                                <input class="form-control text-center" readonly required name="total" id="total"
+                                <input class="form-control text-center" required name="kembalian" id="kembalian"
                                     type="number">
                             </div>
                             <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
-                                <a href="#" class="btn btn-info" @click.prevent="printme"><i
-                                        class="fas fa-print"></i></a>
+                                <a href="/print" id="print" target="_blank" class="btn btn-success btn-sm"><i
+                                        class="fa fa-credit-card"></i></a>
                             </div>
 
                         </div>
@@ -132,10 +132,12 @@
     </div>
 
 
+
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 
 
@@ -144,7 +146,15 @@
     </script>
 
     <script src="{{ asset('acstemplate/assets/plugins/select2/js/select2.min.js') }}"></script>
+    <script src="../js/printpage.js" type="text/javascript"></script>
 
+    <!-- Print Js -->
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#print').printPage();
+        })
+    </script>
 
 
     <script>
@@ -161,6 +171,22 @@
             var harga_jual = $("#harga_jual").val();
             var total = jumlah * harga_jual
             $("#total").val(total);
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#pembayaran").change(function() {
+                var pembayaran = $("#pembayaran").val();
+                var subtotal = $("#subtotal").val();
+                var kembalian = pembayaran - subtotal
+                $("#kembalian").val(kembalian);
+            });
+        });
+        $("#pembayaran").keyup(function() {
+            var pembayaran = $("#pembayaran").val();
+            var subtotal = $("#subtotal").val();
+            var kembalian = pembayaran - subtotal
+            $("#kembalian").val(kembalian);
         });
     </script>
 
@@ -180,6 +206,7 @@
         }
     </script>
 
+
     <script type="text/javascript">
         $(".ipan_select2").select2({
             placeholder: "Pilih Barang",
@@ -191,14 +218,6 @@
     <script>
         $(document).ready(function() {
             read();
-            var i = 0;
-            i < alphabet.length;
-            i++
-            var a = alphabet[i],
-                b = i.toString(36);
-            back[a] = b;
-            forth[b] = a;
-
 
             function read() {
                 $.ajax({
@@ -209,44 +228,45 @@
                         $('tbody').html("");
                         $.each(response.data, function(key, item) {
                             $('tbody').append(
-                                ' <tr><th class="wd-20p">' + item.id +
+                                ' <tr><th class="wd-20p">' + (key + 1) +
                                 '</th>\
-                                                                                                                                                                                                                                <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td class="wd-20p">' +
                                 item
                                 .kodetransaksi +
                                 '</td>\
-                                                                                                                                                                                                                                <td class="wd-20p">' +
-                                item.nama_pelanggan +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td class="wd-20p">' +
+                                (item.nama_pelanggan ? item.nama_pelanggan :
+                                    'Pelanggan Umum') +
                                 '</td>\
-                                                                                                                                                                                                                                    <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .namabarangs.namabarang +
                                 '</td>\
-                                                                                                                                                                                                                                    <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .kodebarang_keluar +
                                 '</td>\
-                                                                                                                                                                                                                                    <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .merk_keluar +
                                 '</td>\
-                                                                                                                                                                                                                                    <td class="wd-20p">Rp.' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">Rp.' +
                                 item
                                 .harga_jual +
                                 '</td>\
-                                                                                                                                                                                                                                    <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .jumlah +
                                 '</td>\
-                                                                                                                                                                                                                                    <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .total +
                                 '</td>\
-                                                                                                                                                <td><button type="button" id="delete"  value="' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td><button type="button" id="delete" data-total="' +
+                                item.total + '"  value="' +
                                 item
                                 .id +
                                 '" class="delete btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button></td></tr>'
-
                             );
                         });
                     }
@@ -254,8 +274,10 @@
                 });
 
             }
+
             $('#proses').click(function(e) {
                 e.preventDefault();
+
                 // console.log('ipanganteng');
                 var data = {
                     'kode_transaksi': $('#kode_transaksi').val(),
@@ -279,8 +301,9 @@
                     data: data,
                     dataType: "json",
                     success: function(response) {
+                        var subtotal = response.subtotal
+                        document.getElementById('subtotal').value = subtotal;
                         read();
-                        // console.log(response);
 
                     }
                 });
@@ -288,6 +311,8 @@
             $(document).on('click', '#delete', function(e) {
                 e.preventDefault();
                 var id_delete = $(this).val();
+                var total = $(this).attr('data-total');
+                var subtotal = document.getElementById('subtotal').value
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -298,10 +323,12 @@
                     url: "/deletebarangkeluar/" + id_delete,
                     success: function(response) {
                         read();
+                        var subtotaldelete = response.subtotaldelete
+                        document.getElementById('subtotal').value = (subtotal - total);
+
                     }
                 });
             });
-
 
         });
     </script>

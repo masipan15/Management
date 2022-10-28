@@ -73,11 +73,11 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/read', [BarangkeluarController::class, 'read'])->name('read');
 
     Route::get('/tambahbarangkeluar', [BarangkeluarController::class, 'tambahbrgklr'])->name('tambahbarangkeluar');
+    Route::get('/print', [BarangkeluarController::class, 'print'])->name('print');
     Route::post('/insertbrgklr', [BarangkeluarController::class, 'insertbrgklr'])->name('insertbrgklr');
     Route::get('/editbrgklr/{id}', [BarangkeluarController::class, 'editbrgklr'])->name('editbrgklr');
     Route::post('/updatebrgklr/{id}', [BarangkeluarController::class, 'updatebrgklr'])->name('updatebrgklr');
     Route::delete('/deletebarangkeluar/{id}', [BarangkeluarController::class, 'deletebarangkeluar'])->name('deletebarangkeluar');
-
 
     //Kategori
     Route::get('/datakategori', [kategoriController::class, 'index'])->name('datakategori');
@@ -211,4 +211,8 @@ Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('r
 Route::get('/download/{id}', [DesainController::class, 'download'])->name('download');
 
 
+
 Route::get('databarangkeluar', [databarangkeluar::class, 'databarangkeluar'])->name('databarangkeluar');
+
+
+Route::get('ipan', [BarangkeluarController::class, 'ipan'])->name('ipan');

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('kodebarang');
             $table->string('kategoris_id');
-            $table->string('namabarang');
+            $table->string('namabarang')->ondeleted('restrictd')->onupdate('cascade');
             $table->string('merk');
             $table->text('deskripsi');
             $table->string('stok');

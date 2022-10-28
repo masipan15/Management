@@ -181,7 +181,7 @@
 
             <!--Row-->
             <div class="row row-sm">
-                <div class="col-sm-12 col-lg-12 col-xl-8">
+                <div class="col-sm-12 col-lg-12 col-xl-12">
 
                     <!--Row-->
                     <div class="row row-sm  mt-lg-4">

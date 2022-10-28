@@ -132,7 +132,8 @@
             @endif
             @if (auth()->user()->role == 'admin')
                 <li class="nav-header"><span class="nav-label"></span></li>
-                <li class="nav-item {{ Route::is('datakategori') ? 'active' : '' }}">
+                <li
+                    class="nav-item {{ Route::is('datakategori', 'tambahkategori', 'editkategori') ? 'active' : '' }}">
                     <a class="nav-link" href="/datakategori"><span class="shape1"></span><span
                             class="shape2"></span><i class="ti-layers sidemenu-icon"></i><span
                             class="sidemenu-label">Kategori
@@ -140,7 +141,7 @@
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
-                <li class="nav-item {{ Route::is('databarang') ? 'active' : '' }}">
+                <li class="nav-item {{ Route::is('databarang', 'tambahbarang', 'editbarang') ? 'active' : '' }}">
                     <a class="nav-link" href="/databarang"><span class="shape1"></span><span
                             class="shape2"></span><i class="ti-package sidemenu-icon"></i><span
                             class="sidemenu-label">Data
@@ -148,36 +149,38 @@
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
-                <li class="nav-item {{ Route::is('datasupplier') ? 'active' : '' }}">
+                <li class="nav-item {{ Route::is('datasupplier', 'tambahsuplier', 'editsupplier') ? 'active' : '' }}">
                     <a class="nav-link" href="/datasupplier"><span class="shape1"></span><span
                             class="shape2"></span><i class="far fa-address-card sidemenu-icon"></i><span
                             class="sidemenu-label">Data Supplier</span></a>
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
-                <li class="nav-item {{ Route::is('barangmasuk') ? 'active' : '' }}">
+                <li
+                    class="nav-item {{ Route::is('barangmasuk', 'tambahbarangmasuk', 'editbrgmsk') ? 'active' : '' }}">
                     <a class="nav-link" href="/barangmasuk"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-truck sidemenu-icon"></i><span
                             class="sidemenu-label">Barang Masuk</span></a>
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
-                <li class="nav-item {{ Route::is('barangkeluar') ? 'active' : '' }}">
+                <li
+                    class="nav-item {{ Route::is('barangkeluar', 'tambahbarangkeluar', 'editbrgklr') ? 'active' : '' }}">
                     <a class="nav-link" href="/barangkeluar"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-truck-trailer sidemenu-icon"></i><span
                             class="sidemenu-label">Barang Keluar</span></a>
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
-                <li class="nav-item {{ Route::is('datapelanggan') ? 'active' : '' }}">
+                <li class="nav-item {{ Route::is('datapelanggan', 'editpelanggan') ? 'active' : '' }}">
                     <a class="nav-link" href="/datapelanggan"><span class="shape1"></span><span
                             class="shape2"></span><i class="fa fa-group sidemenu-icon"></i><span
-                            class="sidemenu-label">Data Pelanggan</span></a>
+                            class="sidemenu-label">Data Pelanggan </span></a>
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
                 <li class="nav-header"><span class="nav-label">Permintaan</span></li>
-                <li class="nav-item {{ Route::is('datadesain') ? 'active' : '' }}">
+                <li class="nav-item {{ Route::is('datadesain', 'tambahdesain', 'editdesain') ? 'active' : '' }}">
                     <a class="nav-link" href="/datadesain"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
                             class="sidemenu-label">Data
@@ -186,7 +189,7 @@
             @endif
             @if (auth()->user()->role == 'desain')
                 <li class="nav-header"><span class="nav-label">Permintaan</span></li>
-                <li class="nav-item {{ Route::is('datadesain') ? 'active' : '' }}">
+                <li class="nav-item {{ Route::is('datadesain', 'editdesain') ? 'active' : '' }}">
                     <a class="nav-link" href="/datadesain"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
                             class="sidemenu-label">Data
@@ -194,7 +197,7 @@
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
-                <li class="nav-item {{ Route::is('dataservis') ? 'active' : '' }}">
+                <li class="nav-item {{ Route::is('dataservis', 'tambahseris', 'editservis') ? 'active' : '' }}">
                     <a class="nav-link" href="/dataservis"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
                             class="sidemenu-label">Data
@@ -203,7 +206,7 @@
             @endif
             @if (auth()->user()->role == 'servis')
                 <li class="nav-header"><span class="nav-label">Permintaan</span></li>
-                <li class="nav-item {{ Route::is('dataservis') ? 'active' : '' }}">
+                <li class="nav-item {{ Route::is('dataservis', 'editservis') ? 'active' : '' }}">
                     <a class="nav-link" href="/dataservis"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
                             class="sidemenu-label">Data
@@ -431,7 +434,7 @@
 
     <!-- Jquery js-->
     <script src="{{ asset('acstemplate/assets/plugins/jquery/jquery.min.js') }}"></script>
-  
+
 
     <!-- Bootstrap js-->
     <script src="{{ asset('acstemplate/assets/plugins/bootstrap/js/popper.min.js') }}"></script>

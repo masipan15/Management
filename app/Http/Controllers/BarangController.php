@@ -18,7 +18,7 @@ class BarangController extends Controller
 
     public function databarang()
     {
-        $data = Barang::with('kategori')->get();
+        $data = Barang::orderBy('id', 'DESC')->with('kategori')->get();
 
         return view('barang.databarang', compact('data'));
     }
@@ -32,9 +32,6 @@ class BarangController extends Controller
 
     public function insertbarang(Request $request)
     {
-
-
-
         $validated = $request->validate([
             'kategoris_id' => 'required',
             'namabarang' => 'required',
@@ -55,6 +52,8 @@ class BarangController extends Controller
             // 'foto1.mimes' => 'Harus Image',
         ]);
 
+        $images = array();
+
         $kodebarang = random_int(10000, 99999);
         $namabarang = $request->namabarang;
         $kategoris_id = $request->kategoris_id;
@@ -65,8 +64,16 @@ class BarangController extends Controller
         $foto1 = $request->foto1;
         
 
+        if ($files = $request->file('foto1')) {
+            foreach ($files as $file) {
+                $name = $file->getClientOriginalName();
+                $file->move('fotobarang/', $name);
+                $images[] = $name;
+            }
+        }
+
         for ($i = 0; $i < count($namabarang); $i++) {
-            $datasave = [
+            $data =       Barang::insert([
                 'kodebarang' => random_int(10000, 999999),
                 'namabarang' => $namabarang[$i],
                 'kategoris_id' => $kategoris_id[$i],
@@ -75,15 +82,8 @@ class BarangController extends Controller
                 'harga' => $harga[$i],
                 'hargajual' => $hargajual[$i],
                 'deskripsi' => $deskripsi[$i],
-                'foto1' => $foto1[$i],
-            ];
-
-            DB::table('barangs')->insert($datasave);
-            // if ($request->hasFile('foto1')) {
-            //     $request->file('foto1')->move('fotobarang/', $request->file('foto1')->getClientOriginalName());
-            //     $foto1->foto1 = $request->file('foto1')->getClientOriginalName();
-            //     $foto1->save();
-            // }
+                'foto1' => $images[$i],
+            ]);
         }
 
         return redirect()->route('databarang')->with('success', 'Data berhasil di Tambahkan');;
