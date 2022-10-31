@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('pengeluarans', function (Blueprint $table) {
             $table->id();
-            $table->string('tanggal');
+            $table->string('tanggal')->nullable();
             $table->string('bulan');
-            $table->string('tahun');
+            $table->string('tahun')->nullable();
             $table->string('total');
             $table->timestamps();
         });

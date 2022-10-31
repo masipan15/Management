@@ -66,16 +66,16 @@ class PengeluaranController extends Controller
         // ->GroupBy(DB::raw("MONTHNAME(created_at)"))   
         // ->pluck('bulan');
         // dd($bulan);
-        $bulan = barangmasuk::all();
+        $bulan = pengeluaran::all();
 
         $month = [];
         $data = [];
 
         foreach($bulan as $mp) {
-            $month[] = $mp->merk;
+            $month[] = $mp->bulan;
             $data[] = $mp->id;
         }
-        // dd($data);
+        // dd($data); 
         
 
         return view('masuk.charts', compact('bulan','month','data'));
