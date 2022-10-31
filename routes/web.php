@@ -78,6 +78,8 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/editbrgklr/{id}', [BarangkeluarController::class, 'editbrgklr'])->name('editbrgklr');
     Route::post('/updatebrgklr/{id}', [BarangkeluarController::class, 'updatebrgklr'])->name('updatebrgklr');
     Route::delete('/deletebarangkeluar/{id}', [BarangkeluarController::class, 'deletebarangkeluar'])->name('deletebarangkeluar');
+    Route::delete('/deletbarangkeluarall', [BarangkeluarController::class, 'deletbarangkeluarall'])->name('deletbarangkeluarall');
+
 
     //Kategori
     Route::get('/datakategori', [kategoriController::class, 'index'])->name('datakategori');

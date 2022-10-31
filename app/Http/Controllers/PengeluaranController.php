@@ -19,9 +19,9 @@ class PengeluaranController extends Controller
         $barangmasuk = barangmasuk::all();
         $array = [];
         foreach ($barangmasuk as $b) {
-            $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
-            $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
-            $b->setAttribute('bulan', date('M', strtotime($b->created_at)));
+            // $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
+            // $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
+            $b->setAttribute('bulan', date('d-M-Y', strtotime($b->created_at)));
             $b->setAttribute('type', 'Barang Masuk');
             $b->setAttribute('total', $b->total);
             array_push($array, $b->getAttributes());

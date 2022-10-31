@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Barang;
 use App\Models\Pelanggan;
 use App\Models\Pemasukan;
 use App\Models\barangkeluar;
-use App\Models\Databarangkeluar;
 use Illuminate\Http\Request;
+use App\Models\Databarangkeluar;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -103,6 +104,7 @@ class BarangkeluarController extends Controller
             ]);
             Pemasukan::create([
                 'total' => $request->total,
+                'tanggal' => Carbon::parse(now())->isoformat('MMM')
             ]);
             Databarangkeluar::create([
                 'kodetransaksi' => $request->kodetransaksi,
@@ -209,6 +211,15 @@ class BarangkeluarController extends Controller
             'message' => 'Data berhasil dihapus',
             'subtotaldelete' => $subtotaldelete
         ]);
+    }
+
+    public function deletebarangkeluarall()
+    {
+        $data  = barangkeluar::query()->delete();
+        return response()->json([
+            'data' => $data
+        ]);
+        return view('keluar.tambahbarangkeluar');
     }
 
     // public function pemasukan()
