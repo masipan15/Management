@@ -18,7 +18,7 @@ class DesainController extends Controller
 {
     public function index()
     {
-        $data = desain::all();
+        $data = desain::orderBy('id', 'DESC')->all();
         return view('desain.datadesain', compact('data'));
     }
 

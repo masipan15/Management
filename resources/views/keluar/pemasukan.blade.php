@@ -23,8 +23,7 @@
                                 <tr>
                                     <th class="wd-20p">No</th>
                                     <th class="wd-20p">Tanggal</th>
-                                    <th class="wd-25p">Bulan</th>
-                                    <th class="wd-20p">Tahun</th>
+
                                     <th class="wd-20p">Pemasukan Dari</th>
                                     <th class="wd-15p">Total</th>
 
@@ -39,8 +38,7 @@
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row['tanggal'] }}</td>
-                                        <td>{{ $row['bulan'] }}</td>
-                                        <td>{{ $row['tahun'] }}</td>
+
                                         <td>{{ $row['type'] }}</td>
                                         <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
 
@@ -49,7 +47,7 @@
                                 @endforeach
                             </tbody>
                             <tr>
-                                <td colspan="4">
+                                <td colspan="2">
                                 </td>
                                 <td style="font-weight: 900;">SubTotal :</td>
                                 <td style="font-weight: 900;">Rp.{{ number_format($subtotal, 2, '.', '.') }}</td>

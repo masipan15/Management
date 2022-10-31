@@ -10,7 +10,7 @@ class PelangganController extends Controller
 {
     public function datapelanggan()
     {
-        $data = pelanggan::all();
+        $data = pelanggan::orderBy('id', 'DESC')->get();
 
         return view('pelanggan.datapelanggan', compact('data',));
     }

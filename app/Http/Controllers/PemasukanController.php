@@ -10,6 +10,7 @@ use App\Models\Pemasukan;
 use App\Models\barangkeluar;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Exports\PemasukanExport;
+use App\Models\Databarangkeluar;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -35,13 +36,13 @@ class PemasukanController extends Controller
         //     ->get();
         // $pemasukan = Pemasukan::all();
 
-        $barang = barangkeluar::all();
+        $barang = Databarangkeluar::all();
         $desain = desain::all();
         $service = servis::all();
         // $totalbarangkeluar = barangkeluar::select(DB::raw("(sum(total))as total"))->get();
         // $totaldesain = desain::select(DB::raw("(sum(harga_desain))as total"))->get();
         // $totalservis = servis::select(DB::raw("(sum(biaya_pengerjaan))as total"))->get();
-        $totalbarangkeluar = barangkeluar::sum('total');
+        $totalbarangkeluar = Databarangkeluar::sum('total');
         $totaldesain = desain::sum('harga_desain');
         $totalservis = servis::sum('biaya_pengerjaan');
         $subtotal = $totalbarangkeluar + $totaldesain + $totalservis;
@@ -50,26 +51,22 @@ class PemasukanController extends Controller
         $array = [];
 
         foreach ($barang as $b) {
-            $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
-            $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
-            $b->setAttribute('bulan', date('m', strtotime($b->created_at)));
+            $b->setAttribute('tanggal', date('d-M-Y', strtotime($b->created_at)));
             $b->setAttribute('type', 'Barang Keluar');
             $b->setAttribute('total', $b->total);
             array_push($array, $b->getAttributes());
         }
         foreach ($desain as $b) {
-            $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
-            $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
-            $b->setAttribute('bulan', date('m', strtotime($b->created_at)));
+            $b->setAttribute('tanggal', date('d-M-Y', strtotime($b->created_at)));
+
             $b->setAttribute('total', $b->harga_desain);
             $b->setAttribute('nama_pelanggan', $b->nama_pemesan);
             $b->setAttribute('type', 'Desain');
             array_push($array, $b->getAttributes());
         }
         foreach ($service as $b) {
-            $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
-            $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
-            $b->setAttribute('bulan', date('m', strtotime($b->created_at)));
+            $b->setAttribute('tanggal', date('d-M-Y', strtotime($b->created_at)));
+
             $b->setAttribute('total', $b->biaya_pengerjaan);
             $b->setAttribute('type', 'Servis');
             array_push($array, $b->getAttributes());

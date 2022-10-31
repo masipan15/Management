@@ -6,7 +6,6 @@ use Carbon\Carbon;
 use App\Models\Barang;
 use App\Models\Supplier;
 use App\Models\barangmasuk;
-use App\Models\barangkeluar;
 use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,9 +15,9 @@ class BarangmasukController extends Controller
 
     public function barangmasuk()
     {
-        $data = barangmasuk::with('supplier')->get();
-        $dataa = barangmasuk::with('barang')->get();
-        return view('masuk.barangmasuk', compact('data', 'dataa'));
+        $data = barangmasuk::orderBy('id','DESC')->with('supplier','barang')->get();
+
+        return view('masuk.barangmasuk', compact('data'));
     }
 
     public function tambahbarangmasuk()
