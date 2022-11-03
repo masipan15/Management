@@ -36,7 +36,7 @@
                                             <img src="{{ asset('fotobrgmsk/' . $row->foto) }}" alt=""
                                                 style="width: 50px;">
                                         </td> --}}
-                                        <td>{{ $row->created_at->format('d/m/y') }}</td>
+                                        <td>{{ $row->created_at->format('d/M/y') }}</td>
                                         <td>{{ $row->supplier ? $row->supplier->nama_supplier : 'Data Tidak Ada' }}</td>
                                         <td>{{ $row->barang ? $row->barang->namabarang : 'Data Tidak Ada' }}</td>
                                         <td>{{ $row->kategoris_id }}</td>

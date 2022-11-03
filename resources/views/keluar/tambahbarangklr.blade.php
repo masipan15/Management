@@ -9,127 +9,124 @@
                         <h3 class="main-content-label mb-1">Tambah Barang Keluar</h3>
                         <p class="text-muted card-sub-title"></p>
                     </div>
+                    <form action="shiftbarangkeluar" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <meta name="csrf-token" content="{{ csrf_token() }}">
+                        <div class="row row-sm text-center">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="row row-sm">
+                                    <div class="col-lg mt-3 mb-3">
+                                        <p class="">Nama Pelanggan</p>
+                                        <input class="form-control text-center mb-3" placeholder="Boleh Tidak Diisi"
+                                            name="nama_pelanggan" type="text" id="nama_pelanggan">
+                                    </div>
+                                    <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
+                                        <p class="">Nama Barang</p>
+                                        <select class="ipan_select2 form-control select2" required style="width:100%;"
+                                            name="nama_barang" class="" id="nama_barang"
+                                            @error('nama_barang')  @enderror>
+                                            <option value="" selected disabled>Pilih Nama Barang</option>
+                                            @foreach ($barang as $item)
+                                                <option value="{{ $item->id }}" data-harga_jual="{{ $item->hargajual }}"
+                                                    data-kodebarang_keluar="{{ $item->kodebarang }}"
+                                                    data-merk_keluar="{{ $item->merk }}" data-stok="{{ $item->stok }}"
+                                                    data-kategoris_id="{{ $item->kategori->kategori }}">
+                                                    {{ $item->namabarang }}</option>
+                                            @endforeach
+                                        </select>
 
-                    <meta name="csrf-token" content="{{ csrf_token() }}">
-                    <div class="row row-sm text-center">
-                        <div class="col-lg-12 col-md-12">
-                            <div class="row row-sm">
-                                <div class="col-lg mt-3 mb-3">
-                                    <p class="">Nama Pelanggan</p>
-                                    <input class="form-control text-center mb-3" required placeholder="Boleh Tidak Diisi"
-                                        name="nama_pelanggan" type="text" id="nama_pelanggan">
-                                </div>
-                                <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
-                                    <p class="">Nama Barang</p>
-                                    <select class="ipan_select2 form-control select2" required style="width:100%;"
-                                        name="nama_barang" class="" id="nama_barang" @error('nama_barang')  @enderror>
-                                        <option value="" selected disabled>Pilih Nama Barang</option>
-                                        @foreach ($barang as $item)
-                                            <option value="{{ $item->id }}" data-harga_jual="{{ $item->hargajual }}"
-                                                data-kodebarang_keluar="{{ $item->kodebarang }}"
-                                                data-merk_keluar="{{ $item->merk }}" data-stok="{{ $item->stok }}"
-                                                data-kategoris_id="{{ $item->kategori->kategori }}">
-                                                {{ $item->namabarang }}</option>
-                                        @endforeach
-                                    </select>
-
-                                </div>
-                                <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
-                                    <p class="">Stok</p>
-                                    <input class="form-control text-center mb-3" readonly name="stok" type="number"
-                                        id="stok">
-                                </div>
-                                <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
-                                    <p class="">Harga Jual</p>
-                                    <input class="form-control text-center mb-3" readonly name="harga_jual" type="number"
-                                        id="harga_jual">
-                                </div>
-                                <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
-                                    <p class="">Jumlah</p>
-                                    <input class="form-control text-center mb-3" min="1" required name="jumlah"
-                                        type="number" id="jumlah">
+                                    </div>
+                                    <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
+                                        <p class="">Stok</p>
+                                        <input class="form-control text-center mb-3" readonly name="stok" type="number"
+                                            id="stok">
+                                    </div>
+                                    <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
+                                        <p class="">Harga Jual</p>
+                                        <input class="form-control text-center mb-3" readonly name="harga_jual"
+                                            type="number" id="harga_jual">
+                                    </div>
+                                    <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
+                                        <p class="">Jumlah</p>
+                                        <input class="form-control text-center mb-3" min="1" name="jumlah"
+                                            type="number" id="jumlah">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg mg-t-10 mg-lg-t-0 " hidden>
-                            <p class="form-label">Merk</p>
-                            <input class="form-control text-center" readonly required name="merk_keluar" id="merk_keluar"
-                                type="text">
-                        </div>
-                        <div class="col-lg mg-t-10 mg-lg-t-0"hidden>
-                            <p class="form-label">Kode Barang</p>
-                            <input class="form-control text-center" readonly required name="kodebarang_keluar"
-                                id="kodebarang_keluar" type="text">
-                        </div>
-
-                        <div class="col-lg mg-t-10 mg-lg-t-0" hidden>
-                            <p c    lass="form-label">Total</p>
-                            <input class="form-control text-center" readonly required name="total" id="total"
-                                type="number">
-                        </div>
+                            <div class="col-lg mg-t-10 mg-lg-t-0 " hidden>
+                                <p class="form-label">Merk</p>
+                                <input class="form-control text-center" readonly required name="merk_keluar"
+                                    id="merk_keluar" type="text">
+                            </div>
+                            <div class="col-lg mg-t-10 mg-lg-t-0"hidden>
+                                <p class="form-label">Kode Barang</p>
+                                <input class="form-control text-center" readonly required name="kodebarang_keluar"
+                                    id="kodebarang_keluar" type="text">
+                            </div>
 
 
-                        {{-- <div class="col-lg mg-t-10 mg-lg-t-0">
+                            <div class="col-lg mg-t-10 mg-lg-t-0" hidden>
+                                <p class="form-label">Total</p>
+                                <input class="form-control text-center" readonly required name="total" id="total"
+                                    type="number">
+                            </div>
+
+
+                            {{-- <div class="col-lg mg-t-10 mg-lg-t-0">
                                 <p class="form-label">Jumlah Beli</p>
                                 <input class="form-control text-center" required name="jumlah" id="jumlah"
                                     type="number">
                             </div> --}}
-                    </div>
-
-                    <div class="text-center mt-3">
-                        <button type="button" value="Tambah" id="proses"
-                            class="btn btn-primary btn-sm mb-3 tambah_data"><i class="fas fa-plus"></i></button>
-                    </div>
-                    <div>
-                        <a href="/deletebarangkeluarall" class="btn btn-primary-sm">Hapus Semuanya</a>
-                        <div class="table-responsive">
-                            <table class="table" id="example1">
-                                <thead>
-                                    <tr>
-
-                                        <th class="wd-20p">No</th>
-
-                                        <th class="wd-20p">Nama Pelanggan</th>
-                                        <th class="wd-20p">Nama Barang</th>
-                                        <th class="wd-20p">Kode Barang</th>
-                                        <th class="wd-20p">Merk</th>
-                                        <th class="wd-25p">Harga Jual</th>
-                                        <th class="wd-20p">Jumlah Beli</th>
-                                        <th class="wd-15p">Total</th>
-                                        <th class="wd-15p">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-
-                            <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
-                                <p class="form-label">Subtotal</p>
-                                <input class="form-control text-center" readonly required name="subtotal" id="subtotal"
-                                    type="number">
-                            </div>
-
-                            <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
-                                <p class="form-label">Total Pembayaran</p>
-                                <input class="form-control text-center" required min="500" name="pembayaran"
-                                    id="pembayaran" type="number">
-                            </div>
-
-                            <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
-                                <p class="form-label">Kembalian</p>
-                                <input class="form-control text-center" required name="kembalian" id="kembalian"
-                                    type="number">
-                            </div>
-                            <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
-                                <a href="/print" id="print" target="_blank" class="btn btn-success btn-sm"><i
-                                        class="fa fa-credit-card"></i></a>
-                            </div>
-
                         </div>
-                    </div>
+
+                        <div class="text-center mt-3">
+                            <button type="button" value="Tambah" id="proses"
+                                class="btn btn-primary btn-sm mb-3 tambah_data"><i class="fas fa-plus"></i></button>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="wd-1px">No</th>
+                                    <th class="wd-20p">Nama Pelanggan</th>
+                                    <th class="wd-20p">Nama Barang</th>
+                                    <th class="wd-20p">Kode Barang</th>
+                                    <th class="wd-20p">Merk</th>
+                                    <th class="wd-25p">Harga Jual</th>
+                                    <th class="wd-20p">Jumlah Beli</th>
+                                    <th class="wd-15p">Total</th>
+                                    <th class="wd-15p">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+
+                        <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
+                            <p class="form-label">Subtotal</p>
+                            <input class="form-control text-center" readonly required name="subtotal" id="subtotal"
+                                type="number">
+                        </div>
+
+                        <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
+                            <p class="form-label">Total Pembayaran</p>
+                            <input class="form-control text-center" required min="500" type="number" name="pembayaran"
+                                id="pembayaran">
+                        </div>
+
+                        <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
+                            <p class="form-label">Kembalian</p>
+                            <input class="form-control text-center" required name="kembalian" id="kembalian"
+                                type="number">
+                        </div>
+                        <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
+                            <button class="btn btn-danger" target="_blank" type="submit">Checkout</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -149,15 +146,8 @@
     <script src="{{ asset('acstemplate/assets/plugins/select2/js/select2.min.js') }}"></script>
     <script src="../js/printpage.js" type="text/javascript"></script>
 
-    <!-- Print Js -->
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#print').printPage();
-        })
-    </script>
-
-
+    <!-- Menjumlah total with js  -->
     <script>
         $(document).ready(function() {
             $("#jumlah").change(function() {
@@ -174,6 +164,9 @@
             $("#total").val(total);
         });
     </script>
+
+
+    <!-- Menjumlah total with js  -->
     <script>
         $(document).ready(function() {
             $("#pembayaran").change(function() {
@@ -190,7 +183,7 @@
             $("#kembalian").val(kembalian);
         });
     </script>
-
+    <!-- Auto Fill with js  -->
     <script>
         const selection2 = document.getElementById('nama_barang');
         selection2.onchange = function(e) {
@@ -207,7 +200,7 @@
         }
     </script>
 
-
+    <!-- Form Select 2  -->
     <script type="text/javascript">
         $(".ipan_select2").select2({
             placeholder: "Pilih Barang",
@@ -215,7 +208,7 @@
         });
     </script>
 
-
+    <!-- CRUD With AJAX  -->
     <script>
         $(document).ready(function() {
             read();
@@ -229,37 +222,42 @@
                         $('tbody').html("");
                         $.each(response.data, function(key, item) {
                             $('tbody').append(
-                                ' <tr><th class="wd-20p">' + (key + 1) +
+                                ' <tr>\
+                                                                                                                 <th class = "wd-20p" > ' +
+                                (
+                                    key +
+                                    1) +
+
                                 '</th>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                          <td class="wd-20p">' +
                                 (item.nama_pelanggan ? item.nama_pelanggan :
                                     'Pelanggan Umum') +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .namabarangs.namabarang +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .kodebarang_keluar +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .merk_keluar +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td class="wd-20p">Rp.' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">Rp.' +
                                 item
                                 .harga_jual +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .jumlah +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .total +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <td><button type="button" id="delete" data-total="' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td><button type="button" id="delete" data-total="' +
                                 item.total + '"  value="' +
                                 item
                                 .id +
@@ -277,7 +275,6 @@
 
                 // console.log('ipanganteng');
                 var data = {
-                    'kode_transaksi': $('#kode_transaksi').val(),
                     'nama_barang': $('#nama_barang').val(),
                     'nama_pelanggan': $('#nama_pelanggan').val(),
                     'kodebarang_keluar': $('#kodebarang_keluar').val(),
@@ -299,13 +296,15 @@
                     dataType: "json",
                     success: function(response) {
                         var subtotal = response.subtotal
-                        document.getElementById('subtotal').value = subtotal;
+                        document.getElementById('subtotal').value = (subtotal);
                         read();
 
                     }
                 });
-                document.getElementById('jumlah').value=("");
+                document.getElementById('jumlah').value = ("");
+
             });
+
             $(document).on('click', '#delete', function(e) {
                 e.preventDefault();
                 var id_delete = $(this).val();
@@ -327,6 +326,7 @@
                     }
                 });
             });
+
 
         });
     </script>

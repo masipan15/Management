@@ -9,8 +9,13 @@ use App\Models\Pemasukan;
 use App\Models\barangkeluar;
 use Illuminate\Http\Request;
 use App\Models\Databarangkeluar;
+use App\Models\detailtransaksi;
+use App\Models\transaksi;
+use App\Models\transaksibarangkeluar;
+use Google\Service\ServiceControl\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Termwind\Components\Dd;
 
 class BarangkeluarController extends Controller
 {
@@ -38,10 +43,12 @@ class BarangkeluarController extends Controller
         return view('keluar.tambahbarangklr', compact('data', 'barang', 'pelanggan', 'subtotal'));
     }
 
-    public function print()
+    public function print($notransaksi)
     {
-        $barangkeluar = Barangkeluar::all();
-        return view('keluar.print', compact('barangkeluar'));
+        $transaksi = transaksi::with('notransaksis')->where('notransaksi', $notransaksi)->first();
+
+        // $data = barangkeluar::with('namabarangs')->get();
+        return view('keluar.print', compact('transaksi'));
     }
     public function read()
     {
@@ -68,7 +75,6 @@ class BarangkeluarController extends Controller
 
         $validator = Validator::make($request->all(), [
             'nama_barang' => 'required',
-
             'kodebarang_keluar' => 'required',
             'merk_keluar' => 'required',
             'harga_jual' => 'required',
@@ -132,29 +138,34 @@ class BarangkeluarController extends Controller
                 'subtotal' => $subtotal,
             ]);
         }
-
-
-
-
-        //     $data['nama_pelanggan'] = $request->nama_pelanggan;
-        //     $data['nama_barang'] = $request->nama_barang;
-        //     $data['kodebarang_keluar'] = $request->kodebarang_keluar;
-        //     $data['merk_keluar'] = $request->merk_keluar;
-        //     $data['kodetransaksi'] = random_int(10000, 999999);
-        //     $data['harga_jual'] = $request->harga_jual;
-        //     $data['stok'] = $request->stok;
-        //     $data['jumlah'] = $request->jumlah;
-        //     $data['total'] = $request->total;
-        //     barangkeluar::insert($data);
-
-
-
-
-
-
     }
 
+    public function shiftbarangkeluar(Request $request)
+    {
+        $transaksi = transaksi::create([
+            'notransaksi' => 'KT' . date('Ymd') . random_int(1000, 9999),
+            'namakasir' =>  Auth()->user()->name,
+            'subtotal' =>   $request->subtotal,
+            'pembayaran' =>   $request->pembayaran,
+            'kembalian' =>   $request->kembalian,
 
+        ]);
+        $barangkeluar = barangkeluar::get();
+        foreach ($barangkeluar as $key => $value) {
+            $produk = array(
+                'notransaksi_id' => $transaksi->id,
+                'barang_id' => $value->nama_barang,
+                'jumlah' => $value->jumlah,
+                'harga' => $value->harga_jual,
+                'total' => $value->total,
+                'created_at' => Carbon::parse(now())
+
+            );
+            $idtransaksi = detailtransaksi::insert($produk);
+            $deletebarangkeluar = barangkeluar::where('id', $value->id)->delete();
+        }
+        return redirect()->to('/print/' . $transaksi->notransaksi);
+    }
 
     public function editbrgklr($id)
     {
@@ -218,10 +229,7 @@ class BarangkeluarController extends Controller
     public function deletebarangkeluarall()
     {
         $data  = barangkeluar::query()->delete();
-        return response()->json([
-            'data' => $data
-        ]);
-        return view('keluar.tambahbarangkeluar');
+        return redirect()->route('tambahbarangkeluar')->with('success', 'Data berhasil dihapus');
     }
 
     // public function pemasukan()
