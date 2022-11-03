@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('notransaksi_id');
             $table->string('barang_id');
             $table->string('jumlah');
+            $table->string('harga')->nullable();
             $table->string('total');
             $table->timestamps();
         });

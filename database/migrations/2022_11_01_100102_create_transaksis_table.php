@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('notransaksi');
             $table->string('namakasir')->nullable();
+            $table->bigInteger('subtotal')->nullable();
+            $table->bigInteger('pembayaran')->nullable();
+            $table->bigInteger('kembalian')->nullable();
             $table->timestamps();
         });
     }

@@ -154,6 +154,7 @@ class BarangkeluarController extends Controller
                 'notransaksi_id' => $transaksi->id,
                 'barang_id' => $value->nama_barang,
                 'jumlah' => $value->jumlah,
+                'harga' => $value->harga_jual,
                 'total' => $value->total,
                 'created_at' => Carbon::parse(now())
 
