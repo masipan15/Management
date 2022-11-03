@@ -33,7 +33,7 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        <td>{{ $row->created_at->format('d/m/y') }}</td>
+                                        <td>{{ $row->created_at->format('d/M/Y : H:i') }}</td>
                                         <td>{{ $row->nama_pelanggan ?: 'Pelanggan Umum' }}</td>
 
                                         <td>{{ $row->namabarangs->namabarang }}</td>
