@@ -15,7 +15,7 @@ class ServisController extends Controller
 {
     public function dataservis()
     {
-        $data = servis::orderBy('id','DESC')->all();
+        $data = servis::orderBy('id', 'DESC')->all();
         return view('servis.dataservis', compact('data'));
     }
 

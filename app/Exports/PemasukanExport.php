@@ -18,9 +18,8 @@ class PemasukanExport implements FromView
     }
     public function view(): View
     {
-        return view('pemasukanexcel', [
-            'data' => Pemasukan::where('tanggal', 'like', '%' . $this->tanggal . '%')->get()
-        ]);
+        $data = Pemasukan::all();
+        return view('pemasukanexcel', compact('data'));
     }
     // public function collection()
     // {

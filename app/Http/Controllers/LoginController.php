@@ -26,13 +26,13 @@ class LoginController extends Controller
             'password.required' => 'Harus Diisi!',
             'password.min' => 'Minimal 6 huruf!',
         ]);
-        if (Auth::attempt(['email'=>$request->email,'password'=>$request->password,'role'=>'admin'])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'admin'])) {
             return redirect('/welcome');
         }
-        if (Auth::attempt(['email'=>$request->email,'password'=>$request->password,'role'=>'servis'])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'servis'])) {
             return redirect('/welcome');
         }
-        if (Auth::attempt(['email'=>$request->email,'password'=>$request->password,'role'=>'desain'])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'desain'])) {
             return redirect('/welcome');
         }
         return redirect('login')->with('success', 'Email atau Kata Sandi yang anda masukkan salah');
@@ -46,7 +46,7 @@ class LoginController extends Controller
     public function registeruser(Request $request)
     {
         User::create([
-            'name' => $request->name,   
+            'name' => $request->name,
             'email' => $request->email,
             'role' => 'admin',
             'password' => bcrypt($request->password),
@@ -58,13 +58,14 @@ class LoginController extends Controller
         return redirect('/login');
     }
 
-   
+
     public function registerservis()
     {
         return view('registerservis');
     }
-    public function createservis(Request $request){
-        
+    public function createservis(Request $request)
+    {
+
         User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -81,8 +82,9 @@ class LoginController extends Controller
     {
         return view('registerdesain');
     }
-    public function createdesain(Request $request){
-       
+    public function createdesain(Request $request)
+    {
+
         User::create([
             'name' => $request->name,
             'email' => $request->email,

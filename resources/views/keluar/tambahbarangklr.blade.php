@@ -62,8 +62,8 @@
                                 id="kodebarang_keluar" type="text">
                         </div>
 
-                        <div class="col-lg mg-t-10 mg-lg-t-0">
-                            <p class="form-label">Total</p>
+                        <div class="col-lg mg-t-10 mg-lg-t-0" hidden>
+                            <p c    lass="form-label">Total</p>
                             <input class="form-control text-center" readonly required name="total" id="total"
                                 type="number">
                         </div>
@@ -304,6 +304,7 @@
 
                     }
                 });
+                document.getElementById('jumlah').value=("");
             });
             $(document).on('click', '#delete', function(e) {
                 e.preventDefault();

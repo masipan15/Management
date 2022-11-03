@@ -18,9 +18,8 @@ class PengeluaranExport implements FromView
     }
     public function view(): View
     {
-        return view('pengeluaranexcel', [
-            'data' => Pengeluaran::where('tanggal', 'like', '%' . $this->tanggal . '%')->get()
-        ]);
+        $data = Pengeluaran::all();
+        return view('pengeluaranexcel', compact('data'));
     }
     // public function collection()
     // {

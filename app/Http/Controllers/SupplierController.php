@@ -10,7 +10,7 @@ class SupplierController extends Controller
     public function datasupplier()
     {
         $data = supplier::all();
-        return view('supplier.datasupplier',compact('data'));
+        return view('supplier.datasupplier', compact('data'));
     }
 
 
@@ -59,7 +59,6 @@ class SupplierController extends Controller
             'notelpon' => $request->notelpon,
         ]);
         return redirect()->route('datasupplier')->with('success', 'Data berhasil di Update!');
-
     }
 
     public function deletetet($id)
@@ -68,5 +67,4 @@ class SupplierController extends Controller
         $data->delete();
         return redirect()->route('datasupplier')->with('success', 'Data Berhasil Di Hapus');
     }
-
 }

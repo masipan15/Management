@@ -15,7 +15,7 @@ class BarangmasukController extends Controller
 
     public function barangmasuk()
     {
-        $data = barangmasuk::orderBy('id','DESC')->with('supplier','barang')->get();
+        $data = barangmasuk::orderBy('id', 'DESC')->with('supplier', 'barang')->get();
 
         return view('masuk.barangmasuk', compact('data'));
     }
@@ -59,7 +59,9 @@ class BarangmasukController extends Controller
 
         Pengeluaran::create([
             'total' => $request->total,
-            'bulan' => Carbon::parse(now())->isoformat('MMM')
+            'tanggal' => Carbon::parse(now())->isoformat('D'),
+            'bulan' => Carbon::parse(now())->isoformat('MMM'),
+            'tahun' => Carbon::parse(now())->isoformat('Y')
         ]);
 
 

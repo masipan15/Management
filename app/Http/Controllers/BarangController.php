@@ -62,7 +62,7 @@ class BarangController extends Controller
         $hargajual = $request->hargajual;
         $deskripsi = $request->deskripsi;
         $foto1 = $request->foto1;
-        
+
 
         if ($files = $request->file('foto1')) {
             foreach ($files as $file) {

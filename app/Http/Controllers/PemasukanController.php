@@ -106,7 +106,7 @@ class PemasukanController extends Controller
 
             $b->setAttribute('type', 'Desain');
             array_push($array, $b->getAttributes());
-        }   
+        }
         foreach ($service as $b) {
             $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
             $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));

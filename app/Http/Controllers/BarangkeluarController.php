@@ -104,7 +104,9 @@ class BarangkeluarController extends Controller
             ]);
             Pemasukan::create([
                 'total' => $request->total,
-                'tanggal' => Carbon::parse(now())->isoformat('MMM')
+                'tanggal' => Carbon::parse(now())->isoformat('D'),
+                'bulan' => Carbon::parse(now())->isoformat('MMM'),
+                'tahun' => Carbon::parse(now())->isoformat('Y')
             ]);
             Databarangkeluar::create([
                 'kodetransaksi' => $request->kodetransaksi,

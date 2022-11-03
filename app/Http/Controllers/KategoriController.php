@@ -14,7 +14,7 @@ class kategoriController extends Controller
     }
 
 
-    
+
     public function tambahkategori()
     {
         return view('kategori.tambahkategori');

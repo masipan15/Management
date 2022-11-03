@@ -80,12 +80,12 @@ class DesainController extends Controller
     public function updatedesain(request $request, $id)
     {
         $validated = $request->validate([
-        'fotod' => 'required|mimes:jpg,png,jpeg,jfif,webp',
+            'fotod' => 'required|mimes:jpg,png,jpeg,jfif,webp',
         ], [
-        'fotod.required' => 'foto Harus Diisi!',
-        'fotod.mimes' => 'Harus Bertipe Gambar',
+            'fotod.required' => 'foto Harus Diisi!',
+            'fotod.mimes' => 'Harus Bertipe Gambar',
         ]);
-        
+
         $data = desain::findorfail($id);
         $data->update([
             'nama_pemesan' => $request->nama_pemesan,

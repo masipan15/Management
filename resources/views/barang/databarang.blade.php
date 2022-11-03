@@ -39,7 +39,7 @@
                                     $no = 1;
                                 @endphp
                                 @foreach ($data as $row)
-                                     <tr> 
+                                    <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>
                                             <a href="{{ asset('fotobarang/' . $row->foto1) }}" data-lightbox=""

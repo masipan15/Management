@@ -24,6 +24,7 @@ use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\BarangkeluarController;
 use App\Http\Controllers\databarangkeluar;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,15 +43,9 @@ Route::get('/', function () {
     return view('/login');
 })->middleware('auth');
 
-Route::get('/welcome', function () {
+Route::get('welcome', [WelcomeController::class, 'welcome'])->name('welcome')->middleware('auth');
 
-    $jumlahbarang = Barang::count();
-    $jumlahsupplier = Supplier::count();
-    $jumlahpermintaandesain = desain::count();
-    $jumlahservis = servis::count();
-
-    return view('welcome', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahservis'));
-})->middleware('auth');
+Route::get('cobagrafik', [WelcomeController::class, 'cobagrafik'])->name('cobagrafik')->middleware('auth');
 
 Route::get('tes', function () {
     return view('crypto');
@@ -137,9 +132,6 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     //penyelesaian servis
     Route::get('/dataservisselesai', [servisController::class, 'dataservisselesai'])->name('dataservisselesai');
     Route::get('/hapusservisselesai/{id}', [servisController::class, 'hapusservisselesai'])->name('hapusservisselesai');
-
-    //Grafik
-    Route::get('/grafik', [PengeluaranController::class, 'grafik'])->name('grafik');
 
 });
 
