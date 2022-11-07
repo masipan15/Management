@@ -22,6 +22,11 @@ class WelcomeController extends Controller
         $jumlahpermintaandesain = desain::count();
         $jumlahservis = servis::count();
         $jumlahpelanggan = pelanggan::count();
+
+        $jumlahpem = Pemasukan::sum('total');
+        $jumlahpeng = Pengeluaran::sum('total');
+        $keuntungan = $jumlahpem - $jumlahpeng;
+        // dd($jumlahpem - $jumlahpeng);
     
     
         $pemasukan = pemasukan::query()
@@ -66,13 +71,41 @@ class WelcomeController extends Controller
                 }
             }
         }
-        // dd($previousMonths, $month ,$bln );
-        // dd($array_pemasukan, $array_pengeluaran, $previousMonths);
 
-        // return view('masuk.grafik', compact('previousMonths', 'array_pengeluaran', 'array_pemasukan'));
-        return view('welcome', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahservis', 'jumlahpelanggan', 'previousMonths', 'array_pengeluaran', 'array_pemasukan'));
+        $pendapatan = [];
+
+        foreach ($array_pemasukan as $key => $value) {
+            $pendapatan[$key] = $value - $array_pengeluaran[$key];
+        }
+
+        // dd($pendapatan);
+        return view('welcome', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahservis', 'jumlahpelanggan', 'previousMonths', 'array_pengeluaran', 'array_pemasukan','pendapatan', 'keuntungan'));
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
     public function cobagrafik()
     {
@@ -90,7 +123,7 @@ class WelcomeController extends Controller
     $currentDate = now()->startOfMonth();
     while ($currentDate->year == Carbon::now()->year) {
         $previousMonths[] = $currentDate->format('F');
-        $currentDate->subMonth();
+        $currentDate->subMonth(); 
     }
 
     $previousMonths = array_reverse($previousMonths);
@@ -118,11 +151,15 @@ class WelcomeController extends Controller
             }
         }
     }
-    // dd($previousMonths, $month ,$bln );
-    // dd($array_pemasukan, $array_pengeluaran, $previousMonths);
 
-    // return view('masuk.grafik', compact('previousMonths', 'array_pengeluaran', 'array_pemasukan'));
-    return view('cobagrafik', compact('previousMonths', 'array_pengeluaran', 'array_pemasukan'));
+    $pendapatan = [];
 
-}
+    foreach ($array_pemasukan as $key => $value) {
+        $pendapatan[$key] = $value - $array_pengeluaran[$key];
+    }
+
+
+        return view('cobagrafik', compact('previousMonths', 'array_pengeluaran', 'array_pemasukan', 'pendapatan'));
+
+    }
 }

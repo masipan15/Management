@@ -27,14 +27,15 @@
           series: [{
           name: 'Pengeluaran',
           data: {!! json_encode($array_pengeluaran) !!}
-        }, {
+        }, 
+        {
           name: 'Pemasukan',
           data: {!! json_encode($array_pemasukan) !!}
         }, 
-		// {
-        //   name: 'Free Cash Flow',
-        //   data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
-        // }
+        {
+          name: 'Keuntungan',
+          data: {!! json_encode($pendapatan) !!}
+        }, 
 	],
           chart: {
           type: 'bar',
