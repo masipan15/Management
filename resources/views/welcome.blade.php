@@ -5,7 +5,6 @@
         <div class="inner-body">
 
 
-            <!-- Page Header -->
             <div class="page-header">
                 <div>
                     <h2 class="main-content-title tx-24 mg-b-5">Selamat Datang Di Beranda</h2>
@@ -14,15 +13,10 @@
                         <li class="breadcrumb-item active" aria-current="page">Project Dashboard</li>
                     </ol>
                 </div>
-
             </div>
-            <!-- End Page Header -->
-
-            <!--Row-->
             <div class="row row-sm mt-3">
                 <div class="col-sm-12 col-lg-12 col-xl-12">
 
-                    <!--Row-->
                     <div class="row row-sm  mt-lg-4">
                         <div class="col-sm-12 col-lg-12 col-xl-12">
                             <div class="card bg-primary custom-card card-box">
@@ -42,9 +36,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--Row -->
-
-                    <!--Row-->
                     <div class="row row-sm">
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
                             <div class="card custom-card">
@@ -241,14 +232,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!--End row-->
-
-                        <!--row-->
-
-                    </div><!-- col end -->
-                </div><!-- Row end -->
-
-
+                    </div>
+                </div>
             </div>
         </div>
     @endif
@@ -256,7 +241,6 @@
         <div class="inner-body">
 
 
-            <!-- Page Header -->
             <div class="page-header">
                 <div>
                     <h2 class="main-content-title tx-24 mg-b-5">Selamat Datang Di Beranda</h2>
@@ -265,15 +249,10 @@
                         <li class="breadcrumb-item active" aria-current="page">Project Dashboard</li>
                     </ol>
                 </div>
-
             </div>
-            <!-- End Page Header -->
-
-            <!--Row-->
             <div class="row row-sm">
                 <div class="col-sm-12 col-lg-12 col-xl-12">
 
-                    <!--Row-->
                     <div class="row row-sm  mt-lg-4">
                         <div class="col-sm-12 col-lg-12 col-xl-12">
                             <div class="card bg-primary custom-card card-box">
@@ -296,9 +275,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--Row -->
-
-                    <!--Row-->
                     <div class="row row-sm">
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
                             <div class="card custom-card">
@@ -344,14 +320,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!--End row-->
-
-                        <!--row-->
-
-                    </div><!-- col end -->
-                </div><!-- Row end -->
-
-
+                    </div>
+                </div>
             </div>
         </div>
     @endif
@@ -359,7 +329,6 @@
         <div class="inner-body">
 
 
-            <!-- Page Header -->
             <div class="page-header">
                 <div>
                     <h2 class="main-content-title tx-24 mg-b-5">Selamat Datang Di Beranda</h2>
@@ -368,15 +337,10 @@
                         <li class="breadcrumb-item active" aria-current="page">Project Dashboard</li>
                     </ol>
                 </div>
-
             </div>
-            <!-- End Page Header -->
-
-            <!--Row-->
             <div class="row row-sm">
                 <div class="col-sm-12 col-lg-12 col-xl-8">
 
-                    <!--Row-->
                     <div class="row row-sm  mt-lg-4">
                         <div class="col-sm-12 col-lg-12 col-xl-12">
                             <div class="card bg-primary custom-card card-box">
@@ -400,9 +364,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--Row -->
-
-                    <!--Row-->
                     <div class="row row-sm">
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
                             <div class="card custom-card">
@@ -448,14 +409,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!--End row-->
-
-                        <!--row-->
-
-                    </div><!-- col end -->
-                </div><!-- Row end -->
-
-
+                    </div>
+                </div>
             </div>
         </div>
     @endif
@@ -486,12 +441,12 @@
         chart: {
             height: 455,
             type: "line",
-            stacked: false
+            stacked: true
         },
         dataLabels: {
             enabled: false
         },
-        colors: ['#6259ca', '#53caed', '#00FF00'],
+        colors: ['#6259ca', '#53caed', '#FF0000'],
         series: [
             
             {
@@ -506,7 +461,7 @@
             },
             {
             name: "Pendapatan",
-            type: 'line',
+            type: 'column',
             data: {!! json_encode($pendapatan) !!}
             },
         ],
@@ -536,7 +491,7 @@
         },   
         legend: {
             horizontalAlign: "left",
-            offsetX: 40
+            offsetX: 10
         }
         };
 

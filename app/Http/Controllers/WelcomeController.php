@@ -33,16 +33,20 @@ class WelcomeController extends Controller
             ->selectRaw('id, tanggal, bulan, tahun, created_at, SUM(total) as total')
             ->groupBy(DB::raw('MONTH(created_at)'))
             ->get();
-        $pengeluaran = pengeluaran::query()
-            ->selectRaw('id, tanggal, bulan, tahun, created_at, SUM(total) as total')
-            ->groupBy(DB::raw('MONTH(created_at)'))
+        // $pengeluaran = pengeluaran::query()
+        //     ->selectRaw('id, tanggal, bulan, tahun, created_at, SUM(total) as total')
+        //     ->groupBy(DB::raw('MONTH(created_at)'))
+        //     ->get();
+        $pengeluaran = Pengeluaran::select(DB::raw("id, tanggal, bulan, tahun, created_at, SUM(total) as total"))
+            ->whereYear('created_at', date('Y'))
+            ->groupBy(DB::raw("MONTH(created_at)"))
             ->get();
 
         $previousMonths = [];
 
         $currentDate = now()->startOfMonth();
         while ($currentDate->year == Carbon::now()->year) {
-            $previousMonths[] = $currentDate->format('F');
+            $previousMonths[] = $currentDate->format('M, Y');
             $currentDate->subMonth();
         }
 
@@ -52,7 +56,7 @@ class WelcomeController extends Controller
         foreach($previousMonths as $key => $val){
             $array_pengeluaran[$key] = 0;
             foreach ($pengeluaran as $mp) {
-                $waktu = Carbon::parse($mp->created_at)->format('F');
+                $waktu = Carbon::parse($mp->created_at)->format('M, Y');
             
                 if($val == $waktu){
                     $array_pengeluaran[$key] = $mp->total;
@@ -64,7 +68,7 @@ class WelcomeController extends Controller
         foreach($previousMonths as $key => $val){
             $array_pemasukan[$key] = 0;
             foreach ($pemasukan as $rudi) {
-                $waktu = Carbon::parse($rudi->created_at)->format('F');
+                $waktu = Carbon::parse($rudi->created_at)->format('M, Y');
             
                 if($val == $waktu){
                     $array_pemasukan[$key] = $rudi->total;
@@ -77,6 +81,7 @@ class WelcomeController extends Controller
         foreach ($array_pemasukan as $key => $value) {
             $pendapatan[$key] = $value - $array_pengeluaran[$key];
         }
+        
 
         // dd($pendapatan);
         return view('welcome', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahservis', 'jumlahpelanggan', 'previousMonths', 'array_pengeluaran', 'array_pemasukan','pendapatan', 'keuntungan'));
@@ -113,9 +118,13 @@ class WelcomeController extends Controller
         ->selectRaw('id, tanggal, bulan, tahun, created_at, SUM(total) as total')
         ->groupBy(DB::raw('MONTH(created_at)'))
         ->get();
-    $pengeluaran = pengeluaran::query()
-        ->selectRaw('id, tanggal, bulan, tahun, created_at, SUM(total) as total')
-        ->groupBy(DB::raw('MONTH(created_at)'))
+    // $pengeluaran = pengeluaran::query()
+    //     ->selectRaw('id, tanggal, bulan, tahun, created_at, SUM(total) as total')
+    //     ->groupBy(DB::raw('MONTH(created_at)'))
+    //     ->get();
+    $pengeluaran = Pengeluaran::select(DB::raw("id, tanggal, bulan, tahun, created_at, SUM(total) as total"))
+        ->whereYear('created_at', date('Y'))
+        ->groupBy(DB::raw("MONTH(created_at)"))
         ->get();
 
     $previousMonths = [];
@@ -151,6 +160,8 @@ class WelcomeController extends Controller
             }
         }
     }
+    // dd($array_pengeluaran, $array_pemasukan);
+    
 
     $pendapatan = [];
 
