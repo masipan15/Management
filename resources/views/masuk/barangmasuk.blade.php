@@ -32,30 +32,27 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        {{-- <td>
-                                            <img src="{{ asset('fotobrgmsk/' . $row->foto) }}" alt=""
-                                                style="width: 50px;">
-                                        </td> --}}
-                                        <td>{{ $row->created_at->format('d/M/y') }}</td>
+                                        <td>{{ $row->created_at->format('d/M/Y-H:i') }}</td>
                                         <td>{{ $row->supplier ? $row->supplier->nama_supplier : 'Data Tidak Ada' }}</td>
-                                        <td>{{ $row->barang ? $row->barang->namabarang : 'Data Tidak Ada' }}</td>
+                                        <td>{{ $row->namabarang ? $row->namabarang->namabarang : 'Data Tidak Ada' }}</td>
                                         <td>{{ $row->kategoris_id }}</td>
                                         <td>{{ $row->merk }}</td>
                                         <td>{{ $row->jumlah }}</td>
                                         <td>Rp.{{ number_format($row['harga'], 2, '.', '.') }}</td>
                                         <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
-
-
                                         <td>
-                                            <a href="/editbrgmsk/{{ $row->id }}" class="btn btn-success mb-1"><i
-                                                    class="fas fa-pencil-alt"></i></a><br>
-                                            <a href="/deletee/{{ $row->id }}" class="btn btn-danger"
+                                            <a href="/deletedatabarangmasuk/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                     class="fas fa-trash-alt"></i></button></a>
                                         </td>
                                     </tr>
                                 @endforeach
-
+                                <tr>
+                                    <td colspan="7">
+                                    </td>
+                                    <td style="font-weight: 900;">SubTotal :</td>
+                                    <td style="font-weight: 900;">Rp.{{ number_format($subtotal, 2, '.', '.') }}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

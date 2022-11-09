@@ -206,8 +206,11 @@
                                                 menemukan, dan terhubung </p>
                                             <div class="form-group text-left">
                                                 <label>Email</label>
-                                                <input class="form-control" name="email"
-                                                    placeholder="Masukkan Email Anda" type="text">
+                                                <input class="form-control" name="email" id="email"
+                                                    placeholder="Masukkan Email Anda" type="email">
+                                                    @error('email')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
                                             </div>
                                             <div class="form-group text-left">
                                                 <label>Sandi</label>

@@ -22,7 +22,7 @@
                                     <th class="wd-25p">Harga Jual</th>
                                     <th class="wd-20p">Jumlah Beli</th>
                                     <th class="wd-15p">Total</th>
-                                    <th class="wd-15p">Aksi</th>
+                               
 
                                 </tr>
                             </thead>
@@ -44,13 +44,7 @@
                                         <td>{{ $row->jumlah }}</td>
                                         <td>Rp.{{ number_format($row['total'], 2, '.', '.') }}</td>
 
-                                        <td>
-                                            <a href="/editbrgklr/{{ $row->id }}" class="btn btn-success mb-1"><i
-                                                    class="fas fa-pencil-alt"></i></a><br>
-                                            {{-- <a href="/delete/{{ $row->id }}" class="btn btn-danger"
-                                                onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
-                                                    class="fas fa-trash-alt"></i>Hapus</button></a> --}}
-                                        </td>
+
                                     </tr>
                                 @endforeach
 

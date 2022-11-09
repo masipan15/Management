@@ -40,7 +40,7 @@ class SupplierController extends Controller
 
 
 
-    public function editsupplier($id)
+    public function editsupplier($id)    
     {
         $data = supplier::findOrFail($id);
 

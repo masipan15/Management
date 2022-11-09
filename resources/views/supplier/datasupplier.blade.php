@@ -36,7 +36,7 @@
                                                     class="fas fa-pencil-alt"></i></a><br>
                                             <a href="/deletetet/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
-                                                    class="fas fa-trash-alt"></i></button></a>
+                                                    class="fas fa-trash  -alt"></i></button></a>
                                         </td>
                                     </tr>
                                 @endforeach

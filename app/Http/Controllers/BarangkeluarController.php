@@ -36,18 +36,11 @@ class BarangkeluarController extends Controller
 
             DB::raw("(sum(total)) as total")
         )->get();
-
-
-
-
         return view('keluar.tambahbarangklr', compact('data', 'barang', 'pelanggan', 'subtotal'));
     }
-
     public function print($notransaksi)
     {
         $transaksi = transaksi::with('notransaksis')->where('notransaksi', $notransaksi)->first();
-
-        // $data = barangkeluar::with('namabarangs')->get();
         return view('keluar.print', compact('transaksi'));
     }
     public function read()
@@ -88,11 +81,14 @@ class BarangkeluarController extends Controller
                 'errors' => $validator->messages(),
             ]);
         }
-        $barang = Barang::find($request->nama_barang);
-        $barang = Barang::find($request->nama_barang);
-        if ($barang->stok < $request->jumlahbarang) {
 
-            return redirect('tambahbarangkeluar')->with('success', 'Jumlah Barang melebihi stok');
+        $barang = Barang::find($request->nama_barang);
+        $subtotal = barangkeluar::sum('total');
+        if ($barang->stok < $request->jumlah) {
+            return response()->json([
+                'gagal' => 'Jumlah Barang Melebihi Stok',
+                'subtotal' => $subtotal
+            ]);
         } else {
             barangkeluar::create([
                 'kodetransaksi' => random_int(10000, 99999),
@@ -130,8 +126,6 @@ class BarangkeluarController extends Controller
             $stok_kurang->stok -= $request->jumlah;
             $stok_kurang->save();
             $subtotal = barangkeluar::sum('total');
-
-
             return response()->json([
                 'status' => 200,
                 'message' => 'barang keluar berhasil ditambahkan',
@@ -148,7 +142,6 @@ class BarangkeluarController extends Controller
             'subtotal' =>   $request->subtotal,
             'pembayaran' =>   $request->pembayaran,
             'kembalian' =>   $request->kembalian,
-
         ]);
         $barangkeluar = barangkeluar::get();
         foreach ($barangkeluar as $key => $value) {
@@ -248,5 +241,5 @@ class BarangkeluarController extends Controller
     //         ->get();
 
     //     return view('keluar.pemasukan', compact('pemasukan'));
-    // }   git 
+    // }   git
 }

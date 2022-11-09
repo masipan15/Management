@@ -12,6 +12,7 @@
     <meta name="description" content="Spruha -  Admin Panel laravel Dashboard Template">
     <meta name="author" content="Spruko Technologies Private Limited">
     <meta name="keywords"
+    
         content="admin laravel template, template laravel admin, laravel css template, best admin template for laravel, laravel blade admin template, template admin laravel, laravel admin template bootstrap 4, laravel bootstrap 4 admin template, laravel admin bootstrap 4, admin template bootstrap 4 laravel, bootstrap 4 laravel admin template, bootstrap 4 admin template laravel, laravel bootstrap 4 template, bootstrap blade template, laravel bootstrap admin template">
 
     <!-- Favicon -->

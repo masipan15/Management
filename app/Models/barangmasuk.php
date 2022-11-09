@@ -19,7 +19,7 @@ class barangmasuk extends Model
 
     public function barang(){
         return $this->belongsTo(Barang::class,'barangs_id','id');
-    }
+    }   
 
-    
+
 }

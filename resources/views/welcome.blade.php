@@ -429,87 +429,84 @@
             </div>
         </div>
     @endif
-    <div class="row row-sm mt-3">
-        <div class="col-lg-12">
-            <div class="card custom-card overflow-hidden">
-                <div class="card-body">
-                    <div>
-                        <h6 class="main-content-label mb-1">Grafik</h6>
-                    </div>
-                    <div id="chartLine">
+    @if (auth()->user()->role == 'admin')
+        <div class="row row-sm mt-3">
+            <div class="col-lg-12">
+                <div class="card custom-card overflow-hidden">
+                    <div class="card-body">
+                        <div>
+                            <h6 class="main-content-label mb-1">Grafik</h6>
+                        </div>
+                        <div id="chartLine">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="assets/plugins/chart.js/Chart.bundle.min.js"></script>
-    <script src="assets/js/chart.chartjs.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts@2.1.8"></script>
-    
-    <script>
-    
-    
-    var options = {
-        chart: {
-            height: 455,
-            type: "line",
-            stacked: false
-        },
-        dataLabels: {
-            enabled: false
-        },
-        colors: ['#6259ca', '#53caed', '#01b8ff'],
-        series: [
-            
-            {
-            name: 'Pengeluaran',
-            type: 'column', 
-            data: {!! json_encode($array_pengeluaran) !!}
-            },
-            {
-            name: "Pemasukan",
-            type: 'column',
-            data: {!! json_encode($array_pemasukan) !!}
-            },
-        ],
-        stroke: {
-          show: true,
-          width: 2,
-          colors: ['transparent']
-        },
-        plotOptions: {
-            bar: {
-            columnWidth: "55%"
-            }
-        },
-        
-        xaxis: {
-            categories: {!! json_encode($previousMonths) !!}
-        },
-        fill: {
-          opacity: 1
-        },  
-        tooltip: {
-          y: {
-            formatter: function (val) {
-              return "Rp." + val + " "
-            }
-          }
-        },   
-        legend: {
-            horizontalAlign: "left",
-            offsetX: 40
-        }
-        };
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="assets/plugins/chart.js/Chart.bundle.min.js"></script>
+        <script src="assets/js/chart.chartjs.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts@2.1.8"></script>
 
-        var chart = new ApexCharts(document.querySelector("#chartLine"), options);
+        <script>
+            var options = {
+                chart: {
+                    height: 455,
+                    type: "line",
+                    stacked: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                colors: ['#6259ca', '#53caed', '#01b8ff'],
+                series: [
 
-        chart.render();
+                    {
+                        name: 'Pengeluaran',
+                        type: 'column',
+                        data: {!! json_encode($array_pengeluaran) !!}
+                    },
+                    {
+                        name: "Pemasukan",
+                        type: 'column',
+                        data: {!! json_encode($array_pemasukan) !!}
+                    },
+                ],
+                stroke: {
+                    show: true,
+                    width: 2,
+                    colors: ['transparent']
+                },
+                plotOptions: {
+                    bar: {
+                        columnWidth: "55%"
+                    }
+                },
 
-      
-    </script>
+                xaxis: {
+                    categories: {!! json_encode($previousMonths) !!}
+                },
+                fill: {
+                    opacity: 1
+                },
+                tooltip: {
+                    y: {
+                        formatter: function(val) {
+                            return "Rp." + val + " "
+                        }
+                    }
+                },
+                legend: {
+                    horizontalAlign: "left",
+                    offsetX: 40
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chartLine"), options);
+
+            chart.render();
+        </script>
+    @endif
 @endsection
-

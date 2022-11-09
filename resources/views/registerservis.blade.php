@@ -223,10 +223,10 @@
                                                 <label>Email</label>
                                                 <input class="form-control" required name="email"
                                                     placeholder="Masukkan Email Anda" type="text">
+                                                @error('email')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
-                                            @error('email')
-                                                <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
                                             <div class="form-group text-left">
                                                 <label>Sandi</label>
                                                 <input class="form-control" required id="myInput" name="password"
@@ -237,9 +237,6 @@
                                                 @error('password')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
-                                                @if (session('success'))
-                                                    <div class="text-danger"> {{ session('success') }} </div>
-                                                @endif
                                             </div>
                                             <input type="text" value="servis" name="role" hidden>
                                             <button type="submit" class="btn ripple btn-main-primary btn-block">Buat

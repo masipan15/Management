@@ -22,7 +22,7 @@ class LoginController extends Controller
             'password' => 'required|min:6',
         ], [
             'email.required' => 'Harus Diisi!',
-            'email.exists' => 'Email Salah!',
+            'email.exists' => 'Email yang anda masukkan belum terdaftar!',
             'password.required' => 'Harus Diisi!',
             'password.min' => 'Minimal 6 huruf!',
         ]);
@@ -35,7 +35,7 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'desain'])) {
             return redirect('/welcome');
         }
-        return redirect('login')->with('success', 'Email atau Kata Sandi yang anda masukkan salah');
+        return redirect('login')->with('success', 'Kata Sandi Yang anda masukkan salah');
     }
 
 
@@ -45,6 +45,16 @@ class LoginController extends Controller
     }
     public function registeruser(Request $request)
     {
+        $this->validate($request, [
+            'email' => 'required|unique:users',
+            'password' => 'required|min:6',
+        ], [
+            'email.required' => 'Email wajib di Isi!',
+            'password.required' => 'password Harus Diisi!',
+            'email.unique' => 'Email sudah digunakan',
+            'password.min' => ' Password Minimal 6 huruf'
+        ]);
+
         User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -66,6 +76,16 @@ class LoginController extends Controller
     public function createservis(Request $request)
     {
 
+        $this->validate($request, [
+            'email' => 'required|unique:users',
+            'password' => 'required|min:6',
+        ], [
+            'email.required' => 'Email wajib di Isi!',
+            'password.required' => 'password Harus Diisi!',
+            'email.unique' => 'Email sudah digunakan',
+            'password.min' => ' Password Minimal 6 huruf'
+        ]);
+
         User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -84,6 +104,16 @@ class LoginController extends Controller
     }
     public function createdesain(Request $request)
     {
+
+        $this->validate($request, [
+            'email' => 'required|unique:users',
+            'password' => 'required|min:6',
+        ], [
+            'email.required' => 'Email wajib di Isi!',
+            'password.required' => 'password Harus Diisi!',
+            'email.unique' => 'Email sudah digunakan',
+            'password.min' => ' Password Minimal 6 huruf'
+        ]);
 
         User::create([
             'name' => $request->name,

@@ -8,55 +8,71 @@ use App\Models\Supplier;
 use App\Models\barangmasuk;
 use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
+use App\Models\databarangmasuk;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class BarangmasukController extends Controller
 {
 
     public function barangmasuk()
     {
-        $data = barangmasuk::orderBy('id', 'DESC')->with('supplier', 'barang')->get();
+        $data = databarangmasuk::with('supplier', 'namabarang')->get();
+        $subtotal = databarangmasuk::sum('total');
+        return view('masuk.barangmasuk', compact('data', 'subtotal'));
+    }
 
-        return view('masuk.barangmasuk', compact('data'));
+    public function tampung()
+    {
+        $data = barangmasuk::all();
+        $supplier = Supplier::all();
+        $barang = barang::all();
+        return view('Tampung', compact('data', 'supplier', 'barang'));
     }
 
     public function tambahbarangmasuk()
     {
-        $data = barangmasuk::all();
+        $data = barangmasuk::with('supplier', 'barang');
         $supplier = Supplier::all();
         $barang = barang::all();
         return view('masuk.tambah', compact('data', 'supplier', 'barang'));
     }
 
+    public function readbarangmasuk()
+    {
+        $data = barangmasuk::orderBy('id', 'DESC')->with('barang', 'supplier')->get();
+        $barang = Barang::all();
+        $supplier = Supplier::all();
+        return response()->json([
+            'data' => $data,
+            'barang' => $barang,
+            'supplier' => $supplier,
+        ]);
+    }
+
     public function prosestambah(Request $request)
     {
-        $validated = $request->validate([
-            'suppliers_id' => 'required',
-            'barangs_id' => 'required',
-            'jumlah' => 'required',
-        ], [
-            'suppliers_id.required' => 'supplier Harus Diisi!',
-            'barangs_id.required' => 'barang Harus Diisi!',
-            'jumlah.required' => 'jumlah Harus Diisi!',
+        $validator = Validator::make($request->all(), [
+            'suppliers_id' => 'required'
         ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        }
+
         $stok_nambah = Barang::find($request->barangs_id);
-
-
-
-
-
-
         $data = barangmasuk::create([
             'suppliers_id' => $request->suppliers_id,
             'barangs_id' => $request->barangs_id,
             'merk' => $request->merk,
             'kategoris_id' => $request->kategoris_id,
+            'kodebarang_id' => $request->kodebarang_id,
             'jumlah' => $request->jumlah,
-            'harga' => $request->harga,
             'total' => $request->total,
-            'created_at' => Carbon::parse(now())->isoformat('Y-M-DD')
+            'harga' => $request->harga,
         ]);
-
         Pengeluaran::create([
             'total' => $request->total,
             'tanggal' => Carbon::parse(now())->isoformat('D'),
@@ -66,9 +82,34 @@ class BarangmasukController extends Controller
 
 
 
+
         $stok_nambah->stok += $request->jumlah;
         $stok_nambah->save();
-        return redirect()->route('barangmasuk')->with('success', 'Data berhasil di Tambahkan');;
+        return response()->json([
+            'message' => 'Data berhasil ditambahkan'
+        ]);
+    }
+
+    public function shiftbarangmasuk()
+    {
+        $barangmasuk = barangmasuk::get();
+        foreach ($barangmasuk as $key => $value) {
+            $data = array(
+                'suppliers_id' => $value->suppliers_id,
+                'jumlah' => $value->jumlah,
+                'harga' => $value->harga,
+                'total' => $value->total,
+                'kodebarang_id' => $value->kodebarang_id,
+                'kategoris_id' => $value->kategoris_id,
+                'barangs_id' => $value->barangs_id,
+                'merk' => $value->merk,
+                'created_at' => Carbon::parse(now())
+
+            );
+            databarangmasuk::insert($data);
+            $deletebarangkeluar = barangmasuk::where('id', $value->id)->delete();
+        }
+        return redirect()->route('barangmasuk');
     }
 
 
@@ -129,7 +170,13 @@ class BarangmasukController extends Controller
     {
         $data = barangmasuk::find($id);
         $data->delete();
-        return redirect()->route('barangmasuk')->with('success', 'Data Berhasil Di Hapus');
+        return response()->json();
+    }
+    public function deletedatabarangmasuk($id)
+    {
+        $data = databarangmasuk::find($id);
+        $data->delete();
+        return back();
     }
     // public function pengeluaran()
     // {
