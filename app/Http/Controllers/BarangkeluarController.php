@@ -40,6 +40,7 @@ class BarangkeluarController extends Controller
     }
     public function print($notransaksi)
     {
+        $pelanggan= pelanggan::all();
         $transaksi = transaksi::with('notransaksis')->where('notransaksi', $notransaksi)->first();
         return view('keluar.print', compact('transaksi'));
     }
@@ -101,9 +102,8 @@ class BarangkeluarController extends Controller
                 'jumlah' => $request->jumlah,
                 'total' => $request->total,
             ]);
-            Pelanggan::create([
-                'nama_pelanggan' => $request->nama_pelanggan,
-            ]);
+
+
             Pemasukan::create([
                 'total' => $request->total,
                 'tanggal' => Carbon::parse(now())->isoformat('D'),
@@ -136,6 +136,10 @@ class BarangkeluarController extends Controller
 
     public function shiftbarangkeluar(Request $request)
     {
+        $pelanggan = Pelanggan::create([
+            'nama_pelanggan' => $request->nama_pelanggan
+        ]);
+
         $transaksi = transaksi::create([
             'notransaksi' => 'KT' . date('Ymd') . random_int(1000, 9999),
             'namakasir' =>  Auth()->user()->name,

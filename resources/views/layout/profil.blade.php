@@ -56,8 +56,7 @@
                                                 role="tablist"><i class="ti-credit-card icon1"></i>Profil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="/welcome" class="nav-link"><i
-                                                    class="ti-power-off icon1"></i>Kembali</a>
+                                            <a href="/logout" class="nav-link"><i class="ti-power-off icon1"></i>Keluar</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -89,7 +88,8 @@
                                                                 <div class="col-md-6"> <label id="name">Nama</label>
                                                                     <input type="text" class="form-control"
                                                                         name="name" readonly
-                                                                        value="{{ Auth::user()->name }}"> </div>
+                                                                        value="{{ Auth::user()->name }}">
+                                                                </div>
                                                                 <div class="col-md-6 pt-md-0 pt-3"> <label
                                                                         id="email">Email</label> <input type="email"
                                                                         name="email" readonly

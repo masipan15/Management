@@ -9,6 +9,7 @@ use App\Models\servisselesai;
 // use App\Models\Userservis;
 use App\Models\barangkeluar;
 use App\Models\desain;
+use App\Models\pelanggan;
 use Illuminate\Http\Request;
 
 class ServisController extends Controller
@@ -60,17 +61,11 @@ class ServisController extends Controller
             $data->fotos = $request->file('fotos')->getClientOriginalName();
             $data->save();
         }
-        // Userservis::create([
-        //     'namapelanggan' => $request->nama_pelanggan,
-        //     'namaservis' => $request->namaservis,
-        //     'namabarang' => $request->nama_barang,
-        //     'merk' => $request->merk_barang,
-        //     'kerusakan' => $request->kerusakan_barang,
-        //     'status' => $request->status_pengerjaan,
 
+        pelanggan::create([
+            'nama_pelanggan' => $request->nama_pelanggan,
+        ]);
 
-
-        // ]);
 
 
 

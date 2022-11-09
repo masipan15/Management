@@ -224,7 +224,9 @@
                                         </div>
                                         <div class="card-item-body">
                                             <div class="card-item-stat">
-                                                <h4 class="font-weight-bold">{{ $keuntungan }}</h4>
+                                                <h4 class="font-weight-bold">
+                                                    Rp.{{ number_format($keuntungan, 0, '.', '.') }}
+                                                </h4>
                                                 <small><b class="text-success"></b></small>
                                             </div>
                                         </div>
@@ -429,84 +431,23 @@
             </div>
         </div>
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="assets/plugins/chart.js/Chart.bundle.min.js"></script>
-    <script src="assets/js/chart.chartjs.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts@2.1.8"></script>
-
-    <script>
-
-
-    var options = {
-        chart: {
-            height: 455,
-            type: "line",
-            stacked: true
-        },
-        dataLabels: {
-            enabled: false
-        },
-        colors: ['#6259ca', '#53caed', '#FF0000'],
-        series: [
-
-            {
-            name: 'Pengeluaran',
-            type: 'column',
-            data: {!! json_encode($array_pengeluaran) !!}
-            },
-            {
-            name: "Pemasukan",
-            type: 'column',
-            data: {!! json_encode($array_pemasukan) !!}
-            },
-            {
-            name: "Pendapatan",
-            type: 'column',
-            data: {!! json_encode($pendapatan) !!}
-            },
-        ],
-        stroke: {
-          show: true,
-          width: 2,
-          colors: ['transparent']
-        },
-        plotOptions: {
-            bar: {
-            columnWidth: "55%"
-            }
-        },
-
-        xaxis: {
-            categories: {!! json_encode($previousMonths) !!}
-        },
-        fill: {
-          opacity: 1
-        },
-        tooltip: {
-          y: {
-            formatter: function (val) {
-              return "Rp." + val + ""
-            }
-          }
-        },
-        legend: {
-            horizontalAlign: "left",
-            offsetX: 10
-        }
-        };
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="assets/plugins/chart.js/Chart.bundle.min.js"></script>
+        <script src="assets/js/chart.chartjs.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts@2.1.8"></script>
 
         <script>
             var options = {
                 chart: {
                     height: 455,
-                    type: "line",
-                    stacked: false
+                    type: "bar",
+                    stacked: true
                 },
                 dataLabels: {
                     enabled: false
                 },
-                colors: ['#6259ca', '#53caed', '#01b8ff'],
+                colors: ['#6259ca', '#53caed', '#FF0000'],
                 series: [
 
                     {
@@ -518,6 +459,11 @@
                         name: "Pemasukan",
                         type: 'column',
                         data: {!! json_encode($array_pemasukan) !!}
+                    },
+                    {
+                        name: "Pendapatan",
+                        type: 'column',
+                        data: {!! json_encode($pendapatan) !!}
                     },
                 ],
                 stroke: {
@@ -540,15 +486,16 @@
                 tooltip: {
                     y: {
                         formatter: function(val) {
-                            return "Rp." + val + " "
+                            return "Rp." + new Intl.NumberFormat().format(val)
                         }
                     }
                 },
                 legend: {
                     horizontalAlign: "left",
-                    offsetX: 40
+                    offsetX: 10
                 }
             };
+
 
             var chart = new ApexCharts(document.querySelector("#chartLine"), options);
 

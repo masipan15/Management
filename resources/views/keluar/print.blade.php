@@ -100,7 +100,7 @@
             <div class="left">
                 <ul>
 
-                    <li>Kode Transaksi</li>
+                    <li>Kode</li>
                     <li>Nama Kasir</li>
                     <li>Tanggal</li>
                 </ul>

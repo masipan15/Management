@@ -29,7 +29,6 @@ class WelcomeController extends Controller
         // dd($jumlahpem - $jumlahpeng);
 
 
-
         $pemasukan = pemasukan::query()
             ->selectRaw('id, tanggal, bulan, tahun, created_at, SUM(total) as total')
             ->groupBy(DB::raw('MONTH(created_at)'))
@@ -59,7 +58,7 @@ class WelcomeController extends Controller
             foreach ($pengeluaran as $mp) {
                 $waktu = Carbon::parse($mp->created_at)->format('M, Y');
 
-                if ($val == $waktu) {
+                if($val == $waktu){
                     $array_pengeluaran[$key] = $mp->total;
                 }
             }
@@ -71,7 +70,7 @@ class WelcomeController extends Controller
             foreach ($pemasukan as $rudi) {
                 $waktu = Carbon::parse($rudi->created_at)->format('M, Y');
 
-                if ($val == $waktu) {
+                if($val == $waktu){
                     $array_pemasukan[$key] = $rudi->total;
                 }
             }
@@ -82,7 +81,103 @@ class WelcomeController extends Controller
         foreach ($array_pemasukan as $key => $value) {
             $pendapatan[$key] = $value - $array_pengeluaran[$key];
         }
+
+
         // dd($pendapatan);
-        return view('welcome', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahservis', 'jumlahpelanggan', 'previousMonths', 'array_pengeluaran', 'array_pemasukan', 'pendapatan', 'keuntungan'));
+        return view('welcome', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahservis', 'jumlahpelanggan', 'previousMonths', 'array_pengeluaran', 'array_pemasukan','pendapatan', 'keuntungan'));
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // public function cobagrafik()
+    // {
+    //     $pemasukan = pemasukan::query()
+    //     ->selectRaw('id, tanggal, bulan, tahun, created_at, SUM(total) as total')
+    //     ->groupBy(DB::raw('MONTH(created_at)'))
+    //     ->get();
+    // // $pengeluaran = pengeluaran::query()
+    // //     ->selectRaw('id, tanggal, bulan, tahun, created_at, SUM(total) as total')
+    // //     ->groupBy(DB::raw('MONTH(created_at)'))
+    // //     ->get();
+    // $pengeluaran = Pengeluaran::select(DB::raw("id, tanggal, bulan, tahun, created_at, SUM(total) as total"))
+    //     ->whereYear('created_at', date('Y'))
+    //     ->groupBy(DB::raw("MONTH(created_at)"))
+    //     ->get();
+
+    //     $previousMonths = [];
+
+    // $currentDate = now()->startOfMonth();
+    // while ($currentDate->year == Carbon::now()->year) {
+    //     $previousMonths[] = $currentDate->format('F');
+    //     $currentDate->subMonth();
+    // }
+
+    //     $previousMonths = array_reverse($previousMonths);
+
+    //     $array_pengeluaran = array();
+    //     foreach ($previousMonths as $key => $val) {
+    //         $array_pengeluaran[$key] = 0;
+    //         foreach ($pengeluaran as $mp) {
+    //             $waktu = Carbon::parse($mp->created_at)->format('F');
+
+    //             if ($val == $waktu) {
+    //                 $array_pengeluaran[$key] = $mp->total;
+    //             }
+    //         }
+    //     }
+
+    //     $array_pemasukan = array();
+    //     foreach ($previousMonths as $key => $val) {
+    //         $array_pemasukan[$key] = 0;
+    //         foreach ($pemasukan as $rudi) {
+    //             $waktu = Carbon::parse($rudi->created_at)->format('F');
+
+    //             if ($val == $waktu) {
+    //                 $array_pemasukan[$key] = $rudi->total;
+    //             }
+    //         }
+    //     }
+    //     // dd($previousMonths, $month ,$bln );
+    //     // dd($array_pemasukan, $array_pengeluaran, $previousMonths);
+
+    //     // return view('masuk.grafik', compact('previousMonths', 'array_pengeluaran', 'array_pemasukan'));
+    //     return view('cobagrafik', compact('previousMonths', 'array_pengeluaran', 'array_pemasukan'));
+
+    // // dd($array_pengeluaran, $array_pemasukan);
+
+
+    // $pendapatan = [];
+
+    // foreach ($array_pemasukan as $key => $value) {
+    //     $pendapatan[$key] = $value - $array_pengeluaran[$key];
+    // }
+
+
+    //     return view('cobagrafik', compact('previousMonths', 'array_pengeluaran', 'array_pemasukan', 'pendapatan'));
+
+    // }
+
+

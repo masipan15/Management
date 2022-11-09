@@ -9,6 +9,7 @@ use App\Models\servis;
 // use App\Models\Userdesain;
 use App\Models\Pemasukan;
 use App\Models\barangkeluar;
+use App\Models\pelanggan;
 use App\Models\penyelesaian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -105,7 +106,9 @@ class DesainController extends Controller
         Pemasukan::create([
             'total' => $request->harga_desain,
         ]);
-
+        pelanggan::create([
+            'nama_pelanggan' => $request -> nama_pemesan,
+        ]);
 
         return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
     }
