@@ -9,6 +9,7 @@ use App\Models\servis;
 // use App\Models\Userdesain;
 use App\Models\Pemasukan;
 use App\Models\barangkeluar;
+use App\Models\pelanggan;
 use App\Models\penyelesaian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +19,7 @@ class DesainController extends Controller
 {
     public function index()
     {
-        $data = desain::orderBy('id', 'DESC')->all();
+        $data = desain::orderBy('id', 'DESC')->get();
         return view('desain.datadesain', compact('data'));
     }
 
@@ -80,9 +81,9 @@ class DesainController extends Controller
     public function updatedesain(request $request, $id)
     {
         $validated = $request->validate([
-            'fotod' => 'required|mimes:jpg,png,jpeg,jfif,webp',
+            'fotod' => 'mimes:jpg,png,jpeg,jfif,webp',
         ], [
-            'fotod.required' => 'foto Harus Diisi!',
+
             'fotod.mimes' => 'Harus Bertipe Gambar',
         ]);
 
@@ -105,7 +106,9 @@ class DesainController extends Controller
         Pemasukan::create([
             'total' => $request->harga_desain,
         ]);
-
+        pelanggan::create([
+            'nama_pelanggan' => $request -> nama_pemesan,
+        ]);
 
         return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
     }
@@ -119,34 +122,7 @@ class DesainController extends Controller
 
 
 
-    public function datapenyelesaiandesain()
-    {
-        $data = penyelesaian::all();
-        // dd($data);s
-        return view('penyelesaian.datapenyelesaiandesain', compact('data'));
-    }
 
-    public function masukpenyelesaiandesain($id)
-    {
-        $data = desain::findOrFail($id);
-        $tes =  penyelesaian::create([
-            'nama_pemesan' => $data->nama_pemesan,
-            'ukuran_desain' => $data->ukuran_desain,
-            'permintaan_desain' => $data->permintaan_desain,
-            'keterangan' => $data->keterangan,
-            'harga_desain' => $data->harga_desain,
-            'status_pengerjaan' => $data->status_pengerjaan,
-        ]);
-        // dd($tes);
-        return redirect()->route('datadesain')->with('success', 'Data Sudah Selesai');
-    }
-
-    public function hapuspenyelesaian($id)
-    {
-        $data = penyelesaian::find($id);
-        $data->delete();
-        return redirect()->route('datapenyelesaiandesain')->with('success', 'Data Berhasil Di Hapus');
-    }
 
     public function download($id)
     {

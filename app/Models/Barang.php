@@ -12,19 +12,23 @@ class Barang extends Model
 {
     use HasFactory;
 
-    protected $guarded=[];
+    protected $guarded = [];
 
-    public function namabarangg(){
-        return $this -> hasMany(barangkeluar::class);
+    public function namabarangg()
+    {
+        return $this->hasMany(barangkeluar::class);
     }
     public function barangmasuk()
     {
         return $this->hasMany(Barangmasuk::class);
     }
 
-    public function kategori(){
-        return $this->belongsTo(kategori::class,'kategoris_id','id');
+    public function kategori()
+    {
+        return $this->belongsTo(kategori::class, 'kategoris_id', 'id');
     }
-
-    
+    public function databarangmasuk()
+    {
+        return $this->belongsTo(databarangmasuk::class);
+    }
 }

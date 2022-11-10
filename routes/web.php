@@ -54,6 +54,10 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/editbrgmsk/{id}', [BarangmasukController::class, 'editbrgmsk'])->name('editbrgmsk');
     Route::post('/updatebrgmsk/{id}', [BarangmasukController::class, 'updatebrgmsk'])->name('updatebrgmsk');
     Route::get('/deletee/{id}', [BarangmasukController::class, 'deletee'])->name('deletee');
+    Route::get('/deletedatabarangmasuk/{id}', [BarangmasukController::class, 'deletedatabarangmasuk'])->name('deletedatabarangmasuk');
+    Route::get('/readbarangmasuk', [BarangmasukController::class, 'readbarangmasuk'])->name('readbarangmasuk');
+    Route::post('/shiftbarangmasuk', [BarangmasukController::class, 'shiftbarangmasuk'])->name('shiftbarangmasuk');
+
 
     //barang keluar
     Route::get('/barangkeluar', [BarangkeluarController::class, 'index'])->name('barangkeluar');
@@ -204,3 +208,7 @@ Route::get('transaksi', [BarangkeluarController::class, 'transaksi'])->name('tra
 
 
 Route::get('ipan', [BarangkeluarController::class, 'ipan'])->name('ipan');
+
+
+Route::get('tampung', [BarangmasukController::class, 'tampung'])->name('tampung');
+

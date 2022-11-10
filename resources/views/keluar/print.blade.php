@@ -19,9 +19,10 @@
             text-align: center;
         }
 
-        h2,
+        h1,
         p {
             margin: 0;
+            margin-bottom: 1px;
         }
 
         .flex-container-1 {
@@ -82,9 +83,9 @@
     </style>
 </head>
 
-<body>
+<body onload="window.print();">
     <div class="container">
-        <div class="header" style="margin-bottom: 10px;">
+        <div class="header" style="margin-bottom: 3px;">
             <h1>ACS MultiTechnology</h1>
             <small>Jl,SoekarnoHatta,RT03/RW01,Jambewangi,Kec.Sempu,
                 Kab.Banyuwangi
@@ -99,7 +100,7 @@
             <div class="left">
                 <ul>
 
-                    <li>Kode Transaksi</li>
+                    <li>Kode</li>
                     <li>Nama Kasir</li>
                     <li>Tanggal</li>
                 </ul>
@@ -122,7 +123,7 @@
             <tbody>
                 @foreach ($transaksi->notransaksis as $item)
                     <tr>
-                        <td>{{ $item->jumlah }}x{{ $item->barangtransaksi->namabarang }}</td>
+                        <td>{{ $item->jumlah }}x {{ $item->barangtransaksi->namabarang }}</td>
                         <td style="padding-left:5px;">Rp.{{ number_format($item->harga) }}</td>
                         <td style="padding-left:20px;">Rp.{{ number_format($item->total) }}</td>
 
@@ -166,8 +167,10 @@
             </div>
         </div>
         <hr>
-        <div class="header" style="margin-top: 30px;">
-            <h3>Terimakasih</h3>
+        <div class="header" style="margin-top: 12px;">
+            <b>
+                <p>Terimakasih</p>
+            </b>
             <p>Silahkan berkunjung kembali</p>
         </div>
     </div>

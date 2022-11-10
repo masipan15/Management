@@ -16,15 +16,14 @@
                                 <tr>
                                     <th class="wd-20p">No</th>
                                     <th class="wd-20p">Tanggal</th>
-                                    <th class="wd-20p">Foto Desain</th>
+                                    <th class="wd-15p">Status</th>
+                                    <th class="wd-20p">Hasil Desain</th>
                                     <th class="wd-25p">Nama Pemesan</th>
                                     <th class="wd-25p">Nama Pendesain</th>
                                     <th class="wd-25p">Ukuran Desain</th>
                                     <th class="wd-25p">Permintaan Desain</th>
                                     <th class="wd-20p">Keterangan</th>
                                     <th class="wd-20p">Harga Desain</th>
-                                    <th class="wd-15p">Status Pengerjaan</th>
-
                                     <th class="wd-20p">Aksi</th>
                                 </tr>
                             </thead>
@@ -36,6 +35,18 @@
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->created_at->format('d/m/y') }}</td>
+
+                                        <td class="text-center">
+                                            @if ($row->status_pengerjaan == 'Selesai')
+                                            <span class="badge badge-pill badge-success ">Selesai</span>
+                                             @elseif ($row->status_pengerjaan == 'Sedang dalam pengerjaan')
+                                             <span class="badge badge-pill badge-warning ">Sedang Dalam Pengerjaan</span>
+                                             @else
+                                             <span class="badge badge-pill badge-danger  ">Belum Dikerjakan</span>
+
+                                            @endif
+                                        </td>
+
                                         <td>
                                             <a href="{{ asset('fotodesain/' . $row->fotod) }}" data-lightbox=""
                                                 button="close"> <img src="{{ asset('fotodesain/' . $row->fotod) }}"
@@ -47,7 +58,6 @@
                                         <td>{{ $row->permintaan_desain }}</td>
                                         <td>{{ $row->keterangan }}</td>
                                         <td>Rp.{{ number_format($row['harga_desain'], 2, '.', '.') }}</td>
-                                        <td>{{ $row->status_pengerjaan }}</td>
 
 
                                         <td>

@@ -1,6 +1,8 @@
 @extends('layout.admin')
 
 @section('content')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
+
     <div class="row row-sm mt-4">
         <div class="col-lg-12 col-md-12">
             <div class="card custom-card">
@@ -9,7 +11,7 @@
                         <h3 class="main-content-label mb-1">Tambah Barang Keluar</h3>
                         <p class="text-muted card-sub-title"></p>
                     </div>
-                    <form action="shiftbarangkeluar" method="POST" enctype="multipart/form-data">
+                    <form action="shiftbarangkeluar" target="_blank" method="POST" enctype="multipart/form-data">
                         @csrf
                         <meta name="csrf-token" content="{{ csrf_token() }}">
                         <div class="row row-sm text-center">
@@ -18,7 +20,7 @@
                                     <div class="col-lg mt-3 mb-3">
                                         <p class="">Nama Pelanggan</p>
                                         <input class="form-control text-center mb-3" placeholder="Boleh Tidak Diisi"
-                                            name="nama_pelanggan" type="text" id="nama_pelanggan">
+                                            name="nama_pelanggan" autocomplete="off" type="text" id="nama_pelanggan">
                                     </div>
                                     <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
                                         <p class="">Nama Barang</p>
@@ -64,19 +66,11 @@
                                     id="kodebarang_keluar" type="text">
                             </div>
 
-
                             <div class="col-lg mg-t-10 mg-lg-t-0" hidden>
                                 <p class="form-label">Total</p>
                                 <input class="form-control text-center" readonly required name="total" id="total"
                                     type="number">
                             </div>
-
-
-                            {{-- <div class="col-lg mg-t-10 mg-lg-t-0">
-                                <p class="form-label">Jumlah Beli</p>
-                                <input class="form-control text-center" required name="jumlah" id="jumlah"
-                                    type="number">
-                            </div> --}}
                         </div>
 
                         <div class="text-center mt-3">
@@ -101,17 +95,16 @@
                             <tbody>
                             </tbody>
                         </table>
-
                         <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
                             <p class="form-label">Subtotal</p>
                             <input class="form-control text-center" readonly required name="subtotal" id="subtotal"
-                                type="number">
+                                type="text">
                         </div>
 
                         <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
                             <p class="form-label">Total Pembayaran</p>
-                            <input class="form-control text-center" required min="500" type="number" name="pembayaran"
-                                id="pembayaran">
+                            <input class="form-control text-center" required min="500" type="number"
+                                name="pembayaran" id="pembayaran">
                         </div>
 
                         <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
@@ -119,24 +112,25 @@
                             <input class="form-control text-center" required name="kembalian" id="kembalian"
                                 type="number">
                         </div>
+                        <?php
+                        $page = $_SERVER['PHP_SELF'];
+                        print "<a href=\"$page\">Reload this page</a>";
+                        ?>
                         <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
-                            <button class="btn btn-danger" target="_blank" type="submit">Checkout</button>
+                            <button class="btn btn-danger" $page type="submit">Checkout</button>
                         </div>
-                    </form>
+
                 </div>
             </div>
+            </form>
         </div>
     </div>
-    </div>
-
-
-
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.7/dist/sweetalert2.all.min.js"></script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -223,41 +217,41 @@
                         $.each(response.data, function(key, item) {
                             $('tbody').append(
                                 ' <tr>\
-                                                                                                                 <th class = "wd-20p" > ' +
+                                                                                                                                                                                                                                                                                 <th class = "wd-20p" > ' +
                                 (
                                     key +
                                     1) +
 
                                 '</th>\
-                                                                                                                                                                                                                                                                                                          <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <td class="wd-20p">' +
                                 (item.nama_pelanggan ? item.nama_pelanggan :
                                     'Pelanggan Umum') +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .namabarangs.namabarang +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .kodebarang_keluar +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .merk_keluar +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">Rp.' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">Rp.' +
                                 item
                                 .harga_jual +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .jumlah +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
                                 item
                                 .total +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td><button type="button" id="delete" data-total="' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td><button type="button" id="delete" data-total="' +
                                 item.total + '"  value="' +
                                 item
                                 .id +
@@ -272,6 +266,14 @@
 
             $('#proses').click(function(e) {
                 e.preventDefault();
+                if (parseInt($('#jumlah').val()) > parseInt($('#stok').val())) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Jumlah Beli anda melebihi stok yang tersedia!',
+                    })
+                }
+
 
                 // console.log('ipanganteng');
                 var data = {
@@ -296,8 +298,9 @@
                     dataType: "json",
                     success: function(response) {
                         var subtotal = response.subtotal
-                        document.getElementById('subtotal').value = (subtotal);
+                        document.getElementById('subtotal').value = subtotal;
                         read();
+
 
                     }
                 });

@@ -36,18 +36,12 @@ class BarangkeluarController extends Controller
 
             DB::raw("(sum(total)) as total")
         )->get();
-
-
-
-
         return view('keluar.tambahbarangklr', compact('data', 'barang', 'pelanggan', 'subtotal'));
     }
-
     public function print($notransaksi)
     {
+        $pelanggan= pelanggan::all();
         $transaksi = transaksi::with('notransaksis')->where('notransaksi', $notransaksi)->first();
-
-        // $data = barangkeluar::with('namabarangs')->get();
         return view('keluar.print', compact('transaksi'));
     }
     public function read()
@@ -88,11 +82,14 @@ class BarangkeluarController extends Controller
                 'errors' => $validator->messages(),
             ]);
         }
-        $barang = Barang::find($request->nama_barang);
-        $barang = Barang::find($request->nama_barang);
-        if ($barang->stok < $request->jumlahbarang) {
 
-            return redirect('tambahbarangkeluar')->with('success', 'Jumlah Barang melebihi stok');
+        $barang = Barang::find($request->nama_barang);
+        $subtotal = barangkeluar::sum('total');
+        if ($barang->stok < $request->jumlah) {
+            return response()->json([
+                'gagal' => 'Jumlah Barang Melebihi Stok',
+                'subtotal' => $subtotal
+            ]);
         } else {
             barangkeluar::create([
                 'kodetransaksi' => random_int(10000, 99999),
@@ -105,9 +102,8 @@ class BarangkeluarController extends Controller
                 'jumlah' => $request->jumlah,
                 'total' => $request->total,
             ]);
-            Pelanggan::create([
-                'nama_pelanggan' => $request->nama_pelanggan,
-            ]);
+
+
             Pemasukan::create([
                 'total' => $request->total,
                 'tanggal' => Carbon::parse(now())->isoformat('D'),
@@ -130,8 +126,6 @@ class BarangkeluarController extends Controller
             $stok_kurang->stok -= $request->jumlah;
             $stok_kurang->save();
             $subtotal = barangkeluar::sum('total');
-
-
             return response()->json([
                 'status' => 200,
                 'message' => 'barang keluar berhasil ditambahkan',
@@ -142,13 +136,16 @@ class BarangkeluarController extends Controller
 
     public function shiftbarangkeluar(Request $request)
     {
+        $pelanggan = Pelanggan::create([
+            'nama_pelanggan' => $request->nama_pelanggan
+        ]);
+
         $transaksi = transaksi::create([
             'notransaksi' => 'KT' . date('Ymd') . random_int(1000, 9999),
             'namakasir' =>  Auth()->user()->name,
             'subtotal' =>   $request->subtotal,
             'pembayaran' =>   $request->pembayaran,
             'kembalian' =>   $request->kembalian,
-
         ]);
         $barangkeluar = barangkeluar::get();
         foreach ($barangkeluar as $key => $value) {
@@ -248,5 +245,5 @@ class BarangkeluarController extends Controller
     //         ->get();
 
     //     return view('keluar.pemasukan', compact('pemasukan'));
-    // }   git 
+    // }   git
 }

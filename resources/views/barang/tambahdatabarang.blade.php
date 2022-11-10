@@ -147,18 +147,16 @@
                                                 type="text" id="namabarang">
                                         </div>
                                         <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
-                                            <p class="">Kategori</p>
-                                            <select name="kategoris_id[]" id="kategoris_id"
-                                                class="form-control text-center mb-3">
-                                                @foreach ($kategori as $item)
-                                                    <option selected disabled value="">
-                                                        Pilih Kategori</option>
-                                                    <option value="{{ $item->id }}">
-                                                        {{ $item->kategori }}</option>
-                                                @endforeach
+                                    <p class="">Kategori</p>
+                                    <select name="kategoris_id[]" id="kategoris_id"
+                                        class="form-control text-center mb-3">
+                                        @foreach ($kategori as $item)
+                                        <option value="{{ $item->id }}">
+                                            {{ $item->kategori }}</option>
+                                        @endforeach
 
-                                            </select>
-                                        </div>
+                                    </select>
+                                </div>
 
                                     </div>
                                 </div>
