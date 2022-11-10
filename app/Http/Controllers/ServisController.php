@@ -129,34 +129,4 @@ class ServisController extends Controller
         $data->delete();
         return redirect()->route('dataservis')->with('success', 'Data Berhasil Di Hapus');
     }
-
-
-    public function dataservisselesai()
-    {
-        $data = servisselesai::all();
-        // dd($data);s
-        return view('penyelesaian.dataservisselesai', compact('data'));
-    }
-
-    public function masukservisselesai($id)
-    {
-        $data = servis::findOrFail($id);
-        $tes =  servisselesai::create([
-            'nama_pelanggan' => $data->nama_pelanggan,
-            'namaservis' => $data->namaservis,
-            'nama_barang' => $data->nama_barang,
-            'merk_barang' => $data->merk_barang,
-            'kerusakan_barang' => $data->kerusakan_barang,
-            'biaya_pengerjaan' => $data->biaya_pengerjaan,
-        ]);
-        // dd($tes);
-        return redirect()->route('dataservis')->with('success', 'Data Sudah Selesai');
-    }
-
-    public function hapusservisselesai($id)
-    {
-        $data = servisselesai::find($id);
-        $data->delete();
-        return redirect()->route('dataservisselesai')->with('success', 'Data Berhasil Di Hapus');
-    }
 }

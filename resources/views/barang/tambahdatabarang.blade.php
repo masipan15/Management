@@ -26,28 +26,32 @@
                                     <input class="form-control text-center mb-3" readonly placeholder="Otomatis"
                                         required name="kodebarang[]" type="text" id="kodebarang">
                                 </div>
+                                @error('kodebarang')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                                 <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
                                     <p class="">Nama Barang</p>
                                     <input class="form-control text-center mb-3" required name="namabarang[]"
                                         type="text" id="namabarang">
                                 </div>
+                                @error('namabarang')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                                 <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
                                     <p class="">Kategori</p>
-                                    <select name="kategoris_id[]" id="kategoris_id"
+                                    <select name="kategoris_id[]" @error('kategoris_id')  @enderror id="kategoris_id"
                                         class="form-control text-center mb-3">
                                         @foreach ($kategori as $item)
                                         <option value="{{ $item->id }}">
                                             {{ $item->kategori }}</option>
                                         @endforeach
-
                                     </select>
                                 </div>
-
                             </div>
                         </div>
-
-
-
+                        @error('kategoris_id')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                         <div class="col-lg-12 col-md-12">
                             <div class="row row-sm">
                                 <div class="col-lg">
@@ -55,16 +59,25 @@
                                     <input class="form-control text-center" required name="merk[]" type="text"
                                         id="merk">
                                 </div>
+                                @error('merk')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                                 <div class="col-lg mg-t-10 mg-lg-t-0">
                                     <p class="">Harga Beli</p>
                                     <input class="form-control text-center" required name="harga[]" id="harga"
                                         type="number">
                                 </div>
+                                @error('harga')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                                 <div class="col-lg mg-t-10 mg-lg-t-0">
                                     <p class="">Harga Jual</p>
                                     <input class="form-control text-center" required name="hargajual[]" id="hargajual"
                                         type="number">
                                 </div>
+                                @error('hargajual')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             </div>
                         </div>
                         <div class="col-lg mg-t-10 mg-lg-t-0 mt-3 mb-3">
@@ -74,6 +87,9 @@
                                     id="deskripsi"></textarea>
                             </div>
                         </div>
+                        @error('deskripsi')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
 
                         <div class="row mb-3">
                             <label>Foto</label>
@@ -81,6 +97,9 @@
                                 <input type="file" required name="foto1[]" class="form-control" id="foto1" >
                             </div>
                         </div>
+                        @error('foto1')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                     </div>
 
 

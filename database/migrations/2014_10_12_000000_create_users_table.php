@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('alamat')->nullable();
             $table->string('notelpon')->nullable();
-            $table->string('foto')->nullable();
+            $table->string('foto')->nullable(); 
             $table->rememberToken();
             $table->timestamps();
         });

@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\Produk;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -134,5 +135,40 @@ class LoginController extends Controller
             'foto' => $request->foto,
         ]);
         return redirect()->route('profil')->with('success', 'Data berhasil di Update!');
+    }
+
+
+    public function editpassword()
+    {
+        return view('layout.editprofil');
+    }
+    public function updatepassword(Request $request)
+    {
+        $request->validate([
+            'password_lama'=>'required|min:6|max:100',
+            'password'=>'required|min:6|max:100|confirmed',
+            'password_confirmation'=>'required'
+        ], [
+           'password_lama.required' => 'password lama harus diisi',
+           'password_lama.min' => 'password harus lebih dari 6',
+           'password.required' => 'password baru harus diisi',
+           'password.min' => 'password harus lebih dari 6',
+           'password.confirmed' => 'password tidak sama',
+           'password_confirmation.required' => 'password harus diisi',
+           
+        ]);
+
+        $current_user = Auth()->user();
+
+        if(Hash::check($request->password_lama, $current_user->password)){
+            $current_user->update([
+                'password'=>bcrypt($request->password)
+            ]);
+
+            return redirect()->back()->with('success', 'Password Berhasil Di Ganti');
+
+        } else {
+            return redirect()->back()->with('error', 'Password Tidak Terdeteksi');
+        }
     }
 }

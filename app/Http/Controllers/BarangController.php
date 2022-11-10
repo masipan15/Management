@@ -39,7 +39,7 @@ class BarangController extends Controller
             'deskripsi' => 'required',
             'harga' => 'required',
             'hargajual' => 'required',
-            // 'foto1' => 'required|mimes:jpg,png,jpeg,jfif,webp',
+            'foto1' => 'required|mimes:jpg,png,jpeg,jfif,webp',
         ], [
             'kategoris_id.required' => 'kategori Harus Diisi!',
             'namabarang.required' => 'namabarang Harus Diisi!',
@@ -48,8 +48,8 @@ class BarangController extends Controller
             'harga.required' => 'harga Harus Diisi!',
             'hargajual.required' => 'harga Harus Diisi!',
             'stok.required' => 'stok Harus Diisi!',
-            // 'foto1.required' => 'foto1 Harus Diisi!',
-            // 'foto1.mimes' => 'Harus Image',
+            'foto1.required' => 'foto1 Harus Diisi!',
+            'foto1.mimes' => 'Harus Image',
         ]);
 
         $images = array();

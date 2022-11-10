@@ -70,6 +70,9 @@
     <!-- Switcher css-->
     <link href="{{ asset('acstemplate/assets/switcher/css/switcher.css') }}" rel="stylesheet">
     <link href="{{ asset('acstemplate/assets/switcher/demo.css') }}" rel="stylesheet">
+    @push('css')
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+    @endpush
 </head>
 
 <body class="main-body leftmenu">
@@ -291,9 +294,9 @@
                         <a class="dropdown-item border-top" href="/profil">
                             <i class="fe fe-user"></i> Profil
                         </a>
-                        <a class="dropdown-item" href="/editprofil">
+                        {{-- <a class="dropdown-item" href="/editprofil">
                             <i class="fe fe-edit"></i> Edit Profil
-                        </a>
+                        </a> --}}
                         <a class="dropdown-item" href="/logout">
                             <i class="fe fe-power"></i> Keluar
                         </a>
@@ -523,6 +526,11 @@
     <!-- Switcher js -->
     <script src="{{ asset('acstemplate/assets/switcher/js/switcher.js') }}"></script>
 
+
+    <!-- profil -->
+    @push('script')
+    <script type="text/javascript" src="{{ asset('js/profil.js') }}"></script>
+    @endpush
 
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script>
 

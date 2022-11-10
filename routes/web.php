@@ -1,14 +1,5 @@
 <?php
-
-
-use App\Models\Barang;
-use App\Models\desain;
-use App\Models\servis;
-use App\Models\Supplier;
-use App\Http\Controllers\LiveTable;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\CartsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DesainController;
@@ -18,8 +9,6 @@ use App\Http\Controllers\kategoriController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PemasukanController;
-use App\Http\Controllers\UserdesainController;
-use App\Http\Controllers\UserservisController;
 use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\BarangkeluarController;
@@ -43,14 +32,17 @@ Route::get('/', function () {
     return view('/login');
 })->middleware('auth');
 
-Route::get('welcome', [WelcomeController::class, 'welcome'])->name('welcome')->middleware('auth');
-
-Route::get('cobagrafik', [WelcomeController::class, 'cobagrafik'])->name('cobagrafik')->middleware('auth');
-
 Route::get('tes', function () {
     return view('crypto');
 });
 
+
+
+Route::get('welcome', [WelcomeController::class, 'welcome'])->name('welcome')->middleware('auth');
+
+//Edit Password
+Route::get('editpassword', [LoginController::class, 'editpassword'])->name('editpassword')->middleware('auth');
+Route::post('updatepassword', [LoginController::class, 'updatepassword'])->name('updatepassword')->middleware('auth');
 
 Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
 

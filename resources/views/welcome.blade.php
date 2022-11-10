@@ -414,6 +414,7 @@
             </div>
         </div>
     @endif
+    @if (auth()->user()->role == 'admin')
     <div class="row row-sm mt-3">
         <div class="col-lg-12">
             <div class="card custom-card overflow-hidden">
@@ -440,7 +441,7 @@
     var options = {
         chart: {
             height: 455,
-            type: "line",
+            type: "bar",
             stacked: true
         },
         dataLabels: {
@@ -501,5 +502,6 @@
 
       
     </script>
+    @endif
 @endsection
 

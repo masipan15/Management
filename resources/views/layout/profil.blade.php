@@ -75,9 +75,7 @@
                                                         </p> <button class="btn button border btn-sm mr-5"><b>Edit
                                                                 Foto</b></button>
                                                     </div>
-                                                    </p> <a href="/editprofil" type="button"
-                                                        class="btn btn-success button border btn-sm mr-1"><b>Edit
-                                                            Profil</b></a>
+                                                    </p> 
                                                     {{-- </p> <a href="/editprofil" type="button" class="btn btn-success button border btn-sm mr-1"><b>Edit Email & Sandi</b></a> --}}
 
                                                 </div>
@@ -105,7 +103,15 @@
                                                                 <div class="col-md-6 pt-md-0 pt-3"> <label id="notelpon">No
                                                                         Telpon</label> <input type="number" name="notelpon"
                                                                         readonly value="{{ Auth::user()->notelpon }}"
-                                                                        class="form-control"> </div>
+                                                                        class="form-control"> 
+                                                                    </div>
+                                                                </div>
+                                                            <div class="form-group row justify-content-end mb-0">
+                                                                <div class="col-md-2 pl-md-4 mt-3">
+                                                                    <a href="/editprofil" type="button"
+                                                                    class="btn btn-success button border btn-sm mr-1"><b>Edit
+                                                                    Profil</b></a>
+											                    </div> 
                                                             </div>
                                                         </div>
                                                     </div>

@@ -22,7 +22,7 @@
 
         <div class="row row-sm">
             <div class="col-lg-12 col-md-12">
-                <div class="card custom-card">
+                <div class="card custom-cfard">
                     <div class="card-body">
                         <div>
                             <h3 class="main-content-label mb-1">Pusat Akun</h3>
@@ -56,7 +56,7 @@
                                                 role="tablist"><i class="ti-credit-card icon1"></i>Edit Profil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="/welcome" class="nav-link"><i
+                                            <a href="/profil" class="nav-link"><i
                                                     class="ti-power-off icon1"></i>Kembali</a>
                                         </li>
                                     </ul>
@@ -67,14 +67,14 @@
                                     <div class="card-body">
                                         <div class="tab-content" id="myTabContent">
                                             <div class="tab-pane fade show active" id="profile" role="tabpanel">
-                                                <div class="d-flex align-items-start pb-3 border-bottom"> <img
+                                                {{-- <div class="d-flex align-items-start pb-3 border-bottom"> <img
                                                         src="{{ asset('acstemplate/assets/img/wa.png') }}"
                                                         class="img rounded-circle avatar-xl" alt="">
                                                     <div class="pl-sm-4 pl-2" id="img-section"> <b>Foto Profil</b>
                                                         <p class="mb-1"></p> <button
                                                             class="btn button border btn-sm"><b>Upload</b></button>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <div class="main-content-body tab-pane p-4 border-top-0" id="edit">
                                                     <div class="card-body border">
                                                         <div class="mb-4 main-content-label">Informasi Pribadi</div>
@@ -116,26 +116,65 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="mb-4 main-content-label"></div>
-                                                            <div class="form-group mb-0">
-                                                                <div class="row row-sm">
-                                                                    <div class="col-md-3">
-                                                                    </div>
-                                                                    <div class="col-md-9">
-                                                                        <div class="custom-controls-stacked">
-                                                                        </div>
-                                                                        <div class="mt-3">
-                                                                            <button type="submit"
-                                                                                class="btn btn-success mr-1">Save</button>
-                                                                            <button type="reset"
-                                                                                class="btn btn-primary mr-1">Reset</button>
-                                                                            <a href="/profil" type="button"
-                                                                                class="btn btn-danger">Batal</a>
-                                                                        </div>
-                                                                    </div>
+                                                            <div class="form-group row justify-content-end mb-0">
+                                                                <div class="col-md-5 pl-md-5 mt-3">                                                            
+                                                                    <a href="/profil" type="button" class="btn btn-danger">Batal</a>
+                                                                    <button type="reset" class="btn btn-primary mr-1">Reset</button>
+                                                                    <button type="submit" class="btn btn-success mr-1">Save</button>
                                                                 </div>
                                                             </div>
                                                         </form>
+                                                    </div>
+                                                    
+                                            {{-- EDIT PASSWORD --}}
+                                                    <div class="mt-5">
+                                                    <div class="card-body border">
+                                                        <div class="mb-4 main-content-label">Ganti Password</div>
+                                                        <form action="/updatepassword" method="POST" class="form-horizontal">
+                                                            @csrf
+                                                            
+                                                            <div class="mb-4 main-content-label"></div>
+                                                            <div class="row row-sm">
+                                                                <div class="col-md-12 col-lg-12 col-xl-12"> 
+                                                                    <label class="form-label">Password Lama</label>
+                                                                    <input type="password" class="form-control"
+                                                                        name="password_lama" id="password_lama">
+                                                                </div>
+                                                                @if($errors->any('password_lama'))
+                                                                    <span class="text-danger">{{ $errors->first('password_lama') }}</span>
+                                                                @endif
+                                                            </div>
+
+
+                                                            <div class="form-group ">
+                                                                    <label class="form-label">Password Baru</label>
+                                                                    <input type="password" class="form-control"
+                                                                        name="password" id="password">
+                                                                @if($errors->any('password'))
+                                                                    <span class="text-danger">{{ $errors->first('password') }}</span>
+                                                                @endif
+                                                            </div>
+
+
+                                                            <div class="form-group ">
+                                                                    <label class="form-label">Konfirmasi Password</label>
+                                                                    <input type="password" class="form-control"
+                                                                        name="password_confirmation" id="password_confirmation">
+                                                                @if($errors->any('password_confirmation'))
+                                                                    <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
+                                                                @endif
+                                                            </div>
+                                                            
+
+                                                            <div class="form-group row justify-content-end mb-0">
+                                                                <div class="col-md-5 pl-md-5 mt-3">                                                            
+                                                                    <a href="/profil" type="button" class="btn btn-danger">Batal</a>
+                                                                    <button type="reset" class="btn btn-primary mr-1">Reset</button>
+                                                                    <button type="submit" class="btn btn-success mr-1">Save</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
                                                     </div>
                                                 </div>
                                             </div>
