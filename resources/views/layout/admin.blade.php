@@ -12,7 +12,6 @@
     <meta name="description" content="Spruha -  Admin Panel laravel Dashboard Template">
     <meta name="author" content="Spruko Technologies Private Limited">
     <meta name="keywords"
-    
         content="admin laravel template, template laravel admin, laravel css template, best admin template for laravel, laravel blade admin template, template admin laravel, laravel admin template bootstrap 4, laravel bootstrap 4 admin template, laravel admin bootstrap 4, admin template bootstrap 4 laravel, bootstrap 4 laravel admin template, bootstrap 4 admin template laravel, laravel bootstrap 4 template, bootstrap blade template, laravel bootstrap admin template">
 
     <!-- Favicon -->
@@ -269,14 +268,6 @@
                     </a>
                 </div>
             </div>
-            <div class="main-header-center">
-                <div class="responsive-logo">
-                    <a href="index.html"><img src="{{ asset('acstemplate/assets/img/brand/logo.png') }}"
-                            class="mobile-logo" alt="logo"></a>
-                    <a href="index.html"><img src="{{ asset('acstemplate/assets/img/brand/logo-light.png') }}"
-                            class="mobile-logo-dark" alt="logo"></a>
-                </div>
-            </div>
             <div class="main-header-right">
 
                 <div class="dropdown main-profile-menu">
@@ -472,8 +463,8 @@
 
 
     <!-- Internal Chartjs charts js-->
-		<script src="{{ asset('acstemplate/assets/plugins/chart.js/Chart.bundle.min.js') }}"></script>
-		<script src="{{ asset('acstemplate/assets/js/chart.chartjs.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/plugins/chart.js/Chart.bundle.min.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/js/chart.chartjs.js') }}"></script>
 
     <!-- Owl Carousel js -->
     <script src="{{ asset('acstemplate/assets/plugins/owl-carousel/owl.carousel.js') }}"></script>

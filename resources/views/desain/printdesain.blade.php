@@ -112,7 +112,7 @@
 
                     <li>{{ $transaksi->notransaksi }}</li>
                     <li>{{ $transaksi->namakasir }} </li>
-                    <li>{{ $transaksi->namapelangganss }} </li>
+                    <li>{{ $transaksi->namapemesan }} </li>
                     <li>{{ date('Y-m-d : H:i:s', strtotime($transaksi->created_at)) }}</li>
                 </ul>
 
@@ -120,19 +120,6 @@
             </div>
         </div>
         <hr>
-        <table>
-
-            <tbody>
-
-                <tr>
-                    <td>x</td>
-                    <td style="padding-left:5px;">Rp.</td>
-                    <td style="padding-left:20px;">Rp.</td>
-
-                </tr>
-
-            </tbody>
-        </table>
         {{-- <div class="flex-container" style="margin-bottom: 10px; text-align:right;">
             <div style="text-align: left;">Nama Product</div>
             <div>Harga</div>
@@ -151,20 +138,22 @@
 
 
         <hr>
-        <div class="flex-container" style="text-align: right; margin-top: 10px;">
-            <div></div>
+        <div class="flex-container" style="text-align: left; margin-top: 10px;">
             <div>
                 <ul>
-                    <li>Subtotal</li>
-                    <li class="mt-1">Pembayaran</li>
-                    <li class="mt-1">Kembalian</li>
+                    <li class="mt-1">Permintaan</li>
+                    <li>Status</li>
+
                 </ul>
+            </div>
+            <div>
+
             </div>
             <div style="text-align: right;">
                 <ul>
-                    <li>Rp.</li>
-                    <li class="mt-1">Rp.</li>
-                    <li class="mt-1">Rp.</li>
+                    <li class="mt-1">{{ $transaksi->permintaan }}</li>
+                    <li>{{ $transaksi->status }}</li>
+
                 </ul>
             </div>
         </div>

@@ -11,11 +11,9 @@ use Illuminate\Http\Request;
 use App\Models\Databarangkeluar;
 use App\Models\detailtransaksi;
 use App\Models\transaksi;
-use App\Models\transaksibarangkeluar;
 use Google\Service\ServiceControl\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use Termwind\Components\Dd;
 
 class BarangkeluarController extends Controller
 {

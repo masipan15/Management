@@ -127,17 +127,6 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/editpelanggan/{id}', [PelangganController::class, 'editpelanggan'])->name('editpelanggan');
     Route::post('/updatepelanggan/{id}', [PelangganController::class, 'updatepelanggan'])->name('updatepelanggan');
     Route::get('/hapuspelanggan/{id}', [PelangganController::class, 'hapuspelanggan'])->name('hapuspelanggan');
-
-
-    //penyelesaian desain
-    Route::get('/desainselesai', [desainController::class, 'datapenyelesaiandesain'])->name('desainselesai');
-    Route::get('/hapuspenyelesaian/{id}', [desainController::class, 'hapuspenyelesaian'])->name('hapuspenyelesaian');
-
-
-    //penyelesaian servis
-    Route::get('/dataservisselesai', [servisController::class, 'dataservisselesai'])->name('dataservisselesai');
-    Route::get('/hapusservisselesai/{id}', [servisController::class, 'hapusservisselesai'])->name('hapusservisselesai');
-
 });
 
 Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
@@ -148,6 +137,8 @@ Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
     Route::get('/editservis/{id}', [servisController::class, 'editservis'])->name('editservis');
     Route::post('/updateservis/{id}', [servisController::class, 'updateservis'])->name('updateservis');
     Route::get('/deletet/{id}', [servisController::class, 'deletet'])->name('deletet');
+    Route::get('/shiftdataservis/{id}', [servisController::class, 'shiftdataservis'])->name('shiftdataservis');
+    Route::get('/printdataservis/{notransaksi_id}', [servisController::class, 'printdataservis'])->name('printdataservis');
 
 
     //penyelesaian
@@ -162,6 +153,8 @@ Route::group(['middleware' => ['auth', 'hakakses:desain,admin']], function () {
     Route::get('/editdesain/{id}', [DesainController::class, 'editdesain'])->name('editdesain');
     Route::post('/updatedesain/{id}', [DesainController::class, 'updatedesain'])->name('updatedesain');
     Route::get('/deletes/{id}', [DesainController::class, 'deletes'])->name('deletes');
+    Route::get('/shiftdatadesain/{id}', [DesainController::class, 'shiftdatadesain'])->name('shiftdatadesain');
+    Route::get('/printdatadesain/{notransaksi}', [DesainController::class, 'printdatadesain'])->name('printdatadesain');
 
 
     //penyelesaian
@@ -219,4 +212,3 @@ Route::get('ipan', [BarangkeluarController::class, 'ipan'])->name('ipan');
 
 
 Route::get('tampung', [BarangmasukController::class, 'tampung'])->name('tampung');
-

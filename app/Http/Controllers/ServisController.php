@@ -9,6 +9,7 @@ use App\Models\servisselesai;
 // use App\Models\Userservis;
 use App\Models\barangkeluar;
 use App\Models\desain;
+use App\Models\detailservis;
 use App\Models\pelanggan;
 use Illuminate\Http\Request;
 
@@ -70,6 +71,27 @@ class ServisController extends Controller
 
 
         return redirect()->route('dataservis')->with('success', 'Data Berhasil Di Tambahkan');
+    }
+    public function printdataservis($notransaksi_id)
+    {
+        $pelanggan = pelanggan::all();
+        $transaksi = detailservis::where('notransaksi_id', $notransaksi_id)->first();
+        return view('servis.printdataservis', compact('transaksi'));
+    }
+
+    public function shiftdataservis($id)
+    {
+        $servis = servis::find($id);
+        $transaksi = detailservis::create([
+            'notransaksi_id' => 'KT' . date('Ymd') . random_int(1000, 9999),
+            'pemesan' => $servis->nama_pelanggan,
+            'namabarang' => $servis->nama_barang,
+            'status' => $servis->status_pengerjaan,
+            'kerusakan' => $servis->kerusakan_barang,
+            'merk' => $servis->merk_barang,
+            'created_at' => Carbon::parse(now())
+        ]);
+        return redirect()->to('/printdataservis/' . $transaksi->notransaksi_id);
     }
 
 

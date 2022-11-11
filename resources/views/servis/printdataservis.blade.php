@@ -101,7 +101,7 @@
                 <ul>
 
                     <li>Kode</li>
-                    <li>Nama Kasir</li>
+
                     <li>Pelanggan</li>
                     <li>Tanggal</li>
                 </ul>
@@ -110,9 +110,9 @@
 
                 <ul>
 
-                    <li>{{ $transaksi->notransaksi }}</li>
-                    <li>{{ $transaksi->namakasir }} </li>
-                    <li>{{ $transaksi->namapelangganss }} </li>
+                    <li>{{ $transaksi->notransaksi_id }}</li>
+
+                    <li>{{ $transaksi->pemesan }} </li>
                     <li>{{ date('Y-m-d : H:i:s', strtotime($transaksi->created_at)) }}</li>
                 </ul>
 

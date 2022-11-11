@@ -61,9 +61,6 @@
                                         <td>{{ $row->merk_barang }}</td>
                                         <td>{{ $row->kerusakan_barang }}</td>
                                         <td>Rp.{{ number_format($row['biaya_pengerjaan'], 2, '.', '.') }}</td>
-
-
-
                                         <td>
                                             <a href="/editservis/{{ $row->id }}" class="btn btn-success mb-1"><i
                                                     class="fas fa-pencil-alt"></i></a><br>
@@ -72,6 +69,8 @@
                                                 <a href="/deletet/{{ $row->id }}" class="btn btn-danger"
                                                     onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                         class="fas fa-trash-alt"></i></button></a>
+                                                <a href="/shiftdataservis/{{ $row->id }}" class="btn btn-info mb-1"><i
+                                                        class="fas fa-print"></i></a><br>
                                             @endif
 
                                             {{-- <a href="#" class="btn btn-danger delete"

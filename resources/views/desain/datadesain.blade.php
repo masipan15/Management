@@ -25,6 +25,9 @@
                                     <th class="wd-20p">Keterangan</th>
                                     <th class="wd-20p">Harga Desain</th>
                                     <th class="wd-20p">Aksi</th>
+                                    @if (auth()->user()->role == 'admin')
+                                        <th class="wd-20p">Cetak</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,12 +41,11 @@
 
                                         <td class="text-center">
                                             @if ($row->status_pengerjaan == 'Selesai')
-                                            <span class="badge badge-pill badge-success ">Selesai</span>
-                                             @elseif ($row->status_pengerjaan == 'Sedang dalam pengerjaan')
-                                             <span class="badge badge-pill badge-warning ">Sedang Dalam Pengerjaan</span>
-                                             @else
-                                             <span class="badge badge-pill badge-danger  ">Belum Dikerjakan</span>
-
+                                                <span class="badge badge-pill badge-success ">Selesai</span>
+                                            @elseif ($row->status_pengerjaan == 'Sedang dalam pengerjaan')
+                                                <span class="badge badge-pill badge-warning ">Sedang Dalam Pengerjaan</span>
+                                            @else
+                                                <span class="badge badge-pill badge-danger  ">Belum Dikerjakan</span>
                                             @endif
                                         </td>
 
@@ -69,8 +71,11 @@
                                                     onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                         class="fas fa-trash-alt"></i></button></a>
                                             @endif
-                                            {{-- <a href="#" class="btn btn-danger delete"
-                                                data-id="{{ $row->id }}"data-nama="{{ $row->nama_pemesan }}">Hapus</a> --}}
+                                        </td>
+                                        <td>
+                                            <a href="shiftdatadesain/{{ $row->id }}" target="_blank"
+                                                class="btn btn-success mb-1"><i class="fas fa-print"></i></a><br>
+
                                         </td>
                                     </tr>
                                 @endforeach
