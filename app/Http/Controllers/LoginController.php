@@ -162,8 +162,12 @@ class LoginController extends Controller
             'name' => $request->name,
             'alamat' => $request->alamat,
             'notelpon' => $request->notelpon,
-            'foto' => $request->foto,
         ]);
+        if ($request->hasfile('foto')) {
+            $request->file('foto')->move('fotoprofil/', $request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
         return redirect()->route('profil')->with('success', 'Data berhasil di Update!');
     }
 
@@ -184,9 +188,15 @@ class LoginController extends Controller
            'password.required' => 'password baru harus diisi',
            'password.min' => 'password harus lebih dari 6',
            'password.confirmed' => 'password tidak sama',
-           'password_confirmation.required' => 'password harus diisi',
+           'password_confirmation.required' => 'konfirmasi password harus diisi',
            
         ]);
+        // if(Auth::attempt($request->only('password_lama'))){
+        //     return redirect('profil')->with('success', 'Kata Sandi Yang anda masukkan benar');
+        // } else {
+        //     return redirect()->back()->with('password', 'Kata Sandi Yang anda masukkan salah');
+
+        // }
 
         $current_user = Auth()->user();
 
@@ -195,7 +205,7 @@ class LoginController extends Controller
                 'password'=>bcrypt($request->password)
             ]);
 
-            return redirect()->back()->with('success', 'Password Berhasil Di Ganti');
+            return redirect('profil')->with('success', 'Password Berhasil Di Ganti');
 
         } else {
             return redirect()->back()->with('error', 'Password Tidak Terdeteksi');

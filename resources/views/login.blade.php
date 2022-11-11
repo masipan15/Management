@@ -214,12 +214,10 @@
                                             </div>
                                             <div class="form-group text-left">
                                                 <label>Sandi</label>
-
                                                 <input class="form-control" id="myInput" name="password"
                                                     placeholder="Masukkan Sandi Anda" type="password">
                                                 &nbsp;&nbsp;<input type="checkbox" onclick="myFunction()">Tampilkan
                                                 Sandi
-
                                                 @error('password')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
