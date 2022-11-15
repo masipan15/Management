@@ -132,9 +132,11 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
 Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
     //servis
     Route::get('/dataservis', [servisController::class, 'dataservis'])->name('dataservis')->middleware('auth');
+    Route::get('/servis_selesai', [servisController::class, 'servis_selesai'])->name('servis_selesai')->middleware('auth');
     Route::get('/tambahservis', [servisController::class, 'tambahservis'])->name('tambahservis');
     Route::post('/insertservis', [servisController::class, 'insertservis'])->name('insertservis');
     Route::get('/editservis/{id}', [servisController::class, 'editservis'])->name('editservis');
+    Route::get('/editservis_selesai/{id}', [servisController::class, 'editservis_selesai'])->name('editservis_selesai');
     Route::post('/updateservis/{id}', [servisController::class, 'updateservis'])->name('updateservis');
     Route::get('/deletet/{id}', [servisController::class, 'deletet'])->name('deletet');
     Route::get('/shiftdataservis/{id}', [servisController::class, 'shiftdataservis'])->name('shiftdataservis');
@@ -142,18 +144,20 @@ Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
 
 
     //penyelesaian
-    Route::get('/servisselesai/{id}', [servisController::class, 'masukservisselesai'])->name('servisselesai');
+
 });
 
 Route::group(['middleware' => ['auth', 'hakakses:desain,admin']], function () {
     //desain
     Route::get('/datadesain', [DesainController::class, 'index'])->name('datadesain')->middleware('auth');
+    Route::get('/desainselesai', [DesainController::class, 'desainselesai'])->name('desainselesai')->middleware('auth');
     Route::get('/tambahdesain', [DesainController::class, 'tambahdesain'])->name('tambahdesain');
     Route::post('/insertdesain', [DesainController::class, 'insertdesain'])->name('insertdesain');
     Route::get('/editdesain/{id}', [DesainController::class, 'editdesain'])->name('editdesain');
     Route::post('/updatedesain/{id}', [DesainController::class, 'updatedesain'])->name('updatedesain');
     Route::get('/deletes/{id}', [DesainController::class, 'deletes'])->name('deletes');
     Route::get('/shiftdatadesain/{id}', [DesainController::class, 'shiftdatadesain'])->name('shiftdatadesain');
+    Route::get('/shiftdesainselesai/{id}', [DesainController::class, 'shiftdesainselesai'])->name('shiftdesainselesai');
     Route::get('/printdatadesain/{notransaksi}', [DesainController::class, 'printdatadesain'])->name('printdatadesain');
 
 

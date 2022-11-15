@@ -41,7 +41,7 @@
                                             <td>
                                                 <span class="badge badge-pill badge-success ">Selesai</span>
                                             </td>
-                                        @elseif ($row->status_pengerjaan == 'Sedang dalam pengerjaan')
+                                        @elseif ($row->status_pengerjaan == 'Sedang Dalam Pengerjaan')
                                             <td>
                                                 <span class="badge badge-pill badge-warning ">Sedang Dalam Pengerjaan</span>
                                             </td>
@@ -62,14 +62,14 @@
                                         <td>{{ $row->kerusakan_barang }}</td>
                                         <td>Rp.{{ number_format($row['biaya_pengerjaan'], 2, '.', '.') }}</td>
                                         <td>
-                                            <a href="/editservis/{{ $row->id }}" class="btn btn-success mb-1"><i
-                                                    class="fas fa-pencil-alt"></i></a><br>
+                                            <a href="/editservis_selesai/{{ $row->id }}"
+                                                class="btn btn-success mb-1"><i class="fas fa-pencil-alt"></i></a><br>
 
                                             @if (auth()->user()->role == 'admin')
                                                 <a href="/deletet/{{ $row->id }}" class="btn btn-danger"
                                                     onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                         class="fas fa-trash-alt"></i></button></a>
-                                                <a href="/shiftdataservis/{{ $row->id }}" target="_blank" class="btn btn-info mb-1"><i
+                                                <a href="/shiftdataservis/{{ $row->id }}" class="btn btn-info mb-1"><i
                                                         class="fas fa-print"></i></a><br>
                                             @endif
 

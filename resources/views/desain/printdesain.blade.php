@@ -152,7 +152,7 @@
             <div style="text-align: right;">
                 <ul>
                     <li class="mt-1">{{ $transaksi->permintaan }}</li>
-                    <li>{{ $transaksi->status }}</li>
+                    <li>{{ $transaksi->status ?: 'Belum Dikerjakan' }}</li>
 
                 </ul>
             </div>

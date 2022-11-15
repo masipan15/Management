@@ -10,14 +10,16 @@ use App\Models\servis;
 use App\Models\pelanggan;
 use App\Models\Pemasukan;
 use App\Models\transaksi;
+use Termwind\Components\Dd;
 use App\Models\barangkeluar;
+use App\Models\desainselesai;
 use App\Models\detaildesain;
 use App\Models\penyelesaian;
-use App\Models\transaksidesain;
 use Illuminate\Http\Request;
+use App\Models\transaksidesain;
+use App\Models\pengerjaandesain;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromView;
-use Termwind\Components\Dd;
 
 class DesainController extends Controller
 {
@@ -25,6 +27,11 @@ class DesainController extends Controller
     {
         $data = desain::orderBy('id', 'DESC')->get();
         return view('desain.datadesain', compact('data'));
+    }
+    public function desainselesai()
+    {
+        $data = desainselesai::orderBy('id', 'DESC')->get();
+        return view('desain.desainselesai', compact('data'));
     }
 
 
@@ -81,6 +88,19 @@ class DesainController extends Controller
         ]);
         return redirect()->to('/printdatadesain/' . $transaksi->notransaksi);
     }
+    public function shiftdesainselesai($id, Request $request)
+    {
+        $desain = desainselesai::find($id);
+        $transaksi = transaksidesain::create([
+            'notransaksi' => 'KT' . date('Ymd') . random_int(1000, 9999),
+            'namakasir' => Auth()->user()->name,
+            'namapemesan' => $desain->nama_pemesan,
+            'status' => $desain->status_pengerjaan,
+            'permintaan' => $desain->permintaan_desain,
+            'created_at' => Carbon::parse(now())
+        ]);
+        return redirect()->to('/printdatadesain/' . $transaksi->notransaksi);
+    }
 
 
 
@@ -95,28 +115,48 @@ class DesainController extends Controller
         $validated = $request->validate([
             'fotod' => 'mimes:jpg,png,jpeg,jfif,webp',
         ], [
-
             'fotod.mimes' => 'Harus Bertipe Gambar',
         ]);
 
         $data = desain::findorfail($id);
-        $data->update([
-            'nama_pemesan' => $request->nama_pemesan,
-            'namapedesain' => $request->namapedesain,
-            'ukuran_desain' => $request->ukuran_desain,
-            'permintaan_desain' => $request->permintaan_desain,
-            'status_pengerjaan' => $request->status_pengerjaan,
-            'keterangan' => $request->keterangan,
-            'harga_desain' => $request->harga_desain,
-        ]);
-        if ($request->hasfile('fotod')) {
-            $request->file('fotod')->move('fotodesain/', $request->file('fotod')->getClientOriginalName());
-            $data->fotod = $request->file('fotod')->getClientOriginalName();
-            $data->save();
+        if ($request->status_pengerjaan == 'Selesai') {
+            desainselesai::create([
+                'nama_pemesan' => $data->nama_pemesan,
+                'namapedesain' => $request->namapedesain,
+                'ukuran_desain' => $data->ukuran_desain,
+                'permintaan_desain' => $data->permintaan_desain,
+                'status_pengerjaan' => $request->status_pengerjaan,
+                'keterangan' => $data->keterangan,
+                'harga_desain' => $data->harga_desain,
+                'fotod' => $request->file('fotod')->store('fotodesain/', 'public'),
+            ]);
+
+            $deletedesain = desain::find($id)->delete();
+        } else {
+            $data->update([
+                'nama_pemesan' => $request->nama_pemesan,
+                'namapedesain' => $request->namapedesain,
+                'ukuran_desain' => $request->ukuran_desain,
+                'permintaan_desain' => $request->permintaan_desain,
+                'status_pengerjaan' => $request->status_pengerjaan,
+                'keterangan' => $request->keterangan,
+                'harga_desain' => $request->harga_desain,
+            ]);
+            if ($request->hasfile('fotod')) {
+                $request->file('fotod')->move('fotodesain/', $request->file('fotod')->getClientOriginalName());
+                $data->fotod = $request->file('fotod')->getClientOriginalName();
+                $data->save();
+            }
         }
+
+
+
+
+
         Pemasukan::create([
             'total' => $request->harga_desain,
         ]);
+        $deletebarangkeluar = barangkeluar::where('id', $id)->delete();
         return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
     }
 

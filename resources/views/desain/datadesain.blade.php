@@ -19,10 +19,10 @@
                                     <th class="wd-15p">Status</th>
                                     <th class="wd-20p">Hasil Desain</th>
                                     <th class="wd-25p">Nama Pemesan</th>
-                                    <th class="wd-25p">Nama Pendesain</th>
-                                    <th class="wd-25p">Ukuran Desain</th>
+                                    <th class="wd-25p">Detail</th>
+
                                     <th class="wd-25p">Permintaan Desain</th>
-                                    <th class="wd-20p">Keterangan</th>
+
                                     <th class="wd-20p">Harga Desain</th>
                                     <th class="wd-20p">Aksi</th>
                                     @if (auth()->user()->role == 'admin')
@@ -55,10 +55,13 @@
                                                     class="img-fluid" alt="" style="width: 50px";></a>
                                         </td>
                                         <td>{{ $row->nama_pemesan }}</td>
-                                        <td>{{ $row->namapedesain }}</td>
-                                        <td>{{ $row->ukuran_desain }}</td>
+                                        <td><a href="#/{{ $row->id }}" value="{{ route('show', ['id' => $row->id]) }}"
+                                                class="modalMd" title="Lihat Deskripsi Barang" data-toggle="modal"
+                                                data-target="#modalMd{{ $row->id }}"><i
+                                                    class="fas fa-eye text-success  fa-lg"></i>
+                                            </a></a>
                                         <td>{{ $row->permintaan_desain }}</td>
-                                        <td>{{ $row->keterangan }}</td>
+
                                         <td>Rp.{{ number_format($row['harga_desain'], 2, '.', '.') }}</td>
 
 
@@ -70,14 +73,34 @@
                                                 <a href="/deletes/{{ $row->id }}" class="btn btn-danger"
                                                     onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                         class="fas fa-trash-alt"></i></button></a>
-                                            @endif
                                         </td>
                                         <td>
                                             <a href="shiftdatadesain/{{ $row->id }}" target="_blank"
                                                 class="btn btn-success mb-1"><i class="fas fa-print"></i></a><br>
 
                                         </td>
-                                    </tr>
+                                @endif
+                                </tr>
+                                <div class="modal fade" id="modalMd{{ $row->id }}" role="dialog"
+                                    aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                {{ $row->keterangan }}
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                    <h4 class="modal-title" id="modalMdTitle"></h4>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="modalError"></div>
+                                                <div id="content">
+                                                    {{ $row->ukuran_desain }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 @endforeach
 
                             </tbody>
@@ -113,6 +136,15 @@
                         swal("Data Tidak Jadi Di hapus");
                     }
                 });
+        });
+    </script>
+
+    <script>
+        $(document).on('ajaxComplete ready', function() {
+            $('.modalMd').off('click').on('click', function() {
+                $('#content').load($(this).attr('value'));
+                $('#modalMdTitle').html($(this).attr('title'));
+            });
         });
     </script>
 

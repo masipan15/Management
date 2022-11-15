@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('notransaksi_id')->nullable();
             $table->string('pemesan')->nullable();
+            $table->string('peservis')->nullable();
             $table->string('namabarang')->nullable();
             $table->string('status')->nullable();
             $table->string('kerusakan')->nullable();

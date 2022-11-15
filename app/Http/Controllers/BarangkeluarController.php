@@ -38,7 +38,7 @@ class BarangkeluarController extends Controller
     }
     public function print($notransaksi)
     {
-        $pelanggan= pelanggan::all();
+        $pelanggan = pelanggan::all();
         $transaksi = transaksi::with('notransaksis')->where('notransaksi', $notransaksi)->first();
         return view('keluar.print', compact('transaksi'));
     }
@@ -211,6 +211,11 @@ class BarangkeluarController extends Controller
         $data = barangkeluar::find($id);
         $subtotaldelete = barangkeluar::sum('total');
         $datas = databarangkeluar::find($id);
+
+        $barang = Barang::find($data->nama_barang);
+        $barang->update([
+            'stok' => (int) $barang->stok + $data->jumlah,
+        ]);
         $data->delete();
         $datas->delete();
 
