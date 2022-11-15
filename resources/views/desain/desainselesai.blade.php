@@ -1,5 +1,4 @@
 @extends('layout.admin')
-
 @section('content')
     <div class="row row-sm mt-3">
         <div class="col-lg-12">
@@ -7,7 +6,7 @@
                 <div class="card-body">
                     @if (auth()->user()->role == 'admin')
                         <div>
-                            <a href="/tambahservis" class="btn btn-primary">Tambah</a>
+                            <a href="/tambahdesain" class="btn btn-primary">Tambah</a>
                             <p class="text-muted card-sub-title"></p>
                         </div>
                     @endif
@@ -18,15 +17,17 @@
                                     <th class="wd-20p">No</th>
                                     <th class="wd-20p">Tanggal</th>
                                     <th class="wd-15p">Status</th>
-                                    <th class="wd-20p">Foto Barang</th>
-                                    <th class="wd-20p">Nama Pelanggan</th>
-                                    <th class="wd-20p">Nama Penyervis</th>
-                                    <th class="wd-20p">Nama Barang</th>
-                                    <th class="wd-25p">Merk</th>
-                                    <th class="wd-20p">Kerusakan</th>
-                                    <th class="wd-15p">Biaya</th>
-
+                                    <th class="wd-20p">Hasil Desain</th>
+                                    <th class="wd-25p">Nama Pemesan</th>
+                                    <th class="wd-25p">Nama Pendesain</th>
+                                    <th class="wd-25p">Ukuran Desain</th>
+                                    <th class="wd-25p">Permintaan Desain</th>
+                                    <th class="wd-20p">Keterangan</th>
+                                    <th class="wd-20p">Harga Desain</th>
                                     <th class="wd-20p">Aksi</th>
+                                    @if (auth()->user()->role == 'admin')
+                                        <th class="wd-20p">Cetak</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,46 +38,46 @@
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->created_at->format('d/m/y') }}</td>
-                                        @if ($row->status_pengerjaan == 'Selesai')
-                                            <td>
+
+                                        <td class="text-center">
+                                            @if ($row->status_pengerjaan == 'Selesai')
                                                 <span class="badge badge-pill badge-success ">Selesai</span>
-                                            </td>
-                                        @elseif ($row->status_pengerjaan == 'Sedang dalam pengerjaan')
-                                            <td>
+                                            @elseif ($row->status_pengerjaan == 'Sedang dalam pengerjaan')
                                                 <span class="badge badge-pill badge-warning ">Sedang Dalam Pengerjaan</span>
-                                            </td>
-                                        @else
-                                            <td>
-                                                <span class="badge badge-pill badge-danger ">Belum Dikerjakan</span>
-                                            </td>
-                                        @endif
-                                        <td>
-                                            <a href="{{ asset('fotoservis/' . $row->fotos) }}" data-lightbox="">
-                                                <img src="{{ asset('fotoservis/' . $row->fotos) }}" alt=""
-                                                    class="img-fluid" style="width: 50px";></a>
+                                            @else
+                                                <span class="badge badge-pill badge-danger  ">Belum Dikerjakan</span>
+                                            @endif
                                         </td>
-                                        <td>{{ $row->nama_pelanggan }}</td>
-                                        <td>{{ $row->namaservis }}</td>
-                                        <td>{{ $row->nama_barang }}</td>
-                                        <td>{{ $row->merk_barang }}</td>
-                                        <td>{{ $row->kerusakan_barang }}</td>
-                                        <td>Rp.{{ number_format($row['biaya_pengerjaan'], 2, '.', '.') }}</td>
+
                                         <td>
-                                            <a href="/editservis/{{ $row->id }}" class="btn btn-success mb-1"><i
+                                            <a href="{{ asset('storage/' . $row->fotod) }}" data-lightbox=""
+                                                button="close"> <img src="{{ asset('storage/' . $row->fotod) }}"
+                                                    class="img-fluid" alt="" style="width: 50px";></a>
+                                        </td>
+                                        <td>{{ $row->nama_pemesan }}</td>
+                                        <td>{{ $row->namapedesain }}</td>
+                                        <td>{{ $row->ukuran_desain }}</td>
+                                        <td>{{ $row->permintaan_desain }}</td>
+                                        <td>{{ $row->keterangan }}</td>
+                                        <td>Rp.{{ number_format($row['harga_desain'], 2, '.', '.') }}</td>
+
+
+                                        <td>
+                                            <a href="/editdesain/{{ $row->id }}" class="btn btn-success mb-1"><i
                                                     class="fas fa-pencil-alt"></i></a><br>
 
                                             @if (auth()->user()->role == 'admin')
-                                                <a href="/deletet/{{ $row->id }}" class="btn btn-danger"
+                                                <a href="/deletes/{{ $row->id }}" class="btn btn-danger"
                                                     onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                         class="fas fa-trash-alt"></i></button></a>
-                                                <a href="/shiftdataservis/{{ $row->id }}" target="_blank" class="btn btn-info mb-1"><i
-                                                        class="fas fa-print"></i></a><br>
-                                            @endif
-
-                                            {{-- <a href="#" class="btn btn-danger delete"
-                                                data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a> --}}
                                         </td>
-                                    </tr>
+                                        <td>
+                                            <a href="shiftdesainselesai/{{ $row->id }}" target="_blank"
+                                                class="btn btn-success mb-1"><i class="fas fa-print"></i></a><br>
+
+                                        </td>
+                                @endif
+                                </tr>
                                 @endforeach
 
                             </tbody>
@@ -87,17 +88,17 @@
         </div>
     </div>
 
-    @include('sweetalert::alert')
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
     <script>
         $('.delete').click(function() {
             var id = $(this).attr('data-id');
             var nama = $(this).attr('data-nama');
             swal({
                     title: "Yakin Mau Hapus?",
-                    text: "Kamu Akan Menghapus Data dengan nama " + nama + " ",
+                    text: "Kamu Akan Menghapus Data Agama dengan nama " + nama + " ",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -107,11 +108,13 @@
                         swal("Data Berhasil Di hapus", {
                             icon: "success",
                         });
-                        window.location = "/deletet/" + id + ""
+                        window.location = "/deletes/" + id + ""
                     } else {
                         swal("Data Tidak Jadi Di hapus");
                     }
                 });
         });
     </script>
+
+    @include('sweetalert::alert')
 @endsection

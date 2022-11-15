@@ -101,7 +101,7 @@
                 <ul>
 
                     <li>Kode</li>
-                    <li>Nama Kasir</li>
+                    <li>Peservis</li>
                     <li>Pelanggan</li>
                     <li>Tanggal</li>
                 </ul>
@@ -110,9 +110,9 @@
 
                 <ul>
 
-                    <li>{{ $transaksi->notransaksi }}</li>
-                    <li>{{ $transaksi->namakasir }} </li>
-                    <li>{{ $transaksi->namapelangganss }} </li>
+                    <li>{{ $transaksi->notransaksi_id }}</li>
+                    <li>{{ $transaksi->peservis }}</li>
+                    <li>{{ $transaksi->pemesan }} </li>
                     <li>{{ date('Y-m-d : H:i:s', strtotime($transaksi->created_at)) }}</li>
                 </ul>
 
@@ -151,20 +151,24 @@
 
 
         <hr>
-        <div class="flex-container" style="text-align: right; margin-top: 10px;">
-            <div></div>
+        <div class="flex-container" style="text-align: left; margin-top: 10px;">
             <div>
                 <ul>
-                    <li>Subtotal</li>
+                    <li>Status</li>
                     <li class="mt-1">Pembayaran</li>
                     <li class="mt-1">Kembalian</li>
+                    <li class="mt-1">Total</li>
                 </ul>
+            </div>
+
+            <div>
             </div>
             <div style="text-align: right;">
                 <ul>
-                    <li>Rp.</li>
-                    <li class="mt-1">Rp.</li>
-                    <li class="mt-1">Rp.</li>
+                    <li>{{ $transaksi->status }}</li>
+                    <li class="mt-1">{{ $transaksi->namabarang }}</li>
+                    <li class="mt-1">{{ $transaksi->kerusakan }}</li>
+                    <li class="mt-1">{{ $transaksi->biaya }}</li>
                 </ul>
             </div>
         </div>

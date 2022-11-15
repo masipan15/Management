@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('s_d_pengerjaan_desains', function (Blueprint $table) {
+        Schema::create('transaksidesains', function (Blueprint $table) {
             $table->id();
+            $table->string('notransaksi')->nullable();
+            $table->string('namakasir')->nullable();
+            $table->string('namapemesan')->nullable();
+            $table->string('status')->nullable();
+            $table->string('permintaan')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('s_d_pengerjaan_desains');
+        Schema::dropIfExists('transaksidesains');
     }
 };

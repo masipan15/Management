@@ -9,7 +9,9 @@ use App\Models\servisselesai;
 // use App\Models\Userservis;
 use App\Models\barangkeluar;
 use App\Models\desain;
+use App\Models\detailservis;
 use App\Models\pelanggan;
+use App\Models\servis_selesai;
 use Illuminate\Http\Request;
 
 class ServisController extends Controller
@@ -18,6 +20,11 @@ class ServisController extends Controller
     {
         $data = servis::orderBy('id', 'DESC')->get();
         return view('servis.dataservis', compact('data'));
+    }
+    public function servis_selesai()
+    {
+        $data = servis_selesai::orderBy('id', 'DESC')->get();
+        return view('servis.servis_selesai', compact('data'));
     }
 
 
@@ -71,6 +78,28 @@ class ServisController extends Controller
 
         return redirect()->route('dataservis')->with('success', 'Data Berhasil Di Tambahkan');
     }
+    public function printdataservis($notransaksi_id)
+    {
+        $pelanggan = pelanggan::all();
+        $transaksi = detailservis::where('notransaksi_id', $notransaksi_id)->first();
+        return view('servis.printdataservis', compact('transaksi'));
+    }
+
+    public function shiftdataservis($id)
+    {
+        $servis = servis::find($id);
+        $transaksi = detailservis::create([
+            'notransaksi_id' => 'KT' . date('Ymd') . random_int(1000, 9999),
+            'peservis' => Auth()->user()->name,
+            'pemesan' => $servis->nama_pelanggan,
+            'namabarang' => $servis->nama_barang,
+            'status' => $servis->status_pengerjaan,
+            'kerusakan' => $servis->kerusakan_barang,
+            'merk' => $servis->merk_barang,
+            'created_at' => Carbon::parse(now())
+        ]);
+        return redirect()->to('/printdataservis/' . $transaksi->notransaksi_id);
+    }
 
 
 
@@ -80,6 +109,12 @@ class ServisController extends Controller
 
         return view('servis.editservis', compact('data'));
     }
+    public function editservis_selesai($id)
+    {
+        $data = servis_selesai::findOrFail($id);
+
+        return view('servis.editservis_selesai', compact('data'));
+    }
 
 
 
@@ -87,33 +122,36 @@ class ServisController extends Controller
     public function updateservis(request $request, $id)
     {
         $data = servis::find($id);
+        if ($request->status_pengerjaan == 'Selesai') {
+            $ipan =  servis_selesai::create([
+                'nama_pelanggan' => $request->nama_pelanggan,
+                'namaservis' => $request->namaservis,
+                'nama_barang' => $request->nama_barang,
+                'merk_barang' => $request->merk_barang,
+                'status_pengerjaan' => $request->status_pengerjaan,
+                'kerusakan_barang' => $request->kerusakan_barang,
+                'biaya_pengerjaan' => $request->biaya_pengerjaan,
+                'fotos' => $data->fotos,
+            ]);
 
 
-
-        $data->update([
-            'nama_pelanggan' => $request->nama_pelanggan,
-            'namaservis' => $request->namaservis,
-            'nama_barang' => $request->nama_barang,
-            'merk_barang' => $request->merk_barang,
-            'status_pengerjaan' => $request->status_pengerjaan,
-            'kerusakan_barang' => $request->kerusakan_barang,
-            'biaya_pengerjaan' => $request->biaya_pengerjaan,
-        ]);
-        if ($request->hasfile('fotos')) {
-            $request->file('fotos')->move('fotobarang/', $request->file('fotos')->getClientOriginalName());
-            $data->fotos = $request->file('fotos')->getClientOriginalName();
-            $data->save();
+            servis::find($id)->delete();
+        } else {
+            $data->update([
+                'nama_pelanggan' => $request->nama_pelanggan,
+                'namaservis' => $request->namaservis,
+                'nama_barang' => $request->nama_barang,
+                'merk_barang' => $request->merk_barang,
+                'status_pengerjaan' => $request->status_pengerjaan,
+                'kerusakan_barang' => $request->kerusakan_barang,
+                'biaya_pengerjaan' => $request->biaya_pengerjaan,
+            ]);
+            if ($request->hasFile('fotos')) {
+                $request->file('fotos')->move('fotoservis/', $request->file('fotos')->getClientOriginalName());
+                $data->fotos = $request->file('fotos')->getClientOriginalName();
+                $data->save();
+            }
         }
-
-        // $ipan = Userservis::findorfail($id);
-        // $ipan->update([
-        //     'namapelanggan' => $request->nama_pelanggan,
-        //     'namaservis' => $request->namaservis,
-        //     'namabarang' => $request->nama_barang,
-        //     'merk' => $request->merk_barang,
-        //     'kerusakan' => $request->kerusakan_barang,
-        // ]);
-
 
         return redirect()->route('dataservis')->with('success', 'Data berhasil di Update!');
     }

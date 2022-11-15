@@ -195,10 +195,13 @@
                 <li class="nav-item {{ Route::is('datadesain', 'editdesain') ? 'active' : '' }}">
                     <a class="nav-link" href="/datadesain"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
-                            class="sidemenu-label">Data
-                            Desain</span></a>
+                            class="sidemenu-label">Permintaan Desain</span></a>
                 </li>
             @endif
+            <li class="nav-item {{ Route::is('desainselesai') ? 'active' : '' }}">
+                <a class="nav-link" href="/desainselesai"><span class="shape1"></span><span class="shape2"></span><i
+                        class="mdi mdi-pen sidemenu-icon"></i><span class="sidemenu-label">Desain Selesai</span></a>
+            </li>
             @if (auth()->user()->role == 'admin')
                 <li class="nav-item {{ Route::is('dataservis', 'tambahseris', 'editservis') ? 'active' : '' }}">
                     <a class="nav-link" href="/dataservis"><span class="shape1"></span><span
@@ -212,10 +215,14 @@
                 <li class="nav-item {{ Route::is('dataservis', 'editservis') ? 'active' : '' }}">
                     <a class="nav-link" href="/dataservis"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
-                            class="sidemenu-label">Data
-                            Servis</span></a>
+                            class="sidemenu-label">Permintaan Servis</span></a>
                 </li>
             @endif
+            <li class="nav-item {{ Route::is('servis_selesai', 'editservis_selesai') ? 'active' : '' }}">
+                <a class="nav-link" href="/servis_selesai"><span class="shape1"></span><span
+                        class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
+                        class="sidemenu-label">Servis Selesai</span></a>
+            </li>
             {{-- @if (auth()->user()->role == 'admin')
                 <li class="nav-header"><span class="nav-label">Pekerjaan Selesai</span></li>
                 <li class="nav-item {{ Route::is('desainselesai') ? 'active' : '' }}">

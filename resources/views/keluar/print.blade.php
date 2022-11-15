@@ -82,8 +82,9 @@
         }
     </style>
 </head>
+{{-- onload="window.print();" --}}
 
-<body onload="window.print();">
+<body>
     <div class="container">
         <div class="header" style="margin-bottom: 3px;">
             <h1>ACS MultiTechnology</h1>
@@ -102,6 +103,7 @@
 
                     <li>Kode</li>
                     <li>Nama Kasir</li>
+                    <li>Pelanggan</li>
                     <li>Tanggal</li>
                 </ul>
             </div>
@@ -111,6 +113,7 @@
 
                     <li>{{ $transaksi->notransaksi }}</li>
                     <li>{{ $transaksi->namakasir }} </li>
+                    <li>{{ $transaksi->namapelangganss ?: 'Pelanggan Umum' }}</li>
                     <li>{{ date('Y-m-d : H:i:s', strtotime($transaksi->created_at)) }}</li>
                 </ul>
 
@@ -119,7 +122,6 @@
         </div>
         <hr>
         <table>
-
             <tbody>
                 @foreach ($transaksi->notransaksis as $item)
                     <tr>
@@ -149,14 +151,16 @@
 
 
         <hr>
-        <div class="flex-container" style="text-align: right; margin-top: 10px;">
-            <div></div>
+        <div class="flex-container left" style="text-align: left; margin-top: 10px;">
             <div>
                 <ul>
                     <li>Subtotal</li>
                     <li class="mt-1">Pembayaran</li>
                     <li class="mt-1">Kembalian</li>
                 </ul>
+            </div>
+            <div>
+
             </div>
             <div style="text-align: right;">
                 <ul>

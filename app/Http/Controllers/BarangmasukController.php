@@ -168,8 +168,15 @@ class BarangmasukController extends Controller
 
     public function deletee($id)
     {
+
         $data = barangmasuk::find($id);
+        $barang = Barang::find($data->barangs_id);
+        $barang->update([
+            'stok' => (int) $barang->stok - $data->jumlah,
+        ]);
+
         $data->delete();
+
         return response()->json();
     }
     public function deletedatabarangmasuk($id)
