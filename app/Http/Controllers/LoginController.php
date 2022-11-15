@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\Produk;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
 class LoginController extends Controller
 {
@@ -136,11 +138,11 @@ class LoginController extends Controller
     }
 
 
-    public function profil()
-    {
-        $data = User::all();
-        return view('layout.profil', compact('data'));
-    }
+    // public function profil()
+    // {
+    //     $data = User::all();
+    //     return view('layout.profil', compact('data'));
+    // }
     // public function editprofil()
     // {
     //     $data = User::all();
@@ -211,4 +213,36 @@ class LoginController extends Controller
             return redirect()->back()->with('error', 'Password Tidak Terdeteksi');
         }
     }
+
+    public function profil()
+    {
+        $data = User::all();
+        return view('layout.profil', compact('data'));
+    }
+
+    function crop(Request $request){
+        $path = 'user_image/';
+        $file = $request->file('foto_id')->store('user_images', 'public');
+
+        if( !$file ){
+            return response()->json(['status'=>0, 'msg'=>'Terjadi kesalahan, unggah foto baru gagal.']);
+        }else{
+            $fotoLama = User::find(Auth::user()->id)->getAttributes()['foto'];
+
+            if ( $fotoLama != '') {
+                if (\File::exists(public_path($path.$fotoLama))) {
+                    \File::delete(public_path($path.$fotoLama));
+                    }
+                }
+
+                //Update foto
+                $update = User::find(Auth::user()->id)->update(['foto'=>$file]);
+
+                if ( !$file ) {
+                    return response()->json(['status'=>0, 'msg'=>'Terjadi kesalahan, pembaruan foto dalam Database gagal.']);
+                } else{
+                    return response()->json(['status'=>1, 'msg'=>'Foto profil Anda telah berhasil diperbarui.']);                    
+                }
+            }
+        }
 }

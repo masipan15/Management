@@ -14,6 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ACS Management</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 
     <body>
@@ -28,7 +29,7 @@
         <div class="card custom-cfard">
             <div class="card-body">
                 <div>
-                    <h3 class="main-content-label mb-1">Pusat Akun</h3>
+                    <h3 class="main-content-label mb-1"><b>Pusat Akun</b></h3>
                     <p class="text-muted card-sub-title"></p>
                 </div>
 
@@ -37,15 +38,15 @@
                     <div class="col-xl-3 col-lg-12 col-md-12">
                         <div class="card custom-card">
                             <div class="card-header">
-                                <h3 class="main-content-label">Akun</h3>
+                                <h3 class="main-content-label"><b>Akun</b></h3>
                             </div>
                             <div class="card-body text-center item-user">
                                 <div class="profile-pic">
                                     <div class="profile-pic-img">
                                         <span class="bg-success dots" data-toggle="tooltip" data-placement="top"
                                             title="online"></span>
-                                        <img class="rounded-circle"
-                                            src="{{ asset('acstemplate/assets/img/wa.png') }}" alt="user">
+                                        <img class="rounded-circle image-previewer"
+                                        src="storage/{{ Auth::user()->foto }}" alt="user">
                                     </div>
                                     <a href="#" class="text-dark">
                                         <h5 class="mt-3 mb-0 font-weight-semibold">{{ Auth::user()->name }}</h5>
@@ -55,12 +56,12 @@
                             <ul class="item1-links nav nav-tabs  mb-0">
 
                                 <li class="nav-item">
-                                    <a data-target="/editprofil" class="nav-link active" data-toggle="tab"
-                                        role="tablist"><i class="ti-credit-card icon1"></i>Edit Profil</a>
+                                    <a data-target="#" class="nav-link active" data-toggle="tab"
+                                        role="tablist"><i class="ti-credit-card icon1"></i><b>Edit Profil</b></a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/profil" class="nav-link"><i
-                                            class="ti-power-off icon1"></i>Kembali</a>
+                                            class="ti-power-off icon1"></i><b>Kembali</b></a>
                                 </li>
                             </ul>
                         </div>
@@ -87,7 +88,7 @@
                                                     <div class="form-group ">
                                                         <div class="row row-sm">
                                                             <div class="col-md-3">
-                                                                <label class="form-label">Nama</label>
+                                                                <label for=""><b>Nama</b></label>
                                                             </div>
                                                             <div class="col-md-9">
                                                                 <input type="text" class="form-control"
@@ -98,7 +99,7 @@
                                                     <div class="form-group ">
                                                         <div class="row row-sm">
                                                             <div class="col-md-3">
-                                                                <label class="form-label">Alamat</label>
+                                                                <label for=""><b>Alamat</b></label>
                                                             </div>
                                                             <div class="col-md-9">
                                                                 <input type="text" class="form-control"
@@ -110,7 +111,7 @@
                                                     <div class="form-group ">
                                                         <div class="row row-sm">
                                                             <div class="col-md-3">
-                                                                <label class="form-label">No Telpon</label>
+                                                                <label for=""><b>No Telpon</b></label>
                                                             </div>
                                                             <div class="col-md-9">
                                                                 <input type="number" class="form-control"
@@ -132,44 +133,39 @@
                                     {{-- EDIT PASSWORD --}}
                                             <div class="mt-5">
                                             <div class="card-body border">
-                                                <div class="mb-4 main-content-label">Ganti Password</div>
+                                                <div class="mb-4 main-content-label"><b>Ganti Password</b></div>
                                                 <form action="/updatepassword" method="POST" class="form-horizontal">
                                                     @csrf
                                                     
                                                     <div class="mb-4 main-content-label"></div>
                                                     <div class="row row-sm">
                                                         <div class="col-md-12 col-lg-12 col-xl-12"> 
-                                                            <label class="form-label">Password Lama</label>
+                                                            <label for=""><b>Password Lama</b></label>
                                                             <input type="password" class="form-control"
-                                                                name="password_lama" id="myInput">
+                                                                name="password_lama" id="password_lama">
                                                                 <input type="checkbox" onclick="yFunction()">Tampilkan Sandi
                                                         </div>
                                                         @if($errors->any('password_lama'))
                                                             <span class="text-danger">{{ $errors->first('password_lama') }}</span>
                                                         @endif
-                                                        {{-- @if (Session::has('password_lama'))
-                                                            <div class="alert alert-danger">
-                                                                Sandi Salah
-                                                            </div>
-                                                        @endif --}}
-                                                    </div>
+                                                    </div><br>
 
 
                                                     <div class="form-group ">
-                                                            <label class="form-label">Password Baru</label>
+                                                            <label for=""><b>Password Baru</b></label>
                                                             <input type="password" class="form-control"
-                                                                name="password" id="datas">
+                                                                name="password" id="password">
                                                                 <div><input type="checkbox" onclick="myFunction()">Tampilkan Sandi</div>
                                                         @if($errors->any('password'))
                                                             <span class="text-danger">{{ $errors->first('password') }}</span>
                                                         @endif
-                                                    </div>
+                                                    </div><br>
 
 
                                                     <div class="form-group ">
-                                                            <label>Konfirmasi Password</label>
+                                                        <label for=""><b>Konfirmasi Sandi</b></label>
                                                             <input type="password" class="form-control"
-                                                                name="password_confirmation" id="data">
+                                                                name="password_confirmation" id="password_confirmation">
                                                                 <div><input type="checkbox" onclick="mFunction()">Tampilkan Sandi</div>
                                                         @if($errors->any('password_confirmation'))
                                                             <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
@@ -210,20 +206,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
     function yFunction() {
-        var x = document.getElementById("myInput");
-        if (x.type == "password") {
-            x.type = "text";
-        } else {
-            x.type = "password";
-        }
-    }
-</script>
-<script>
-    function mFunction() {
-        var x = document.getElementById("data");
+        var x = document.getElementById("password_lama");
         if (x.type == "password") {
             x.type = "text";
         } else {
@@ -233,7 +220,7 @@
 </script>
 <script>
     function myFunction() {
-        var x = document.getElementById("datas");
+        var x = document.getElementById("password");
         if (x.type == "password") {
             x.type = "text";
         } else {
@@ -242,15 +229,18 @@
     }
 </script>
 <script>
-    const togglePassword = document.querySelector('#togglePassword');
-  const password = document.querySelector('#id_password');
-
-  togglePassword.addEventListener('click', function (e) {
-    // toggle the type attribute
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-    // toggle the eye slash icon
-    this.classList.toggle('fa-eye-slash');
-});
+    function mFunction() {
+        var x = document.getElementById("password_confirmation");
+        if (x.type == "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
+<script>
+    @if (Session::has('success'))
+        toastr.success("{{ Session::get('success') }}")
+    @endif
 </script>
 @endsection

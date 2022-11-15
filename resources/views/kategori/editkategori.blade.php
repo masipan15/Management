@@ -38,7 +38,7 @@
                                         <div class="text-center mt-4 mb-3">
                                             <button type="submit"
                                                 class="btn ripple btn-main-primary active mr-1">Simpan</button>
-                                            <a href="/datakategori" type="button" class="btn ripple btn-secondary">Batal</a>
+                                            <a href="/datakategori" type="button" onclick="contoh()" class="btn ripple btn-secondary">Batal</a>
                                         </div>
                                     </div>
                                 </div>
@@ -68,4 +68,16 @@
     </body>
 
     </html>
+    <script>
+    function contoh() {
+		swal(
+			{
+				title: 'Well done!',
+				text: 'You clicked the button!',
+				type: 'success',
+				confirmButtonColor: '#57a94f'
+			}
+		)
+	};
+    </script>
 @endsection

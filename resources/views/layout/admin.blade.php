@@ -12,8 +12,8 @@
     <meta name="description" content="Spruha -  Admin Panel laravel Dashboard Template">
     <meta name="author" content="Spruko Technologies Private Limited">
     <meta name="keywords"
-    
         content="admin laravel template, template laravel admin, laravel css template, best admin template for laravel, laravel blade admin template, template admin laravel, laravel admin template bootstrap 4, laravel bootstrap 4 admin template, laravel admin bootstrap 4, admin template bootstrap 4 laravel, bootstrap 4 laravel admin template, bootstrap 4 admin template laravel, laravel bootstrap 4 template, bootstrap blade template, laravel bootstrap admin template">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('acstemplate/assets/img/brand/acs1.ico') }}" type="image/x-icon" />
@@ -23,6 +23,8 @@
 
     <!-- Bootstrap css-->
     <link href="{{ asset('acstemplate/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+
+   
 
     <!-- Icons css-->
     <link href="{{ asset('acstemplate/assets/plugins/web-fonts/icons.css') }}" rel="stylesheet" />
@@ -71,9 +73,6 @@
     <!-- Switcher css-->
     <link href="{{ asset('acstemplate/assets/switcher/css/switcher.css') }}" rel="stylesheet">
     <link href="{{ asset('acstemplate/assets/switcher/demo.css') }}" rel="stylesheet">
-    @push('css')
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
-    @endpush
 </head>
 
 <body class="main-body leftmenu">
@@ -272,20 +271,12 @@
                     </a>
                 </div>
             </div>
-            <div class="main-header-center">
-                <div class="responsive-logo">
-                    <a href="index.html"><img src="{{ asset('acstemplate/assets/img/brand/logo.png') }}"
-                            class="mobile-logo" alt="logo"></a>
-                    <a href="index.html"><img src="{{ asset('acstemplate/assets/img/brand/logo-light.png') }}"
-                            class="mobile-logo-dark" alt="logo"></a>
-                </div>
-            </div>
             <div class="main-header-right">
 
                 <div class="dropdown main-profile-menu">
                     <a class="d-flex" href="#">
                         <span class="main-img-user"><img alt="avatar"
-                                src="{{ asset('acstemplate/assets/img/wa.png') }}"></span>
+                                src="storage/{{ Auth::user()->foto }}" class="image-previewer"></span>
                     </a>
                     <div class="dropdown-menu">
                         <div class="header-navheading">
@@ -295,9 +286,9 @@
                         <a class="dropdown-item border-top" href="/profil">
                             <i class="fe fe-user"></i> Profil
                         </a>
-                        {{-- <a class="dropdown-item" href="/editprofil">
+                        <a class="dropdown-item" href="/editprofil">
                             <i class="fe fe-edit"></i> Edit Profil
-                        </a> --}}
+                        </a>
                         <a class="dropdown-item" href="/logout">
                             <i class="fe fe-power"></i> Keluar
                         </a>
@@ -391,7 +382,7 @@
                     <div class="dropdown main-profile-menu">
                         <a class="d-flex" href="#">
                             <span class="main-img-user"><img alt="avatar"
-                                    src="{{ asset('acstemplate/assets/img/wa.png') }}"></span>
+                                    src="storage/{{ Auth::user()->foto }}" class="image-previewer"></span>
                         </a>
                         <div class="dropdown-menu">
                             <div class="header-navheading">
@@ -475,8 +466,8 @@
 
 
     <!-- Internal Chartjs charts js-->
-		<script src="{{ asset('acstemplate/assets/plugins/chart.js/Chart.bundle.min.js') }}"></script>
-		<script src="{{ asset('acstemplate/assets/js/chart.chartjs.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/plugins/chart.js/Chart.bundle.min.js') }}"></script>
+    <script src="{{ asset('acstemplate/assets/js/chart.chartjs.js') }}"></script>
 
     <!-- Owl Carousel js -->
     <script src="{{ asset('acstemplate/assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
@@ -528,14 +519,16 @@
     <script src="{{ asset('acstemplate/assets/switcher/js/switcher.js') }}"></script>
 
 
-    <!-- profil -->
-    @push('script')
-    <script type="text/javascript" src="{{ asset('js/profil.js') }}"></script>
-    @endpush
-
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script>
 
     @yield('charts')
+
+    
+
+    <script>
+      
+       
+    </script>
 
 
 </body>

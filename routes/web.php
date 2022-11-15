@@ -177,6 +177,10 @@ Route::get('/profil', [LoginController::class, 'profil'])->name('profil');
 Route::get('/editprofil', [LoginController::class, 'editprofil'])->name('editprofil');
 Route::post('/updateprofil', [LoginController::class, 'updateprofil'])->name('updateprofil');
 
+// Route::get('/cobaprofil', [LoginController::class, 'cobaprofil'])->name('user.cobaprofil');
+Route::post('/crop', [LoginController::class, 'crop'])->name('crop');
+
+
 
 
 
