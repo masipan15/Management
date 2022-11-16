@@ -59,7 +59,7 @@
                                                 class="modalMd" title="Lihat Deskripsi Barang" data-toggle="modal"
                                                 data-target="#modalMd{{ $row->id }}"><i
                                                     class="fas fa-eye text-success  fa-lg"></i>
-                                            </a></a>
+                                            </a></a></td>
                                         <td>{{ $row->permintaan_desain }}</td>
 
                                         <td>Rp.{{ number_format($row['harga_desain'], 2, '.', '.') }}</td>
@@ -85,8 +85,7 @@
                                     aria-labelledby="myModalLabel">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                {{ $row->keterangan }}
+                                            <div class="modal-header"><b>Detail:</b>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close"><span aria-hidden="true">&times;</span>
                                                     <h4 class="modal-title" id="modalMdTitle"></h4>
@@ -94,8 +93,20 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="modalError"></div>
-                                                <div id="content">
+                                                <div id="content"><b>keterangan: </b><br>
+                                                    {{ $row->keterangan }}
+                                                </div>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="modalError"></div>
+                                                <div id="content"><b>Ukuran: </b><br>
                                                     {{ $row->ukuran_desain }}
+                                                </div>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="modalError"></div>
+                                                <div id="content"><b>Nama Pendesain: </b> <br>
+                                                    {{ $row->namapedesain }}
                                                 </div>
                                             </div>
                                         </div>

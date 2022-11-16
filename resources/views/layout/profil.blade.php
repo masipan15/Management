@@ -32,8 +32,16 @@
                                             <div class="profile-pic-img">
                                                 <span class="bg-success dots" data-toggle="tooltip" data-placement="top"
                                                     title="online"></span>
+                                                {{-- @php
+                                                    $foto = App\Models\User::where('foto')->first();
+                                                @endphp
+                                                @if ($foto != null) --}}
                                                 <img class="rounded-circle image-previewer" data-lightbox="" button="close"
-                                                    src="storage/{{ Auth::user()->foto }}" alt="user">
+                                                    src="{{ asset('storage/' . Auth::user()->foto) }}" alt="user">
+                                                {{-- @else  
+                                                    <img src="{{ asset('acstemplate/assets/user_image/wa.png') }}" class="rounded-circle image-previewer"
+                                                        alt="user">
+                                                @endif --}}
                                             </div>
                                             <input type="file" name="foto_id" id="edit_foto" style="opacity: 0;height: 1px;display:none">
                                             <a href="javascript:void(0)" class="text-dark">

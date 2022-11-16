@@ -33,7 +33,7 @@
                                             {{-- <a href="/hapusktgr/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                     class="fas fa-trash-alt"></i></button></a> --}}
-                                            <a href="#" class="btn btn-danger delete"
+                                            <a href="#" class="btn btn-danger" id="hapus"
                                                 data-id="{{ $row->id }}"data-nama="{{ $row->kategori }}">Hapus</a>
                                         </td>
                                     </tr>
@@ -47,31 +47,33 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 
     <script>
-        $('.delete').click(function() {
-            var id = $(this).attr('data-id');
-            var nama = $(this).attr('data-nama');
-            swal({
-                    title: "Yakin Mau Hapus?",
-                    text: "Kamu Akan Menghapus Data dengan nama " + nama + " ",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        swal("Data Berhasil Di hapus", {
-                            icon: "success",
-                        });
-                        window.location = "/hapusktgr/" + id + ""
-                    } else {
-                        swal("Data Tidak Jadi Di hapus");
-                    }
+        $('#hapus').click(function () {
+		swal({
+		  title: "Are you sure?",
+		  text: "Your will not be able to recover this imaginary file!",
+		  type: "warning",
+		  showCancelButton: true,
+		  confirmButtonClass: "btn btn-danger",
+		  confirmButtonText: "Yes, delete it!",
+		  closeOnConfirm: false
+		},
+		function(){
+		  swal("Deleted!", "Your imaginary file has been deleted.", "success");
+		})
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("Data Berhasil Di hapus", {
+                    icon: "success",
                 });
+                window.location = "/hapusktgr/" + id + ""
+            } else {
+                swal("Data Tidak Jadi Di hapus");
+            }
         });
+	});
     </script>
 @endsection

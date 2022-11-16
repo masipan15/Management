@@ -195,13 +195,10 @@
                 <li class="nav-item {{ Route::is('datadesain', 'editdesain') ? 'active' : '' }}">
                     <a class="nav-link" href="/datadesain"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
-                            class="sidemenu-label">Permintaan Desain</span></a>
+                            class="sidemenu-label">Data
+                            Desain</span></a>
                 </li>
             @endif
-            <li class="nav-item {{ Route::is('desainselesai') ? 'active' : '' }}">
-                <a class="nav-link" href="/desainselesai"><span class="shape1"></span><span class="shape2"></span><i
-                        class="mdi mdi-pen sidemenu-icon"></i><span class="sidemenu-label">Desain Selesai</span></a>
-            </li>
             @if (auth()->user()->role == 'admin')
                 <li class="nav-item {{ Route::is('dataservis', 'tambahseris', 'editservis') ? 'active' : '' }}">
                     <a class="nav-link" href="/dataservis"><span class="shape1"></span><span
@@ -215,14 +212,10 @@
                 <li class="nav-item {{ Route::is('dataservis', 'editservis') ? 'active' : '' }}">
                     <a class="nav-link" href="/dataservis"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
-                            class="sidemenu-label">Permintaan Servis</span></a>
+                            class="sidemenu-label">Data
+                            Servis</span></a>
                 </li>
             @endif
-            <li class="nav-item {{ Route::is('servis_selesai', 'editservis_selesai') ? 'active' : '' }}">
-                <a class="nav-link" href="/servis_selesai"><span class="shape1"></span><span
-                        class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
-                        class="sidemenu-label">Servis Selesai</span></a>
-            </li>
             {{-- @if (auth()->user()->role == 'admin')
                 <li class="nav-header"><span class="nav-label">Pekerjaan Selesai</span></li>
                 <li class="nav-item {{ Route::is('desainselesai') ? 'active' : '' }}">
@@ -283,7 +276,7 @@
                 <div class="dropdown main-profile-menu">
                     <a class="d-flex" href="#">
                         <span class="main-img-user"><img alt="avatar"
-                                src="storage/{{ Auth::user()->foto }}" class="image-previewer"></span>
+                                src="{{ asset('storage/' . Auth::user()->foto) }}" class="image-previewer"></span>
                     </a>
                     <div class="dropdown-menu">
                         <div class="header-navheading">
@@ -293,9 +286,9 @@
                         <a class="dropdown-item border-top" href="/profil">
                             <i class="fe fe-user"></i> Profil
                         </a>
-                        <a class="dropdown-item" href="/editprofil">
+                        {{-- <a class="dropdown-item" href="/editprofil">
                             <i class="fe fe-edit"></i> Edit Profil
-                        </a>
+                        </a> --}}
                         <a class="dropdown-item" href="/logout">
                             <i class="fe fe-power"></i> Keluar
                         </a>
@@ -389,7 +382,7 @@
                     <div class="dropdown main-profile-menu">
                         <a class="d-flex" href="#">
                             <span class="main-img-user"><img alt="avatar"
-                                    src="storage/{{ Auth::user()->foto }}" class="image-previewer"></span>
+                                    src="{{ asset('storage/' . Auth::user()->foto) }}" class="image-previewer"></span>
                         </a>
                         <div class="dropdown-menu">
                             <div class="header-navheading">
@@ -399,9 +392,9 @@
                             <a class="dropdown-item border-top" href="/profil">
                                 <i class="fe fe-user"></i> Profil
                             </a>
-                            <a class="dropdown-item" href="/editprofil">
+                            {{-- <a class="dropdown-item" href="/editprofil">
                                 <i class="fe fe-edit"></i> Edit Profil
-                            </a>
+                            </a> --}}
                             <a class="dropdown-item" href="/logout">
                                 <i class="fe fe-power"></i> Keluar
                             </a>

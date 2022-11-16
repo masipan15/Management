@@ -65,7 +65,7 @@ class LoginController extends Controller
             'password' => bcrypt($request->password),
             'alamat' => '-',
             'notelpon' => '-',
-            'foto' => '-',
+            'foto' => 'storage/user_images/wa.png',
             'remember_token' => Str::random(60),
         ]);
         return redirect('/login');
@@ -96,7 +96,7 @@ class LoginController extends Controller
             'password' => bcrypt($request->password),
             'alamat' => '-',
             'notelpon' => '-',
-            'foto' => '-',
+            'foto' => 'wa.png',
             'remember_token' => Str::random(60),
         ]);
         return redirect('login');
@@ -125,7 +125,7 @@ class LoginController extends Controller
             'password' => bcrypt($request->password),
             'alamat' => '-',
             'notelpon' => '-',
-            'foto' => '-',
+            'foto' => 'wa.png',
             'remember_token' => Str::random(60),
         ]);
         return redirect('login');
@@ -221,8 +221,8 @@ class LoginController extends Controller
     }
 
     function crop(Request $request){
-        $path = 'user_image/';
-        $file = $request->file('foto_id')->store('user_images', 'public');
+        $path = '';
+        $file = $request->file('foto_id')->store('', 'public');
 
         if( !$file ){
             return response()->json(['status'=>0, 'msg'=>'Terjadi kesalahan, unggah foto baru gagal.']);

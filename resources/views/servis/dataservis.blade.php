@@ -20,10 +20,9 @@
                                     <th class="wd-15p">Status</th>
                                     <th class="wd-20p">Foto Barang</th>
                                     <th class="wd-20p">Nama Pelanggan</th>
-                                    <th class="wd-20p">Nama Penyervis</th>
                                     <th class="wd-20p">Nama Barang</th>
-                                    <th class="wd-25p">Merk</th>
-                                    <th class="wd-20p">Kerusakan</th>
+                                    <th class="wd-20p">Detail</th>
+                                    <th class="wd-20p">Kerusakan Barang</th>
                                     <th class="wd-15p">Biaya</th>
 
                                     <th class="wd-20p">Aksi</th>
@@ -56,9 +55,12 @@
                                                     class="img-fluid" style="width: 50px";></a>
                                         </td>
                                         <td>{{ $row->nama_pelanggan }}</td>
-                                        <td>{{ $row->namaservis }}</td>
                                         <td>{{ $row->nama_barang }}</td>
-                                        <td>{{ $row->merk_barang }}</td>
+                                        <td><a href="#/{{ $row->id }}" value="{{ route('show', ['id' => $row->id]) }}"
+                                            class="modalMd" title="Lihat Deskripsi Barang" data-toggle="modal"
+                                            data-target="#modalMd{{ $row->id }}"><i
+                                                class="fas fa-eye text-success  fa-lg"></i>
+                                        </a></a>
                                         <td>{{ $row->kerusakan_barang }}</td>
                                         <td>Rp.{{ number_format($row['biaya_pengerjaan'], 2, '.', '.') }}</td>
                                         <td>
@@ -77,6 +79,31 @@
                                                 data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a> --}}
                                         </td>
                                     </tr>
+                                    <div class="modal fade" id="modalMd{{ $row->id }}" role="dialog"
+                                        aria-labelledby="myModalLabel">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header"><b>Detail: </b>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                        <h4 class="modal-title" id="modalMdTitle"></h4>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="modalError"></div>
+                                                    <div id="content"><b>Penyervis: </b><br>
+                                                        {{ $row->namaservis }}
+                                                    </div>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="modalError"></div>
+                                                    <div id="content"><b>Merk: </b><br>
+                                                        {{ $row->merk_barang }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endforeach
 
                             </tbody>
@@ -112,6 +139,15 @@
                         swal("Data Tidak Jadi Di hapus");
                     }
                 });
+        });
+    </script>
+
+    <script>
+        $(document).on('ajaxComplete ready', function() {
+            $('.modalMd').off('click').on('click', function() {
+                $('#content').load($(this).attr('value'));
+                $('#modalMdTitle').html($(this).attr('title'));
+            });
         });
     </script>
 @endsection
