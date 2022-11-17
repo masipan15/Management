@@ -155,17 +155,16 @@
             <div>
                 <ul>
                     <li>Status</li>
-                    <li class="mt-1">Pembayaran</li>
-                    <li class="mt-1">Kembalian</li>
+                    <li class="mt-1">Barang</li>
+                    <li class="mt-1">Kerusakan</li>
                     <li class="mt-1">Total</li>
                 </ul>
             </div>
-
             <div>
             </div>
             <div style="text-align: right;">
                 <ul>
-                    <li>{{ $transaksi->status }}</li>
+                    <li>{{ $transaksi->status ?: 'Belum Dikerjakan' }}</li>
                     <li class="mt-1">{{ $transaksi->namabarang }}</li>
                     <li class="mt-1">{{ $transaksi->kerusakan }}</li>
                     <li class="mt-1">{{ $transaksi->biaya }}</li>

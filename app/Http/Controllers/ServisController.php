@@ -134,7 +134,6 @@ class ServisController extends Controller
                 'fotos' => $data->fotos,
             ]);
 
-
             servis::find($id)->delete();
         } else {
             $data->update([

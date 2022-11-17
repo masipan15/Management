@@ -47,10 +47,7 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-
+ 
     <script>
         $('.delete').click(function() {
             var id = $(this).attr('data-id');
@@ -75,5 +72,19 @@
         });
     </script>
 
+
     @include('sweetalert::alert')
+    <script>
+        $(document).ready(function(e) {
+
+            if ("{{ session('error') }}") {
+                Swal.fire({
+                    icon: 'error',
+                    title: "{{ session('error') }}",
+
+                })
+            }
+
+        });
+    </script>
 @endsection

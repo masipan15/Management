@@ -48,6 +48,18 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(e) {
 
+            if ("{{ session('error') }}") {
+                Swal.fire({
+                    icon: 'error',
+                    title: "{{ session('error') }}",
+
+                })
+            }
+
+        });
+    </script>
     @include('sweetalert::alert')
 @endsection

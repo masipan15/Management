@@ -15,7 +15,7 @@
                     <form action="/insertdesain" method="post" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="row mb-3">
+                        <div class="row mt-4">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Pemesan</label>
                             <div class="col-sm-10">
                                 <input type="text" required name="nama_pemesan" class="form-control" id="inputEmail3">
@@ -24,7 +24,7 @@
                         @error('nama_pemesan')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
-                        <div class="row mb-3">
+                        <div class="row mt-4">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Ukuran Desain</label>
                             <div class="col-sm-10">
                                 <input type="text" required name="ukuran_desain" class="form-control" id="inputEmail3">
@@ -33,7 +33,7 @@
                         @error('ukuran_desain')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
-                        <div class="row mb-3">
+                        <div class="row mt-4">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Permintaan Desain</label>
                             <div class="col-sm-10">
                                 <select name="permintaan_desain" class="form-control">
@@ -52,7 +52,7 @@
                         @error('permintaan_desain')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
-                        <div class="row mb-3">
+                        <div class="row mt-4">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Keterangan</label>
                             <div class="col-sm-10">
                                 <input type="text" required name="keterangan" class="form-control" id="inputEmail3">
@@ -61,7 +61,7 @@
                         @error('keterangan')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
-                        {{-- <div class="row mb-3">
+                        {{-- <div class="row mt-4">
                                 <label for="inputEmail3" hidden class="col-sm-2 col-form-label">Status</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" hidden style="width:100%;" id="status_pengerjaan" name="status_pengerjaan">
@@ -76,7 +76,7 @@
                         @error('status_pengerjaan')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
-                        <div class="text-center mt-4 mb-3">
+                        <div class="text-center mt-4 mt-4">
                             <button type="submit" class="btn ripple btn-main-primary active mr-1">Tambah</button>
                             <a href="/datadesain" type="button" class="btn ripple btn-secondary">Batal</a>
                         </div>

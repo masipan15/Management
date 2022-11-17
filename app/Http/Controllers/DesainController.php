@@ -110,6 +110,32 @@ class DesainController extends Controller
 
         return view('desain.editdesain', compact('data'));
     }
+    public function editdesainselesai($id)
+    {
+        $data = desainselesai::findOrFail($id);
+
+        return view('desain.editdesainselesai', compact('data'));
+    }
+    public function updatedesainselesai(Request $request, $id)
+    {
+        $data = desainselesai::findOrFail($id);
+        $data->update([
+            'nama_pemesan' => $request->nama_pemesan,
+            'namapedesain' => $request->namapedesain,
+            'ukuran_desain' => $request->ukuran_desain,
+            'permintaan_desain' => $request->permintaan_desain,
+            'status_pengerjaan' => $request->status_pengerjaan,
+            'keterangan' => $request->keterangan,
+            'harga_desain' => $request->harga_desain,
+        ]);
+        if ($request->hasfile('fotod')) {
+            $request->file('fotod')->move('fotodesain/', $request->file('fotod')->getClientOriginalName());
+            $data->fotod = $request->file('fotod')->getClientOriginalName();
+            $data->save();
+        }
+        return redirect()->route('desainselesai');
+    }
+
     public function updatedesain(request $request, $id)
     {
         $validated = $request->validate([
@@ -128,7 +154,7 @@ class DesainController extends Controller
                 'status_pengerjaan' => $request->status_pengerjaan,
                 'keterangan' => $data->keterangan,
                 'harga_desain' => $data->harga_desain,
-                'fotod' => $request->file('fotod')->store('fotodesain/', 'public'),
+                'fotod' => $data->fotod
             ]);
 
             $deletedesain = desain::find($id)->delete();
@@ -148,16 +174,16 @@ class DesainController extends Controller
                 $data->save();
             }
         }
-
-
-
-
-
         Pemasukan::create([
             'total' => $request->harga_desain,
         ]);
         $deletebarangkeluar = barangkeluar::where('id', $id)->delete();
-        return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
+        if ($request->status_pengerjaan == 'Selesai') {
+            return redirect()->route('datadesain')->with('success', 'Desain berhasil di Di Selesaikan!');
+        } else {
+
+            return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
+        }
     }
 
     public function deletes($id)

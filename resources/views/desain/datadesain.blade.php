@@ -15,7 +15,7 @@
                             <thead>
                                 <tr>
                                     <th class="wd-20p">No</th>
-                                    <th class="wd-20p">Tanggal</th>
+                                    <th id="none" class="wd-20p">Tanggal</th>
                                     <th class="wd-15p">Status</th>
                                     <th class="wd-20p">Hasil Desain</th>
                                     <th class="wd-25p">Nama Pemesan</th>
@@ -51,7 +51,7 @@
 
                                         <td>
                                             <a href="{{ asset('fotodesain/' . $row->fotod) }}" data-lightbox=""
-                                                button="close"> <img src="{{ asset('fotodesain/' . $row->fotod) }}"
+                                                aris-label="Close"> <img src="{{ asset('fotodesain/' . $row->fotod) }}"
                                                     class="img-fluid" alt="" style="width: 50px";></a>
                                         </td>
                                         <td>{{ $row->nama_pemesan }}</td>
@@ -147,6 +147,7 @@
             });
         });
     </script>
+
 
     @include('sweetalert::alert')
 @endsection

@@ -154,7 +154,9 @@ Route::group(['middleware' => ['auth', 'hakakses:desain,admin']], function () {
     Route::get('/tambahdesain', [DesainController::class, 'tambahdesain'])->name('tambahdesain');
     Route::post('/insertdesain', [DesainController::class, 'insertdesain'])->name('insertdesain');
     Route::get('/editdesain/{id}', [DesainController::class, 'editdesain'])->name('editdesain');
+    Route::get('/editdesainselesai/{id}', [DesainController::class, 'editdesainselesai'])->name('editdesainselesai');
     Route::post('/updatedesain/{id}', [DesainController::class, 'updatedesain'])->name('updatedesain');
+    Route::post('/updatedesainselesai/{id}', [DesainController::class, 'updatedesainselesai'])->name('updatedesainselesai');
     Route::get('/deletes/{id}', [DesainController::class, 'deletes'])->name('deletes');
     Route::get('/shiftdatadesain/{id}', [DesainController::class, 'shiftdatadesain'])->name('shiftdatadesain');
     Route::get('/shiftdesainselesai/{id}', [DesainController::class, 'shiftdesainselesai'])->name('shiftdesainselesai');

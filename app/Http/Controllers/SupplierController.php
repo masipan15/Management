@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Supplier;
+use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class SupplierController extends Controller
 {
@@ -40,7 +41,7 @@ class SupplierController extends Controller
 
 
 
-    public function editsupplier($id)    
+    public function editsupplier($id)
     {
         $data = supplier::findOrFail($id);
 
@@ -63,8 +64,14 @@ class SupplierController extends Controller
 
     public function deletetet($id)
     {
-        $data = supplier::find($id);
-        $data->delete();
-        return redirect()->route('datasupplier')->with('success', 'Data Berhasil Di Hapus');
+        try {
+            $data = supplier::find($id);
+            $data->delete();
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] == 1451) {
+                return to_route('datasupplier')->with('error', 'Data masih digunakan');
+            }
+            return redirect()->route('datasupplier')->with('success', 'Data Berhasil Di Hapus');
+        }
     }
 }

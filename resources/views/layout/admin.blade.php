@@ -40,6 +40,17 @@
     <link href="{{ asset('acstemplate/assets/css/dark-style.css') }}" rel="stylesheet">
     <link href="{{ asset('acstemplate/assets/css/colors/default.css') }}" rel="stylesheet">
 
+    <!-- Sweet Alert Rationship -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.7/dist/sweetalert2.all.min.js"></script>
+
+
+
+
     <!-- Color css-->
     <link id="theme" rel="stylesheet" type="text/css" media="all"
         href="{{ asset('acstemplate/assets/css/colors/color.css') }}">
@@ -106,7 +117,7 @@
                         <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}">
                             <a class="nav-link" href="/welcome"><span class="shape1"></span><span
                                     class="shape2"></span><i class="ti-home sidemenu-icon"></i><span
-                                    class="sidemenu-label">Beranda</span></a>
+                                    class="sidemenu-label">Dashboard</span></a>
                         </li>
                     </ul>
             @endif
@@ -116,7 +127,7 @@
                         <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}">
                             <a class="nav-link" href="/welcome"><span class="shape1"></span><span
                                     class="shape2"></span><i class="ti-home sidemenu-icon"></i><span
-                                    class="sidemenu-label">Beranda</span></a>
+                                    class="sidemenu-label">Dashboard</span></a>
                         </li>
                     </ul>
             @endif
@@ -126,33 +137,17 @@
                         <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}">
                             <a class="nav-link" href="/welcome"><span class="shape1"></span><span
                                     class="shape2"></span><i class="ti-home sidemenu-icon"></i><span
-                                    class="sidemenu-label">Beranda</span></a>
+                                    class="sidemenu-label">Dashboard</span></a>
                         </li>
                     </ul>
             @endif
             @if (auth()->user()->role == 'admin')
-                <li class="nav-header"><span class="nav-label"></span></li>
-                <li
-                    class="nav-item {{ Route::is('datakategori', 'tambahkategori', 'editkategori') ? 'active' : '' }}">
-                    <a class="nav-link" href="/datakategori"><span class="shape1"></span><span
-                            class="shape2"></span><i class="ti-layers sidemenu-icon"></i><span
-                            class="sidemenu-label">Kategori
-                        </span></a>
-                </li>
-            @endif
-            @if (auth()->user()->role == 'admin')
+                <li class="nav-header"><span class="nav-label">Goods</span></li>
                 <li class="nav-item {{ Route::is('databarang', 'tambahbarang', 'editbarang') ? 'active' : '' }}">
                     <a class="nav-link" href="/databarang"><span class="shape1"></span><span
                             class="shape2"></span><i class="ti-package sidemenu-icon"></i><span
                             class="sidemenu-label">Data
                             Barang</span></a>
-                </li>
-            @endif
-            @if (auth()->user()->role == 'admin')
-                <li class="nav-item {{ Route::is('datasupplier', 'tambahsuplier', 'editsupplier') ? 'active' : '' }}">
-                    <a class="nav-link" href="/datasupplier"><span class="shape1"></span><span
-                            class="shape2"></span><i class="far fa-address-card sidemenu-icon"></i><span
-                            class="sidemenu-label">Data Supplier</span></a>
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
@@ -172,6 +167,23 @@
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
+                <li
+                    class="nav-item {{ Route::is('datakategori', 'tambahkategori', 'editkategori') ? 'active' : '' }}">
+                    <a class="nav-link" href="/datakategori"><span class="shape1"></span><span
+                            class="shape2"></span><i class="ti-layers sidemenu-icon"></i><span
+                            class="sidemenu-label">Kategori
+                        </span></a>
+                </li>
+            @endif
+            @if (auth()->user()->role == 'admin')
+                <li class="nav-header"><span class="nav-label">Person</span></li>
+                <li class="nav-item {{ Route::is('datasupplier', 'tambahsuplier', 'editsupplier') ? 'active' : '' }}">
+                    <a class="nav-link" href="/datasupplier"><span class="shape1"></span><span
+                            class="shape2"></span><i class="far fa-address-card sidemenu-icon"></i><span
+                            class="sidemenu-label">Data Supplier</span></a>
+                </li>
+            @endif
+            @if (auth()->user()->role == 'admin')
                 <li class="nav-item {{ Route::is('datapelanggan', 'editpelanggan') ? 'active' : '' }}">
                     <a class="nav-link" href="/datapelanggan"><span class="shape1"></span><span
                             class="shape2"></span><i class="fa fa-group sidemenu-icon"></i><span
@@ -179,7 +191,7 @@
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
-                <li class="nav-header"><span class="nav-label">Permintaan</span></li>
+                <li class="nav-header"><span class="nav-label">Permintaan Desain</span></li>
                 <li class="nav-item {{ Route::is('datadesain', 'tambahdesain', 'editdesain') ? 'active' : '' }}">
                     <a class="nav-link" href="/datadesain"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
@@ -195,11 +207,22 @@
                             class="sidemenu-label">Permintaan Desain</span></a>
                 </li>
             @endif
-            <li class="nav-item {{ Route::is('desainselesai') ? 'active' : '' }}">
-                <a class="nav-link" href="/desainselesai"><span class="shape1"></span><span class="shape2"></span><i
-                        class="mdi mdi-pen sidemenu-icon"></i><span class="sidemenu-label">Desain Selesai</span></a>
-            </li>
             @if (auth()->user()->role == 'admin')
+                <li class="nav-item {{ Route::is('desainselesai') ? 'active' : '' }}">
+                    <a class="nav-link" href="/desainselesai"><span class="shape1"></span><span
+                            class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
+                            class="sidemenu-label">Desain Selesai</span></a>
+                </li>
+            @endif
+            @if (auth()->user()->role == 'desain')
+                <li class="nav-item {{ Route::is('desainselesai') ? 'active' : '' }}">
+                    <a class="nav-link" href="/desainselesai"><span class="shape1"></span><span
+                            class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
+                            class="sidemenu-label">Desain Selesai</span></a>
+                </li>
+            @endif
+            @if (auth()->user()->role == 'admin')
+                <li class="nav-header"><span class="nav-label">Permintaan Servis</span></li>
                 <li class="nav-item {{ Route::is('dataservis', 'tambahseris', 'editservis') ? 'active' : '' }}">
                     <a class="nav-link" href="/dataservis"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
@@ -215,11 +238,21 @@
                             class="sidemenu-label">Permintaan Servis</span></a>
                 </li>
             @endif
-            <li class="nav-item {{ Route::is('servis_selesai', 'editservis_selesai') ? 'active' : '' }}">
-                <a class="nav-link" href="/servis_selesai"><span class="shape1"></span><span
-                        class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
-                        class="sidemenu-label">Servis Selesai</span></a>
-            </li>
+            @if (auth()->user()->role == 'admin')
+                <li class="nav-item {{ Route::is('servis_selesai', 'editservis_selesai') ? 'active' : '' }}">
+                    <a class="nav-link" href="/servis_selesai"><span class="shape1"></span><span
+                            class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
+                            class="sidemenu-label">Servis Selesai</span></a>
+                </li>
+            @endif
+            @if (auth()->user()->role == 'servis')
+                <li class="nav-item {{ Route::is('servis_selesai', 'editservis_selesai') ? 'active' : '' }}">
+                    <a class="nav-link" href="/servis_selesai"><span class="shape1"></span><span
+                            class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
+                            class="sidemenu-label">Servis Selesai</span></a>
+                </li>
+            @endif
+
             {{-- @if (auth()->user()->role == 'admin')
                 <li class="nav-header"><span class="nav-label">Pekerjaan Selesai</span></li>
                 <li class="nav-item {{ Route::is('desainselesai') ? 'active' : '' }}">
