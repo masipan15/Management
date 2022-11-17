@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\kategoriController;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,8 +17,8 @@ return new class extends Migration
         Schema::create('barangs', function (Blueprint $table) {
             $table->id();
             $table->string('kodebarang');
-            $table->string('kategoris_id');
-            $table->string('namabarang')->ondeleted('restrictd')->onupdate('cascade');
+            $table->foreignId('kategoris_id')->constrained('kategoris')->onDelete('RESTRICT')->onUpdate('CASCADE');
+            $table->string('namabarang');
             $table->string('merk');
             $table->text('deskripsi');
             $table->string('stok');

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\kategori;
+use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class kategoriController extends Controller
 {
@@ -69,14 +70,14 @@ class kategoriController extends Controller
      
     public function deleteConfirmation($id)
     {
-        $this->delete_id = $id;
-        $this->dispatchBrowserEvent('show-delete-confirmation');
-    }
-    public function hapusktgr()
-    {
-        $kategori = kategori::where('id', $this->delete_id)->first();
-        $kategori->delete();
-
-        $this->dispatchBrowserEvent('kategoriDeleted');
+        try {
+            $kategori = kategori::find($id);
+            $kategori->delete();
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] == 1451) {
+                return to_route('datakategori')->with('error', 'Data masih digunakan');
+            }
+        }
+        return redirect()->route('datakategori')->with('success', 'Data Berhasil Di Hapus');
     }
 }

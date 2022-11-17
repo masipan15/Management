@@ -53,53 +53,45 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+ 
+    <script>
+        $('.delete').click(function() {
+            var id = $(this).attr('data-id');
+            var nama = $(this).attr('data-nama');
+            swal({
+                    title: "Yakin Mau Hapus?",
+                    text: "Kamu Akan Menghapus Data Agama dengan nama " + nama + " ",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Data Berhasil Di hapus", {
+                            icon: "success",
+                        });
+                        window.location = "/deletes/" + id + ""
+                    } else {
+                        swal("Data Tidak Jadi Di hapus");
+                    }
+                });
+        });
+    </script>
 
 
-        
-{{-- <script>
+    @include('sweetalert::alert')
+    <script>
+        $(document).ready(function(e) {
 
-    window.addEventListener('show-delete-confirmation', event => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, Delete'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                   Livewire.emit('deleteConfirmed')
+            if ("{{ session('error') }}") {
+                Swal.fire({
+                    icon: 'error',
+                    title: "{{ session('error') }}",
+
+                })
             }
-        })
-    });
-    window.addEventListener('kategoriDeleted', event => {
-        Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-    )
-    });
-</script> --}}
 
-<script>
-    $('.delete-btn').click(function () {
-		swal({
-		  title: "Are you sure?",
-		  text: "Your will not be able to recover this imaginary file!",
-		  type: "warning",
-		  showCancelButton: true,
-		  confirmButtonClass: "btn btn-danger",
-		  confirmButtonText: "Yes, delete it!",
-		  closeOnConfirm: false
-		},
-		function(){
-            $("hapusktgr"+formid).submit();
-            swal("Deleted!", "Your imaginary file has been deleted.", "success");
-		});
-	});
-</script>
+        });
+    </script>
 @endsection
 

@@ -138,7 +138,7 @@
     </script>
 
     <script src="{{ asset('acstemplate/assets/plugins/select2/js/select2.min.js') }}"></script>
-    <script src="../js/printpage.js" type="text/javascript"></script>
+    {{-- <script src="../js/printpage.js" type="text/javascript"></script> --}}
 
 
     <!-- Menjumlah total with js  -->

@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('barangkeluars', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('kodetransaksi')->nullable();
             $table->string('nama_pelanggan')->nullable();
             $table->string('kodebarang_keluar');
-            $table->string('nama_barang');
+            $table->foreignId('nama_barang')->constrained('barangs')->onUpdate('CASCADE')->onDelete('RESTRICT');
             $table->string('merk_keluar');
             $table->string('harga_jual');
             $table->string('stok');

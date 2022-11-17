@@ -90,7 +90,7 @@ class BarangkeluarController extends Controller
             ]);
         } else {
             barangkeluar::create([
-                'kodetransaksi' => random_int(10000, 99999),
+
                 'nama_barang' => $request->nama_barang,
                 'nama_pelanggan' => $request->nama_pelanggan,
                 'kodebarang_keluar' => $request->kodebarang_keluar,
@@ -109,7 +109,7 @@ class BarangkeluarController extends Controller
                 'tahun' => Carbon::parse(now())->isoformat('Y')
             ]);
             Databarangkeluar::create([
-                'kodetransaksi' => $request->kodetransaksi,
+
                 'nama_barang' => $request->nama_barang,
                 'nama_pelanggan' => $request->nama_pelanggan,
                 'kodebarang_keluar' => $request->kodebarang_keluar,
@@ -187,7 +187,6 @@ class BarangkeluarController extends Controller
 
         $data->update([
             'nama_pelanggan' => $request->nama_pelanggan,
-            'kodetransaksi' => $request->kodetransaksi,
             'nama_barang' => $request->nama_barang,
             'kodebarang_keluar' => $request->kodebarang_keluar,
             'merk_keluar' => $request->merk_keluar,

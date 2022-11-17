@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\QueryException;
 
 class BarangController extends Controller
 {
@@ -123,9 +124,15 @@ class BarangController extends Controller
 
     public function deletese($id)
     {
-        $data = Barang::find($id);
-        $data->delete();
-        return redirect()->route('databarang')->with('success', 'Data Berhasil Di Hapus');
+        try {
+            $data = Barang::find($id);
+            $data->delete();
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] == 1451) {
+                return to_route('databarang')->with('error', 'Data masih digunakan');
+            }
+            return redirect()->route('databarang')->with('success', 'Data Berhasil Di Hapus');
+        }
     }
 
     public function show(Request $request, $id)

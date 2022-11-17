@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('databarangmasuks', function (Blueprint $table) {
             $table->id();
-            $table->string('suppliers_id')->nullable();
+            $table->string('suppliers_id')->constrained('suppliers')->onUpdate('CASCADE')->onDelete('RESTRICT');
             $table->string('kodebarang_id')->nullable();
-            $table->string('barangs_id')->nullable();
-            $table->string('kategoris_id')->nullable();
+            $table->foreignId('barangs_id')->constrained('barangs')->onUpdate('CASCADE')->onDelete('RESTRICT');
+            $table->string('kategoris_id');
             $table->string('merk')->nullable();
             $table->integer('jumlah')->nullable();
             $table->string('harga')->nullable();

@@ -50,9 +50,10 @@
                                         </td>
 
                                         <td>
-                                            <a href="{{ asset('storage/' . $row->fotod) }}" data-lightbox=""
-                                                button="close"> <img src="{{ asset('storage/' . $row->fotod) }}"
-                                                    class="img-fluid" alt="" style="width: 50px";></a>
+                                            <a href="{{ asset('fotodesain/' . $row->fotod) }}" data-lightbox=""
+                                                button="close">
+                                                <img src="{{ asset('fotodesain/' . $row->fotod) }}" class="img-fluid"
+                                                    alt="" style="width: 50px";></a>
                                         </td>
                                         <td>{{ $row->nama_pemesan }}</td>
                                         <td>{{ $row->namapedesain }}</td>
@@ -63,8 +64,8 @@
 
 
                                         <td>
-                                            <a href="/editdesain/{{ $row->id }}" class="btn btn-success mb-1"><i
-                                                    class="fas fa-pencil-alt"></i></a><br>
+                                            <a href="/editdesainselesai/{{ $row->id }}"
+                                                class="btn btn-success mb-1"><i class="fas fa-pencil-alt"></i></a><br>
 
                                             @if (auth()->user()->role == 'admin')
                                                 <a href="/deletes/{{ $row->id }}" class="btn btn-danger"
