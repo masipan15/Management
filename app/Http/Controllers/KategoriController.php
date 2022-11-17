@@ -81,3 +81,4 @@ class kategoriController extends Controller
         return redirect()->route('datakategori')->with('success', 'Data Berhasil Di Hapus');
     }
 }
+ 
