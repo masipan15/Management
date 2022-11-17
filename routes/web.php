@@ -212,3 +212,7 @@ Route::get('ipan', [BarangkeluarController::class, 'ipan'])->name('ipan');
 
 
 Route::get('tampung', [BarangmasukController::class, 'tampung'])->name('tampung');
+
+
+
+Route::get('cobaregister', [LoginController::class, 'cobaregister'])->name('cobaregister');

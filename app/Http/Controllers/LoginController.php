@@ -63,9 +63,9 @@ class LoginController extends Controller
             'email' => $request->email,
             'role' => 'admin',
             'password' => bcrypt($request->password),
-            'alamat' => '-',
-            'notelpon' => '-',
-            'foto' => 'storage/user_images/wa.png',
+            'alamat' => $request->alamat,
+            'notelpon' => $request->notelpon,
+            'foto' => 'wa.png',
             'remember_token' => Str::random(60),
         ]);
         return redirect('/login');
@@ -94,8 +94,8 @@ class LoginController extends Controller
             'email' => $request->email,
             'role' => 'servis',
             'password' => bcrypt($request->password),
-            'alamat' => '-',
-            'notelpon' => '-',
+            'alamat' => $request->alamat,
+            'notelpon' => $request->notelpon,
             'foto' => 'wa.png',
             'remember_token' => Str::random(60),
         ]);
@@ -123,8 +123,8 @@ class LoginController extends Controller
             'email' => $request->email,
             'role' => 'desain',
             'password' => bcrypt($request->password),
-            'alamat' => '-',
-            'notelpon' => '-',
+            'alamat' => $request->alamat,
+            'notelpon' => $request->notelpon,
             'foto' => 'wa.png',
             'remember_token' => Str::random(60),
         ]);
@@ -207,7 +207,7 @@ class LoginController extends Controller
                 'password'=>bcrypt($request->password)
             ]);
 
-            return redirect('profil')->with('success', 'Password Berhasil Di Ganti');
+            return redirect('editprofil')->with('success', 'Password Berhasil Di Ganti');
 
         } else {
             return redirect()->back()->with('error', 'Password Tidak Terdeteksi');
@@ -244,5 +244,11 @@ class LoginController extends Controller
                     return response()->json(['status'=>1, 'msg'=>'Foto profil Anda telah berhasil diperbarui.']);                    
                 }
             }
+        }
+
+
+        public function cobaregister()
+        {
+            return view('register.register');
         }
 }

@@ -56,10 +56,27 @@ class kategoriController extends Controller
 
 
 
-    public function hapusktgr($id)
+    // public function hapusktgr($id)
+    // {
+    //     $data = kategori::find($id);
+    //     $data->delete();
+    //     return redirect()->route('datakategori')->with('success', 'Data Berhasil Di Hapus');
+    // }
+
+    public $delete_id;
+
+    protected $Listeners = ['deleteConfirmed'=>'hapusktgr'];
+     
+    public function deleteConfirmation($id)
     {
-        $data = kategori::find($id);
-        $data->delete();
-        return redirect()->route('datakategori')->with('success', 'Data Berhasil Di Hapus');
+        $this->delete_id = $id;
+        $this->dispatchBrowserEvent('show-delete-confirmation');
+    }
+    public function hapusktgr()
+    {
+        $kategori = kategori::where('id', $this->delete_id)->first();
+        $kategori->delete();
+
+        $this->dispatchBrowserEvent('kategoriDeleted');
     }
 }

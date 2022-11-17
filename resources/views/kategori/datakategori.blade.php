@@ -1,5 +1,10 @@
 @extends('layout.admin')
 @section('content')
+
+
+<link rel="stylesheet" href="sweetalert2.min.css">
+
+
     <div class="row row-sm mt-3">
         <div class="col-lg-12">
             <div class="card custom-card overflow-hidden">
@@ -33,8 +38,9 @@
                                             {{-- <a href="/hapusktgr/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                     class="fas fa-trash-alt"></i></button></a> --}}
-                                            <a href="#" class="btn btn-danger" id="hapus"
-                                                data-id="{{ $row->id }}"data-nama="{{ $row->kategori }}">Hapus</a>
+                                            <button class="btn btn-danger delete-btn"
+                                                data-id="{{ $row->id }}"data-nama="{{ $row->kategori }}">Hapus</button>
+                                                
                                         </td>
                                     </tr>
                                 @endforeach
@@ -50,8 +56,36 @@
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 
-    <script>
-        $('#hapus').click(function () {
+
+        
+{{-- <script>
+
+    window.addEventListener('show-delete-confirmation', event => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Delete'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                   Livewire.emit('deleteConfirmed')
+            }
+        })
+    });
+    window.addEventListener('kategoriDeleted', event => {
+        Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+    )
+    });
+</script> --}}
+
+<script>
+    $('.delete-btn').click(function () {
 		swal({
 		  title: "Are you sure?",
 		  text: "Your will not be able to recover this imaginary file!",
@@ -62,18 +96,10 @@
 		  closeOnConfirm: false
 		},
 		function(){
-		  swal("Deleted!", "Your imaginary file has been deleted.", "success");
-		})
-        .then((willDelete) => {
-            if (willDelete) {
-                swal("Data Berhasil Di hapus", {
-                    icon: "success",
-                });
-                window.location = "/hapusktgr/" + id + ""
-            } else {
-                swal("Data Tidak Jadi Di hapus");
-            }
-        });
+            $("hapusktgr"+formid).submit();
+            swal("Deleted!", "Your imaginary file has been deleted.", "success");
+		});
 	});
-    </script>
+</script>
 @endsection
+
