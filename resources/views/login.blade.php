@@ -58,11 +58,15 @@
                 <button id="submit" type="submit" ripple>Masuk</button>
             </div>
         </form>
-        <footer><a href="/registerdesain">Belum Punya <footer><a href="/registerdesain">Belum Punya Akun ? Daftar User
-                        Desain</a></footer>
-                <footer><a href="/registerservis">Belum Punya Akun ? Daftar User Servis</a></footer>
-                e.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-                <script src="{{ asset('acstemplate/asset/register.js') }}"></script>
+        {{-- <footer><a href=""></a></footer>
+        <footer1><a href="/registerdesain">Daftar Akun Sebagai User Desain</a></footer1>
+        <footer3><a href="/registerservis">Daftar Akun Sebagai User Servis</a></footer3> --}}
+    </div>
+
+</body>
+
+<script src="http//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="{{ asset('acstemplate/asset/register.js') }}"></script>
 
 </html>
 <script>

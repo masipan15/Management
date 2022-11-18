@@ -50,9 +50,9 @@ body header {
 .login {
 position: relative;
     padding: 10px;
-    margin: 25px auto 80px auto;
+    margin: 2px auto 80px auto;
     width: 440px;
-    height: 580px;
+    height: 619px;
     border-radius: 3px;
     background: white;
     box-shadow: 0 1px 5px 0 rgba(0,0,0,0.26);
@@ -124,7 +124,7 @@ position: relative;
 form {
 	position: relative;
 	width: 390px;
-	margin: 65px 12px;
+	margin: 105px 12px;
 }
 
 .form-group {
@@ -290,6 +290,44 @@ button[type="submit"] {
 button[type="submit"]:focus {
 	outline: none;
 }
+button[type="submit1"] {
+	position: relative;
+	float: right;
+	font-family: inherit;
+	font-weight: 100;
+	font-size: 20px;
+	border: 50;
+	margin: 20px 77px;
+	padding: 5px 15px;
+	border-radius: 5px;
+	cursor: pointer;
+	background: rgb(3, 169, 245);
+	color: #fff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+
+button[type="submit1"]:focus {
+	outline: none;
+}
+button[type="submit2"] {
+	position: relative;
+	float: right;
+	font-family: inherit;
+	font-weight: 100;
+	font-size: 20px;
+	border: 50;
+	margin: 20px 0px;
+	padding: 5px 15px;
+	border-radius: 5px;
+	cursor: pointer;
+	background: rgb(3, 169, 245);
+	color: #fff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+
+button[type="submit2"]:focus {
+	outline: none;
+}
 
 footer {
 	position: absolute;
@@ -301,6 +339,60 @@ footer {
 	text-align: center;
 	cursor: pointer;
 	border-top: 1px solid rgba(117, 117, 117, 0.15);
+}
+
+footer a {
+	display: block;
+	text-decoration: none;
+	font-size: 17px;
+	color: inherit;
+}
+
+footer a:hover {
+	color: rgba(0,0,0,0.9);
+	text-decoration: underline;
+}
+
+footer a:focus {
+	outline: none;
+}
+footer1 {
+	position: absolute;
+	bottom: 2px;
+	width: 100%;
+	height: 110px;
+	margin-left: -10px;
+	line-height: 43px;
+	text-align: center;
+	cursor: pointer;
+	border-top: 7px solid rgba(117, 117, 117, 0.15);
+}
+
+footer a {
+	display: block;
+	text-decoration: none;
+	font-size: 17px;
+	color: inherit;
+}
+
+footer a:hover {
+	color: rgba(0,0,0,0.9);
+	text-decoration: underline;
+}
+
+footer a:focus {
+	outline: none;
+}
+footer3 {
+	position: absolute;
+	bottom: -5px;
+	width: 99%;
+	height: 62px;
+	margin-left: -10px;
+	line-height: 48px;
+	text-align: center;
+	cursor: pointer;
+	border-top: 7px solid rgba(117, 117, 117, 0.15);
 }
 
 footer a {
