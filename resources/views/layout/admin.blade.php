@@ -318,7 +318,7 @@
                 <div class="dropdown main-profile-menu">
                     <a class="d-flex" href="#">
                         <span class="main-img-user"><img alt="avatar"
-                                src="{{ asset('storage/' . Auth::user()->foto) }}" class="image-previewer"></span>
+                                src="{{ asset('fotoprofil/' . Auth::user()->foto) }}" class="image-previewer"></span>
                     </a>
                     <div class="dropdown-menu">
                         <div class="header-navheading">
@@ -424,8 +424,7 @@
                     <div class="dropdown main-profile-menu">
                         <a class="d-flex" href="#">
                             <span class="main-img-user"><img alt="avatar"
-                                    src="{{ asset('storage/' . Auth::user()->foto) }}"
-                                    class="image-previewer"></span>
+                                    src="{{ asset('fotoprofil/' . Auth::user()->foto) }}" class="image-previewer"></span>
                         </a>
                         <div class="dropdown-menu">
                             <div class="header-navheading">

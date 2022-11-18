@@ -52,7 +52,8 @@
                 <button id="submit" type="submit" ripple>Masuk</button>
             </div>
         </form>
-        <footer><a href="/registerdesain">Belum Punya Akun ? Daftar</a></footer>
+        <footer><a href="/registerdesain">Belum Punya Akun ? Daftar User Desain</a></footer>
+        <footer><a href="/registerservis">Belum Punya Akun ? Daftar User Servis</a></footer>
     </div>
 
 </body>
