@@ -1,158 +1,109 @@
-var pwd = document.getElementById('pwd');
-var eye = document.getElementById('eye');
-
-eye.addEventListener('click',togglePass);
-
-function togglePass(){
-
-   eye.classList.toggle('active');
-
-   (pwd.type == 'password') ? pwd.type = 'text' : pwd.type = 'password';
-}
-
-// Form Validation
-
-function checkStuff() {
-  var email = document.form1.email;
-  var password = document.form1.password;
-  var msg = document.getElementById('msg');
-  
-  if (email.value == "") {
-    msg.style.display = 'block';
-    msg.innerHTML = "Please enter your email";
-    email.focus();
-    return false;
-  } else {
-    msg.innerHTML = "";
-  }
-  
-   if (password.value == "") {
-    msg.innerHTML = "Please enter your password";
-    password.focus();
-    return false;
-  } else {
-    msg.innerHTML = "";
-  }
-   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (!re.test(email.value)) {
-    msg.innerHTML = "Please enter a valid email";
-    email.focus();
-    return false;
-  } else {
-    msg.innerHTML = "";
-  }
-}
-
-// ParticlesJS
-
-// ParticlesJS Config.
-particlesJS("particles-js", {
-  "particles": {
-    "number": {
-      "value": 60,
-      "density": {
-        "enable": true,
-        "value_area": 800
-      }
-    },
-    "color": {
-      "value": "#ffffff"
-    },
-    "shape": {
-      "type": "circle",
-      "stroke": {
-        "width": 0,
-        "color": "#000000"
-      },
-      "polygon": {
-        "nb_sides": 5
-      },
-      "image": {
-        "src": "img/github.svg",
-        "width": 100,
-        "height": 100
-      }
-    },
-    "opacity": {
-      "value": 0.1,
-      "random": false,
-      "anim": {
-        "enable": false,
-        "speed": 1,
-        "opacity_min": 0.1,
-        "sync": false
-      }
-    },
-    "size": {
-      "value": 6,
-      "random": false,
-      "anim": {
-        "enable": false,
-        "speed": 40,
-        "size_min": 0.1,
-        "sync": false
-      }
-    },
-    "line_linked": {
-      "enable": true,
-      "distance": 150,
-      "color": "#ffffff",
-      "opacity": 0.1,
-      "width": 2
-    },
-    "move": {
-      "enable": true,
-      "speed": 1.5,
-      "direction": "top",
-      "random": false,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
-      "attract": {
-        "enable": false,
-        "rotateX": 600,
-        "rotateY": 1200
-      }
-    }
-  },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": {
-        "enable": false,
-        "mode": "repulse"
-      },
-      "onclick": {
-        "enable": false,
-        "mode": "push"
-      },
-      "resize": true
-    },
-    "modes": {
-      "grab": {
-        "distance": 400,
-        "line_linked": {
-          "opacity": 1
+// button ripple effect from @ShawnSauce 's pen https://codepen.io/ShawnSauce/full/huLEH
+$(document).ready(function() {
+  $(function(){
+    
+    var animationLibrary = 'animate';
+    
+    $.easing.easeOutQuart = function (x, t, b, c, d) {
+      return -c * ((t=t/d-1)*t*t*t - 1) + b;
+    };
+    $('[ripple]:not([disabled],.disabled)')
+    .on('mousedown', function( e ){
+      
+      var button = $(this);
+      var touch = $('<touch><touch/>');
+      var size = button.outerWidth() * 1.8;
+      var complete = false;
+      
+      $(document)
+      .on('mouseup',function(){
+        var a = {
+          'opacity': '0'
+        };
+        if( complete === true ){
+          size = size * 1.33;
+          $.extend(a, {
+            'height': size + 'px',
+            'width': size + 'px',
+            'margin-top': -(size)/2 + 'px',
+            'margin-left': -(size)/2 + 'px'
+          });
         }
-      },
-      "bubble": {
-        "distance": 400,
-        "size": 40,
-        "duration": 2,
-        "opacity": 8,
-        "speed": 3
-      },
-      "repulse": {
-        "distance": 200,
-        "duration": 0.4
-      },
-      "push": {
-        "particles_nb": 4
-      },
-      "remove": {
-        "particles_nb": 2
-      }
+          
+        touch
+        [animationLibrary](a, {
+          duration: 500,
+          complete: function(){touch.remove();},
+          easing: 'swing'
+        });
+      });
+      
+      touch
+      .addClass( 'touch' )
+      .css({
+        'position': 'absolute',
+        'top': e.pageY-button.offset().top + 'px',
+        'left': e.pageX-button.offset().left + 'px',
+        'width': '0',
+        'height': '0'
+      });
+      
+      /* IE8 will not appendChild */
+      button.get(0).appendChild(touch.get(0));
+      
+      touch
+      [animationLibrary]({
+        'height': size + 'px',
+        'width': size + 'px',
+        'margin-top': -(size)/2 + 'px',
+        'margin-left': -(size)/2 + 'px'
+      }, {
+        queue: false,
+        duration: 500,
+        'easing': 'easeOutQuart',
+        'complete': function(){
+          complete = true
+        }
+      });
+    });
+  });
+  
+  var email = $('#email'), 
+      password = $('#password'), 
+      erroru = $('erroru'), 
+      errorp = $('errorp'), 
+      submit = $('#submit'),
+      udiv = $('#u'),
+      pdiv = $('#p');
+  
+  email.blur(function() {
+    if (email.val() == '') {
+      udiv.attr('errr','');
+    } else {
+      udiv.removeAttr('errr');
     }
-  },
-  "retina_detect": true
-});
+  });
+  
+  password.blur(function() {
+  if(password.val() == '') {
+      pdiv.attr('errr','');
+    } else {
+      pdiv.removeAttr('errr');
+    }
+  });
+  
+  submit.on('click', function(event) {
+    event.preventDefault();
+    if (email.val() == '') {
+      udiv.attr('errr','');
+    } else {
+      udiv.removeAttr('errr');
+    } 
+    if(password.val() == '') {
+      pdiv.attr('errr','');
+    } else {
+      pdiv.removeAttr('errr');
+    }
+  });
+  });
+  
