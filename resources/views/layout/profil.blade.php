@@ -37,7 +37,7 @@
                                                 @endphp
                                                 @if ($foto != null) --}}
                                                 <img class="rounded-circle image-previewer" data-lightbox="" button="close"
-                                                    src="{{ asset('storage/' . Auth::user()->foto) }}" alt="user">
+                                                    src="{{ asset('fotoprofil/' . Auth::user()->foto) }}" alt="user">
                                                 {{-- @else  
                                                     <img src="{{ asset('acstemplate/assets/user_image/wa.png') }}" class="rounded-circle image-previewer"
                                                         alt="user">
