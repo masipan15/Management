@@ -24,7 +24,7 @@
     <!-- Bootstrap css-->
     <link href="{{ asset('acstemplate/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 
-   
+
 
     <!-- Icons css-->
     <link href="{{ asset('acstemplate/assets/plugins/web-fonts/icons.css') }}" rel="stylesheet" />
@@ -212,14 +212,14 @@
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
-                <li class="nav-item {{ Route::is('desainselesai') ? 'active' : '' }}">
+                <li class="nav-item {{ Route::is('desainselesai', 'editdesainselesai') ? 'active' : '' }}">
                     <a class="nav-link" href="/desainselesai"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
                             class="sidemenu-label">Desain Selesai</span></a>
                 </li>
             @endif
             @if (auth()->user()->role == 'desain')
-                <li class="nav-item {{ Route::is('desainselesai') ? 'active' : '' }}">
+                <li class="nav-item {{ Route::is('desainselesai', 'editdesainselesai') ? 'active' : '' }}">
                     <a class="nav-link" href="/desainselesai"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-pen sidemenu-icon"></i><span
                             class="sidemenu-label">Desain Selesai</span></a>
@@ -227,7 +227,7 @@
             @endif
             @if (auth()->user()->role == 'admin')
                 <li class="nav-header"><span class="nav-label">Permintaan Servis</span></li>
-                <li class="nav-item {{ Route::is('dataservis', 'tambahseris', 'editservis') ? 'active' : '' }}">
+                <li class="nav-item {{ Route::is('dataservis', 'tambahservis', 'editservis') ? 'active' : '' }}">
                     <a class="nav-link" href="/dataservis"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-wrench sidemenu-icon"></i><span
                             class="sidemenu-label">Data
@@ -424,7 +424,8 @@
                     <div class="dropdown main-profile-menu">
                         <a class="d-flex" href="#">
                             <span class="main-img-user"><img alt="avatar"
-                                    src="{{ asset('storage/' . Auth::user()->foto) }}" class="image-previewer"></span>
+                                    src="{{ asset('storage/' . Auth::user()->foto) }}"
+                                    class="image-previewer"></span>
                         </a>
                         <div class="dropdown-menu">
                             <div class="header-navheading">
@@ -565,12 +566,9 @@
 
     @yield('charts')
 
-    
 
-    <script>
-      
-       
-    </script>
+
+    <script></script>
 
 
 </body>

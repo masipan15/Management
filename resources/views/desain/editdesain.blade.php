@@ -107,16 +107,31 @@
                                 </div>
                             @endif
                             @if (auth()->user()->role == 'desain')
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Harga</label>
-                                    <div class="col-sm-10">
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                            <input type="number" name="harga_desain" id="harga_desain"
-                                                class="form-control" id="inputEmail3" value="{{ $data->harga_desain }}">
+                                @if ($data->status_pengerjaan == 'Sedang dalam pengerjaan')
+                                    <div class="row mb-3">
+                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Harga</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                                <input type="number" required name="harga_desain" id="harga_desain"
+                                                    class="form-control" id="inputEmail3"
+                                                    value="{{ $data->harga_desain }}">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @else
+                                    <div class="row mb-3">
+                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Harga</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                                <input type="number" name="harga_desain" id="harga_desain"
+                                                    class="form-control" id="inputEmail3"
+                                                    value="{{ $data->harga_desain }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             @endif
                             @if (auth()->user()->role == 'desain')
                                 <div class="row mb-3">
@@ -173,13 +188,13 @@
 
         <!-- Option 2: Separate Popper and Bootstrap JS -->
         <!--
-                                                                        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-                                                                            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
-                                                                        </script>
-                                                                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-                                                                            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
-                                                                        </script>
-                                                                        -->
+                                                                                                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+                                                                                                    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+                                                                                                </script>
+                                                                                                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+                                                                                                    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+                                                                                                </script>
+                                                                                                -->
     </body>
 
     </html>

@@ -69,8 +69,8 @@
                                                 <a href="/deletet/{{ $row->id }}" class="btn btn-danger"
                                                     onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                         class="fas fa-trash-alt"></i></button></a>
-                                                <a href="/shiftdataservis/{{ $row->id }}" class="btn btn-info mb-1"><i
-                                                        class="fas fa-print"></i></a><br>
+                                                <a href="/shiftdataservis_selesai/{{ $row->id }}" target="_blank"
+                                                    class="btn btn-info mb-1"><i class="fas fa-print"></i></a><br>
                                             @endif
 
                                             {{-- <a href="#" class="btn btn-danger delete"

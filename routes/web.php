@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
@@ -132,6 +133,7 @@ Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
     Route::post('/updateservis/{id}', [servisController::class, 'updateservis'])->name('updateservis');
     Route::get('/deletet/{id}', [servisController::class, 'deletet'])->name('deletet');
     Route::get('/shiftdataservis/{id}', [servisController::class, 'shiftdataservis'])->name('shiftdataservis');
+    Route::get('/shiftdataservis_selesai/{id}', [servisController::class, 'shiftdataservis_selesai'])->name('shiftdataservis_selesai');
     Route::get('/printdataservis/{notransaksi_id}', [servisController::class, 'printdataservis'])->name('printdataservis');
 
 

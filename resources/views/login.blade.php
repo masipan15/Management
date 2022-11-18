@@ -25,19 +25,19 @@
                 <h4>LOGIN<span></span></h4>
                 <h5>Masuk ke akun anda.</h5>
                 <input type="text" name="email" placeholder="Masukkan Email Anda" autocomplete="off">
-                    @error('email')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
+                @error('email')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
 
                 <i class="typcn typcn-eye" id="eye"></i>
                 <input type="password" name="password" placeholder="Masukkan Sandi Anda" id="pwd"
                     autocomplete="off">
-                        @error('password')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                        @if (session('success'))
-                            <div class="text-danger"> {{ session('success') }} </div>
-                        @endif
+                @error('password')
+                    <div class="text-white">{{ $message }}</div>
+                @enderror
+                @if (session('success'))
+                    <div class="text-white"> {{ session('success') }} </div>
+                @endif
                 <label>
                     <input type="checkbox">
                     <input type="submit" value="Masuk" class="btn1">
