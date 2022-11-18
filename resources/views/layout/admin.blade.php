@@ -76,8 +76,8 @@
 
     {{-- Sweet Alert --}}
     <link href="{{ asset('acstemplate/assets/plugins/sweet-alert/sweetalert.css') }}" rel="stylesheet">
-
-
+    <!---- Photo -->
+    <link rel="stylesheet" href="{{ asset('acstemplate/assets/login.css') }}">
     <!-- Sidemenu css-->
     <link href="{{ asset('acstemplate/assets/css/sidemenu/sidemenu.css') }}" rel="stylesheet">
 
