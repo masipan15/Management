@@ -46,7 +46,7 @@
                                         <span class="bg-success dots" data-toggle="tooltip" data-placement="top"
                                             title="online"></span>
                                         <img class="rounded-circle image-previewer"
-                                        src="{{ asset('fotoprofil/' . Auth::user()->foto) }}" alt="user">
+                                        src="{{ asset('storage/' . Auth::user()->foto) }}" alt="user">
                                     </div>
                                     <a href="#" class="text-dark">
                                         <h5 class="mt-3 mb-0 font-weight-semibold">{{ Auth::user()->name }}</h5>

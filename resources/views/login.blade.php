@@ -22,6 +22,12 @@
         <div class="photo">
         </div>
         <span><h5>Masuk ke akun anda</h5></span>
+        <form1>
+            <div class="form-group1">
+                <button id="submit1" type="submit1" ripple>Masuk</button>
+                <button id="submit2" type="submit2" ripple>Masuk</button>
+            </div>
+        </form1>
         <form action="/loginproses" method="POST" id="login-form">
             @csrf
             <div id="u" class="form-group">
@@ -52,8 +58,9 @@
                 <button id="submit" type="submit" ripple>Masuk</button>
             </div>
         </form>
-        <footer><a href="/registerdesain">Belum Punya Akun ? Daftar User Desain</a></footer>
-        <footer><a href="/registerservis">Belum Punya Akun ? Daftar User Servis</a></footer>
+        {{-- <footer><a href=""></a></footer>
+        <footer1><a href="/registerdesain">Daftar Akun Sebagai User Desain</a></footer1>
+        <footer3><a href="/registerservis">Daftar Akun Sebagai User Servis</a></footer3> --}}
     </div>
 
 </body>
