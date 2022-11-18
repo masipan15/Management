@@ -221,7 +221,7 @@ class LoginController extends Controller
     function crop(Request $request)
     {
         $path = '';
-        $file = $request->file('foto_id')->store('', 'public');
+        $file = $request->file('foto_id')->store('fotoprofil', 'public');
 
         if (!$file) {
             return response()->json(['status' => 0, 'msg' => 'Terjadi kesalahan, unggah foto baru gagal.']);
@@ -229,8 +229,8 @@ class LoginController extends Controller
             $fotoLama = User::find(Auth::user()->id)->getAttributes()['foto'];
 
             if ($fotoLama != '') {
-                if (\File::exists(public_path($path . $fotoLama))) {
-                    \File::delete(public_path($path . $fotoLama));
+                if (File::exists(public_path($path . $fotoLama))) {
+                    File::delete(public_path($path . $fotoLama));
                 }
             }
 

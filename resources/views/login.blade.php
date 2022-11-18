@@ -21,7 +21,9 @@
     <div class="login">
         <div class="photo">
         </div>
-        <span><h5>Masuk ke akun anda</h5></span>
+        <span>
+            <h5>Masuk ke akun anda</h5>
+        </span>
         <form action="/loginproses" method="POST" id="login-form">
             @csrf
             <div id="u" class="form-group">
@@ -29,7 +31,9 @@
                     alt="login" required="">
                 <span class="form-highlight"></span>
                 <span class="form-bar"></span>
-                <label for="email" class="float-label"><b><h3>Email</h3></b></label>
+                <label for="email" class="float-label"><b>
+                        <h3>Email</h3>
+                    </b></label>
             </div>
             @error('email')
                 <div class="text-danger">{{ $message }}</div>
@@ -40,7 +44,9 @@
                     size="18" alt="login" required="">
                 <span class="form-highlight"></span>
                 <span class="form-bar"></span>
-                <label for="password" class="float-label"><b><h3>Sandi</h3></b></label>
+                <label for="password" class="float-label"><b>
+                        <h3>Sandi</h3>
+                    </b></label>
             </div>
             @error('password')
                 <div class="text-danger">{{ $message }}</div>
@@ -52,14 +58,11 @@
                 <button id="submit" type="submit" ripple>Masuk</button>
             </div>
         </form>
-        <footer><a href="/registerdesain">Belum Punya Akun ? Daftar User Desain</a></footer>
-        <footer><a href="/registerservis">Belum Punya Akun ? Daftar User Servis</a></footer>
-    </div>
-
-</body>
-
-<script src="http//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="{{ asset('acstemplate/asset/register.js') }}"></script>
+        <footer><a href="/registerdesain">Belum Punya <footer><a href="/registerdesain">Belum Punya Akun ? Daftar User
+                        Desain</a></footer>
+                <footer><a href="/registerservis">Belum Punya Akun ? Daftar User Servis</a></footer>
+                e.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+                <script src="{{ asset('acstemplate/asset/register.js') }}"></script>
 
 </html>
 <script>
@@ -72,4 +75,3 @@
         }
     }
 </script>
-
