@@ -50,9 +50,9 @@
                                         </td>
 
                                         <td>
-                                            <a href="{{ asset('fotodesain/' . $row->fotod) }}" data-lightbox=""
+                                            <a href="{{ asset('storage/' . $row->fotod) }}" data-lightbox=""
                                                 button="close">
-                                                <img src="{{ asset('fotodesain/' . $row->fotod) }}" class="img-fluid"
+                                                <img src="{{ asset('storage/' . $row->fotod) }}" class="img-fluid"
                                                     alt="" style="width: 50px";></a>
                                         </td>
                                         <td>{{ $row->nama_pemesan }}</td>

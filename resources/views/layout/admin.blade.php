@@ -76,7 +76,7 @@
 
     {{-- Sweet Alert --}}
     <link href="{{ asset('acstemplate/assets/plugins/sweet-alert/sweetalert.css') }}" rel="stylesheet">
-    
+
 
     <!-- Sidemenu css-->
     <link href="{{ asset('acstemplate/assets/css/sidemenu/sidemenu.css') }}" rel="stylesheet">
@@ -424,7 +424,8 @@
                     <div class="dropdown main-profile-menu">
                         <a class="d-flex" href="#">
                             <span class="main-img-user"><img alt="avatar"
-                                    src="{{ asset('storage/' . Auth::user()->foto) }}" class="image-previewer"></span>
+                                    src="{{ asset('storage/' . Auth::user()->foto) }}"
+                                    class="image-previewer"></span>
                         </a>
                         <div class="dropdown-menu">
                             <div class="header-navheading">

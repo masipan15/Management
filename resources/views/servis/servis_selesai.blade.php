@@ -26,7 +26,9 @@
                                     <th class="wd-20p">Kerusakan</th>
                                     <th class="wd-15p">Biaya</th>
                                     <th class="wd-20p">Aksi</th>
-                                    <th class="wd-20p">Cetak</th>
+                                    @if (auth()->user()->role == 'admin')
+                                        <th class="wd-20p">Cetak</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
