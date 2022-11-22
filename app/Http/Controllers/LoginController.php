@@ -180,9 +180,9 @@ class LoginController extends Controller
     public function updatepassword(Request $request)
     {
         $request->validate([
-            'password_lama'=>'required|min:6|max:100',
-            'password'=>'required|min:6|max:100|confirmed',
-            'password_confirmation'=>'required'
+            'password_lama' => 'required|min:6|max:100',
+            'password' => 'required|min:6|max:100|confirmed',
+            'password_confirmation' => 'required'
         ], [
            'password_lama.required' => 'sandi lama harus diisi',
            'password_lama.min' => 'sandi harus lebih dari 6',
@@ -190,7 +190,7 @@ class LoginController extends Controller
            'password.min' => 'sandi harus lebih dari 6',
            'password.confirmed' => 'sandi ini harus sama dengan sandi baru',
            'password_confirmation.required' => 'konfirmasi sandi harus diisi',
-           
+
         ]);
         // if(Auth::attempt($request->only('password_lama'))){
         //     return redirect('profil')->with('success', 'Kata Sandi Yang anda masukkan benar');
@@ -201,9 +201,9 @@ class LoginController extends Controller
 
         $current_user = Auth()->user();
 
-        if(Hash::check($request->password_lama, $current_user->password)){
+        if (Hash::check($request->password_lama, $current_user->password)) {
             $current_user->update([
-                'password'=>bcrypt($request->password)
+                'password' => bcrypt($request->password)
             ]);
 
             return redirect()->back()->with('success', 'Password Berhasil Di Ganti');
@@ -223,26 +223,26 @@ class LoginController extends Controller
         $path = '';
         $file = $request->file('foto_id')->store('', 'public');
 
-        if( !$file ){
-            return response()->json(['status'=>0, 'msg'=>'Terjadi kesalahan, unggah foto baru gagal.']);
-        }else{
+        if (!$file) {
+            return response()->json(['status' => 0, 'msg' => 'Terjadi kesalahan, unggah foto baru gagal.']);
+        } else {
             $fotoLama = User::find(Auth::user()->id)->getAttributes()['foto'];
 
-            if ( $fotoLama != '') {
-                if (\File::exists(public_path($path.$fotoLama))) {
-                    \File::delete(public_path($path.$fotoLama));
-                    }
-                }
-
-                //Update foto
-                $update = User::find(Auth::user()->id)->update(['foto'=>$file]);
-
-                if ( !$file ) {
-                    return response()->json(['status'=>0, 'msg'=>'Terjadi kesalahan, pembaruan foto dalam Database gagal.']);
-                } else{
-                    return response()->json(['status'=>1, 'msg'=>'Foto profil Anda telah berhasil diperbarui.']);                    
+            if ($fotoLama != '') {
+                if (File::exists(public_path($path . $fotoLama))) {
+                    File::delete(public_path($path . $fotoLama));
                 }
             }
+
+            //Update foto
+            $update = User::find(Auth::user()->id)->update(['foto' => $file]);
+
+            if (!$file) {
+                return response()->json(['status' => 0, 'msg' => 'Terjadi kesalahan, pembaruan foto dalam Database gagal.']);
+            } else {
+                return response()->json(['status' => 1, 'msg' => 'Foto profil Anda telah berhasil diperbarui.']);
+            }
         }
+    }
 
 }

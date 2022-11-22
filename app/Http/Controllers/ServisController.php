@@ -100,6 +100,22 @@ class ServisController extends Controller
         ]);
         return redirect()->to('/printdataservis/' . $transaksi->notransaksi_id);
     }
+    public function shiftdataservis_selesai($id)
+    {
+        $servis = servis_selesai::find($id);
+        $transaksi = detailservis::create([
+            'notransaksi_id' => 'KT' . date('Ymd') . random_int(1000, 9999),
+            'peservis' => Auth()->user()->name,
+            'pemesan' => $servis->nama_pelanggan,
+            'namabarang' => $servis->nama_barang,
+            'status' => $servis->status_pengerjaan,
+            'kerusakan' => $servis->kerusakan_barang,
+            'merk' => $servis->merk_barang,
+            'biaya' => $servis->biaya_pengerjaan,
+            'created_at' => Carbon::parse(now())
+        ]);
+        return redirect()->to('/printdataservis/' . $transaksi->notransaksi_id);
+    }
 
 
 
@@ -117,7 +133,25 @@ class ServisController extends Controller
     }
 
 
-
+    public function updateservis_selesai(Request $request, $id)
+    {
+        $data = servis_selesai::findOrFail($id);
+        $data->update([
+            'nama_pelanggan' => $request->nama_pelanggan,
+            'namaservis' => $request->namaservis,
+            'nama_barang' => $request->nama_barang,
+            'merk_barang' => $request->merk_barang,
+            'status_pengerjaan' => $request->status_pengerjaan,
+            'kerusakan_barang' => $request->kerusakan_barang,
+            'biaya_pengerjaan' => $request->biaya_pengerjaan,
+        ]);
+        if ($request->hasFile('fotos')) {
+            $request->file('fotos')->move('fotoservis/', $request->file('fotos')->getClientOriginalName());
+            $data->fotos = $request->file('fotos')->getClientOriginalName();
+            $data->save();
+        }
+        return redirect('servis_selesai')->with('Success', 'Data Berhasil di Update');
+    }
 
     public function updateservis(request $request, $id)
     {
@@ -160,5 +194,11 @@ class ServisController extends Controller
         $data = servis::find($id);
         $data->delete();
         return redirect()->route('dataservis')->with('success', 'Data Berhasil Di Hapus');
+    }
+    public function delete_selesai($id)
+    {
+        $data = servis_selesai::find($id);
+        $data->delete();
+        return redirect()->route('servis_selesai')->with('success', 'Data Berhasil Di Hapus');
     }
 }

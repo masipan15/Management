@@ -44,7 +44,7 @@
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Nama
                                         Pendesain</label>
                                     <div class="col-sm-10">
-                                        <input type="text" required name="namapedesain" class="form-control"
+                                        <input type="text" requireds name="namapedesain" class="form-control"
                                             id="exampleInputEmail1" value="{{ $data->namapedesain }}" id="inputEmail3">
                                     </div>
                                 </div>

@@ -124,10 +124,12 @@ class BarangkeluarController extends Controller
             $stok_kurang->stok -= $request->jumlah;
             $stok_kurang->save();
             $subtotal = barangkeluar::sum('total');
+            $jumlahstok = $stok_kurang->stok;
             return response()->json([
                 'status' => 200,
                 'message' => 'barang keluar berhasil ditambahkan',
                 'subtotal' => $subtotal,
+                'jumlahstok' => $jumlahstok,
             ]);
         }
     }
@@ -215,13 +217,15 @@ class BarangkeluarController extends Controller
         $barang->update([
             'stok' => (int) $barang->stok + $data->jumlah,
         ]);
+
         $data->delete();
         $datas->delete();
-
+        $jumlahstok =  $barang->stok;
         return response()->json([
             'status' => 400,
             'message' => 'Data berhasil dihapus',
-            'subtotaldelete' => $subtotaldelete
+            'subtotaldelete' => $subtotaldelete,
+            'jumlahstok' => $jumlahstok,
         ]);
     }
 

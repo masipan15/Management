@@ -217,41 +217,42 @@
                         $.each(response.data, function(key, item) {
                             $('tbody').append(
                                 ' <tr>\
-                                                                                                                                                                                                                                                                                 <th class = "wd-20p" > ' +
+                                                                                                                                                                                                                                                                                                                             <th class = "wd-20p" > ' +
                                 (
                                     key +
                                     1) +
 
                                 '</th>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <td class="wd-20p">' +
                                 (item.nama_pelanggan ? item.nama_pelanggan :
                                     'Pelanggan Umum') +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td class="wd-20p">' +
                                 item
                                 .namabarangs.namabarang +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td class="wd-20p">' +
                                 item
                                 .kodebarang_keluar +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td class="wd-20p">' +
                                 item
                                 .merk_keluar +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">Rp.' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td class="wd-20p">Rp.' +
                                 item
                                 .harga_jual +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td class="wd-20p">' +
                                 item
                                 .jumlah +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td class="wd-20p">' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td class="wd-20p">' +
                                 item
                                 .total +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <td><button type="button" id="delete" data-total="' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <td><button type="button" id="delete" data-jumlah = "' +
+                                item.jumlah + '" data-total="' +
                                 item.total + '"  value="' +
                                 item
                                 .id +
@@ -261,9 +262,7 @@
                     }
 
                 });
-
             }
-
             $('#proses').click(function(e) {
                 e.preventDefault();
                 if (parseInt($('#jumlah').val()) > parseInt($('#stok').val())) {
@@ -299,12 +298,18 @@
                     success: function(response) {
                         var subtotal = response.subtotal
                         document.getElementById('subtotal').value = subtotal;
+                        var jumlahstok = response.jumlahstok
+                        document.getElementById('stok').value = jumlahstok;
                         read();
 
 
                     }
                 });
                 document.getElementById('jumlah').value = ("");
+                // document.getElementById('stok').value = ("");
+                // document.getElementById('nama_barang').value = ("");
+                // document.getElementById('harga_jual').value = ("");
+
 
             });
 
@@ -312,6 +317,7 @@
                 e.preventDefault();
                 var id_delete = $(this).val();
                 var total = $(this).attr('data-total');
+                var jumlah = $(this).attr('data-jumlah');
                 var subtotal = document.getElementById('subtotal').value
                 $.ajaxSetup({
                     headers: {
@@ -323,8 +329,9 @@
                     url: "/deletebarangkeluar/" + id_delete,
                     success: function(response) {
                         read();
-                        var subtotaldelete = response.subtotaldelete
                         document.getElementById('subtotal').value = (subtotal - total);
+                        var jumlahstok = response.jumlahstok
+                        document.getElementById('stok').value = jumlahstok
 
                     }
                 });

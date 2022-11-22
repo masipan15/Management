@@ -26,6 +26,7 @@
                                     <th class="wd-15p">Biaya</th>
 
                                     <th class="wd-20p">Aksi</th>
+                                    <th class="wd-20p">Cetak</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,10 +58,10 @@
                                         <td>{{ $row->nama_pelanggan }}</td>
                                         <td>{{ $row->nama_barang }}</td>
                                         <td><a href="#/{{ $row->id }}" value="{{ route('show', ['id' => $row->id]) }}"
-                                            class="modalMd" title="Lihat Deskripsi Barang" data-toggle="modal"
-                                            data-target="#modalMd{{ $row->id }}"><i
-                                                class="fas fa-eye text-success  fa-lg"></i>
-                                        </a></a>
+                                                class="modalMd" title="Lihat Deskripsi Barang" data-toggle="modal"
+                                                data-target="#modalMd{{ $row->id }}"><i
+                                                    class="fas fa-eye text-success  fa-lg"></i>
+                                            </a></a>
                                         <td>{{ $row->kerusakan_barang }}</td>
                                         <td>Rp.{{ number_format($row['biaya_pengerjaan'], 2, '.', '.') }}</td>
                                         <td>
@@ -71,39 +72,42 @@
                                                 <a href="/deletet/{{ $row->id }}" class="btn btn-danger"
                                                     onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                         class="fas fa-trash-alt"></i></button></a>
-                                                <a href="/shiftdataservis/{{ $row->id }}" target="_blank" class="btn btn-info mb-1"><i
-                                                        class="fas fa-print"></i></a><br>
-                                            @endif
 
-                                            {{-- <a href="#" class="btn btn-danger delete"
-                                                data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a> --}}
+                                                {{-- <a href="#" class="btn btn-danger delete"
+                                                        data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a> --}}
                                         </td>
-                                    </tr>
-                                    <div class="modal fade" id="modalMd{{ $row->id }}" role="dialog"
-                                        aria-labelledby="myModalLabel">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header"><b>Detail: </b>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close"><span aria-hidden="true">&times;</span>
-                                                        <h4 class="modal-title" id="modalMdTitle"></h4>
-                                                    </button>
+                                        <td>
+                                            <a href="/shiftdataservis/{{ $row->id }}" target="_blank"
+                                                class="btn btn-info mb-1"><i class="fas fa-print"></i></a><br>
+
+                                        </td>
+                                @endif
+                                </tr>
+                                <div class="modal fade" id="modalMd{{ $row->id }}" role="dialog"
+                                    aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header"><b>Detail: </b>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                    <h4 class="modal-title" id="modalMdTitle"></h4>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="modalError"></div>
+                                                <div id="content"><b>Penyervis: </b><br>
+                                                    {{ $row->namaservis }}
                                                 </div>
-                                                <div class="modal-body">
-                                                    <div class="modalError"></div>
-                                                    <div id="content"><b>Penyervis: </b><br>
-                                                        {{ $row->namaservis }}
-                                                    </div>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="modalError"></div>
-                                                    <div id="content"><b>Merk: </b><br>
-                                                        {{ $row->merk_barang }}
-                                                    </div>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="modalError"></div>
+                                                <div id="content"><b>Merk: </b><br>
+                                                    {{ $row->merk_barang }}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                 @endforeach
 
                             </tbody>

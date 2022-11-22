@@ -12,17 +12,17 @@
                         <h3 class="main-content-label mb-1">Edit Servis</h3>
                         <p class="text-muted card-sub-title"></p>
                     </div>
-                    <form action="/updateservis/{{ $data->id }}" method="post" enctype="multipart/form-data">
+                    <form action="/updateservis_selesai/{{ $data->id }}" method="post" enctype="multipart/form-data">
                         @csrf
-
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Pelanggan</label>
-                            <div class="col-sm-10">
-                                <input type="text" readonly name="nama_pelanggan" class="form-control"
-                                    id="exampleInputEmail1" value="{{ $data->nama_pelanggan }}" id="inputEmail3">
+                        @if (auth()->user()->role == 'servis')
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Pelanggan</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly name="nama_pelanggan" class="form-control"
+                                        id="exampleInputEmail1" value="{{ $data->nama_pelanggan }}" id="inputEmail3">
+                                </div>
                             </div>
-                        </div>
-
+                        @endif
                         @if (auth()->user()->role == 'admin')
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Pelanggan</label>
@@ -32,22 +32,25 @@
                                 </div>
                             </div>
                         @endif
-
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Penyervis</label>
-                            <div class="col-sm-10">
-                                <input type="text" autocomplete="none" name="namaservis" class="form-control"
-                                    id="exampleInputEmail1" value="{{ $data->namaservis }}" id="inputEmail3">
+                        @if (auth()->user()->role == 'servis')
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Penyervis</label>
+                                <div class="col-sm-10">
+                                    <input type="text" required autocomplete="none" name="namaservis"
+                                        class="form-control" id="exampleInputEmail1" value="{{ $data->namaservis }}"
+                                        id="inputEmail3">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
-                            <div class="col-sm-10">
-                                <input type="text" readonly name="nama_barang" class="form-control"
-                                    id="exampleInputEmail1" value="{{ $data->nama_barang }}" id="inputEmail3">
+                        @endif
+                        @if (auth()->user()->role == 'servis')
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly name="nama_barang" class="form-control"
+                                        id="exampleInputEmail1" value="{{ $data->nama_barang }}" id="inputEmail3">
+                                </div>
                             </div>
-                        </div>
-
+                        @endif
                         @if (auth()->user()->role == 'admin')
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Barang</label>
@@ -57,15 +60,15 @@
                                 </div>
                             </div>
                         @endif
-
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Merek</label>
-                            <div class="col-sm-10">
-                                <input type="text" readonly name="merk_barang" class="form-control"
-                                    id="exampleInputEmail1" value="{{ $data->merk_barang }}" id="inputEmail3">
+                        @if (auth()->user()->role == 'servis')
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Merek</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly name="merk_barang" class="form-control"
+                                        id="exampleInputEmail1" value="{{ $data->merk_barang }}" id="inputEmail3">
+                                </div>
                             </div>
-                        </div>
-
+                        @endif
                         @if (auth()->user()->role == 'admin')
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Merek</label>
@@ -75,15 +78,15 @@
                                 </div>
                             </div>
                         @endif
-
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Kerusakan Barang</label>
-                            <div class="col-sm-10">
-                                <input type="text" readonly name="kerusakan_barang" class="form-control"
-                                    id="exampleInputEmail1" value="{{ $data->kerusakan_barang }}" id="inputEmail3">
+                        @if (auth()->user()->role == 'servis')
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Kerusakan Barang</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="kerusakan_barang" class="form-control"
+                                        id="exampleInputEmail1" value="{{ $data->kerusakan_barang }}" id="inputEmail3">
+                                </div>
                             </div>
-                        </div>
-
+                        @endif
                         @if (auth()->user()->role == 'admin')
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Kerusakan Barang</label>
@@ -93,38 +96,38 @@
                                 </div>
                             </div>
                         @endif
-
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Biaya</label>
-                            <div class="col-sm-10">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                    <input type="number" autocomplete="none" name="biaya_pengerjaan"
-                                        id="biaya_pengerjaan" class="form-control" id="inputEmail3"
-                                        value="{{ $data->biaya_pengerjaan }}">
+                        @if (auth()->user()->role == 'servis')
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Biaya</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                        <input type="number" autocomplete="none" name="biaya_pengerjaan"
+                                            id="biaya_pengerjaan" class="form-control" id="inputEmail3"
+                                            value="{{ $data->biaya_pengerjaan }}">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Status</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" required style="width:100%;" id="status_pengerjaan"
-                                    name="status_pengerjaan">
-                                    <option disabled value="">Pilih Status Pengerjaan</option>
-                                    <option value="">{{ $data->status_pengerjaan == 'null' ? 'selected' : '' }}
-                                        Belum Dikerjakan</option>
-                                    <option value="Sedang dalam pengerjaan"
-                                        {{ $data->status_pengerjaan == 'Sedang dalam pengerjaan' ? 'selected' : '' }}>
-                                        Sedang dalam pengerjaan</option>
-                                    <option value="Selesai"
-                                        {{ $data->status_pengerjaan == 'Selesai' ? 'selected' : 'Selesai' }}>Selesai
-                                    </option>
-                                </select>
+                        @endif
+                        @if (auth()->user()->role == 'servis')
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Status</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" required style="width:100%;" id="status_pengerjaan"
+                                        name="status_pengerjaan">
+                                        <option disabled value="">Pilih Status Pengerjaan</option>
+                                        <option value="">{{ $data->status_pengerjaan == 'null' ? 'selected' : '' }}
+                                            Belum Dikerjakan</option>
+                                        <option value="Sedang dalam pengerjaan"
+                                            {{ $data->status_pengerjaan == 'Sedang dalam pengerjaan' ? 'selected' : '' }}>
+                                            Sedang dalam pengerjaan</option>
+                                        <option value="Selesai"
+                                            {{ $data->status_pengerjaan == 'Selesai' ? 'selected' : 'Selesai' }}>Selesai
+                                        </option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-
+                        @endif
                         @if (auth()->user()->role == 'admin')
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Foto Barang</label>
@@ -148,7 +151,7 @@
 
                         <div class="text-center mt-4 mb-3">
                             <button type="submit" class="btn ripple btn-main-primary active mr-1">Simpan</button>
-                            <a href="/servis_selesai" type="button" class="btn ripple btn-secondary">Batal</a>
+                            <a href="/dataservis" type="button" class="btn ripple btn-secondary">Batal</a>
                         </div>
                 </div>
 
@@ -170,13 +173,13 @@
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
-                                                                                    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-                                                                                        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
-                                                                                    </script>
-                                                                                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-                                                                                        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
-                                                                                    </script>
-                                                                                    -->
+                                                        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+                                                            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+                                                        </script>
+                                                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+                                                            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+                                                        </script>
+                                                        -->
     </body>
 
     </html>

@@ -119,6 +119,21 @@ class DesainController extends Controller
     public function updatedesainselesai(Request $request, $id)
     {
         $data = desainselesai::findOrFail($id);
+        if ($request->status_pengerjaan != 'Selesai') {
+            desain::create([
+                'nama_pemesan' => $data->nama_pemesan,
+                'namapedesain' => $request->namapedesain,
+                'ukuran_desain' => $data->ukuran_desain,
+                'permintaan_desain' => $data->permintaan_desain,
+                'status_pengerjaan' => $request->status_pengerjaan,
+                'keterangan' => $data->keterangan,
+                'harga_desain' => $data->harga_desain,
+                'fotod' => $data->fotod
+            ]);
+
+
+            $deletedesain = desainselesai::find($id)->delete();
+        }
         $data->update([
             'nama_pemesan' => $request->nama_pemesan,
             'namapedesain' => $request->namapedesain,

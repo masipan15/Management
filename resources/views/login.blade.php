@@ -23,7 +23,7 @@
         <div class="photo">
         </div>
         <span><h5>Masuk ke akun anda</h5></span>
-        
+
             <div class="form-group1 text-center mt-4">
                 {{-- <a href="/registerdesain" class="btn btn-info" id="submit1" type="submit1" ripple>User Desain</a>
                 <a href="/registerservis" class="btn btn-info" id="submit2" type="submit2" ripple>User Servis</a> --}}
@@ -84,4 +84,3 @@
         }
     }
 </script>
-    

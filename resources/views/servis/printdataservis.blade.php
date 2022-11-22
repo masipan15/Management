@@ -124,12 +124,7 @@
 
             <tbody>
 
-                <tr>
-                    <td>x</td>
-                    <td style="padding-left:5px;">Rp.</td>
-                    <td style="padding-left:20px;">Rp.</td>
 
-                </tr>
 
             </tbody>
         </table>
@@ -167,7 +162,7 @@
                     <li>{{ $transaksi->status ?: 'Belum Dikerjakan' }}</li>
                     <li class="mt-1">{{ $transaksi->namabarang }}</li>
                     <li class="mt-1">{{ $transaksi->kerusakan }}</li>
-                    <li class="mt-1">{{ $transaksi->biaya }}</li>
+                    <li class="mt-1">Rp.{{ number_format($transaksi->biaya ?: 'Belum Ditentukan') }}</li>
                 </ul>
             </div>
         </div>

@@ -29,7 +29,9 @@
                     alt="login" required="">
                 <span class="form-highlight"></span>
                 <span class="form-bar"></span>
-                <label for="name" class="float-label"><b><h3>Nama</h3></b></label>
+                <label for="name" class="float-label"><b>
+                        <h3>Nama</h3>
+                    </b></label>
             </div>
             @error('name')
                 <div class="text-danger">{{ $message }}</div>
@@ -39,7 +41,9 @@
                     alt="login" required="">
                 <span class="form-highlight"></span>
                 <span class="form-bar"></span>
-                <label for="email" class="float-label"><b><h3>Email</h3></b></label>
+                <label for="email" class="float-label"><b>
+                        <h3>Email</h3>
+                    </b></label>
             </div>
             @error('email')
                 <div class="text-danger">{{ $message }}</div>
@@ -50,7 +54,9 @@
                     size="18" alt="login" required="">
                 <span class="form-highlight"></span>
                 <span class="form-bar"></span>
-                <label for="password" class="float-label"><b><h3>Sandi</h3></b></label>
+                <label for="password" class="float-label"><b>
+                        <h3>Sandi</h3>
+                    </b></label>
             </div>
             @error('password')
                 <div class="text-danger">{{ $message }}</div>
