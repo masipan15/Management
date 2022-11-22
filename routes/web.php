@@ -176,7 +176,8 @@ Route::get('/profil', [LoginController::class, 'profil'])->name('profil');
 Route::get('/editprofil', [LoginController::class, 'editprofil'])->name('editprofil');
 Route::post('/updateprofil', [LoginController::class, 'updateprofil'])->name('updateprofil');
 
-// Route::get('/cobaprofil', [LoginController::class, 'cobaprofil'])->name('user.cobaprofil');
+
+//fungsi pangkas foto profil
 Route::post('/crop', [LoginController::class, 'crop'])->name('crop');
 
 
@@ -200,8 +201,9 @@ Route::get('/tambahcart', [ProductController::class, 'tambahcart'])->name('tamba
 Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
 Route::patch('update-cart', [ProductController::class, 'update'])->name('update.cart');
 Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
-//download file
 
+
+//download file
 Route::get('/download/{id}', [DesainController::class, 'download'])->name('download');
 
 
@@ -214,7 +216,3 @@ Route::get('ipan', [BarangkeluarController::class, 'ipan'])->name('ipan');
 
 
 Route::get('tampung', [BarangmasukController::class, 'tampung'])->name('tampung');
-
-
-
-Route::get('cobaregister', [LoginController::class, 'cobaregister'])->name('cobaregister');

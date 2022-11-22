@@ -15,12 +15,13 @@
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,500">
 <link rel="stylesheet" href="{{ asset('acstemplate/assets/register.css') }}">
 
+
 <body>
 
     <div class="login">
         <div class="photo">
         </div>
-        <span><h5>Masuk ke akun anda</h5></span>
+        <span><h5>Daftar Sebagai User Desain</h5></span>
         <form action="/createdesain" method="POST" id="login-form">
             @csrf
             <div id="u" class="form-group">

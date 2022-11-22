@@ -33,10 +33,6 @@ class WelcomeController extends Controller
             ->selectRaw('id, tanggal, bulan, tahun, created_at, SUM(total) as total')
             ->groupBy(DB::raw('MONTH(created_at)'))
             ->get();
-        // $pengeluaran = pengeluaran::query()
-        //     ->selectRaw('id, tanggal, bulan, tahun, created_at, SUM(total) as total')
-        //     ->groupBy(DB::raw('MONTH(created_at)'))
-        //     ->get();
         $pengeluaran = Pengeluaran::select(DB::raw("id, tanggal, bulan, tahun, created_at, SUM(total) as total"))
             ->whereYear('created_at', date('Y'))
             ->groupBy(DB::raw("MONTH(created_at)"))

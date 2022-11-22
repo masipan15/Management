@@ -502,4 +502,5 @@
             chart.render();
         </script>
     @endif
+    @include('sweetalert::alert')
 @endsection

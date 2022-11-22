@@ -14,7 +14,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ACS Management</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 
     <body>
@@ -140,7 +139,7 @@
                                                     <div class="mb-4 main-content-label"></div>
                                                     <div class="row row-sm">
                                                         <div class="col-md-12 col-lg-12 col-xl-12"> 
-                                                            <label for=""><b>Password Lama</b></label>
+                                                            <label for=""><b>Sandi Lama</b></label>
                                                             <input type="password" class="form-control"
                                                                 name="password_lama" id="password_lama">
                                                                 <input type="checkbox" onclick="yFunction()">Tampilkan Sandi
@@ -152,13 +151,10 @@
 
 
                                                     <div class="form-group ">
-                                                            <label for=""><b>Password Baru</b></label>
+                                                            <label for=""><b>Sandi Baru</b></label>
                                                             <input type="password" class="form-control"
                                                                 name="password" id="password">
                                                                 <div><input type="checkbox" onclick="myFunction()">Tampilkan Sandi</div>
-                                                        @if($errors->any('password'))
-                                                            <span class="text-danger">{{ $errors->first('password') }}</span>
-                                                        @endif
                                                     </div><br>
 
 
@@ -170,17 +166,10 @@
                                                         @if($errors->any('password_confirmation'))
                                                             <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
                                                         @endif
+                                                        @if($errors->any('password'))
+                                                            <span class="text-danger">{{ $errors->first('password') }}</span>
+                                                        @endif
                                                     </div>
-                                                    @if (session('success'))
-                                                        <div class="text-danger"> {{ session('success') }} </div>
-                                                    @endif
-                                                {{-- <div class="form-group">
-                                                <label for="">Password</label>
-                                                    <div class="mt-1">
-                                                        <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
-                                                        <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
-                                                    </div>
-                                                </div> --}}
 
                                                     <div class="form-group row justify-content-end mb-0">
                                                         <div class="col-md-5 pl-md-5 mt-3">                                                            
@@ -206,7 +195,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
     function yFunction() {
@@ -238,9 +226,5 @@
         }
     }
 </script>
-<script>
-    @if (Session::has('success'))
-        toastr.success("{{ Session::get('success') }}")
-    @endif
-</script>
+@include('sweetalert::alert')
 @endsection
