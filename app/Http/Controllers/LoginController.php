@@ -37,7 +37,7 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'desain'])) {
             return redirect('/welcome');
         }
-        return redirect('login')->with('success', 'Kata Sandi Yang anda masukkan salah');
+        return redirect('login')->with('success', 'Berhasil Login');
     }
 
 
@@ -98,7 +98,7 @@ class LoginController extends Controller
             'foto' => 'wa.png',
             'remember_token' => Str::random(60),
         ]);
-        return redirect('login');
+        return redirect()->route('login')->with('success', 'Berhasil register sebagai user Servis!');
     }
     public function registerdesain()
     {
@@ -127,13 +127,13 @@ class LoginController extends Controller
             'foto' => 'wa.png',
             'remember_token' => Str::random(60),
         ]);
-        return redirect('login');
+        return redirect()->route('login')->with('success', 'Berhasil register sebagai user Desain!');
     }
 
     public function logout()
     {
         auth::logout();
-        return redirect('/login');
+        return redirect()->route('login')->with('success', 'Anda berhasil di Keluar!');
     }
 
 
@@ -169,7 +169,7 @@ class LoginController extends Controller
             $data->foto = $request->file('foto')->getClientOriginalName();
             $data->save();
         }
-        return redirect()->route('profil')->with('success', 'Data berhasil di Update!');
+        return redirect()->route('profil')->with('success', 'Profil berhasil di Ganti!');
     }
 
 
@@ -184,12 +184,12 @@ class LoginController extends Controller
             'password' => 'required|min:6|max:100|confirmed',
             'password_confirmation' => 'required'
         ], [
-            'password_lama.required' => 'password lama harus diisi',
-            'password_lama.min' => 'password harus lebih dari 6',
-            'password.required' => 'password baru harus diisi',
-            'password.min' => 'password harus lebih dari 6',
-            'password.confirmed' => 'password tidak sama',
-            'password_confirmation.required' => 'konfirmasi password harus diisi',
+           'password_lama.required' => 'sandi lama harus diisi',
+           'password_lama.min' => 'sandi harus lebih dari 6',
+           'password.required' => 'sandi baru harus diisi',
+           'password.min' => 'sandi harus lebih dari 6',
+           'password.confirmed' => 'sandi ini harus sama dengan sandi baru',
+           'password_confirmation.required' => 'konfirmasi sandi harus diisi',
 
         ]);
         // if(Auth::attempt($request->only('password_lama'))){
@@ -206,7 +206,8 @@ class LoginController extends Controller
                 'password' => bcrypt($request->password)
             ]);
 
-            return redirect('editprofil')->with('success', 'Password Berhasil Di Ganti');
+            return redirect()->back()->with('success', 'Password Berhasil Di Ganti');
+
         } else {
             return redirect()->back()->with('error', 'Password Tidak Terdeteksi');
         }
@@ -218,10 +219,9 @@ class LoginController extends Controller
         return view('layout.profil', compact('data'));
     }
 
-    function crop(Request $request)
-    {
-        $path = '';
-        $file = $request->file('foto_id')->store('fotoprofil', 'public');
+    function crop(Request $request){
+        $path = '/fotoprofil';
+        $file = $request->file('foto_id')->store('/fotoprofil', 'public');
 
         if (!$file) {
             return response()->json(['status' => 0, 'msg' => 'Terjadi kesalahan, unggah foto baru gagal.']);
@@ -245,9 +245,4 @@ class LoginController extends Controller
         }
     }
 
-
-    public function cobaregister()
-    {
-        return view('register.register');
-    }
 }

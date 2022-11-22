@@ -20,7 +20,7 @@
     <div class="login">
         <div class="photo">
         </div>
-        <span><h5>Masuk ke akun anda</h5></span>
+        <span><h5>Daftar Sebagai User Servis </h5></span>
         <form action="/createservis" method="POST" id="login-form">
             @csrf
             <div id="u" class="form-group">
@@ -63,7 +63,7 @@
                 <button id="submit" type="submit" ripple>Masuk</button>
             </div>
         </form>
-        <footer><a href="/login">Sudah Punya Akun ? Masuk</a></footer>
+        <footer><a href="/login ">Sudah Punya Akun ? Masuk</a></footer>
     </div>
 
 </body>
