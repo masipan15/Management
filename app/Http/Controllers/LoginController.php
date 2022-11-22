@@ -220,8 +220,8 @@ class LoginController extends Controller
     }
 
     function crop(Request $request){
-        $path = '/fotoprofil';
-        $file = $request->file('foto_id')->store('/fotoprofil', 'public');
+        $path = '';
+        $file = $request->file('foto_id')->store('', 'public');
 
         if( !$file ){
             return response()->json(['status'=>0, 'msg'=>'Terjadi kesalahan, unggah foto baru gagal.']);
