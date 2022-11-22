@@ -53,12 +53,19 @@ class BarangmasukController extends Controller
     public function prosestambah(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'suppliers_id' => 'required'
+            'suppliers_id' => 'required',
+            'barangs_id' => 'required|unique:barangmasuks',
+            'jumlah' => 'required'
+        ], [
+            'suppliers_id.required' => 'Supplier harus diisi',
+            'jumlah.required' => 'Jumlah beli harus diisi',
+            'barangs_id.required' => 'Barang harus diisi',
+            'barangs_id.unique' => 'Barang yang anda beli sudah di Pilih'
         ]);
         if ($validator->fails()) {
             return response()->json([
                 'status' => 400,
-                'errors' => $validator->messages(),
+                'errors' => $validator->errors()->messages(),
             ]);
         }
 
@@ -174,9 +181,7 @@ class BarangmasukController extends Controller
         $barang->update([
             'stok' => (int) $barang->stok - $data->jumlah,
         ]);
-
         $data->delete();
-
         return response()->json();
     }
     public function deletedatabarangmasuk($id)

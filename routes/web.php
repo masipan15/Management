@@ -130,8 +130,10 @@ Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
     Route::post('/insertservis', [servisController::class, 'insertservis'])->name('insertservis');
     Route::get('/editservis/{id}', [servisController::class, 'editservis'])->name('editservis');
     Route::get('/editservis_selesai/{id}', [servisController::class, 'editservis_selesai'])->name('editservis_selesai');
+    Route::post('/updateservis_selesai/{id}', [servisController::class, 'updateservis_selesai'])->name('updateservis_selesai');
     Route::post('/updateservis/{id}', [servisController::class, 'updateservis'])->name('updateservis');
     Route::get('/deletet/{id}', [servisController::class, 'deletet'])->name('deletet');
+    Route::get('/delete_selesai/{id}', [servisController::class, 'delete_selesai'])->name('delete_selesai');
     Route::get('/shiftdataservis/{id}', [servisController::class, 'shiftdataservis'])->name('shiftdataservis');
     Route::get('/shiftdataservis_selesai/{id}', [servisController::class, 'shiftdataservis_selesai'])->name('shiftdataservis_selesai');
     Route::get('/printdataservis/{notransaksi_id}', [servisController::class, 'printdataservis'])->name('printdataservis');

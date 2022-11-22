@@ -25,8 +25,8 @@
                                     <th class="wd-25p">Merk</th>
                                     <th class="wd-20p">Kerusakan</th>
                                     <th class="wd-15p">Biaya</th>
-
                                     <th class="wd-20p">Aksi</th>
+                                    <th class="wd-20p">Cetak</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,21 +62,26 @@
                                         <td>{{ $row->kerusakan_barang }}</td>
                                         <td>Rp.{{ number_format($row['biaya_pengerjaan'], 2, '.', '.') }}</td>
                                         <td>
-                                            <a href="/editservis_selesai/{{ $row->id }}"
-                                                class="btn btn-success mb-1"><i class="fas fa-pencil-alt"></i></a><br>
-
-                                            @if (auth()->user()->role == 'admin')
-                                                <a href="/deletet/{{ $row->id }}" class="btn btn-danger"
-                                                    onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
-                                                        class="fas fa-trash-alt"></i></button></a>
-                                                <a href="/shiftdataservis_selesai/{{ $row->id }}" target="_blank"
-                                                    class="btn btn-info mb-1"><i class="fas fa-print"></i></a><br>
+                                            @if (auth()->user()->role == 'servis')
+                                                <a href="/editservis_selesai/{{ $row->id }}"
+                                                    class="btn btn-success mb-1"><i class="fas fa-pencil-alt"></i></a><br>
                                             @endif
 
-                                            {{-- <a href="#" class="btn btn-danger delete"
-                                                data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a> --}}
+                                            @if (auth()->user()->role == 'admin')
+                                                <a href="/delete_selesai/{{ $row->id }}" class="btn btn-danger"
+                                                    onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
+                                                        class="fas fa-trash-alt"></i></button></a>
+
+                                                {{-- <a href="#" class="btn btn-danger delete"
+                                                        data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a> --}}
                                         </td>
-                                    </tr>
+                                        <td>
+                                            <a href="/shiftdataservis_selesai/{{ $row->id }}" target="_blank"
+                                                class="btn btn-info mb-1"><i class="fas fa-print"></i></a><br>
+                                @endif
+
+                                </td>
+                                </tr>
                                 @endforeach
 
                             </tbody>
