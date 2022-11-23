@@ -213,7 +213,6 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'Image' => Intervention\Image\Facades\Image::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

@@ -169,6 +169,7 @@ class DesainController extends Controller
                 'status_pengerjaan' => $request->status_pengerjaan,
                 'keterangan' => $data->keterangan,
                 'harga_desain' => $request->harga_desain,
+<<<<<<< HEAD
                 'fotod' => $data->fotod
                 
             ]);
@@ -178,6 +179,10 @@ class DesainController extends Controller
                 $data->save();
             }
 
+=======
+                'fotod' => $request->file('fotod')->store('', 'public')
+            ]);
+>>>>>>> ee744ece60f5965a15b8244d43e4d1f60ae2d237
             $deletedesain = desain::find($id)->delete();
         } else {
             $data->update([
