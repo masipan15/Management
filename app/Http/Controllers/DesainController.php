@@ -193,7 +193,7 @@ class DesainController extends Controller
         ]);
         $deletebarangkeluar = barangkeluar::where('id', $id)->delete();
         if ($request->status_pengerjaan == 'Selesai') {
-            return redirect()->route('datadesain')->with('success', 'Desain berhasil di Di Selesaikan!');
+            return redirect()->route('desainselesai')->with('success', 'Desain berhasil di Di Selesaikan!');
         } else {
 
             return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
