@@ -5,12 +5,12 @@
         <div class="col-lg-12">
             <div class="card custom-card overflow-hidden">
                 <div class="card-body">
-                    @if (auth()->user()->role == 'admin')
+                    {{-- @if (auth()->user()->role == 'admin')
                         <div>
                             <a href="/tambahservis" class="btn btn-primary">Tambah</a>
                             <p class="text-muted card-sub-title"></p>
                         </div>
-                    @endif
+                    @endif --}}
                     <div class="table-responsive">
                         <table class="table" id="example1">
                             <thead>

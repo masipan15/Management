@@ -168,9 +168,15 @@ class DesainController extends Controller
                 'permintaan_desain' => $data->permintaan_desain,
                 'status_pengerjaan' => $request->status_pengerjaan,
                 'keterangan' => $data->keterangan,
-                'harga_desain' => $data->harga_desain,
+                'harga_desain' => $request->harga_desain,
                 'fotod' => $data->fotod
+                
             ]);
+            if ($request->hasfile('fotod')) {
+                $request->file('fotod')->move('fotodesain/', $request->file('fotod')->getClientOriginalName());
+                $data->fotod = $request->file('fotod')->getClientOriginalName();
+                $data->save();
+            }
 
             $deletedesain = desain::find($id)->delete();
         } else {
@@ -199,6 +205,7 @@ class DesainController extends Controller
 
             return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
         }
+        
     }
 
     public function deletes($id)
