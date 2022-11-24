@@ -60,7 +60,7 @@ class BarangmasukController extends Controller
             'suppliers_id.required' => 'Supplier harus diisi',
             'jumlah.required' => 'Jumlah beli harus diisi',
             'barangs_id.required' => 'Barang harus diisi',
-            'barangs_id.unique' => 'Barang yang anda beli sudah di Pilih'
+            'barangs_id.unique' => 'Barang sudah di pilih'
         ]);
         if ($validator->fails()) {
             return response()->json([
