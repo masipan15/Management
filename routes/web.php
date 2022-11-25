@@ -2,10 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PrintController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\databarangkeluar;
 use App\Http\Controllers\DesainController;
 use App\Http\Controllers\servisController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\kategoriController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\PelangganController;
@@ -13,8 +16,6 @@ use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\BarangkeluarController;
-use App\Http\Controllers\databarangkeluar;
-use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ use App\Http\Controllers\WelcomeController;
 |
 */
 
+Route::get('printermal/{notransaksi}', [PrintController::class, 'printermal'])->name('printermal');
 
 
 Route::get('/', function () {

@@ -14,6 +14,7 @@ use App\Models\transaksi;
 use Google\Service\ServiceControl\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use charlieuki\ReceiptPrinter\ReceiptPrinter as ReceiptPrinter;
 
 class BarangkeluarController extends Controller
 {
@@ -66,18 +67,20 @@ class BarangkeluarController extends Controller
 
 
         $validator = Validator::make($request->all(), [
-            'nama_barang' => 'required',
+            'nama_barang' => 'required|unique:barangkeluars',
             'kodebarang_keluar' => 'required',
             'merk_keluar' => 'required',
             'harga_jual' => 'required',
             'stok' => 'required',
             'jumlah' => 'required',
             'total' => 'required',
+        ], [
+            'nama_barang.unique' => 'Barang sudah di pilih'
         ]);
         if ($validator->fails()) {
             return response()->json([
                 'status' => 400,
-                'errors' => $validator->messages(),
+                'errors' => $validator->errors()->messages(),
             ]);
         }
 
@@ -161,7 +164,71 @@ class BarangkeluarController extends Controller
             $idtransaksi = detailtransaksi::insert($produk);
             $deletebarangkeluar = barangkeluar::where('id', $value->id)->delete();
         }
-        return redirect()->to('/print/' . $transaksi->notransaksi);
+        $detailbarang = detailtransaksi::where('notransaksi_id', $transaksi->id)->get();
+        $mid = '+62-8214-1736-147';
+        $store_name = 'ACS MultiTechnology';
+        $store_address = 'Jl,SoekarnoHatta,RT03/RW01,Jambewangi,Kec.Sempu,Kab.Banyuwangi';
+        $store_phone = '+62-8 214-1736-147';
+        $store_email = '';
+        $store_website = '';
+        $tax_percentage = 10;
+        $transaction_id = $transaksi->notransaksi;
+        $currency = 'Rp';
+        $image_path = "acs1.png";
+        $pembayaran = $transaksi->pembayaran;
+        $request_amount = $transaksi->pembayaran;
+        $kembalian = $transaksi->kembalian;
+
+        // Init printer
+        $printer = new ReceiptPrinter;
+        $printer->init(
+            'windows',
+            'POS-58'
+        );
+
+        // Set store info
+        $printer->setStore($mid, $store_name, $store_address, $store_phone, $store_email, $store_website);
+
+        // Set currency
+        $printer->setCurrency($currency);
+
+        $printer->setRequestAmount($request_amount);
+
+        // Set request amount
+        foreach ($detailbarang as $item) {
+            $printer->addItem(
+                $item->barangtransaksi->namabarang,
+                $item->jumlah,
+                $item->harga,
+                $item->total
+            );
+        }
+
+        $printer->setPembayaran($pembayaran);
+
+        // Calculate total
+        $printer->calculateSubTotal();
+        $printer->calculateGrandTotal();
+
+        $printer->setKembalian($kembalian);
+
+        // Set transaction ID
+        $printer->setTransactionID($transaction_id);
+
+        // Set logo
+        // Uncomment the line below if $image_path is defined
+        // $printer->setLogo($image_path);
+
+        // Set QR code
+        // $printer->setQRcode([
+        //     'tid' => $transaction_id,
+        //     'amount' => $request_amount,
+        // ]);
+
+        // Print payment request
+        $printer->printReceipt();
+        // dd($printer);
+        return back();
     }
 
     public function editbrgklr($id)

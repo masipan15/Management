@@ -59,6 +59,10 @@ class ComposerStaticInit311499530284d21be747c1165f0c3d95
         array (
             'phpseclib3\\' => 11,
         ),
+        'c' => 
+        array (
+            'charlieuki\\ReceiptPrinter\\' => 26,
+        ),
         'Z' => 
         array (
             'ZipStream\\' => 10,
@@ -140,6 +144,7 @@ class ComposerStaticInit311499530284d21be747c1165f0c3d95
         array (
             'MyCLabs\\Enum\\' => 13,
             'Monolog\\' => 8,
+            'Mike42\\' => 7,
             'Matrix\\' => 7,
             'Masterminds\\' => 12,
             'Maatwebsite\\Excel\\' => 18,
@@ -232,6 +237,10 @@ class ComposerStaticInit311499530284d21be747c1165f0c3d95
         'phpseclib3\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
+        ),
+        'charlieuki\\ReceiptPrinter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/charlieuki/receiptprinter/src',
         ),
         'ZipStream\\' => 
         array (
@@ -465,6 +474,10 @@ class ComposerStaticInit311499530284d21be747c1165f0c3d95
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Mike42\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42',
         ),
         'Matrix\\' => 
         array (
@@ -17836,6 +17849,31 @@ class ComposerStaticInit311499530284d21be747c1165f0c3d95
         'Matrix\\Operators\\Multiplication' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Multiplication.php',
         'Matrix\\Operators\\Operator' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Operator.php',
         'Matrix\\Operators\\Subtraction' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Subtraction.php',
+        'Mike42\\Escpos\\CapabilityProfile' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/CapabilityProfile.php',
+        'Mike42\\Escpos\\CapabilityProfiles\\DefaultCapabilityProfile' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/CapabilityProfiles/DefaultCapabilityProfile.php',
+        'Mike42\\Escpos\\CapabilityProfiles\\EposTepCapabilityProfile' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/CapabilityProfiles/EposTepCapabilityProfile.php',
+        'Mike42\\Escpos\\CapabilityProfiles\\P822DCapabilityProfile' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/CapabilityProfiles/P822DCapabilityProfile.php',
+        'Mike42\\Escpos\\CapabilityProfiles\\SimpleCapabilityProfile' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/CapabilityProfiles/SimpleCapabilityProfile.php',
+        'Mike42\\Escpos\\CapabilityProfiles\\StarCapabilityProfile' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/CapabilityProfiles/StarCapabilityProfile.php',
+        'Mike42\\Escpos\\CodePage' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/CodePage.php',
+        'Mike42\\Escpos\\Devices\\AuresCustomerDisplay' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/Devices/AuresCustomerDisplay.php',
+        'Mike42\\Escpos\\EscposImage' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/EscposImage.php',
+        'Mike42\\Escpos\\GdEscposImage' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/GdEscposImage.php',
+        'Mike42\\Escpos\\ImagickEscposImage' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/ImagickEscposImage.php',
+        'Mike42\\Escpos\\NativeEscposImage' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/NativeEscposImage.php',
+        'Mike42\\Escpos\\PrintBuffers\\EscposPrintBuffer' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/PrintBuffers/EscposPrintBuffer.php',
+        'Mike42\\Escpos\\PrintBuffers\\ImagePrintBuffer' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/PrintBuffers/ImagePrintBuffer.php',
+        'Mike42\\Escpos\\PrintBuffers\\PrintBuffer' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/PrintBuffers/PrintBuffer.php',
+        'Mike42\\Escpos\\PrintConnectors\\ApiPrintConnector' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/PrintConnectors/ApiPrintConnector.php',
+        'Mike42\\Escpos\\PrintConnectors\\CupsPrintConnector' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/PrintConnectors/CupsPrintConnector.php',
+        'Mike42\\Escpos\\PrintConnectors\\DummyPrintConnector' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/PrintConnectors/DummyPrintConnector.php',
+        'Mike42\\Escpos\\PrintConnectors\\FilePrintConnector' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/PrintConnectors/FilePrintConnector.php',
+        'Mike42\\Escpos\\PrintConnectors\\NetworkPrintConnector' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/PrintConnectors/NetworkPrintConnector.php',
+        'Mike42\\Escpos\\PrintConnectors\\PrintConnector' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/PrintConnectors/PrintConnector.php',
+        'Mike42\\Escpos\\PrintConnectors\\RawbtPrintConnector' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/PrintConnectors/RawbtPrintConnector.php',
+        'Mike42\\Escpos\\PrintConnectors\\UriPrintConnector' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/PrintConnectors/UriPrintConnector.php',
+        'Mike42\\Escpos\\PrintConnectors\\WindowsPrintConnector' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/PrintConnectors/WindowsPrintConnector.php',
+        'Mike42\\Escpos\\Printer' => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42/Escpos/Printer.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegrationAssertPostConditions' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditions.php',
@@ -21055,6 +21093,11 @@ class ComposerStaticInit311499530284d21be747c1165f0c3d95
         'ZipStream\\Option\\Version' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Option/Version.php',
         'ZipStream\\Stream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Stream.php',
         'ZipStream\\ZipStream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/ZipStream.php',
+        'charlieuki\\ReceiptPrinter\\Facades\\ReceiptPrinter' => __DIR__ . '/..' . '/charlieuki/receiptprinter/src/Facades/ReceiptPrinter.php',
+        'charlieuki\\ReceiptPrinter\\Item' => __DIR__ . '/..' . '/charlieuki/receiptprinter/src/Item.php',
+        'charlieuki\\ReceiptPrinter\\ReceiptPrinter' => __DIR__ . '/..' . '/charlieuki/receiptprinter/src/ReceiptPrinter.php',
+        'charlieuki\\ReceiptPrinter\\ReceiptPrinterServiceProvider' => __DIR__ . '/..' . '/charlieuki/receiptprinter/src/ReceiptPrinterServiceProvider.php',
+        'charlieuki\\ReceiptPrinter\\Store' => __DIR__ . '/..' . '/charlieuki/receiptprinter/src/Store.php',
         'phpseclib3\\Common\\Functions\\Strings' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/Common/Functions/Strings.php',
         'phpseclib3\\Crypt\\AES' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/Crypt/AES.php',
         'phpseclib3\\Crypt\\Blowfish' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/Crypt/Blowfish.php',

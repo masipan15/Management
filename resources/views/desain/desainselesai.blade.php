@@ -59,7 +59,8 @@
                                             class="modalMd" title="Lihat Deskripsi Barang" data-toggle="modal"
                                             data-target="#modalMd{{ $row->id }}"><i
                                                 class="fas fa-eye text-success  fa-lg"></i>
-                                        </a></a></td>
+                                        </a></a>
+                                        </td>
                                         <td>Rp.{{ number_format($row['harga_desain'], 2, '.', '.') }}</td>
 
 
@@ -155,6 +156,15 @@
             });
         });
     </script>
+
+<script>
+    $(document).on('ajaxComplete ready', function() {
+        $('.modalMd').off('click').on('click', function() {
+            $('#content').load($(this).attr('value'));
+            $('#modalMdTitle').html($(this).attr('title'));
+        });
+    });
+</script>
 
     @include('sweetalert::alert')
 @endsection
