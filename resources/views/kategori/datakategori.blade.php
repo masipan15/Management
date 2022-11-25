@@ -35,12 +35,12 @@
                                         <td>
                                             <a href="/editkategori/{{ $row->id }}" class="btn btn-success mb-1"><i
                                                     class="fas fa-pencil-alt"></i></a><br>
-                                            {{-- <a href="/hapusktgr/{{ $row->id }}" class="btn btn-danger"
+                                            <a href="/hapusktgr/{{ $row->id }}" class="btn btn-danger"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
-                                                    class="fas fa-trash-alt"></i></button></a> --}}
-                                            <button class="btn btn-danger delete-btn"
+                                                    class="fas fa-trash-alt"></i></button></a>
+                                            {{-- <button class="btn btn-danger delete-btn"
                                                 data-id="{{ $row->id }}"data-nama="{{ $row->kategori }}">Hapus</button>
-                                                
+                                                 --}}
                                         </td>
                                     </tr>
                                 @endforeach
