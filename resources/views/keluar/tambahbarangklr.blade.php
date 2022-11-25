@@ -297,7 +297,6 @@
                     dataType: "json",
                     success: function(response) {
                         if (response.errors) {
-                            console.log(response)
                             Swal.fire({
                                 icon: 'error',
                                 title: response.errors[Object.keys(response.errors)[0]][
