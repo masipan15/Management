@@ -37,7 +37,8 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'desain'])) {
             return redirect('/welcome');
         }
-        return redirect('login')->with('success', 'Berhasil Login');
+        
+        return redirect('login')->with('error', 'password yang anda masukan salah');
     }
 
 
@@ -135,27 +136,21 @@ class LoginController extends Controller
         auth::logout();
         return redirect()->route('login')->with('success', 'Anda berhasil di Keluar!');
     }
+    
 
 
-    // public function profil()
-    // {
-    //     $data = User::all();
-    //     return view('layout.profil', compact('data'));
-    // }
-    // public function editprofil()
-    // {
-    //     $data = User::all();
-    //     return view('layout.editprofil', compact('data'));
-    // }
 
-
+    public function profil()
+    {
+        $data = User::all();
+        return view('layout.profil', compact('data'));
+    }
     public function editprofil(request $request)
     {
         $data = User::findOrFail(Auth::user()->id);
 
         return view('layout.editprofil', compact('data'));
     }
-
     public function updateprofil(request $request)
     {
         $data = User::find(Auth::user()->id);
@@ -171,7 +166,6 @@ class LoginController extends Controller
         }
         return redirect()->route('profil')->with('success', 'Profil berhasil di Ganti!');
     }
-
 
     public function editpassword()
     {
@@ -192,12 +186,6 @@ class LoginController extends Controller
            'password_confirmation.required' => 'konfirmasi sandi harus diisi',
 
         ]);
-        // if(Auth::attempt($request->only('password_lama'))){
-        //     return redirect('profil')->with('success', 'Kata Sandi Yang anda masukkan benar');
-        // } else {
-        //     return redirect()->back()->with('password', 'Kata Sandi Yang anda masukkan salah');
-
-        // }
 
         $current_user = Auth()->user();
 
@@ -207,16 +195,10 @@ class LoginController extends Controller
             ]);
 
             return redirect()->back()->with('success', 'Password Berhasil Di Ganti');
-
         } else {
-            return redirect()->back()->with('error', 'Password Tidak Terdeteksi');
+            // return redirect()->back()->with('error', 'Password Tidak Terdeteksi');
+            return redirect('editprofil')->with('error', 'password yang anda masukan salah');
         }
-    }
-
-    public function profil()
-    {
-        $data = User::all();
-        return view('layout.profil', compact('data'));
     }
 
     function crop(Request $request){

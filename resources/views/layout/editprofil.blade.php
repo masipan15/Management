@@ -121,9 +121,9 @@
                                                     </div>
                                                     <div class="form-group row justify-content-end mb-0">
                                                         <div class="col-md-5 pl-md-5 mt-3">                                                            
-                                                            <a href="/profil" type="button" class="btn btn-danger">Batal</a>
+                                                            <a href="/profil" type="button" class="btn btn-danger mr-1">Batal</a>
                                                             <button type="reset" class="btn btn-primary mr-1">Reset</button>
-                                                            <button type="submit" class="btn btn-success mr-1">Save</button>
+                                                            <button type="submit" class="btn btn-success">Save</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -132,7 +132,7 @@
                                     {{-- EDIT PASSWORD --}}
                                             <div class="mt-5">
                                             <div class="card-body border">
-                                                <div class="mb-4 main-content-label"><b>Ganti Password</b></div>
+                                                <div class="mb-4 main-content-label"><b>Ganti Sandi</b></div>
                                                 <form action="/updatepassword" method="POST" class="form-horizontal">
                                                     @csrf
                                                     
@@ -146,6 +146,9 @@
                                                         </div>
                                                         @if($errors->any('password_lama'))
                                                             <span class="text-danger">{{ $errors->first('password_lama') }}</span>
+                                                        @endif
+                                                        @if (session('error'))
+                                                            <div class="text-danger">{{ session('error') }}</div>
                                                         @endif
                                                     </div><br>
 
@@ -170,12 +173,15 @@
                                                             <span class="text-danger">{{ $errors->first('password') }}</span>
                                                         @endif
                                                     </div>
+                                                    @if (session('success'))
+                                                        <div class="text-danger">{{ session('success') }}</div>
+                                                    @endif
 
                                                     <div class="form-group row justify-content-end mb-0">
                                                         <div class="col-md-5 pl-md-5 mt-3">                                                            
-                                                            <a href="/profil" type="button" class="btn btn-danger">Batal</a>
+                                                            <a href="/profil" type="button" class="btn btn-danger mr-1">Batal</a>
                                                             <button type="reset" class="btn btn-primary mr-1">Reset</button>
-                                                            <button type="submit" class="btn btn-success mr-1">Save</button>
+                                                            <button type="submit" class="btn btn-success">Save</button>
                                                         </div>
                                                     </div>
                                                 </form>

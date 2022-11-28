@@ -52,6 +52,9 @@
             @error('password')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
+            @if (session('error'))
+                <div class="text-danger">{{ session('error') }}</div>
+            @endif
 
             <div class="form-group">
                 <input type="checkbox" onclick="myFunction()" id="rem">
