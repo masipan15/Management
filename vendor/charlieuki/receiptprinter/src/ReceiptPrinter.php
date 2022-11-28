@@ -76,6 +76,12 @@ class ReceiptPrinter
 
     public function setLogo($logo)
     {
+
+        $this->logo = $logo;
+    }
+    public function graphics($logo)
+    {
+
         $this->logo = $logo;
     }
 

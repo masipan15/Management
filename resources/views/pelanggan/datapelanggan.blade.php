@@ -25,7 +25,7 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        <td>{{ $row->nama_pelanggan }}</td>
+                                        <td>{{ $row->nama_pelanggan ?: 'Pelanggan Umum' }}</td>
                                         <td>{{ $row->notelpon }}</td>
 
 

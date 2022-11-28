@@ -6,13 +6,14 @@ use Carbon\Carbon;
 use App\Models\Barang;
 use App\Models\Pelanggan;
 use App\Models\Pemasukan;
+use App\Models\transaksi;
 use App\Models\barangkeluar;
 use Illuminate\Http\Request;
-use App\Models\Databarangkeluar;
+use Mike42\Escpos\EscposImage;
 use App\Models\detailtransaksi;
-use App\Models\transaksi;
-use Google\Service\ServiceControl\Auth;
+use App\Models\Databarangkeluar;
 use Illuminate\Support\Facades\DB;
+use Google\Service\ServiceControl\Auth;
 use Illuminate\Support\Facades\Validator;
 use charlieuki\ReceiptPrinter\ReceiptPrinter as ReceiptPrinter;
 
@@ -215,9 +216,12 @@ class BarangkeluarController extends Controller
         // Set transaction ID
         $printer->setTransactionID($transaction_id);
 
+        // $logo = EscposImage::load(asset("fotobarang/acs.jpg"));
+        // $printer->graphics($logo);
+
         // Set logo
         // Uncomment the line below if $image_path is defined
-        // $printer->setLogo($image_path);
+        // $printer->setLogo("wa.png");
 
         // Set QR code
         // $printer->setQRcode([
@@ -227,7 +231,7 @@ class BarangkeluarController extends Controller
 
         // Print payment request
         $printer->printReceipt();
-        // dd($printer);
+        dd($printer);
         return back();
     }
 
