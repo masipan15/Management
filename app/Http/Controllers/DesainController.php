@@ -198,6 +198,7 @@ class DesainController extends Controller
 
             return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
         }
+        
     }
 
     public function deletes($id)

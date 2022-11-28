@@ -60,7 +60,7 @@
             <div class="form-group">
                 <input type="checkbox" onclick="myFunction()" id="rem">
                 <label for="rem">Tampilkan Sandi</label>
-                <button id="submit" type="submit" ripple>Masuk</button>
+                <button id="submit" type="submit" ripple>Daftar</button>
             </div>
         </form>
         <footer><a href="/login ">Sudah Punya Akun ? Masuk</a></footer>

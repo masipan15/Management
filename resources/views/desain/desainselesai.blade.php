@@ -60,6 +60,7 @@
                                             data-target="#modalMd{{ $row->id }}"><i
                                                 class="fas fa-eye text-success  fa-lg"></i>
                                         </a></a>
+                                        </td>
                                         <td>Rp.{{ number_format($row['harga_desain'], 2, '.', '.') }}</td>
 
 
@@ -145,6 +146,14 @@
                         swal("Data Tidak Jadi Di hapus");
                     }
                 });
+        });
+    </script>
+    <script>
+        $(document).on('ajaxComplete ready', function() {
+            $('.modalMd').off('click').on('click', function() {
+                $('#content').load($(this).attr('value'));
+                $('#modalMdTitle').html($(this).attr('title'));
+            });
         });
     </script>
 

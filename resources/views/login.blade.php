@@ -25,11 +25,8 @@
         <span><h5>Masuk ke akun anda</h5></span>
 
             <div class="form-group1 text-center mt-4">
-                {{-- <a href="/registerdesain" class="btn btn-info" id="submit1" type="submit1" ripple>User Desain</a>
-                <a href="/registerservis" class="btn btn-info" id="submit2" type="submit2" ripple>User Servis</a> --}}
                 <a type="button" href="/registerdesain" class="btn btn-outline-primary">Daftar User Desain</a>
                 <a type="button" href="/registerservis" class="btn btn-outline-primary">Daftar User Servis</a>
-                {{-- <button type="button" class="btn btn-outline-primary">Primary</button> --}}
             </div>
 
         <form action="/loginproses" method="POST" id="login-form">
@@ -55,6 +52,9 @@
             @error('password')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
+            @if (session('error'))
+                <div class="text-danger">{{ session('error') }}</div>
+            @endif
 
             <div class="form-group">
                 <input type="checkbox" onclick="myFunction()" id="rem">
@@ -62,9 +62,6 @@
                 <button id="submit" type="submit" ripple>Masuk</button>
             </div>
         </form>
-        {{-- <footer><a href=""></a></footer>
-        <footer1><a href="/registerdesain">Daftar Akun Sebagai User Desain</a></footer1>
-        <footer3><a href="/registerservis">Daftar Akun Sebagai User Servis</a></footer3> --}}
     </div>
 
 </body>
