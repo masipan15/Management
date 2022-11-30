@@ -37,7 +37,7 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        <td>{{ $row->created_at->format('d/m/y') }}</td>
+                                        <td>{{ $row->created_at->translatedFormat('l/d/F/Y : H:i') }}</td>
                                         @if ($row->status_pengerjaan == 'Selesai')
                                             <td>
                                                 <span class="badge badge-pill badge-success ">Selesai</span>
@@ -60,10 +60,10 @@
                                         <td>{{ $row->nama_barang }}</td>
                                         <td>{{ $row->kerusakan_barang }}</td>
                                         <td><a href="#/{{ $row->id }}" value="{{ route('show', ['id' => $row->id]) }}"
-                                            class="modalMd" title="Lihat Deskripsi Barang" data-toggle="modal"
-                                            data-target="#modalMd{{ $row->id }}"><i
-                                                class="fas fa-eye text-success  fa-lg"></i>
-                                        </a></a>
+                                                class="modalMd" title="Lihat Deskripsi Barang" data-toggle="modal"
+                                                data-target="#modalMd{{ $row->id }}"><i
+                                                    class="fas fa-eye text-success  fa-lg"></i>
+                                            </a></a>
                                         <td>Rp.{{ number_format($row['biaya_pengerjaan'], 2, '.', '.') }}</td>
                                         <td>
                                             @if (auth()->user()->role == 'servis')
@@ -149,12 +149,12 @@
         });
     </script>
 
-<script>
-    $(document).on('ajaxComplete ready', function() {
-        $('.modalMd').off('click').on('click', function() {
-            $('#content').load($(this).attr('value'));
-            $('#modalMdTitle').html($(this).attr('title'));
+    <script>
+        $(document).on('ajaxComplete ready', function() {
+            $('.modalMd').off('click').on('click', function() {
+                $('#content').load($(this).attr('value'));
+                $('#modalMdTitle').html($(this).attr('title'));
+            });
         });
-    });
-</script>
+    </script>
 @endsection

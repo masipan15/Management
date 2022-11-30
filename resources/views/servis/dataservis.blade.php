@@ -1,5 +1,4 @@
 @extends('layout.admin')
-
 @section('content')
     <div class="row row-sm mt-3">
         <div class="col-lg-12">
@@ -36,7 +35,7 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        <td>{{ $row->created_at->format('d/m/y') }}</td>
+                                        <td>{{ $row->created_at->translatedFormat('l/d/F/Y : H:i') }}</td>
                                         @if ($row->status_pengerjaan == 'Selesai')
                                             <td>
                                                 <span class="badge badge-pill badge-success ">Selesai</span>

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+
 use App\Models\Barang;
 
 use App\Models\Kategori;
-
 use App\Models\Barangmasuk;
 use App\Models\Barangkeluar;
 use Illuminate\Http\Request;
@@ -40,7 +41,7 @@ class BarangController extends Controller
             'deskripsi' => 'required',
             'harga' => 'required',
             'hargajual' => 'required',
-            // 'foto1' => 'required|mimes:jpg,png,jpeg,jfif,webp',
+            'foto1' => 'required',
         ], [
             'kategoris_id.required' => 'kategori Harus Diisi!',
             'namabarang.required' => 'namabarang Harus Diisi!',
@@ -50,19 +51,16 @@ class BarangController extends Controller
             'hargajual.required' => 'harga Harus Diisi!',
             'stok.required' => 'stok Harus Diisi!',
             'foto1.required' => 'foto1 Harus Diisi!',
-            // 'foto1.mimes' => 'Harus Image',
         ]);
 
         $images = array();
 
-        $kodebarang = random_int(10000, 99999);
         $namabarang = $request->namabarang;
         $kategoris_id = $request->kategoris_id;
         $merk = $request->merk;
         $harga = $request->harga;
         $hargajual = $request->hargajual;
         $deskripsi = $request->deskripsi;
-        $foto1 = $request->foto1;
 
 
         if ($files = $request->file('foto1')) {
@@ -73,8 +71,8 @@ class BarangController extends Controller
             }
         }
 
-        for ($i = 0; $i < count($namabarang); $i++) {
-            $data =       Barang::insert([
+        for ($i = 0; $i < count($namabarang) - 1; $i++) {
+            $data = Barang::insert([
                 'kodebarang' => random_int(10000, 999999),
                 'namabarang' => $namabarang[$i],
                 'kategoris_id' => $kategoris_id[$i],

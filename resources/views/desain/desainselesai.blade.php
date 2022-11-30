@@ -35,7 +35,7 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        <td>{{ $row->created_at->format('d/m/y') }}</td>
+                                        <td>{{ $row->created_at->translatedFormat('l/d/F/Y : H:i') }}</td>
 
                                         <td class="text-center">
                                             @if ($row->status_pengerjaan == 'Selesai')

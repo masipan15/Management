@@ -282,10 +282,25 @@
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
-                <li class="nav-item {{ Route::is('pengeluaran') ? 'active' : '' }}">
+                <li class="nav-item {{ Route::is('pengeluaran') ? 'autofocus' : '' }}">
                     <a class="nav-link" href="/pengeluaran"><span class="shape1"></span><span
                             class="shape2"></span><i class="ti-server sidemenu-icon"></i><span
                             class="sidemenu-label">Pengeluaran</span></a>
+                </li>
+            @endif
+            @if (auth()->user()->role == 'admin')
+                <li class="nav-header"><span class="nav-label">Laporan</span></li>
+                <li class="nav-item {{ Route::is('laporanbarangkeluar') ? 'active' : '' }}">
+                    <a class="nav-link" href="/laporanbarangkeluar"><span class="shape1"></span><span
+                            class="shape2"></span><i class="ti-receipt sidemenu-icon"></i><span
+                            class="sidemenu-label">Laporan Barang Keluar</span></a>
+                </li>
+            @endif
+            @if (auth()->user()->role == 'admin')
+                <li class="nav-item {{ Route::is('laporanbarangmasuk') ? 'active' : '' }}">
+                    <a class="nav-link" href="/laporanbarangmasuk"><span class="shape1"></span><span
+                            class="shape2"></span><i class="ti-receipt sidemenu-icon"></i></i><span
+                            class="sidemenu-label">Laporan Barang Masuk</span></a>
                 </li>
             @endif
             {{-- @if (auth()->user()->role == 'admin')

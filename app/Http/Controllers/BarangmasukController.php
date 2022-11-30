@@ -17,9 +17,25 @@ class BarangmasukController extends Controller
 
     public function barangmasuk()
     {
-        $data = databarangmasuk::with('supplier', 'namabarang')->get();
+        $data = databarangmasuk::with('supplier', 'namabarang')->orderBy('created_at', 'DESC')->get();
         $subtotal = databarangmasuk::sum('total');
         return view('masuk.barangmasuk', compact('data', 'subtotal'));
+    }
+
+    public function laporanbarangmasuk()
+    {
+        $data = databarangmasuk::with('supplier', 'namabarang')->orderBy('created_at', 'DESC')->get();
+        $subtotal = databarangmasuk::sum('total');
+        return view('masuk.laporan', compact('data', 'subtotal'));
+    }
+
+    public function searchmasuk(Request $request)
+    {
+        $mulai = $request->input('mulai');
+        $akhir = $request->input('akhir');
+        $data = databarangmasuk::with('supplier', 'namabarang')->whereBetween(DB::raw("DATE(created_at)"), [$mulai, $akhir])->get();
+        $subtotal = databarangmasuk::whereBetween(DB::raw("DATE(created_at)"), [$mulai, $akhir])->sum('total');
+        return view('masuk.laporan', compact('data', 'subtotal'));
     }
 
     public function tampung()

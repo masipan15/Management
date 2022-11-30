@@ -6,9 +6,37 @@
             <div class="card custom-card overflow-hidden">
                 <div class="card-body">
                     <div>
-                        <a href="/tambahbarangmasuk" class="btn btn-primary">Tambah</a>
+                        <h3 class="main-content-label mb-1">Laporan Barang Masuk</h3>
                         <p class="text-muted card-sub-title"></p>
                     </div>
+                    <form action="/laporanbarangkeluar" method="POST">
+                        @csrf
+                        <div class="container">
+                            <div class="row">
+                                <div class="container-fluid">
+                                    <div class="form-group row">
+                                        <label for="date" class="col-form-label col-sm-2">Cari Dari Tanggal</label>
+                                        <div class="col-sm-3">
+                                            <input type="date" class="form-control input-sm" id="mulai"
+                                                name="mulai">
+                                        </div>
+                                        <label for="date" class="form-label">Cari Sampai Tanggal</label>
+                                        <div class="col-sm-3">
+                                            <input type="date" class="form-control input-sm" id="akhir"
+                                                name="akhir">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <button class="btn btn-danger" type="submit" name="search" title="Search">
+                                                <i class="ti-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
                     <div class="table-responsive">
                         <table class="table" id="example1">
                             <thead>

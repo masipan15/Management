@@ -39,16 +39,16 @@ Route::get('tes', function () {
     return view('crypto');
 });
 
-
-
+Route::post('/laporanbarangkeluar', [BarangkeluarController::class, 'search'])->name('laporanbarangkeluar')->middleware('auth');
+Route::get('/laporanbarangkeluar', [BarangkeluarController::class, 'laporanbarangkeluar'])->name('laporanbarangkeluar')->middleware('auth');
+Route::get('/laporanbarangmasuk', [BarangmasukController::class, 'laporanbarangmasuk'])->name('laporanbarangmasuk')->middleware('auth');
+Route::post('/laporanbarangmasuk', [BarangmasukController::class, 'searchmasuk'])->name('laporanbarangmasuk')->middleware('auth');
 Route::get('welcome', [WelcomeController::class, 'welcome'])->name('welcome')->middleware('auth');
 
 //Edit Password
 Route::get('editpassword', [LoginController::class, 'editpassword'])->name('editpassword')->middleware('auth');
 Route::post('updatepassword', [LoginController::class, 'updatepassword'])->name('updatepassword')->middleware('auth');
-
 Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
-
 
     //barang masuk
     Route::get('barangmasuk', [BarangmasukController::class, 'barangmasuk'])->name('barangmasuk')->middleware('auth');
