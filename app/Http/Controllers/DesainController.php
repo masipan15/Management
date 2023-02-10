@@ -198,7 +198,7 @@ class DesainController extends Controller
 
             return redirect()->route('datadesain')->with('success', 'Data berhasil di Update!');
         }
-        
+
     }
 
     public function deletes($id)
@@ -207,6 +207,7 @@ class DesainController extends Controller
         $data->delete();
         return redirect()->route('datadesain')->with('success', 'Data Berhasil Di Hapus');
     }
+
     // public function download($id)
     // {
     //     $data = DB::table('desains')->where('id', $id)->first();

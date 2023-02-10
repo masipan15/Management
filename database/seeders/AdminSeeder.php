@@ -17,31 +17,19 @@ class AdminSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-	    'name' => 'Admin',
+            'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('123456'),
             'role' => 'admin',
-		]);
+        ]);
         DB::table('kategoris')->insert([
-            'kategori' => 'flashdisk'
+            'kategori' => 'Flashdisk'
         ]);
-        DB::table('barangs')->insert([
-            'kodebarang' => '12345',
-            'kategoris_id' => '1',
-            'namabarang' => 'flashdisk sandisk',
-            'merk' => 'sandisk',
-            'deskripsi' => 'penyimpanan banyak dan barang awet',
-            'stok' => '100',
-            'harga' => '40000',
-            'hargajual' => '50000',
-            'foto1' => 'flashdisk.jpg',
-        ]);
+
         DB::table('suppliers')->insert([
-            'nama_supplier' => 'rudi',
-            'alamat_supplier' => 'banyuwangi',
+            'nama_supplier' => 'Rudi',
+            'alamat_supplier' => 'Banyuwangi',
             'notelpon' => '081234567892',
         ]);
     }
-
-    
 }

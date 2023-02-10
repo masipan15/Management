@@ -25,9 +25,7 @@
                                     <th class="wd-20p">Detail</th>
                                     <th class="wd-15p">Biaya</th>
                                     <th class="wd-20p">Aksi</th>
-                                    @if (auth()->user()->role == 'admin')
-                                        <th class="wd-20p">Cetak</th>
-                                    @endif
+                                 
                                 </tr>
                             </thead>
                             <tbody>
@@ -79,9 +77,7 @@
                                                 {{-- <a href="#" class="btn btn-danger delete"
                                                         data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a> --}}
                                         </td>
-                                        <td>
-                                            <a href="/shiftdataservis_selesai/{{ $row->id }}" target="_blank"
-                                                class="btn btn-info mb-1"><i class="fas fa-print"></i></a><br>
+                                        
                                 @endif
 
                                 </td>

@@ -66,13 +66,14 @@ class kategoriController extends Controller
 
     public $delete_id;
 
-    protected $Listeners = ['deleteConfirmed'=>'hapusktgr'];
-     
+    protected $Listeners = ['deleteConfirmed' => 'hapusktgr'];
+
     public function deleteConfirmation($id)
     {
         try {
             $kategori = kategori::find($id);
             $kategori->delete();
+            return redirect()->route('datakategori')->with('success', 'Data Berhasil Di Hapus');
         } catch (QueryException $e) {
             if ($e->errorInfo[1] == 1451) {
                 return to_route('datakategori')->with('error', 'Data masih digunakan');
@@ -81,4 +82,3 @@ class kategoriController extends Controller
         return redirect()->route('datakategori')->with('success', 'Data Berhasil Di Hapus');
     }
 }
- 

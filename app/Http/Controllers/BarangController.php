@@ -71,7 +71,7 @@ class BarangController extends Controller
             }
         }
 
-        for ($i = 0; $i < count($namabarang) - 1; $i++) {
+        for ($i = 0; $i < count($namabarang) - 0; $i++) {
             $data = Barang::insert([
                 'kodebarang' => random_int(10000, 999999),
                 'namabarang' => $namabarang[$i],
@@ -125,6 +125,7 @@ class BarangController extends Controller
         try {
             $data = Barang::find($id);
             $data->delete();
+            return redirect()->route('databarang')->with('success', 'Data Berhasil Di Hapus');
         } catch (QueryException $e) {
             if ($e->errorInfo[1] == 1451) {
                 return to_route('databarang')->with('error', 'Data masih digunakan');

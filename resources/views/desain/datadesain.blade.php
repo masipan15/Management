@@ -20,14 +20,8 @@
                                     <th class="wd-20p">Hasil Desain</th>
                                     <th class="wd-25p">Nama Pemesan</th>
                                     <th class="wd-25p">Detail</th>
-
                                     <th class="wd-25p">Permintaan Desain</th>
-
                                     <th class="wd-20p">Harga Desain</th>
-                                    <th class="wd-20p">Aksi</th>
-                                    @if (auth()->user()->role == 'admin')
-                                        <th class="wd-20p">Cetak</th>
-                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,11 +68,7 @@
                                                     onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                         class="fas fa-trash-alt"></i></button></a>
                                         </td>
-                                        <td>
-                                            <a href="shiftdatadesain/{{ $row->id }}" target="_blank"
-                                                class="btn btn-success mb-1"><i class="fas fa-print"></i></a><br>
 
-                                        </td>
                                 @endif
                                 </tr>
                                 <div class="modal fade" id="modalMd{{ $row->id }}" role="dialog"

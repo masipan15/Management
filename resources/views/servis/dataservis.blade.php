@@ -25,7 +25,7 @@
                                     <th class="wd-15p">Biaya</th>
 
                                     <th class="wd-20p">Aksi</th>
-                                    <th class="wd-20p">Cetak</th>
+                                    {{-- <th class="wd-20p">Cetak</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -75,11 +75,11 @@
                                                 {{-- <a href="#" class="btn btn-danger delete"
                                                         data-id="{{ $row->id }}"data-nama="{{ $row->nama }}">Hapus</a> --}}
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             <a href="/shiftdataservis/{{ $row->id }}" target="_blank"
                                                 class="btn btn-info mb-1"><i class="fas fa-print"></i></a><br>
 
-                                        </td>
+                                        </td> --}}
                                 @endif
                                 </tr>
                                 <div class="modal fade" id="modalMd{{ $row->id }}" role="dialog"

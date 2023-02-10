@@ -320,7 +320,7 @@
     <div class="main-header side-header sticky">
         <div class="container-fluid">
             <div class="main-header-left">
-                <a class="main-header-menu-icon" href="#" id="mainSidebarToggle"><span></span></a>
+                <a class="main-header-menu-icon" href="#" id=" "><span></span></a>
                 <div class="dropdown d-md-flex">
                     <a class="nav-link icon full-screen-link" href="#">
                         <i class="fe fe-maximize fullscreen-button fullscreen header-icons"></i>

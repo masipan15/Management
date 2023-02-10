@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\barangmasuk;
 use Illuminate\Http\Request;
+use App\Models\databarangmasuk;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Exports\PengeluaranExport;
-use App\Models\barangmasuk;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PengeluaranController extends Controller
@@ -14,11 +15,11 @@ class PengeluaranController extends Controller
     {
 
 
-        $subtotal = barangmasuk::sum('total');
-        $barangmasuk = barangmasuk::all();
+        $subtotal = databarangmasuk::sum('total');
+        $databarangmasuk = databarangmasuk::all();
         $array = [];
-        $barangmasuk = barangmasuk::all();
-        foreach ($barangmasuk as $b) {
+        $databarangmasuk = databarangmasuk::all();
+        foreach ($databarangmasuk as $b) {
             $b->setAttribute('bulan', date('d-M-Y', strtotime($b->created_at)));
             $b->setAttribute('type', 'Barang Masuk');
             $b->setAttribute('total', $b->total);
@@ -30,8 +31,8 @@ class PengeluaranController extends Controller
     public function exportpdf()
     {
         $array = [];
-        $barangmasuk = barangmasuk::all();
-        foreach ($barangmasuk as $b) {
+        $databarangmasuk = databarangmasuk::all();
+        foreach ($databarangmasuk as $b) {
             $b->setAttribute('tanggal', date('d', strtotime($b->created_at)));
             $b->setAttribute('tahun', date('Y', strtotime($b->created_at)));
             $b->setAttribute('bulan', date('M', strtotime($b->created_at)));

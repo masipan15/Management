@@ -23,9 +23,7 @@
                                     <th class="wd-20p">Detail</th>
                                     <th class="wd-20p">Harga Desain</th>
                                     <th class="wd-20p">Aksi</th>
-                                    @if (auth()->user()->role == 'admin')
-                                        <th class="wd-20p">Cetak</th>
-                                    @endif
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -48,18 +46,17 @@
                                         </td>
 
                                         <td>
-                                            <a href="{{ asset('storage/' . $row->fotod) }}" data-lightbox=""
-                                                button="close">
+                                            <a href="{{ asset('storage/' . $row->fotod) }}" data-lightbox="" button="close">
                                                 <img src="{{ asset('storage/' . $row->fotod) }}" class="img-fluid"
                                                     alt="" style="width: 50px";></a>
                                         </td>
                                         <td>{{ $row->nama_pemesan }}</td>
                                         <td>{{ $row->permintaan_desain }}</td>
                                         <td><a href="#/{{ $row->id }}" value="{{ route('show', ['id' => $row->id]) }}"
-                                            class="modalMd" title="Lihat Deskripsi Barang" data-toggle="modal"
-                                            data-target="#modalMd{{ $row->id }}"><i
-                                                class="fas fa-eye text-success  fa-lg"></i>
-                                        </a></a>
+                                                class="modalMd" title="Lihat Deskripsi Barang" data-toggle="modal"
+                                                data-target="#modalMd{{ $row->id }}"><i
+                                                    class="fas fa-eye text-success  fa-lg"></i>
+                                            </a></a>
                                         </td>
                                         <td>Rp.{{ number_format($row['harga_desain'], 2, '.', '.') }}</td>
 
@@ -72,11 +69,6 @@
                                                 <a href="/deletes/{{ $row->id }}" class="btn btn-danger"
                                                     onclick="return confirm('Yakin Ingin Menghapus Data Ini ')"><i
                                                         class="fas fa-trash-alt"></i></button></a>
-                                        </td>
-                                        <td>
-                                            <a href="shiftdesainselesai/{{ $row->id }}" target="_blank"
-                                                class="btn btn-success mb-1"><i class="fas fa-print"></i></a><br>
-
                                         </td>
                                 @endif
                                 </tr>
@@ -157,14 +149,14 @@
         });
     </script>
 
-<script>
-    $(document).on('ajaxComplete ready', function() {
-        $('.modalMd').off('click').on('click', function() {
-            $('#content').load($(this).attr('value'));
-            $('#modalMdTitle').html($(this).attr('title'));
+    <script>
+        $(document).on('ajaxComplete ready', function() {
+            $('.modalMd').off('click').on('click', function() {
+                $('#content').load($(this).attr('value'));
+                $('#modalMdTitle').html($(this).attr('title'));
+            });
         });
-    });
-</script>
+    </script>
 
     @include('sweetalert::alert')
 @endsection

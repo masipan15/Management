@@ -37,7 +37,7 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'desain'])) {
             return redirect('/welcome');
         }
-        
+
         return redirect('login')->with('error', 'password yang anda masukan salah');
     }
 
@@ -60,7 +60,7 @@ class LoginController extends Controller
 
         User::create([
             'name' => $request->name,
-            'email' => $request->email,
+            'email' => $request->email, 
             'role' => 'admin',
             'password' => bcrypt($request->password),
             'alamat' => $request->alamat,
@@ -136,7 +136,7 @@ class LoginController extends Controller
         auth::logout();
         return redirect()->route('login')->with('success', 'Anda berhasil di Keluar!');
     }
-    
+
 
 
 
