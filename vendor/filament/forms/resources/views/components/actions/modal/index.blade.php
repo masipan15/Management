@@ -9,15 +9,18 @@
         :visible="filled($action)"
         :width="$action?->getModalWidth()"
         :slide-over="$action?->isModalSlideOver()"
+        :close-by-clicking-away="$action?->isModalClosedByClickingAway()"
         display-classes="block"
-        x-init="this.livewire = $wire.__instance"
-        x-on:modal-closed.stop="if ('mountedFormComponentAction' in this.livewire?.serverMemo.data) this.livewire.set('mountedFormComponentAction', null)"
+        x-init="livewire = $wire.__instance"
+        x-on:modal-closed.stop="if ('mountedFormComponentAction' in livewire?.serverMemo.data) livewire.set('mountedFormComponentAction', null)"
     >
         @if ($action)
             @if ($action->isModalCentered())
-                <x-slot name="heading">
-                    {{ $action->getModalHeading() }}
-                </x-slot>
+                @if ($heading = $action->getModalHeading())
+                    <x-slot name="heading">
+                        {{ $heading }}
+                    </x-slot>
+                @endif
 
                 @if ($subheading = $action->getModalSubheading())
                     <x-slot name="subheading">
@@ -26,9 +29,11 @@
                 @endif
             @else
                 <x-slot name="header">
-                    <x-forms::modal.heading>
-                        {{ $action->getModalHeading() }}
-                    </x-forms::modal.heading>
+                    @if ($heading = $action->getModalHeading())
+                        <x-forms::modal.heading>
+                            {{ $heading }}
+                        </x-forms::modal.heading>
+                    @endif
 
                     @if ($subheading = $action->getModalSubheading())
                         <x-forms::modal.subheading>

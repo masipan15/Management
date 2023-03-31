@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('jumlah')->nullable();
             $table->string('harga')->nullable();
             $table->string('total')->nullable();
+            $table->bigInteger('subtotal')->nullable();
             $table->timestamps();
         });
     }

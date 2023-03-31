@@ -108,6 +108,23 @@
 
                             </tbody>
                         </table>
+                        <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
+                            <p class="form-label">Subtotal</p>
+                            <input class="form-control text-center" readonly required name="subtotal" id="subtotal"
+                                type="text">
+                        </div>
+
+                        <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
+                            <p class="form-label">Total Pembayaran</p>
+                            <input class="form-control text-center" required min="500" type="number"
+                                name="pembayaran" id="pembayaran">
+                        </div>
+
+                        <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
+                            <p class="form-label">Kembalian</p>
+                            <input class="form-control text-center" required name="kembalian" id="kembalian"
+                                type="number">
+                        </div>
 
 
                         <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
@@ -163,6 +180,23 @@
             var harga = $("#harga").val();
             var total = jumlah * harga
             $("#total").val(total);
+        });
+    </script>
+
+<script>
+        $(document).ready(function() {
+            $("#pembayaran").change(function() {
+                var pembayaran = $("#pembayaran").val();
+                var subtotal = $("#subtotal").val();
+                var kembalian = pembayaran - subtotal
+                $("#kembalian").val(kembalian);
+            });
+        });
+        $("#pembayaran").keyup(function() {
+            var pembayaran = $("#pembayaran").val();
+            var subtotal = $("#subtotal").val();
+            var kembalian = pembayaran - subtotal
+            $("#kembalian").val(kembalian);
         });
     </script>
 
@@ -237,7 +271,8 @@
                                 item
                                 .total +
                                 '</td>\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <td><button type="button" id="delete" data-total="' +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td><button type="button" id="delete" data-total = "' +
+                                item.jumlah + '" data-total="' +
                                 item.total + '"  value="' +
                                 item
                                 .id +
@@ -283,7 +318,10 @@
                                 ],
                             })
                         }
-
+                        var subtotal = response.subtotal
+                        document.getElementById('subtotal').value = subtotal;
+                        var jumlahstok = response.jumlahstok
+                        document.getElementById('jumlah').value = jumlahstok;
                         readbarangmasuk();
                     }
 

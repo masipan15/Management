@@ -85,7 +85,7 @@ class PemasukanController extends Controller
 
 
 
-        $barang = barangkeluar::all();
+        $barang = databarangkeluar::all();
         $desain = desain::all();
         $service = servis::all();
 

@@ -59,10 +59,16 @@ class BarangmasukController extends Controller
         $data = barangmasuk::orderBy('id', 'DESC')->with('barang', 'supplier')->get();
         $barang = Barang::all();
         $supplier = Supplier::all();
+        $subtotal = barangmasuk::select(
+            DB::raw("(sum(total)) as total")
+        )->get();
+        $subtotalakhir = barangmasuk::sum('total');
         return response()->json([
             'data' => $data,
             'barang' => $barang,
             'supplier' => $supplier,
+            'subtotal' => $subtotal,
+            'subtotalakhir' => $subtotalakhir
         ]);
     }
 
@@ -86,6 +92,7 @@ class BarangmasukController extends Controller
         }
 
         $stok_nambah = Barang::find($request->barangs_id);
+        $subtotal = barangmasuk::sum('total');
         $data = barangmasuk::create([
             'suppliers_id' => $request->suppliers_id,
             'barangs_id' => $request->barangs_id,
@@ -108,8 +115,10 @@ class BarangmasukController extends Controller
 
         $stok_nambah->stok += $request->jumlah;
         $stok_nambah->save();
+        $subtotal = barangmasuk::sum('total');
         return response()->json([
-            'message' => 'Data berhasil ditambahkan'
+            'message' => 'Data berhasil ditambahkan',
+            'subtotal' => $subtotal,
         ]);
     }
 

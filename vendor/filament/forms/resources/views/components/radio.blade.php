@@ -24,9 +24,8 @@
                 :is-grid="! $isInline()"
                 direction="column"
                 :attributes="$attributes->merge($getExtraAttributes())->class([
-                    'filament-forms-radio-component',
-                    'flex flex-wrap gap-3' => $isInline(),
-                    'gap-2' => ! $isInline(),
+                    'filament-forms-radio-component flex flex-wrap gap-3',
+                    'flex-col' => ! $isInline(),
                 ])"
             >
                 @php
@@ -34,6 +33,10 @@
                 @endphp
 
                 @foreach ($getOptions() as $value => $label)
+                    @php
+                        $shouldOptionBeDisabled = $isDisabled || $isOptionDisabled($value, $label);
+                    @endphp
+                    
                     <div @class([
                         'flex items-start',
                         'gap-3' => ! $isInline(),
@@ -55,7 +58,7 @@
                                     'border-danger-600 ring-1 ring-inset ring-danger-600' => $errors->has($getStatePath()),
                                     'dark:border-danger-400 dark:ring-danger-400' => $errors->has($getStatePath()) && config('forms.dark_mode'),
                                 ]) }}
-                                {!! ($isDisabled || $isOptionDisabled($value, $label)) ? 'disabled' : null !!}
+                                {!! $shouldOptionBeDisabled ? 'disabled' : null !!}
                                 wire:loading.attr="disabled"
                             />
                         </div>
@@ -67,6 +70,7 @@
                                 'dark:text-gray-200' => (! $errors->has($getStatePath())) && config('forms.dark_mode'),
                                 'text-danger-600' => $errors->has($getStatePath()),
                                 'dark:text-danger-400' => $errors->has($getStatePath()) && config('forms.dark_mode'),
+                                'opacity-50' => $shouldOptionBeDisabled,
                             ])>
                                 {{ $label }}
                             </label>

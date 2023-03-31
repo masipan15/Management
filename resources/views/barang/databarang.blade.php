@@ -16,7 +16,7 @@
                     </div>
                     <div class="table-responsive">
                         <table class="table" id="example1">
-                            <thead>/
+                            <thead>
                                 <tr>
                                     <th class="wd-20p">No</th>
                                     <th class="wd-20p">Foto</th>

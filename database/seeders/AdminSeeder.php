@@ -22,14 +22,5 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('123456'),
             'role' => 'admin',
         ]);
-        DB::table('kategoris')->insert([
-            'kategori' => 'Flashdisk'
-        ]);
-
-        DB::table('suppliers')->insert([
-            'nama_supplier' => 'Rudi',
-            'alamat_supplier' => 'Banyuwangi',
-            'notelpon' => '081234567892',
-        ]);
     }
 }

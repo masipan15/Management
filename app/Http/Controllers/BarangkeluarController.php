@@ -21,7 +21,6 @@ class BarangkeluarController extends Controller
 {
     public function index()
     {
-
         $data = Databarangkeluar::with('namabarangs', 'kategori')->OrderBy('created_at', 'DESC')->get();
         $subtotal = Databarangkeluar::sum('total');
         return view('keluar.barangklr', compact('data', 'subtotal'));
@@ -43,35 +42,9 @@ class BarangkeluarController extends Controller
         return view('keluar.laporan', compact('data', 'subtotal'));
     }
 
-    // public function records(Request $request)
-    // {
-    //     if ($request->ajax()) {
-
-    //         if ($request->input('start_date') && $request->input('end_date')) {
-
-    //             $start_date = Carbon::parse($request->input('start_date'));
-    //             $end_date = Carbon::parse($request->input('end_date'));
-
-    //             if ($end_date->greaterThan($start_date)) {
-    //                 $barangkeluar = Databarangkeluar::whereBetween('created_at', [$start_date, $end_date])->get();
-    //             } else {
-    //                 $barangkeluar = Databarangkeluar::latest()->get();
-    //             }
-    //         } else {
-    //             $barangkeluar = Databarangkeluar::latest()->get();
-    //         }
-
-    //         return response()->json([
-    //             'barangkeluar' => $barangkeluar
-    //         ]);
-    //     } else {
-    //         abort(403);
-    //     }
-    // }
 
     public function tambahbrgklr(Request $request)
     {
-
         $data = barangkeluar::all();
         $barang = Barang::all();
         $pelanggan = Pelanggan::all();
