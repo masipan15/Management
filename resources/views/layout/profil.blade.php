@@ -82,7 +82,7 @@
                                                 title="online"></span>
                                             <div class="upload">
                                                 <img class="rounded-circle image-previewer" data-lightbox="" button="close"
-                                                    src="{{ asset('storage/' . Auth::user()->foto) }}" alt="user">
+                                                    src="storage/{{ Auth::user()->foto }}" alt="user">
                                                 <div class="round">
                                                     <input type="file" name="foto_id" id="edit_foto"
                                                         style="opacity: 0;height: 1px;display:none">
@@ -172,26 +172,26 @@
     <script src="{{ asset('acstemplate/assets/ijaboCropTool.min.js') }}"></script>
 
     <script>
-        $(document).on('click', '#ganti_foto_btn', function() {
-            $('#edit_foto').click();
-        });
+     $(document).on('click', '#ganti_foto_btn', function() {
+                $('#edit_foto').click();
+            });
 
-        $('#edit_foto').ijaboCropTool({
-            preview: '.image-previewer',
-            setRatio: 1,
-            allowedExtensions: ['jpg', 'jpeg', 'png'],
-            buttonsText: ['Ganti', 'Batal'],
-            buttonsColor: ['#30bf7d', '#ee5155', -15],
-            processUrl: '{{ route('crop') }}',
-            withCSRF: ['_token', '{{ csrf_token() }}'],
-            onSuccess: function(message, element, status) {
-                alert(message);
-            },
-            onError: function(message, element, status) {
-                alert(message);
-            }
-        });
-    </script>
+            $('#edit_foto').ijaboCropTool({
+                preview: '.image-previewer',
+                setRatio: 1,
+                allowedExtensions: ['jpg', 'jpeg', 'png'],
+                buttonsText: ['Ganti', 'Batal'],
+                buttonsColor: ['#30bf7d', '#ee5155', -15],
+                processUrl: '{{ route("crop") }}',
+                withCSRF: ['_token', '{{ csrf_token() }}'],
+                onSuccess: function(message, element, status) {
+                    alert(message);
+                },
+                onError: function(message, element, status) {
+                    alert(message);
+                }
+            });
+        </script>
 
 @include('sweetalert::alert')
 

@@ -20,10 +20,12 @@ return new class extends Migration
             $table->foreignId('nama_barang')->constrained('barangs')->onUpdate('CASCADE')->onDelete('RESTRICT');
             $table->string('merk_keluar');
             $table->string('harga_jual');
+            $table->string('laba')->nullable();
             $table->string('stok');
             $table->bigInteger('jumlah');
             $table->bigInteger('total');
             $table->bigInteger('subtotal')->nullable();
+            $table->bigInteger('keuntungan')->nullable();
             $table->timestamps();
         });
     }

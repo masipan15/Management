@@ -22,5 +22,11 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('123456'),
             'role' => 'admin',
         ]);
+        DB::table('users')->insert([
+            'name' => 'Kasir',
+            'email' => 'kasir@gmail.com',
+            'password' => Hash::make('123456'),
+            'role' => 'kasir',
+        ]);
     }
 }

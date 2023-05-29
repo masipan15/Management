@@ -16,6 +16,8 @@ use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\BarangkeluarController;
+use App\Http\Controllers\ModalController;
+use App\Models\barang;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,10 @@ Route::get('/', function () {
 Route::get('tes', function () {
     return view('crypto');
 });
+Route::get('/tabel', function () {
+    $data = barang::all();
+    return view('datatabel', compact('data'));
+});
 
 Route::post('/laporanbarangkeluar', [BarangkeluarController::class, 'search'])->name('laporanbarangkeluar')->middleware('auth');
 Route::get('/laporanbarangkeluar', [BarangkeluarController::class, 'laporanbarangkeluar'])->name('laporanbarangkeluar')->middleware('auth');
@@ -48,8 +54,10 @@ Route::get('welcome', [WelcomeController::class, 'welcome'])->name('welcome')->m
 //Edit Password
 Route::get('editpassword', [LoginController::class, 'editpassword'])->name('editpassword')->middleware('auth');
 Route::post('updatepassword', [LoginController::class, 'updatepassword'])->name('updatepassword')->middleware('auth');
-Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
 
+
+
+Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     //barang masuk
     Route::get('barangmasuk', [BarangmasukController::class, 'barangmasuk'])->name('barangmasuk')->middleware('auth');
     Route::get('tambahbarangmasuk', [BarangmasukController::class, 'tambahbarangmasuk'])->name('tambahbarangmasuk');
@@ -65,7 +73,6 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     //barang keluar
     Route::get('/barangkeluar', [BarangkeluarController::class, 'index'])->name('barangkeluar');
     Route::get('/read', [BarangkeluarController::class, 'read'])->name('read');
-
     Route::get('/tambahbarangkeluar', [BarangkeluarController::class, 'tambahbrgklr'])->name('tambahbarangkeluar');
     Route::get('/print/{notransaksi}', [BarangkeluarController::class, 'print'])->name('print');
     Route::post('/insertbrgklr', [BarangkeluarController::class, 'insertbrgklr'])->name('insertbrgklr');
@@ -123,6 +130,20 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::post('/updatepelanggan/{id}', [PelangganController::class, 'updatepelanggan'])->name('updatepelanggan');
     Route::get('/hapuspelanggan/{id}', [PelangganController::class, 'hapuspelanggan'])->name('hapuspelanggan');
 });
+
+// Route::group(['middleware' => ['auth', 'hakakses:kasir,admin']], function () {
+//     //barang keluar
+//     Route::get('/barangkeluar', [BarangkeluarController::class, 'index'])->name('barangkeluar');
+//     Route::get('/read', [BarangkeluarController::class, 'read'])->name('read');
+//     Route::get('/tambahbarangkeluar', [BarangkeluarController::class, 'tambahbrgklr'])->name('tambahbarangkeluar');
+//     Route::get('/print/{notransaksi}', [BarangkeluarController::class, 'print'])->name('print');
+//     Route::post('/insertbrgklr', [BarangkeluarController::class, 'insertbrgklr'])->name('insertbrgklr');
+//     Route::get('/editbrgklr/{id}', [BarangkeluarController::class, 'editbrgklr'])->name('editbrgklr');
+//     Route::post('/updatebrgklr/{id}', [BarangkeluarController::class, 'updatebrgklr'])->name('updatebrgklr');
+//     Route::delete('/deletebarangkeluar/{id}', [BarangkeluarController::class, 'deletebarangkeluar'])->name('deletebarangkeluar');
+//     Route::get('/deletebarangkeluarall', [BarangkeluarController::class, 'deletebarangkeluarall'])->name('deletebarangkeluarall');
+//     Route::post('/shiftbarangkeluar', [BarangkeluarController::class, 'shiftbarangkeluar'])->name('shiftbarangkeluar');
+// });
 
 Route::group(['middleware' => ['auth', 'hakakses:servis,admin']], function () {
     //servis
@@ -222,3 +243,16 @@ Route::get('ipan', [BarangkeluarController::class, 'ipan'])->name('ipan');
 
 
 Route::get('tampung', [BarangmasukController::class, 'tampung'])->name('tampung');
+
+
+
+
+Route::get('datasearch', [BarangkeluarController::class, 'datasearch'])->name('datasearch');
+Route::get('autocomplete', [BarangkeluarController::class, 'autocomplete'])->name('autocomplete');
+
+Route::get('modal', [ModalController::class, 'modal'])->name('modal');
+Route::get('tambahmodal', [ModalController::class, 'tambahmodal'])->name('tambahmodal');
+Route::post('insertmodal', [ModalController::class, 'insertmodal'])->name('insertmodal');
+Route::get('editmodal/{id}', [ModalController::class, 'editmodal'])->name('editmodal');
+Route::post('updatemodal/{id}', [ModalController::class, 'updatemodal'])->name('updatemodal');
+Route::get('hapusmodal/{id}', [ModalController::class, 'hapusmodal'])->name('hapusmodal');

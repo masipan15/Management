@@ -71,7 +71,7 @@
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    {{ $row->namabarang }}
+                                                    Deskripsi
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close"><span aria-hidden="true">&times;</span>
                                                         <h4 class="modal-title" id="modalMdTitle"></h4>

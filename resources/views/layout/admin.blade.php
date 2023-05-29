@@ -77,6 +77,10 @@
     {{-- Sweet Alert --}}
     <link href="{{ asset('acstemplate/assets/plugins/sweet-alert/sweetalert.css') }}" rel="stylesheet">
 
+    <!-- autocomplete -->
+    <link rel="stylesheet" href="{{ asset('jquery-ui/jquery-ui.css') }}">
+
+
 
     <!-- Sidemenu css-->
     <link href="{{ asset('acstemplate/assets/css/sidemenu/sidemenu.css') }}" rel="stylesheet">
@@ -124,6 +128,16 @@
                         </li>
                     </ul>
             @endif
+            <!-- @if (auth()->user()->role == 'kasir')
+                <div class="main-sidebar-body">
+                    <ul class="nav">
+                        <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}">
+                            <a class="nav-link" href="/welcome"><span class="shape1"></span><span
+                                    class="shape2"></span><i class="ti-home sidemenu-icon"></i><span
+                                    class="sidemenu-label">Dashboard</span></a>
+                        </li>
+                    </ul>
+            @endif -->
             @if (auth()->user()->role == 'servis')
                 <div class="main-sidebar-body">
                     <ul class="nav">
@@ -163,10 +177,10 @@
             @endif
             @if (auth()->user()->role == 'admin')
                 <li
-                    class="nav-item {{ Route::is('barangkeluar', 'tambahbarangkeluar', 'editbrgklr') ? 'active' : '' }}">
+                    class="nav-item {{ Route::is('barangkeluar', 'datasearch') ? 'active' : '' }}">
                     <a class="nav-link" href="/barangkeluar"><span class="shape1"></span><span
                             class="shape2"></span><i class="mdi mdi-truck-trailer sidemenu-icon"></i><span
-                            class="sidemenu-label">Barang Keluar</span></a>
+                            class="sidemenu-label">Data Penjualan</span></a>
                 </li>
             @endif
             @if (auth()->user()->role == 'admin')
@@ -333,7 +347,7 @@
                 <div class="dropdown main-profile-menu">
                     <a class="d-flex" href="#">
                         <span class="main-img-user"><img alt="avatar"
-                                src="{{ asset('storage/' . Auth::user()->foto) }}" class="image-previewer"></span>
+                                src="storage/{{ Auth::user()->foto }}" class="image-previewer"></span>
                     </a>
                     <div class="dropdown-menu">
                         <div class="header-navheading">
@@ -439,7 +453,7 @@
                     <div class="dropdown main-profile-menu">
                         <a class="d-flex" href="#">
                             <span class="main-img-user"><img alt="avatar"
-                                    src="{{ asset('storage/' . Auth::user()->foto) }}"
+                                    src="storage/{{ Auth::user()->foto }}"
                                     class="image-previewer"></span>
                         </a>
                         <div class="dropdown-menu">
@@ -521,6 +535,10 @@
     <script src="{{ asset('acstemplate/assets/plugins/datatable/fileexport/buttons.print.min.js') }}"></script>
     <script src="{{ asset('acstemplate/assets/plugins/datatable/fileexport/buttons.colVis.min.js') }}"></script>
     <script src="{{ asset('acstemplate/assets/js/table-data.js') }}"></script>
+
+    <!-- autocomplete -->
+    <script src="{{ asset('jquery-ui/jquery-ui.js') }}"></script>
+
 
 
     <!-- Internal Chartjs charts js-->

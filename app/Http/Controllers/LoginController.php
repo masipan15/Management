@@ -37,6 +37,9 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'desain'])) {
             return redirect('/welcome');
         }
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'kasir'])) {
+            return redirect('/welcome');
+        }
 
         return redirect('login')->with('error', 'password yang anda masukan salah');
     }
@@ -164,7 +167,7 @@ class LoginController extends Controller
             $data->foto = $request->file('foto')->getClientOriginalName();
             $data->save();
         }
-        return redirect()->route('profil')->with('success', 'Profil berhasil di Ganti!');
+        return redirect()->route('editprofil')->with('success', 'Profil berhasil di Ganti!');
     }
 
     public function editpassword()
@@ -205,26 +208,52 @@ class LoginController extends Controller
         $path = '';
         $file = $request->file('foto_id')->store('', 'public');
 
-        if (!$file) {
-            return response()->json(['status' => 0, 'msg' => 'Terjadi kesalahan, unggah foto baru gagal.']);
-        } else {
+        if( !$file ){
+            return response()->json(['status'=>0, 'msg'=>'Terjadi kesalahan, unggah foto baru gagal.']);
+        }else{
             $fotoLama = User::find(Auth::user()->id)->getAttributes()['foto'];
 
-            if ($fotoLama != '') {
-                if (File::exists(public_path($path . $fotoLama))) {
-                    File::delete(public_path($path . $fotoLama));
+            if ( $fotoLama != '') {
+                if (File::exists(public_path($path.$fotoLama))) {
+                    File::delete(public_path($path.$fotoLama));
+                    }
+                }
+
+                //Update foto
+                $update = User::find(Auth::user()->id)->update(['foto'=>$file]);
+
+                if ( !$file ) {
+                    return response()->json(['status'=>0, 'msg'=>'Terjadi kesalahan, pembaruan foto dalam Database gagal.']);
+                } else{
+                    return response()->json(['status'=>1, 'msg'=>'Foto profil Anda telah berhasil diperbarui.']);
                 }
             }
-
-            //Update foto
-            $update = User::find(Auth::user()->id)->update(['foto' => $file]);
-
-            if (!$file) {
-                return response()->json(['status' => 0, 'msg' => 'Terjadi kesalahan, pembaruan foto dalam Database gagal.']);
-            } else {
-                return response()->json(['status' => 1, 'msg' => 'Foto profil Anda telah berhasil diperbarui.']);
-            }
         }
-    }
+
+    // function crop(Request $request){
+    //     $path = '';
+    //     $file = $request->file('foto_id')->store('', 'public');
+
+    //     if (!$file) {
+    //         return response()->json(['status' => 0, 'msg' => 'Terjadi kesalahan, unggah foto baru gagal.']);
+    //     } else {
+    //         $fotoLama = User::find(Auth::user()->id)->getAttributes()['foto'];
+
+    //         if ($fotoLama != '') {
+    //             if (File::exists(public_path($path . $fotoLama))) {
+    //                 File::delete(public_path($path . $fotoLama));
+    //             }
+    //         }
+
+    //         //Update foto
+    //         $update = User::find(Auth::user()->id)->update(['foto' => $file]);
+
+    //         if (!$file) {
+    //             return response()->json(['status' => 0, 'msg' => 'Terjadi kesalahan, pembaruan foto dalam Database gagal.']);
+    //         } else {
+    //             return response()->json(['status' => 1, 'msg' => 'Foto profil Anda telah berhasil diperbarui.']);
+    //         }
+    //     }
+    // }
 
 }

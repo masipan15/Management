@@ -60,6 +60,7 @@ class BarangController extends Controller
         $merk = $request->merk;
         $harga = $request->harga;
         $hargajual = $request->hargajual;
+        $laba = $request->laba;
         $deskripsi = $request->deskripsi;
 
 
@@ -80,6 +81,7 @@ class BarangController extends Controller
                 'stok' => 0,
                 'harga' => $harga[$i],
                 'hargajual' => $hargajual[$i],
+                'laba' => $hargajual[$i] - $harga[$i],
                 'deskripsi' => $deskripsi[$i],
                 'foto1' => $images[$i],
             ]);
@@ -106,6 +108,7 @@ class BarangController extends Controller
             'deskripsi' => $request->deskripsi,
             'harga' => $request->harga,
             'hargajual' => $request->hargajual,
+            'laba' => $request->hargajual - $request->harga,
             'stok' => $request->stok,
         ]);
 

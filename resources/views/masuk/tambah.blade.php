@@ -9,6 +9,15 @@
                         <h3 class="main-content-label mb-1">Tambah Barang Masuk</h3>
                         <p class="text-muted card-sub-title"></p>
                     </div>
+                    <div class="row row-sm mt-3">
+                        <div class="col-lg-3">
+                        <p class=""><b>Jumlah Modal</b></p>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                <input type="text" required class="form-control" id="inputEmail3" readonly value="{{ $modal }}">
+                            </div>
+                        </div>
+                    </div>
                     <form action="shiftbarangmasuk" method="POST" enctype="multipart/form-data">
                         @csrf
                         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -82,6 +91,11 @@
                                 <input class="form-control text-center" readonly name="total" id="total"
                                     type="number">
                             </div>
+                            <div class="col-lg mg-t-10 mg-lg-t-0" hidden>
+                                <p class="form-label">Modal</p>
+                                <input class="form-control text-center" readonly name="modal" id="modal"
+                                    type="number">
+                            </div>
                         </div>
 
                         <div class="text-center mt-3">
@@ -122,7 +136,7 @@
 
                         <div class="col-lg mg-t-10 mg-lg-t-0-ipan mb-3">
                             <p class="form-label">Kembalian</p>
-                            <input class="form-control text-center" required name="kembalian" id="kembalian"
+                            <input class="form-control text-center" readonly required name="kembalian" id="kembalian"
                                 type="number">
                         </div>
 
@@ -287,6 +301,13 @@
 
             $('#proses').click(function(e) {
                 e.preventDefault();
+                if (parseInt($('#modal').val()) > parseInt($('#subtotal').val())) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Jumlah Beli anda melebihi stok yang tersedia!',
+                    })
+                }
 
                 // console.log('ipanganteng');
                 var data = {
@@ -296,6 +317,7 @@
                     'kategoris_id': $('#kategoris_id').val(),
                     'kodebarang_id': $('#kodebarang_id').val(),
                     'jumlah': $('#jumlah').val(),
+                    'modal': $('#modal').val(),
                     'total': $('#total').val(),
                     'harga': $('#harga').val(),
                 }

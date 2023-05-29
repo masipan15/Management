@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\Pengeluaran;
 use App\Models\Pemasukan;
 use App\Models\Barang;
+use App\Models\Databarangkeluar;
 use App\Models\pelanggan;
 use App\Models\Supplier;
 use App\Models\desain;
@@ -18,6 +19,7 @@ class WelcomeController extends Controller
     public function welcome()
     {
         $jumlahbarang = Barang::count();
+        $penjualan = Databarangkeluar::count();
         $jumlahsupplier = Supplier::count();
         $jumlahpermintaandesain = desain::count();
         $jumlahservis = servis::count();
@@ -80,7 +82,7 @@ class WelcomeController extends Controller
 
 
         // dd($pendapatan);
-        return view('welcome', compact('jumlahbarang', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahservis', 'jumlahpelanggan', 'previousMonths', 'array_pengeluaran', 'array_pemasukan','pendapatan', 'keuntungan'));
+        return view('welcome', compact('jumlahbarang', 'penjualan', 'jumlahsupplier', 'jumlahpermintaandesain', 'jumlahservis', 'jumlahpelanggan', 'previousMonths', 'array_pengeluaran', 'array_pemasukan','pendapatan', 'keuntungan'));
 
     }
 }

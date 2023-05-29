@@ -6,7 +6,7 @@
             <div class="card custom-card overflow-hidden">
                 <div class="card-body">
                     <div>
-                        <a href="/tambahbarangkeluar" class="btn btn-primary">Tambah</a>
+                        <a href="/datasearch" class="btn btn-primary">Tambah</a>
                         <p class="text-muted card-sub-title"></p>
                     </div>
                     <div class="table-responsive">

@@ -22,8 +22,9 @@ class BarangkeluarController extends Controller
     public function index()
     {
         $data = Databarangkeluar::with('namabarangs', 'kategori')->OrderBy('created_at', 'DESC')->get();
+        $barang = Barang::all();
         $subtotal = Databarangkeluar::sum('total');
-        return view('keluar.barangklr', compact('data', 'subtotal'));
+        return view('keluar.barangklr', compact('data', 'subtotal', 'barang'));
     }
     public function laporanbarangkeluar()
     {
@@ -84,7 +85,7 @@ class BarangkeluarController extends Controller
 
 
         $validator = Validator::make($request->all(), [
-            'nama_barang' => 'required|unique:barangkeluars',
+            'namabarang' => 'required|unique:barangkeluars',
             'kodebarang_keluar' => 'required',
             'merk_keluar' => 'required',
             'harga_jual' => 'required',
@@ -92,7 +93,7 @@ class BarangkeluarController extends Controller
             'jumlah' => 'required',
             'total' => 'required',
         ], [
-            'nama_barang.unique' => 'Barang sudah di pilih'
+            'namabarang.unique' => 'Barang sudah di pilih'
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -101,7 +102,7 @@ class BarangkeluarController extends Controller
             ]);
         }
 
-        $barang = Barang::find($request->nama_barang);
+        $barang = Barang::find($request->namabarang);
         $subtotal = barangkeluar::sum('total');
         if ($barang->stok < $request->jumlah) {
             return response()->json([
@@ -111,14 +112,16 @@ class BarangkeluarController extends Controller
         } else {
             barangkeluar::create([
 
-                'nama_barang' => $request->nama_barang,
+                'namabarang' => $request->namabarang,
                 'nama_pelanggan' => $request->nama_pelanggan,
                 'kodebarang_keluar' => $request->kodebarang_keluar,
                 'merk_keluar' => $request->merk_keluar,
                 'harga_jual' => $request->harga_jual,
+                'laba' => $request->laba,
                 'stok' => $request->stok,
                 'jumlah' => $request->jumlah,
                 'total' => $request->total,
+                'keuntungan' => $request->laba * $request->jumlah,
             ]);
 
 
@@ -130,17 +133,19 @@ class BarangkeluarController extends Controller
             ]);
             Databarangkeluar::create([
 
-                'nama_barang' => $request->nama_barang,
+                'namabarang' => $request->namabarang,
                 'nama_pelanggan' => $request->nama_pelanggan,
                 'kodebarang_keluar' => $request->kodebarang_keluar,
                 'merk_keluar' => $request->merk_keluar,
                 'harga_jual' => $request->harga_jual,
+                'laba' => $request->laba,
                 'stok' => $request->stok,
                 'jumlah' => $request->jumlah,
                 'total' => $request->total,
+                'keuntungan' => $request->laba * $request->jumlah,
             ]);
 
-            $stok_kurang = Barang::find($request->nama_barang);
+            $stok_kurang = Barang::find($request->namabarang);
             $stok_kurang->stok -= $request->jumlah;
             $stok_kurang->save();
             $subtotal = barangkeluar::sum('total');
@@ -171,9 +176,9 @@ class BarangkeluarController extends Controller
         foreach ($barangkeluar as $key => $value) {
             $produk = array(
                 'notransaksi_id' => $transaksi->id,
-                'barang_id' => $value->nama_barang,
+                'barang_id' => $value->namabarang,
                 'jumlah' => $value->jumlah,
-                'harga' => $value->harga_jual,
+                'hargajual' => $value->harga_jual,
                 'total' => $value->total,
                 'created_at' => Carbon::parse(now())
 
@@ -181,74 +186,59 @@ class BarangkeluarController extends Controller
             $idtransaksi = detailtransaksi::insert($produk);
             $deletebarangkeluar = barangkeluar::where('id', $value->id)->delete();
         }
-        $detailbarang = detailtransaksi::where('notransaksi_id', $transaksi->id)->get();
-        $mid = '+62-8214-1736-147';
-        $store_name = 'ACS MultiTechnology';
-        $store_address = 'Jl,SoekarnoHatta,RT03/RW01,Jambewangi,Kec.Sempu,Kab.Banyuwangi';
-        $store_phone = '+62-8 214-1736-147';
-        $store_email = '';
-        $store_website = '';
-        $tax_percentage = 10;
-        $transaction_id = $transaksi->notransaksi;
-        $currency = 'Rp';
-        $image_path = "acs1.png";
-        $pembayaran = $transaksi->pembayaran;
-        $request_amount = $transaksi->pembayaran;
-        $kembalian = $transaksi->kembalian;
+        // $detailbarang = detailtransaksi::where('notransaksi_id', $transaksi->id)->get();
+        // $mid = '+62-8214-1736-147';
+        // $store_name = 'ACS MultiTechnology';
+        // $store_address = 'Jl,SoekarnoHatta,RT03/RW01,Jambewangi,Kec.Sempu,Kab.Banyuwangi';
+        // $store_phone = '+62-8 214-1736-147';
+        // $store_email = '';
+        // $store_website = '';
+        // $tax_percentage = 10;
+        // $transaction_id = $transaksi->notransaksi;
+        // $currency = 'Rp';
+        // $image_path = "acs1.png";
+        // $pembayaran = $transaksi->pembayaran;
+        // $request_amount = $transaksi->pembayaran;
+        // $kembalian = $transaksi->kembalian;
 
-        // Init printer
-        $printer = new ReceiptPrinter;
-        $printer->init(
-            'windows',
-            'POS-58'
-        );
+        // // Init printer
+        // $printer = new ReceiptPrinter;
+        // $printer->init(
+        //     'windows',
+        //     'POS-58'
+        // );
 
-        // Set store info
-        $printer->setStore($mid, $store_name, $store_address, $store_phone, $store_email, $store_website);
+        // // Set store info
+        // $printer->setStore($mid, $store_name, $store_address, $store_phone, $store_email, $store_website);
 
-        // Set currency
-        $printer->setCurrency($currency);
+        // // Set currency
+        // $printer->setCurrency($currency);
 
-        $printer->setRequestAmount($request_amount);
+        // $printer->setRequestAmount($request_amount);
 
-        // Set request amount
-        foreach ($detailbarang as $item) {
-            $printer->addItem(
-                $item->barangtransaksi->namabarang,
-                $item->jumlah,
-                $item->harga,
-                $item->total
-            );
-        }
+        // // Set request amount
+        // foreach ($detailbarang as $item) {
+        //     $printer->addItem(
+        //         $item->barangtransaksi->namabarang,
+        //         $item->jumlah,
+        //         $item->harga,
+        //         $item->total
+        //     );
+        // }
 
-        $printer->setPembayaran($pembayaran);
+        // $printer->setPembayaran($pembayaran);
 
-        // Calculate total
-        $printer->calculateSubTotal();
-        $printer->calculateGrandTotal();
+        // // Calculate total
+        // $printer->calculateSubTotal();
+        // $printer->calculateGrandTotal();
 
-        $printer->setKembalian($kembalian);
+        // $printer->setKembalian($kembalian);
 
-        // Set transaction ID
-        $printer->setTransactionID($transaction_id);
+        // // Set transaction ID
+        // $printer->setTransactionID($transaction_id);
+        // $printer->printReceipt();
 
-        // $logo = EscposImage::load(asset("fotobarang/acs.jpg"));
-        // $printer->graphics($logo);
-
-        // Set logo
-        // Uncomment the line below if $image_path is defined
-        // $printer->setLogo("wa.png");
-
-        // Set QR code
-        // $printer->setQRcode([
-        //     'tid' => $transaction_id,
-        //     'amount' => $request_amount,
-        // ]);
-
-        // Print payment request
-        $printer->printReceipt();
-
-        return back();
+        return redirect('barangkeluar');
     }
 
     public function editbrgklr($id)
@@ -266,7 +256,7 @@ class BarangkeluarController extends Controller
     {
 
         $data = barangkeluar::find($id);
-        $stok_kurang = Barang::find($request->nama_barang);
+        $stok_kurang = Barang::find($request->namabarang);
 
         $stok_kurang->stok += $data->jumlah;
         $stok_kurang->stok -= $request->jumlah;
@@ -276,7 +266,7 @@ class BarangkeluarController extends Controller
 
         $data->update([
             'nama_pelanggan' => $request->nama_pelanggan,
-            'nama_barang' => $request->nama_barang,
+            'namabarang' => $request->namabarang,
             'kodebarang_keluar' => $request->kodebarang_keluar,
             'merk_keluar' => $request->merk_keluar,
 
@@ -300,7 +290,7 @@ class BarangkeluarController extends Controller
         $subtotaldelete = barangkeluar::sum('total');
         $datas = databarangkeluar::find($id);
 
-        $barang = Barang::find($data->nama_barang);
+        $barang = Barang::find($data->namabarang);
         $barang->update([
             'stok' => (int) $barang->stok + $data->jumlah,
         ]);
@@ -324,21 +314,41 @@ class BarangkeluarController extends Controller
 
 
 
-    // public function pemasukan()
+    public function datasearch()
+    {
+        $barang = Barang::all();
+        return view('keluar.tambahbarangklr', compact('barang'));
+    }
+
+    // public function autocomplete(Request $request)
     // {
-    //     $pemasukan = barangkeluar::select(
+    //     $res = Barang::select(["namabarang", "stok", "hargajual", "kodebarang"])
+    //             ->where("namabarang","LIKE","%{$request->term}%")
+    //             ->get();
+    //     $response = [];
+    //     foreach ($res as $barangs) {
+    //         $response[] = 
+    //         ["namabarang" => $barangs['namabarang'],"stok" => $barangs['stok'], "hargajual" => $barangs['hargajual'], "kodebarang" => $barangs['kodebarang']];
+    //     }
+    //     return response()->json($response);
+    // }
+    
 
-    //         DB::raw("(sum(total)) as total"),
-    //         DB::raw("(DATE_FORMAT(created_at, '%d')) as day"),
-    //         DB::raw("(DATE_FORMAT(created_at, '%M')) as month"),
-    //         DB::raw("(DATE_FORMAT(created_at, '%Y')) as year")
-    //     )
-    //         ->orderBy('created_at')
-    //         ->groupBy(DB::raw("DATE_FORMAT(created_at, '%d')"))
-    //         ->groupBy(DB::raw("DATE_FORMAT(created_at, '%M')"))
-    //         ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y')"))
-    //         ->get();
+    public function autocomplete(Request $request)
+    {
+        $search = $request->search;
+        $barang = Barang::where('namabarang', 'LIKE', "%{$search}%")
+            ->limit(5)
+            ->get();
+        
+        $response = [];
+        foreach ($barang as $barangs) {
+            $response[] = 
+            // $customers;
+            ["id" => $barangs['id'], "namabarang" => $barangs['namabarang'],"stok" => $barangs['stok'], "hargajual" => $barangs['hargajual'], "kodebarang" => $barangs['kodebarang']];
+        }
 
-    //     return view('keluar.pemasukan', compact('pemasukan'));
-    // }   git
+        return response()->json($response);
+
+    }
 }

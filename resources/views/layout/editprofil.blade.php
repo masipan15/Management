@@ -45,7 +45,7 @@
                                         <span class="bg-success dots" data-toggle="tooltip" data-placement="top"
                                             title="online"></span>
                                         <img class="rounded-circle image-previewer"
-                                        src="{{ asset('storage/' . Auth::user()->foto) }}" alt="user">
+                                        src="storage/{{ Auth::user()->foto }}" alt="user">
                                     </div>
                                     <a href="#" class="text-dark">
                                         <h5 class="mt-3 mb-0 font-weight-semibold">{{ Auth::user()->name }}</h5>
@@ -70,14 +70,6 @@
                             <div class="card-body">
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="profile" role="tabpanel">
-                                        {{-- <div class="d-flex align-items-start pb-3 border-bottom"> <img
-                                                src="{{ asset('acstemplate/assets/img/wa.png') }}"
-                                                class="img rounded-circle avatar-xl" alt="">
-                                            <div class="pl-sm-4 pl-2" id="img-section"> <b>Foto Profil</b>
-                                                <p class="mb-1"></p> <button
-                                                    class="btn button border btn-sm"><b>Upload</b></button>
-                                            </div>
-                                        </div> --}}
                                         <div class="main-content-body tab-pane p-4 border-top-0" id="edit">
                                             <div class="card-body border">
                                                 <div class="mb-4 main-content-label">Informasi Pribadi</div>
@@ -120,10 +112,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row justify-content-end mb-0">
-                                                        <div class="col-md-5 pl-md-5 mt-3">                                                            
-                                                            <a href="/profil" type="button" class="btn btn-danger mr-1">Batal</a>
-                                                            <button type="reset" class="btn btn-primary mr-1">Reset</button>
-                                                            <button type="submit" class="btn btn-success">Save</button>
+                                                        <div class="col-md-2 pl-md-7 mt-3">                                                            
+                                                            <button type="submit" class="btn btn-success">Simpan</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -178,10 +168,8 @@
                                                     @endif
 
                                                     <div class="form-group row justify-content-end mb-0">
-                                                        <div class="col-md-5 pl-md-5 mt-3">                                                            
-                                                            <a href="/profil" type="button" class="btn btn-danger mr-1">Batal</a>
-                                                            <button type="reset" class="btn btn-primary mr-1">Reset</button>
-                                                            <button type="submit" class="btn btn-success">Save</button>
+                                                        <div class="col-md-2 pl-md-7 mt-3">                                                            
+                                                            <button type="submit" class="btn btn-success">Simpan</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -198,6 +186,7 @@
         </div>
     </div>
 </div>
+@include('sweetalert::alert')
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 </script>
@@ -232,5 +221,4 @@
         }
     }
 </script>
-@include('sweetalert::alert')
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Barang;
+use App\Models\Modal;
 use App\Models\Supplier;
 use App\Models\barangmasuk;
 use App\Models\Pengeluaran;
@@ -48,10 +49,11 @@ class BarangmasukController extends Controller
 
     public function tambahbarangmasuk()
     {
+        $modal = Modal::sum('modal');
         $data = barangmasuk::with('supplier', 'barang');
         $supplier = Supplier::all();
         $barang = barang::all();
-        return view('masuk.tambah', compact('data', 'supplier', 'barang'));
+        return view('masuk.tambah', compact('data', 'supplier', 'barang', 'modal'));
     }
 
     public function readbarangmasuk()
@@ -92,10 +94,18 @@ class BarangmasukController extends Controller
         }
 
         $stok_nambah = Barang::find($request->barangs_id);
+        $modal_kurang = Modal::find($request->modal);
         $subtotal = barangmasuk::sum('total');
+        if ($modal_kurang->modal < $subtotal) {
+            return response()->json([
+                'gagal' => 'Jumlah Barang Melebihi Stok',
+                'subtotal' => $subtotal
+            ]);
+        } else {
         $data = barangmasuk::create([
             'suppliers_id' => $request->suppliers_id,
             'barangs_id' => $request->barangs_id,
+            'modal' => $request->modal,
             'merk' => $request->merk,
             'kategoris_id' => $request->kategoris_id,
             'kodebarang_id' => $request->kodebarang_id,
@@ -109,10 +119,10 @@ class BarangmasukController extends Controller
             'bulan' => Carbon::parse(now())->isoformat('MMM'),
             'tahun' => Carbon::parse(now())->isoformat('Y')
         ]);
-
-
-
-
+        $modal_kurang->modal -= $subtotal;
+        $modal_kurang->save();
+    }
+        $stok_nambah = Barang::find($request->barang_id);
         $stok_nambah->stok += $request->jumlah;
         $stok_nambah->save();
         $subtotal = barangmasuk::sum('total');
@@ -145,59 +155,6 @@ class BarangmasukController extends Controller
     }
 
 
-    public function editbrgmsk($id)
-    {
-        $data = barangmasuk::findOrFail($id);
-        $supplier = Supplier::all();
-        $barang = barang::all();
-
-        return view('masuk.editbrgmsk', compact('data', 'supplier', 'barang'));
-    }
-
-
-
-
-    public function updatebrgmsk(request $request, $id)
-    {
-
-        $data = barangmasuk::find($id);
-        $stok_nambah = Barang::find($request->barangs_id);
-
-
-        $stok_nambah = Barang::find($request->barangs_id);
-        $stok_nambah->stok -= $data->jumlah;
-        $stok_nambah->stok += $request->jumlah;
-        $stok_nambah->save();
-
-
-        $data->update([
-            'suppliers_id' => $request->suppliers_id,
-            'barangs_id' => $request->barangs_id,
-            'merk' => $request->merk,
-            'kategoris_id' => $request->kategoris_id,
-            'harga' => $request->harga,
-            'jumlah' => $request->jumlah,
-            'total' => $request->total,
-        ]);
-
-
-
-
-
-
-        if ($request->hasfile('foto')) {
-            $request->file('foto')->move('fotobrgmsk/', $request->file('foto')->getClientOriginalName());
-            $data->foto = $request->file('foto')->getClientOriginalName();
-            $data->save();
-        }
-
-
-
-
-        return redirect()->route('barangmasuk')->with('success', 'Data berhasil di Update!');
-    }
-
-
     public function deletee($id)
     {
 
@@ -215,23 +172,6 @@ class BarangmasukController extends Controller
         $data->delete();
         return back();
     }
-    // public function pengeluaran()
-    // {
-    //     $pengeluaran = Barangmasuk::select(
-
-    //         DB::raw("(sum(total)) as total"),
-    //         DB::raw("(DATE_FORMAT(created_at, '%d')) as day"),
-    //         DB::raw("(DATE_FORMAT(created_at, '%M')) as month"),
-    //         DB::raw("(DATE_FORMAT(created_at, '%Y')) as year")
-    //     )
-    //         ->orderBy('created_at')
-    //         ->groupBy(DB::raw("DATE_FORMAT(created_at, '%d')"))
-    //         ->groupBy(DB::raw("DATE_FORMAT(created_at, '%M')"))
-    //         ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y')"))
-    //         ->get();
-
-    //     return view('masuk.pengeluaran', compact('pengeluaran'));
-    // }
 
 
 }

@@ -81,4 +81,29 @@ class kategoriController extends Controller
         }
         return redirect()->route('datakategori')->with('success', 'Data Berhasil Di Hapus');
     }
+
+    // public function penjualan()
+    // {
+    //     $barang = barang::all();
+    //     $data = cobatr::all();
+    //     return view('datatabel', compact('barang', 'data'));
+    // }
+
+    // public function tambahpenjualan()
+    // {
+    //     $data = cobatr::all();
+    //     return view('datatabel', compact('data'));
+    // }
+
+    // public function insertpenjualan()
+    // {
+    //     $data = cobatr::create([
+    //         'nama_pemesan' => $request->nama_pemesan,
+    //         'namabarang' => $request->namabarang,
+    //         'stok' => $request->stok,
+    //         'harga' => $request->harga,
+    //         'jumlahbeli' => $request->jumlahbeli,
+    //     ]);
+    //     return redirect()->route('datatabel')->with('success', 'Data Berhasil Di Tambahkan');
+    // }
 }
